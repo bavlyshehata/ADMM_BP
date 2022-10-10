@@ -8,3 +8,8 @@ Implementation of Basis Pursuit algorithm based on ADMM. The steps to execute th
 2) z = max(0, x^ + u - 1/rho) - max(0, -x^ - u - 1/rho)
 
 3) u = u + (x^ - z)
+
+## Hardware Architecture
+<div align="center">
+  <img width="45%" height="45%" src="docs/bp.png">
+</div>

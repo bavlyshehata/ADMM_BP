@@ -1,0 +1,194 @@
+
+
+================================================================
+== Vitis HLS Report for 'krnl_bp_Pipeline_VITIS_LOOP_386_3'
+================================================================
+* Date:           Tue Apr 15 09:07:44 2025
+
+* Version:        2022.2 (Build 3670227 on Oct 13 2022)
+* Project:        krnl_bp
+* Solution:       solution (Vitis Kernel Flow Target)
+* Product family: virtexuplus
+* Target device:  xcu280-fsvh2892-2L-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+---------+----------+------------+
+    |  Clock |  Target | Estimated| Uncertainty|
+    +--------+---------+----------+------------+
+    |ap_clk  |  3.33 ns|  2.342 ns|     0.90 ns|
+    +--------+---------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+-----------+-----------+-----+-----+---------+
+    |  Latency (cycles) |   Latency (absolute)  |  Interval | Pipeline|
+    |   min   |   max   |    min    |    max    | min | max |   Type  |
+    +---------+---------+-----------+-----------+-----+-----+---------+
+    |       18|       18|  59.994 ns|  59.994 ns|   18|   18|       no|
+    +---------+---------+-----------+-----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +--------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |                    |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
+        |      Loop Name     |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
+        +--------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |- VITIS_LOOP_386_3  |       16|       16|        10|          1|          1|     8|       yes|
+        +--------------------+---------+---------+----------+-----------+-----------+------+----------+
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++---------------------+---------+------+---------+---------+-----+
+|         Name        | BRAM_18K|  DSP |    FF   |   LUT   | URAM|
++---------------------+---------+------+---------+---------+-----+
+|DSP                  |        -|     -|        -|        -|    -|
+|Expression           |        -|     -|        0|       45|    -|
+|FIFO                 |        -|     -|        -|        -|    -|
+|Instance             |        -|     -|        -|        -|    -|
+|Memory               |        -|     -|        -|        -|    -|
+|Multiplexer          |        -|     -|        -|       77|    -|
+|Register             |        -|     -|      249|       64|    -|
++---------------------+---------+------+---------+---------+-----+
+|Total                |        0|     0|      249|      186|    0|
++---------------------+---------+------+---------+---------+-----+
+|Available SLR        |     1344|  3008|   869120|   434560|  320|
++---------------------+---------+------+---------+---------+-----+
+|Utilization SLR (%)  |        0|     0|       ~0|       ~0|    0|
++---------------------+---------+------+---------+---------+-----+
+|Available            |     4032|  9024|  2607360|  1303680|  960|
++---------------------+---------+------+---------+---------+-----+
+|Utilization (%)      |        0|     0|       ~0|       ~0|    0|
++---------------------+---------+------+---------+---------+-----+
+
++ Detail: 
+    * Instance: 
+    N/A
+
+    * DSP: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +----------------------------------+----------+----+---+----+------------+------------+
+    |           Variable Name          | Operation| DSP| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +----------------------------------+----------+----+---+----+------------+------------+
+    |ii_16_fu_98_p2                    |         +|   0|  0|  12|           4|           1|
+    |ap_ext_blocking_n                 |       and|   0|  0|   2|           2|           2|
+    |ap_int_blocking_n                 |       and|   0|  0|   2|           2|           2|
+    |ap_predicate_op32_read_state2     |       and|   0|  0|   2|           1|           1|
+    |ap_predicate_op37_write_state3    |       and|   0|  0|   2|           1|           1|
+    |ap_str_blocking_n                 |       and|   0|  0|   2|           2|           2|
+    |tmp_7_nbreadreq_fu_44_p3          |       and|   0|  0|   2|           1|           0|
+    |tmp_8_nbreadreq_fu_52_p3          |       and|   0|  0|   2|           1|           0|
+    |icmp_ln386_fu_92_p2               |      icmp|   0|  0|   9|           4|           5|
+    |ap_block_pp0_stage0_00001         |        or|   0|  0|   2|           1|           1|
+    |ap_block_state2_pp0_stage0_iter1  |        or|   0|  0|   2|           1|           1|
+    |ap_block_state3_pp0_stage0_iter9  |        or|   0|  0|   2|           1|           1|
+    |ap_predicate_op34_write_state3    |        or|   0|  0|   2|           1|           1|
+    |ap_enable_pp0                     |       xor|   0|  0|   2|           1|           2|
+    +----------------------------------+----------+----+---+----+------------+------------+
+    |Total                             |          |   0|  0|  45|          23|          20|
+    +----------------------------------+----------+----+---+----+------------+------------+
+
+    * Multiplexer: 
+    +-------------------------+----+-----------+-----+-----------+
+    |           Name          | LUT| Input Size| Bits| Total Bits|
+    +-------------------------+----+-----------+-----+-----------+
+    |ap_done_int              |   9|          2|    1|          2|
+    |ap_enable_reg_pp0_iter1  |   9|          2|    1|          2|
+    |ap_sig_allocacmp_ii      |   9|          2|    4|          8|
+    |ii_13_fu_40              |   9|          2|    4|          8|
+    |mac_res_stream_blk_n     |   9|          2|    1|          2|
+    |q_stream_blk_n           |   9|          2|    1|          2|
+    |x_stream_blk_n           |   9|          2|    1|          2|
+    |x_stream_din             |  14|          3|   32|         96|
+    +-------------------------+----+-----------+-----+-----------+
+    |Total                    |  77|         17|   45|        122|
+    +-------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +----------------------------------+----+----+-----+-----------+
+    |               Name               | FF | LUT| Bits| Const Bits|
+    +----------------------------------+----+----+-----+-----------+
+    |ap_CS_fsm                         |   1|   0|    1|          0|
+    |ap_done_reg                       |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter1           |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter2           |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter3           |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter4           |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter5           |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter6           |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter7           |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter8           |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter9           |   1|   0|    1|          0|
+    |ap_loop_exit_ready_pp0_iter1_reg  |   1|   0|    1|          0|
+    |ap_loop_exit_ready_pp0_iter2_reg  |   1|   0|    1|          0|
+    |ap_loop_exit_ready_pp0_iter3_reg  |   1|   0|    1|          0|
+    |ap_loop_exit_ready_pp0_iter4_reg  |   1|   0|    1|          0|
+    |ap_loop_exit_ready_pp0_iter5_reg  |   1|   0|    1|          0|
+    |ap_loop_exit_ready_pp0_iter6_reg  |   1|   0|    1|          0|
+    |ap_loop_exit_ready_pp0_iter7_reg  |   1|   0|    1|          0|
+    |ap_loop_exit_ready_pp0_iter8_reg  |   1|   0|    1|          0|
+    |ii_13_fu_40                       |   4|   0|    4|          0|
+    |mac_res_stream_read_reg_140       |  32|   0|   32|          0|
+    |q_stream_read_reg_145             |  32|   0|   32|          0|
+    |result_reg_160                    |  32|   0|   32|          0|
+    |tmp_7_reg_132                     |   1|   0|    1|          0|
+    |tmp_8_reg_136                     |   1|   0|    1|          0|
+    |tmp_7_reg_132                     |  64|  32|    1|          0|
+    |tmp_8_reg_136                     |  64|  32|    1|          0|
+    +----------------------------------+----+----+-----+-----------+
+    |Total                             | 249|  64|  123|          0|
+    +----------------------------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++------------------------+-----+-----+------------+-----------------------------------+--------------+
+|        RTL Ports       | Dir | Bits|  Protocol  |           Source Object           |    C Type    |
++------------------------+-----+-----+------------+-----------------------------------+--------------+
+|ap_clk                  |   in|    1|  ap_ctrl_hs|  krnl_bp_Pipeline_VITIS_LOOP_386_3|  return value|
+|ap_rst                  |   in|    1|  ap_ctrl_hs|  krnl_bp_Pipeline_VITIS_LOOP_386_3|  return value|
+|ap_start                |   in|    1|  ap_ctrl_hs|  krnl_bp_Pipeline_VITIS_LOOP_386_3|  return value|
+|ap_done                 |  out|    1|  ap_ctrl_hs|  krnl_bp_Pipeline_VITIS_LOOP_386_3|  return value|
+|ap_idle                 |  out|    1|  ap_ctrl_hs|  krnl_bp_Pipeline_VITIS_LOOP_386_3|  return value|
+|ap_ready                |  out|    1|  ap_ctrl_hs|  krnl_bp_Pipeline_VITIS_LOOP_386_3|  return value|
+|ap_ext_blocking_n       |  out|    1|  ap_ctrl_hs|  krnl_bp_Pipeline_VITIS_LOOP_386_3|  return value|
+|ap_str_blocking_n       |  out|    1|  ap_ctrl_hs|  krnl_bp_Pipeline_VITIS_LOOP_386_3|  return value|
+|ap_int_blocking_n       |  out|    1|  ap_ctrl_hs|  krnl_bp_Pipeline_VITIS_LOOP_386_3|  return value|
+|grp_fu_626_p_din0       |  out|   32|  ap_ctrl_hs|  krnl_bp_Pipeline_VITIS_LOOP_386_3|  return value|
+|grp_fu_626_p_din1       |  out|   32|  ap_ctrl_hs|  krnl_bp_Pipeline_VITIS_LOOP_386_3|  return value|
+|grp_fu_626_p_opcode     |  out|    1|  ap_ctrl_hs|  krnl_bp_Pipeline_VITIS_LOOP_386_3|  return value|
+|grp_fu_626_p_dout0      |   in|   32|  ap_ctrl_hs|  krnl_bp_Pipeline_VITIS_LOOP_386_3|  return value|
+|grp_fu_626_p_ce         |  out|    1|  ap_ctrl_hs|  krnl_bp_Pipeline_VITIS_LOOP_386_3|  return value|
+|mac_res_stream_dout     |   in|   32|     ap_fifo|                     mac_res_stream|       pointer|
+|mac_res_stream_empty_n  |   in|    1|     ap_fifo|                     mac_res_stream|       pointer|
+|mac_res_stream_read     |  out|    1|     ap_fifo|                     mac_res_stream|       pointer|
+|q_stream_dout           |   in|   32|     ap_fifo|                           q_stream|       pointer|
+|q_stream_empty_n        |   in|    1|     ap_fifo|                           q_stream|       pointer|
+|q_stream_read           |  out|    1|     ap_fifo|                           q_stream|       pointer|
+|x_stream_din            |  out|   32|     ap_fifo|                           x_stream|       pointer|
+|x_stream_full_n         |   in|    1|     ap_fifo|                           x_stream|       pointer|
+|x_stream_write          |  out|    1|     ap_fifo|                           x_stream|       pointer|
++------------------------+-----+-----+------------+-----------------------------------+--------------+
+

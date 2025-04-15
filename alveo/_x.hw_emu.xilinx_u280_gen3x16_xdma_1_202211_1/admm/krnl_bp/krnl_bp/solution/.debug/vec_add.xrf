@@ -1,0 +1,131 @@
+Begin Function 'vec_add'
+
+RTL state condition: (1'b1 == ap_CS_fsm_pp0_stage0)
+# ST_1
+local krnl_bp_x_hat_copy_1_stream_97 <read_410> <integer> <FifoRead> 'read' </home/bsheh002/ADMM07/alveo/src/bp.cpp:410>
+krnl_bp_x_hat_copy_1_stream_97 /home/bsheh002/ADMM07/alveo/src/bp.cpp:410
+reg: reg_45[31:0] lv
+
+local krnl_bp_u_copy_2_stream_98 <read_411> <integer> <FifoRead> 'read' </home/bsheh002/ADMM07/alveo/src/bp.cpp:411>
+krnl_bp_u_copy_2_stream_98 /home/bsheh002/ADMM07/alveo/src/bp.cpp:411
+reg: reg_49[31:0] lv
+
+# ST_9
+local add_1 <fadd_412> <float> <MultiCycle> 'fadd' </home/bsheh002/ADMM07/alveo/src/bp.cpp:412>
+add_1 /home/bsheh002/ADMM07/alveo/src/bp.cpp:412
+reg: reg_53[31:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_pp0_stage1)
+# ST_2
+local krnl_bp_x_hat_copy_1_stream_99 <read_410> <integer> <FifoRead> 'read' </home/bsheh002/ADMM07/alveo/src/bp.cpp:410>
+krnl_bp_x_hat_copy_1_stream_99 /home/bsheh002/ADMM07/alveo/src/bp.cpp:410
+reg: reg_45[31:0] lv
+
+local krnl_bp_u_copy_2_stream_100 <read_411> <integer> <FifoRead> 'read' </home/bsheh002/ADMM07/alveo/src/bp.cpp:411>
+krnl_bp_u_copy_2_stream_100 /home/bsheh002/ADMM07/alveo/src/bp.cpp:411
+reg: reg_49[31:0] lv
+
+# ST_10
+local add_2 <fadd_412> <float> <MultiCycle> 'fadd' </home/bsheh002/ADMM07/alveo/src/bp.cpp:412>
+add_2 /home/bsheh002/ADMM07/alveo/src/bp.cpp:412
+reg: reg_53[31:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_pp0_stage2)
+# ST_3
+local krnl_bp_x_hat_copy_1_stream_101 <read_410> <integer> <FifoRead> 'read' </home/bsheh002/ADMM07/alveo/src/bp.cpp:410>
+krnl_bp_x_hat_copy_1_stream_101 /home/bsheh002/ADMM07/alveo/src/bp.cpp:410
+reg: reg_45[31:0] lv
+
+local krnl_bp_u_copy_2_stream_102 <read_411> <integer> <FifoRead> 'read' </home/bsheh002/ADMM07/alveo/src/bp.cpp:411>
+krnl_bp_u_copy_2_stream_102 /home/bsheh002/ADMM07/alveo/src/bp.cpp:411
+reg: reg_49[31:0] lv
+
+# ST_11
+local add_3 <fadd_412> <float> <MultiCycle> 'fadd' </home/bsheh002/ADMM07/alveo/src/bp.cpp:412>
+add_3 /home/bsheh002/ADMM07/alveo/src/bp.cpp:412
+reg: reg_53[31:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_pp0_stage3)
+# ST_4
+local krnl_bp_x_hat_copy_1_stream_103 <read_410> <integer> <FifoRead> 'read' </home/bsheh002/ADMM07/alveo/src/bp.cpp:410>
+krnl_bp_x_hat_copy_1_stream_103 /home/bsheh002/ADMM07/alveo/src/bp.cpp:410
+reg: reg_45[31:0] lv
+
+local krnl_bp_u_copy_2_stream_104 <read_411> <integer> <FifoRead> 'read' </home/bsheh002/ADMM07/alveo/src/bp.cpp:411>
+krnl_bp_u_copy_2_stream_104 /home/bsheh002/ADMM07/alveo/src/bp.cpp:411
+reg: reg_49[31:0] lv
+
+# ST_12
+local add_4 <fadd_412> <float> <MultiCycle> 'fadd' </home/bsheh002/ADMM07/alveo/src/bp.cpp:412>
+add_4 /home/bsheh002/ADMM07/alveo/src/bp.cpp:412
+reg: reg_53[31:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_pp0_stage4)
+# ST_5
+local krnl_bp_x_hat_copy_1_stream_105 <read_410> <integer> <FifoRead> 'read' </home/bsheh002/ADMM07/alveo/src/bp.cpp:410>
+krnl_bp_x_hat_copy_1_stream_105 /home/bsheh002/ADMM07/alveo/src/bp.cpp:410
+reg: reg_45[31:0] lv
+
+local krnl_bp_u_copy_2_stream_106 <read_411> <integer> <FifoRead> 'read' </home/bsheh002/ADMM07/alveo/src/bp.cpp:411>
+krnl_bp_u_copy_2_stream_106 /home/bsheh002/ADMM07/alveo/src/bp.cpp:411
+reg: reg_49[31:0] lv
+
+# ST_13
+local add_5 <fadd_412> <float> <MultiCycle> 'fadd' </home/bsheh002/ADMM07/alveo/src/bp.cpp:412>
+add_5 /home/bsheh002/ADMM07/alveo/src/bp.cpp:412
+reg: reg_53[31:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_pp0_stage5)
+# ST_6
+local krnl_bp_x_hat_copy_1_stream_107 <read_410> <integer> <FifoRead> 'read' </home/bsheh002/ADMM07/alveo/src/bp.cpp:410>
+krnl_bp_x_hat_copy_1_stream_107 /home/bsheh002/ADMM07/alveo/src/bp.cpp:410
+reg: reg_45[31:0] lv
+
+local krnl_bp_u_copy_2_stream_108 <read_411> <integer> <FifoRead> 'read' </home/bsheh002/ADMM07/alveo/src/bp.cpp:411>
+krnl_bp_u_copy_2_stream_108 /home/bsheh002/ADMM07/alveo/src/bp.cpp:411
+reg: reg_49[31:0] lv
+
+# ST_14
+local add_6 <fadd_412> <float> <MultiCycle> 'fadd' </home/bsheh002/ADMM07/alveo/src/bp.cpp:412>
+add_6 /home/bsheh002/ADMM07/alveo/src/bp.cpp:412
+reg: reg_53[31:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_pp0_stage6)
+# ST_7
+local krnl_bp_x_hat_copy_1_stream_109 <read_410> <integer> <FifoRead> 'read' </home/bsheh002/ADMM07/alveo/src/bp.cpp:410>
+krnl_bp_x_hat_copy_1_stream_109 /home/bsheh002/ADMM07/alveo/src/bp.cpp:410
+reg: reg_45[31:0] lv
+
+local krnl_bp_u_copy_2_stream_110 <read_411> <integer> <FifoRead> 'read' </home/bsheh002/ADMM07/alveo/src/bp.cpp:411>
+krnl_bp_u_copy_2_stream_110 /home/bsheh002/ADMM07/alveo/src/bp.cpp:411
+reg: reg_49[31:0] lv
+
+# ST_15
+local add_7 <fadd_412> <float> <MultiCycle> 'fadd' </home/bsheh002/ADMM07/alveo/src/bp.cpp:412>
+add_7 /home/bsheh002/ADMM07/alveo/src/bp.cpp:412
+reg: reg_53[31:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_pp0_stage7)
+# ST_8
+local add <fadd_412> <float> <MultiCycle> 'fadd' </home/bsheh002/ADMM07/alveo/src/bp.cpp:412>
+add /home/bsheh002/ADMM07/alveo/src/bp.cpp:412
+reg: reg_53[31:0] lv
+
+local krnl_bp_x_hat_copy_1_stream_111 <read_410> <integer> <FifoRead> 'read' </home/bsheh002/ADMM07/alveo/src/bp.cpp:410>
+krnl_bp_x_hat_copy_1_stream_111 /home/bsheh002/ADMM07/alveo/src/bp.cpp:410
+reg: reg_45[31:0] lv
+
+local krnl_bp_u_copy_2_stream_112 <read_411> <integer> <FifoRead> 'read' </home/bsheh002/ADMM07/alveo/src/bp.cpp:411>
+krnl_bp_u_copy_2_stream_112 /home/bsheh002/ADMM07/alveo/src/bp.cpp:411
+reg: reg_49[31:0] lv
+
+
+End Function 'vec_add'
+

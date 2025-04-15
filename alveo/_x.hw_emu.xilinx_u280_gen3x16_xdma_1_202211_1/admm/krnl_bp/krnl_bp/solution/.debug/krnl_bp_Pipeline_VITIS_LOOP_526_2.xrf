@@ -1,0 +1,39 @@
+Begin Function 'krnl_bp_Pipeline_VITIS_LOOP_526_2'
+
+RTL state condition: (1'b1 == 1'b1)
+# ST_7
+local mul_i <fmul_531> <float> <MultiCycle> 'fmul' </home/bsheh002/ADMM07/alveo/src/bp.cpp:531>
+mul_i /home/bsheh002/ADMM07/alveo/src/bp.cpp:531
+reg: mul_i_reg_196[31:0] lv
+
+local mul26_i <fmul_531> <float> <MultiCycle> 'fmul' </home/bsheh002/ADMM07/alveo/src/bp.cpp:531>
+mul26_i /home/bsheh002/ADMM07/alveo/src/bp.cpp:531
+reg: mul26_i_reg_201[31:0] lv
+
+# ST_14
+local result <fadd_531> <float> <MultiCycle> 'fadd' </home/bsheh002/ADMM07/alveo/src/bp.cpp:531>
+result /home/bsheh002/ADMM07/alveo/src/bp.cpp:531
+reg: result_reg_206[31:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_pp0_stage0)
+# ST_2
+local tmp_1 <nbreadreq_528> <integer> <> 'nbreadreq' </home/bsheh002/ADMM07/alveo/src/bp.cpp:528>
+tmp_1 /home/bsheh002/ADMM07/alveo/src/bp.cpp:528
+reg: tmp_1_reg_168[0:0] lv
+
+local tmp_2 <nbreadreq_528> <integer> <> 'nbreadreq' </home/bsheh002/ADMM07/alveo/src/bp.cpp:528>
+tmp_2 /home/bsheh002/ADMM07/alveo/src/bp.cpp:528
+reg: tmp_2_reg_172[0:0] lv
+
+local x_stream_read <read_529> <integer> <FifoRead> 'read' </home/bsheh002/ADMM07/alveo/src/bp.cpp:529>
+x_stream_read /home/bsheh002/ADMM07/alveo/src/bp.cpp:529
+reg: x_stream_read_reg_176[31:0] lv
+
+local z_old_stream_read <read_530> <integer> <FifoRead> 'read' </home/bsheh002/ADMM07/alveo/src/bp.cpp:530>
+z_old_stream_read /home/bsheh002/ADMM07/alveo/src/bp.cpp:530
+reg: z_old_stream_read_reg_181[31:0] lv
+
+
+End Function 'krnl_bp_Pipeline_VITIS_LOOP_526_2'
+

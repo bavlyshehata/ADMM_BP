@@ -1,0 +1,158 @@
+Begin Function 'krnl_bp_Pipeline_VITIS_LOOP_1045_3'
+
+RTL state condition: (1'b1 == ap_CS_fsm_pp0_stage0)
+# ST_1
+local icmp_ln1045 <icmp_1045> <integer> <Comparator> 'icmp' </home/bsheh002/ADMM07/alveo/src/bp.cpp:1045>
+icmp_ln1045 /home/bsheh002/ADMM07/alveo/src/bp.cpp:1045
+reg: icmp_ln1045_reg_539[0:0] lv
+
+local add_ln1045 <add_1045> <integer> <Arithmetic> 'add' </home/bsheh002/ADMM07/alveo/src/bp.cpp:1045>
+add_ln1045 /home/bsheh002/ADMM07/alveo/src/bp.cpp:1045
+reg: add_ln1045_reg_543[3:0] lv
+
+local tmp_13 <nbreadreq_1050> <integer> <> 'nbreadreq' </home/bsheh002/ADMM07/alveo/src/bp.cpp:1050>
+tmp_13 /home/bsheh002/ADMM07/alveo/src/bp.cpp:1050
+reg: tmp_13_reg_553[0:0] lv
+
+local tmp_14 <nbreadreq_1051> <integer> <> 'nbreadreq' </home/bsheh002/ADMM07/alveo/src/bp.cpp:1051>
+tmp_14 /home/bsheh002/ADMM07/alveo/src/bp.cpp:1051
+reg: tmp_14_reg_557[0:0] lv
+
+local tmp_15 <nbreadreq_1058> <integer> <> 'nbreadreq' </home/bsheh002/ADMM07/alveo/src/bp.cpp:1058>
+tmp_15 /home/bsheh002/ADMM07/alveo/src/bp.cpp:1058
+reg: tmp_15_reg_561[0:0] lv
+
+local tmp_16 <nbreadreq_1066> <integer> <> 'nbreadreq' </home/bsheh002/ADMM07/alveo/src/bp.cpp:1066>
+tmp_16 /home/bsheh002/ADMM07/alveo/src/bp.cpp:1066
+reg: tmp_16_reg_565[0:0] lv
+
+# ST_13
+local sub2 <fsub_1075> <float> <MultiCycle> 'fsub' </home/bsheh002/ADMM07/alveo/src/bp.cpp:1075>
+sub2 /home/bsheh002/ADMM07/alveo/src/bp.cpp:1075
+reg: sub2_reg_606[31:0] lv
+
+# ST_97
+local conv8 <fpext_1074> <double> <MultiCycle> 'fpext' </home/bsheh002/ADMM07/alveo/src/bp.cpp:1074>
+conv8 /home/bsheh002/ADMM07/alveo/src/bp.cpp:1074
+reg: conv8_reg_681[63:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_pp0_stage1)
+# ST_2
+local x_val <load_1046> <float> <ArrayAccess><ArrayLoad><MultiCycle> 'load' </home/bsheh002/ADMM07/alveo/src/bp.cpp:1046>
+x_val /home/bsheh002/ADMM07/alveo/src/bp.cpp:1046
+reg: x_val_reg_569[31:0] lv
+
+local z_copy_2_stream_read <read_1051> <integer> <FifoRead> 'read' </home/bsheh002/ADMM07/alveo/src/bp.cpp:1051>
+z_copy_2_stream_read /home/bsheh002/ADMM07/alveo/src/bp.cpp:1051
+reg: z_copy_2_stream_read_reg_575[31:0] lv
+
+# ST_14
+local sub <fsub_1074> <float> <MultiCycle> 'fsub' </home/bsheh002/ADMM07/alveo/src/bp.cpp:1074>
+sub /home/bsheh002/ADMM07/alveo/src/bp.cpp:1074
+reg: sub_reg_611[31:0] lv
+
+# ST_98
+local conv1 <fpext_1075> <double> <MultiCycle> 'fpext' </home/bsheh002/ADMM07/alveo/src/bp.cpp:1075>
+conv1 /home/bsheh002/ADMM07/alveo/src/bp.cpp:1075
+reg: conv1_reg_691[63:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_pp0_stage11)
+# ST_84
+local conv4 <fpext_1078> <double> <MultiCycle> 'fpext' </home/bsheh002/ADMM07/alveo/src/bp.cpp:1078>
+conv4 /home/bsheh002/ADMM07/alveo/src/bp.cpp:1078
+reg: conv4_reg_646[63:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_pp0_stage2)
+# ST_3
+local x_assign_2 <fpext_1076> <double> <MultiCycle> 'fpext' </home/bsheh002/ADMM07/alveo/src/bp.cpp:1076>
+x_assign_2 /home/bsheh002/ADMM07/alveo/src/bp.cpp:1076
+reg: reg_337[63:0] lv
+
+# ST_87
+
+RTL state condition: (1'b1 == ap_CS_fsm_pp0_stage4)
+# ST_5
+local x_assign_4 <fpext_1078> <double> <MultiCycle> 'fpext' </home/bsheh002/ADMM07/alveo/src/bp.cpp:1078>
+x_assign_4 /home/bsheh002/ADMM07/alveo/src/bp.cpp:1078
+reg: reg_337[63:0] lv
+
+# ST_17
+local mul <fmul_1075> <float> <MultiCycle> 'fmul' </home/bsheh002/ADMM07/alveo/src/bp.cpp:1075>
+mul /home/bsheh002/ADMM07/alveo/src/bp.cpp:1075
+reg: mul_reg_616[31:0] lv
+
+# ST_101
+local add3 <dadd_1077> <double> <MultiCycle> 'dadd' </home/bsheh002/ADMM07/alveo/src/bp.cpp:1077>
+add3 /home/bsheh002/ADMM07/alveo/src/bp.cpp:1077
+reg: reg_347[63:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_pp0_stage5)
+# ST_6
+local z_val <fptrunc_1051> <float> <MultiCycle> 'fptrunc' </home/bsheh002/ADMM07/alveo/src/bp.cpp:1051>
+z_val /home/bsheh002/ADMM07/alveo/src/bp.cpp:1051
+reg: z_val_reg_595[31:0] lv
+
+# ST_18
+local x_assign <fpext_1074> <double> <MultiCycle> 'fpext' </home/bsheh002/ADMM07/alveo/src/bp.cpp:1074>
+x_assign /home/bsheh002/ADMM07/alveo/src/bp.cpp:1074
+reg: reg_337[63:0] lv
+
+# ST_90
+local add2 <dadd_1076> <double> <MultiCycle> 'dadd' </home/bsheh002/ADMM07/alveo/src/bp.cpp:1076>
+add2 /home/bsheh002/ADMM07/alveo/src/bp.cpp:1076
+reg: reg_342[63:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_pp0_stage6)
+# ST_7
+local z_val_1 <> <float> <Phi> 'phi' <>
+reg: z_val_1_reg_259[31:0] lv
+
+# ST_19
+local x_assign_1 <fpext_1075> <double> <MultiCycle> 'fpext' </home/bsheh002/ADMM07/alveo/src/bp.cpp:1075>
+x_assign_1 /home/bsheh002/ADMM07/alveo/src/bp.cpp:1075
+reg: reg_337[63:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_pp0_stage7)
+# ST_8
+local x_assign_3 <fpext_1077> <double> <MultiCycle> 'fpext' </home/bsheh002/ADMM07/alveo/src/bp.cpp:1077>
+x_assign_3 /home/bsheh002/ADMM07/alveo/src/bp.cpp:1077
+reg: reg_337[63:0] lv
+
+# ST_92
+local add4 <dadd_1078> <double> <MultiCycle> 'dadd' </home/bsheh002/ADMM07/alveo/src/bp.cpp:1078>
+add4 /home/bsheh002/ADMM07/alveo/src/bp.cpp:1078
+reg: reg_342[63:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_pp0_stage8)
+# ST_93
+local conv3 <fpext_1077> <double> <MultiCycle> 'fpext' </home/bsheh002/ADMM07/alveo/src/bp.cpp:1077>
+conv3 /home/bsheh002/ADMM07/alveo/src/bp.cpp:1077
+reg: conv3_reg_661[63:0] lv
+
+# ST_105
+local add <dadd_1074> <double> <MultiCycle> 'dadd' </home/bsheh002/ADMM07/alveo/src/bp.cpp:1074>
+add /home/bsheh002/ADMM07/alveo/src/bp.cpp:1074
+reg: reg_347[63:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_pp0_stage9)
+# ST_82
+local conv2 <fpext_1076> <double> <MultiCycle> 'fpext' </home/bsheh002/ADMM07/alveo/src/bp.cpp:1076>
+conv2 /home/bsheh002/ADMM07/alveo/src/bp.cpp:1076
+reg: conv2_reg_631[63:0] lv
+
+# ST_106
+local add1 <dadd_1075> <double> <MultiCycle> 'dadd' </home/bsheh002/ADMM07/alveo/src/bp.cpp:1075>
+add1 /home/bsheh002/ADMM07/alveo/src/bp.cpp:1075
+reg: reg_342[63:0] lv
+
+
+End Function 'krnl_bp_Pipeline_VITIS_LOOP_1045_3'
+

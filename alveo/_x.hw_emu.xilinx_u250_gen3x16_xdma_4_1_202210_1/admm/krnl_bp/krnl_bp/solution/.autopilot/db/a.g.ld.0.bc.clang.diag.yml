@@ -1,0 +1,1168 @@
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 177, 
+                   Column: 5 }
+Function:        _ZL9shrinkageRN3hls6streamIfLi0EEEfS2_
+Args:            
+  - String:          'Loop '''
+  - LoopName:        l_shrinkage
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 139, 
+                   Column: 5 }
+Function:        _ZL7vec_addRN3hls6streamIfLi0EEES2_S2_
+Args:            
+  - String:          'Loop '''
+  - LoopName:        l_vec_add_3
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 245, 
+                   Column: 5 }
+Function:        _ZL10write_bramRN3hls6streamIfLi0EEEPf
+Args:            
+  - String:          'Loop '''
+  - LoopName:        l_write_bram
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 158, 
+                   Column: 5 }
+Function:        _ZL8x_updateRN3hls6streamIfLi0EEES2_S2_f
+Args:            
+  - String:          'Loop '''
+  - LoopName:        l_x_update
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 123, 
+                   Column: 5 }
+Function:        _ZL7vec_addRN3hls6streamIfLi0EEEPfS2_
+Args:            
+  - String:          'Loop '''
+  - LoopName:        l_vec_add_2
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 118, 
+                   Column: 5 }
+Function:        _ZL7vec_addRN3hls6streamIfLi0EEEPfS2_
+Args:            
+  - String:          'Loop '''
+  - LoopName:        l_vec_add_1
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 84, 
+                   Column: 5 }
+Function:        _ZL3macPfRN3hls6streamIfLi0EEES3_
+Args:            
+  - String:          'Loop '''
+  - LoopName:        l_mac_3
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 87, 
+                   Column: 9 }
+Function:        _ZL3macPfRN3hls6streamIfLi0EEES3_
+Args:            
+  - String:          'Loop '''
+  - LoopName:        l_mac_4
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 75, 
+                   Column: 5 }
+Function:        _ZL3macPfRN3hls6streamIfLi0EEES3_
+Args:            
+  - String:          'Loop '''
+  - LoopName:        l_mac_2
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 69, 
+                   Column: 5 }
+Function:        _ZL3macPfRN3hls6streamIfLi0EEES3_
+Args:            
+  - String:          'Loop '''
+  - LoopName:        l_mac_1
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 28, 
+                   Column: 5 }
+Function:        _ZL7vec_subRN3hls6streamIfLi0EEES2_S2_
+Args:            
+  - String:          'Loop '''
+  - LoopName:        l_vec_sub
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 216, 
+                   Column: 5 }
+Function:        _ZL16replicate_streamRN3hls6streamIfLi0EEES2_S2_S2_
+Args:            
+  - String:          'Loop '''
+  - LoopName:        l_rep_stream_1
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 175, 
+                   Column: 0 }
+Function:        _ZL9shrinkageRN3hls6streamIfLi0EEEfS2_
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        l_shrinkage
+  - String:          ''' ('
+  - LoopLoc:         '/home/bsheh002/ADMM07/alveo/src/bp.cpp:177:5'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          shrinkage
+  - String:          ''' completely with a factor of '
+  - Factor:          '8'
+...
+--- !Missed
+Pass:            reflow-pragma-loop-unroll
+Name:            PipelineRemovedByUnroll
+DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 175, 
+                   Column: 0 }
+Function:        _ZL9shrinkageRN3hls6streamIfLi0EEEfS2_
+Args:            
+  - String:          'Pipeline directive for loop '''
+  - LoopName:        l_shrinkage
+  - String:          ''' ('
+  - LoopLoc:         '/home/bsheh002/ADMM07/alveo/src/bp.cpp:177:5'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          shrinkage
+  - String:          ''' has been removed because the loop is unrolled completely'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 136, 
+                   Column: 0 }
+Function:        _ZL7vec_addRN3hls6streamIfLi0EEES2_S2_
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        l_vec_add_3
+  - String:          ''' ('
+  - LoopLoc:         '/home/bsheh002/ADMM07/alveo/src/bp.cpp:139:5'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          vec_add
+  - String:          ''' completely with a factor of '
+  - Factor:          '8'
+...
+--- !Missed
+Pass:            reflow-pragma-loop-unroll
+Name:            PipelineRemovedByUnroll
+DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 136, 
+                   Column: 0 }
+Function:        _ZL7vec_addRN3hls6streamIfLi0EEES2_S2_
+Args:            
+  - String:          'Pipeline directive for loop '''
+  - LoopName:        l_vec_add_3
+  - String:          ''' ('
+  - LoopLoc:         '/home/bsheh002/ADMM07/alveo/src/bp.cpp:139:5'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          vec_add
+  - String:          ''' has been removed because the loop is unrolled completely'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 243, 
+                   Column: 0 }
+Function:        _ZL10write_bramRN3hls6streamIfLi0EEEPf
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        l_write_bram
+  - String:          ''' ('
+  - LoopLoc:         '/home/bsheh002/ADMM07/alveo/src/bp.cpp:245:5'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          write_bram
+  - String:          ''' completely with a factor of '
+  - Factor:          '8'
+...
+--- !Missed
+Pass:            reflow-pragma-loop-unroll
+Name:            PipelineRemovedByUnroll
+DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 243, 
+                   Column: 0 }
+Function:        _ZL10write_bramRN3hls6streamIfLi0EEEPf
+Args:            
+  - String:          'Pipeline directive for loop '''
+  - LoopName:        l_write_bram
+  - String:          ''' ('
+  - LoopLoc:         '/home/bsheh002/ADMM07/alveo/src/bp.cpp:245:5'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          write_bram
+  - String:          ''' has been removed because the loop is unrolled completely'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 153, 
+                   Column: 0 }
+Function:        _ZL8x_updateRN3hls6streamIfLi0EEES2_S2_f
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        l_x_update
+  - String:          ''' ('
+  - LoopLoc:         '/home/bsheh002/ADMM07/alveo/src/bp.cpp:158:5'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          x_update
+  - String:          ''' completely with a factor of '
+  - Factor:          '8'
+...
+--- !Missed
+Pass:            reflow-pragma-loop-unroll
+Name:            PipelineRemovedByUnroll
+DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 153, 
+                   Column: 0 }
+Function:        _ZL8x_updateRN3hls6streamIfLi0EEES2_S2_f
+Args:            
+  - String:          'Pipeline directive for loop '''
+  - LoopName:        l_x_update
+  - String:          ''' ('
+  - LoopLoc:         '/home/bsheh002/ADMM07/alveo/src/bp.cpp:158:5'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          x_update
+  - String:          ''' has been removed because the loop is unrolled completely'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 112, 
+                   Column: 0 }
+Function:        _ZL7vec_addRN3hls6streamIfLi0EEEPfS2_
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        l_vec_add_2
+  - String:          ''' ('
+  - LoopLoc:         '/home/bsheh002/ADMM07/alveo/src/bp.cpp:123:5'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          vec_add
+  - String:          ''' completely with a factor of '
+  - Factor:          '8'
+...
+--- !Missed
+Pass:            reflow-pragma-loop-unroll
+Name:            PipelineRemovedByUnroll
+DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 112, 
+                   Column: 0 }
+Function:        _ZL7vec_addRN3hls6streamIfLi0EEEPfS2_
+Args:            
+  - String:          'Pipeline directive for loop '''
+  - LoopName:        l_vec_add_2
+  - String:          ''' ('
+  - LoopLoc:         '/home/bsheh002/ADMM07/alveo/src/bp.cpp:123:5'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          vec_add
+  - String:          ''' has been removed because the loop is unrolled completely'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 112, 
+                   Column: 0 }
+Function:        _ZL7vec_addRN3hls6streamIfLi0EEEPfS2_
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        l_vec_add_1
+  - String:          ''' ('
+  - LoopLoc:         '/home/bsheh002/ADMM07/alveo/src/bp.cpp:118:5'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          vec_add
+  - String:          ''' completely with a factor of '
+  - Factor:          '8'
+...
+--- !Missed
+Pass:            reflow-pragma-loop-unroll
+Name:            PipelineRemovedByUnroll
+DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 112, 
+                   Column: 0 }
+Function:        _ZL7vec_addRN3hls6streamIfLi0EEEPfS2_
+Args:            
+  - String:          'Pipeline directive for loop '''
+  - LoopName:        l_vec_add_1
+  - String:          ''' ('
+  - LoopLoc:         '/home/bsheh002/ADMM07/alveo/src/bp.cpp:118:5'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          vec_add
+  - String:          ''' has been removed because the loop is unrolled completely'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 59, 
+                   Column: 0 }
+Function:        _ZL3macPfRN3hls6streamIfLi0EEES3_
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        l_mac_3
+  - String:          ''' ('
+  - LoopLoc:         '/home/bsheh002/ADMM07/alveo/src/bp.cpp:84:5'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          mac
+  - String:          ''' completely with a factor of '
+  - Factor:          '8'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 59, 
+                   Column: 0 }
+Function:        _ZL3macPfRN3hls6streamIfLi0EEES3_
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        l_mac_4
+  - String:          ''' ('
+  - LoopLoc:         '/home/bsheh002/ADMM07/alveo/src/bp.cpp:87:9'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          mac
+  - String:          ''' completely with a factor of '
+  - Factor:          '8'
+...
+--- !Missed
+Pass:            reflow-pragma-loop-unroll
+Name:            PipelineRemovedByUnroll
+DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 59, 
+                   Column: 0 }
+Function:        _ZL3macPfRN3hls6streamIfLi0EEES3_
+Args:            
+  - String:          'Pipeline directive for loop '''
+  - LoopName:        l_mac_4
+  - String:          ''' ('
+  - LoopLoc:         '/home/bsheh002/ADMM07/alveo/src/bp.cpp:87:9'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          mac
+  - String:          ''' has been removed because the loop is unrolled completely'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 59, 
+                   Column: 0 }
+Function:        _ZL3macPfRN3hls6streamIfLi0EEES3_
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        l_mac_4
+  - String:          ''' ('
+  - LoopLoc:         '/home/bsheh002/ADMM07/alveo/src/bp.cpp:87:9'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          mac
+  - String:          ''' completely with a factor of '
+  - Factor:          '8'
+...
+--- !Missed
+Pass:            reflow-pragma-loop-unroll
+Name:            PipelineRemovedByUnroll
+DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 59, 
+                   Column: 0 }
+Function:        _ZL3macPfRN3hls6streamIfLi0EEES3_
+Args:            
+  - String:          'Pipeline directive for loop '''
+  - LoopName:        l_mac_4
+  - String:          ''' ('
+  - LoopLoc:         '/home/bsheh002/ADMM07/alveo/src/bp.cpp:87:9'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          mac
+  - String:          ''' has been removed because the loop is unrolled completely'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 59, 
+                   Column: 0 }
+Function:        _ZL3macPfRN3hls6streamIfLi0EEES3_
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        l_mac_4
+  - String:          ''' ('
+  - LoopLoc:         '/home/bsheh002/ADMM07/alveo/src/bp.cpp:87:9'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          mac
+  - String:          ''' completely with a factor of '
+  - Factor:          '8'
+...
+--- !Missed
+Pass:            reflow-pragma-loop-unroll
+Name:            PipelineRemovedByUnroll
+DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 59, 
+                   Column: 0 }
+Function:        _ZL3macPfRN3hls6streamIfLi0EEES3_
+Args:            
+  - String:          'Pipeline directive for loop '''
+  - LoopName:        l_mac_4
+  - String:          ''' ('
+  - LoopLoc:         '/home/bsheh002/ADMM07/alveo/src/bp.cpp:87:9'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          mac
+  - String:          ''' has been removed because the loop is unrolled completely'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 59, 
+                   Column: 0 }
+Function:        _ZL3macPfRN3hls6streamIfLi0EEES3_
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        l_mac_4
+  - String:          ''' ('
+  - LoopLoc:         '/home/bsheh002/ADMM07/alveo/src/bp.cpp:87:9'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          mac
+  - String:          ''' completely with a factor of '
+  - Factor:          '8'
+...
+--- !Missed
+Pass:            reflow-pragma-loop-unroll
+Name:            PipelineRemovedByUnroll
+DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 59, 
+                   Column: 0 }
+Function:        _ZL3macPfRN3hls6streamIfLi0EEES3_
+Args:            
+  - String:          'Pipeline directive for loop '''
+  - LoopName:        l_mac_4
+  - String:          ''' ('
+  - LoopLoc:         '/home/bsheh002/ADMM07/alveo/src/bp.cpp:87:9'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          mac
+  - String:          ''' has been removed because the loop is unrolled completely'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 59, 
+                   Column: 0 }
+Function:        _ZL3macPfRN3hls6streamIfLi0EEES3_
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        l_mac_4
+  - String:          ''' ('
+  - LoopLoc:         '/home/bsheh002/ADMM07/alveo/src/bp.cpp:87:9'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          mac
+  - String:          ''' completely with a factor of '
+  - Factor:          '8'
+...
+--- !Missed
+Pass:            reflow-pragma-loop-unroll
+Name:            PipelineRemovedByUnroll
+DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 59, 
+                   Column: 0 }
+Function:        _ZL3macPfRN3hls6streamIfLi0EEES3_
+Args:            
+  - String:          'Pipeline directive for loop '''
+  - LoopName:        l_mac_4
+  - String:          ''' ('
+  - LoopLoc:         '/home/bsheh002/ADMM07/alveo/src/bp.cpp:87:9'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          mac
+  - String:          ''' has been removed because the loop is unrolled completely'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 59, 
+                   Column: 0 }
+Function:        _ZL3macPfRN3hls6streamIfLi0EEES3_
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        l_mac_4
+  - String:          ''' ('
+  - LoopLoc:         '/home/bsheh002/ADMM07/alveo/src/bp.cpp:87:9'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          mac
+  - String:          ''' completely with a factor of '
+  - Factor:          '8'
+...
+--- !Missed
+Pass:            reflow-pragma-loop-unroll
+Name:            PipelineRemovedByUnroll
+DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 59, 
+                   Column: 0 }
+Function:        _ZL3macPfRN3hls6streamIfLi0EEES3_
+Args:            
+  - String:          'Pipeline directive for loop '''
+  - LoopName:        l_mac_4
+  - String:          ''' ('
+  - LoopLoc:         '/home/bsheh002/ADMM07/alveo/src/bp.cpp:87:9'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          mac
+  - String:          ''' has been removed because the loop is unrolled completely'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 59, 
+                   Column: 0 }
+Function:        _ZL3macPfRN3hls6streamIfLi0EEES3_
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        l_mac_4
+  - String:          ''' ('
+  - LoopLoc:         '/home/bsheh002/ADMM07/alveo/src/bp.cpp:87:9'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          mac
+  - String:          ''' completely with a factor of '
+  - Factor:          '8'
+...
+--- !Missed
+Pass:            reflow-pragma-loop-unroll
+Name:            PipelineRemovedByUnroll
+DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 59, 
+                   Column: 0 }
+Function:        _ZL3macPfRN3hls6streamIfLi0EEES3_
+Args:            
+  - String:          'Pipeline directive for loop '''
+  - LoopName:        l_mac_4
+  - String:          ''' ('
+  - LoopLoc:         '/home/bsheh002/ADMM07/alveo/src/bp.cpp:87:9'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          mac
+  - String:          ''' has been removed because the loop is unrolled completely'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 59, 
+                   Column: 0 }
+Function:        _ZL3macPfRN3hls6streamIfLi0EEES3_
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        l_mac_4
+  - String:          ''' ('
+  - LoopLoc:         '/home/bsheh002/ADMM07/alveo/src/bp.cpp:87:9'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          mac
+  - String:          ''' completely with a factor of '
+  - Factor:          '8'
+...
+--- !Missed
+Pass:            reflow-pragma-loop-unroll
+Name:            PipelineRemovedByUnroll
+DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 59, 
+                   Column: 0 }
+Function:        _ZL3macPfRN3hls6streamIfLi0EEES3_
+Args:            
+  - String:          'Pipeline directive for loop '''
+  - LoopName:        l_mac_4
+  - String:          ''' ('
+  - LoopLoc:         '/home/bsheh002/ADMM07/alveo/src/bp.cpp:87:9'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          mac
+  - String:          ''' has been removed because the loop is unrolled completely'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 59, 
+                   Column: 0 }
+Function:        _ZL3macPfRN3hls6streamIfLi0EEES3_
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        l_mac_2
+  - String:          ''' ('
+  - LoopLoc:         '/home/bsheh002/ADMM07/alveo/src/bp.cpp:75:5'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          mac
+  - String:          ''' completely with a factor of '
+  - Factor:          '8'
+...
+--- !Missed
+Pass:            reflow-pragma-loop-unroll
+Name:            PipelineRemovedByUnroll
+DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 59, 
+                   Column: 0 }
+Function:        _ZL3macPfRN3hls6streamIfLi0EEES3_
+Args:            
+  - String:          'Pipeline directive for loop '''
+  - LoopName:        l_mac_2
+  - String:          ''' ('
+  - LoopLoc:         '/home/bsheh002/ADMM07/alveo/src/bp.cpp:75:5'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          mac
+  - String:          ''' has been removed because the loop is unrolled completely'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 59, 
+                   Column: 0 }
+Function:        _ZL3macPfRN3hls6streamIfLi0EEES3_
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        l_mac_1
+  - String:          ''' ('
+  - LoopLoc:         '/home/bsheh002/ADMM07/alveo/src/bp.cpp:69:5'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          mac
+  - String:          ''' completely with a factor of '
+  - Factor:          '64'
+...
+--- !Missed
+Pass:            reflow-pragma-loop-unroll
+Name:            PipelineRemovedByUnroll
+DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 59, 
+                   Column: 0 }
+Function:        _ZL3macPfRN3hls6streamIfLi0EEES3_
+Args:            
+  - String:          'Pipeline directive for loop '''
+  - LoopName:        l_mac_1
+  - String:          ''' ('
+  - LoopLoc:         '/home/bsheh002/ADMM07/alveo/src/bp.cpp:69:5'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          mac
+  - String:          ''' has been removed because the loop is unrolled completely'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 25, 
+                   Column: 0 }
+Function:        _ZL7vec_subRN3hls6streamIfLi0EEES2_S2_
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        l_vec_sub
+  - String:          ''' ('
+  - LoopLoc:         '/home/bsheh002/ADMM07/alveo/src/bp.cpp:28:5'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          vec_sub
+  - String:          ''' completely with a factor of '
+  - Factor:          '8'
+...
+--- !Missed
+Pass:            reflow-pragma-loop-unroll
+Name:            PipelineRemovedByUnroll
+DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 25, 
+                   Column: 0 }
+Function:        _ZL7vec_subRN3hls6streamIfLi0EEES2_S2_
+Args:            
+  - String:          'Pipeline directive for loop '''
+  - LoopName:        l_vec_sub
+  - String:          ''' ('
+  - LoopLoc:         '/home/bsheh002/ADMM07/alveo/src/bp.cpp:28:5'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          vec_sub
+  - String:          ''' has been removed because the loop is unrolled completely'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 213, 
+                   Column: 0 }
+Function:        _ZL16replicate_streamRN3hls6streamIfLi0EEES2_S2_S2_
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        l_rep_stream_1
+  - String:          ''' ('
+  - LoopLoc:         '/home/bsheh002/ADMM07/alveo/src/bp.cpp:216:5'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          replicate_stream
+  - String:          ''' completely with a factor of '
+  - Factor:          '8'
+...
+--- !Missed
+Pass:            reflow-pragma-loop-unroll
+Name:            PipelineRemovedByUnroll
+DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 213, 
+                   Column: 0 }
+Function:        _ZL16replicate_streamRN3hls6streamIfLi0EEES2_S2_S2_
+Args:            
+  - String:          'Pipeline directive for loop '''
+  - LoopName:        l_rep_stream_1
+  - String:          ''' ('
+  - LoopLoc:         '/home/bsheh002/ADMM07/alveo/src/bp.cpp:216:5'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          replicate_stream
+  - String:          ''' has been removed because the loop is unrolled completely'
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            AutoInline
+DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 372, 
+                   Column: 0 }
+Function:        krnl_bp
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'load_input(float*, float*, int)'
+    DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 13, 
+                       Column: 0 }
+  - String:          ''' into '''
+  - Caller:          krnl_bp
+    DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 372, 
+                       Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            AutoInline
+DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 372, 
+                   Column: 0 }
+Function:        krnl_bp
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'zero_init(hls::stream<float, 0>&)'
+    DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 235, 
+                       Column: 0 }
+  - String:          ''' into '''
+  - Caller:          krnl_bp
+    DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 372, 
+                       Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            AutoInline
+DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 372, 
+                   Column: 0 }
+Function:        krnl_bp
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'vec_sub(hls::stream<float, 0>&, hls::stream<float, 0>&, hls::stream<float, 0>&)'
+    DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 25, 
+                       Column: 0 }
+  - String:          ''' into '''
+  - Caller:          krnl_bp
+    DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 372, 
+                       Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            AutoInline
+DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 372, 
+                   Column: 0 }
+Function:        krnl_bp
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'vec_add(hls::stream<float, 0>&, float*, hls::stream<float, 0>&)'
+    DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 112, 
+                       Column: 0 }
+  - String:          ''' into '''
+  - Caller:          krnl_bp
+    DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 372, 
+                       Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            AutoInline
+DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 372, 
+                   Column: 0 }
+Function:        krnl_bp
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'x_update(hls::stream<float, 0>&, hls::stream<float, 0>&, hls::stream<float, 0>&, float)'
+    DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 153, 
+                       Column: 0 }
+  - String:          ''' into '''
+  - Caller:          krnl_bp
+    DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 372, 
+                       Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            AutoInline
+DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 372, 
+                   Column: 0 }
+Function:        krnl_bp
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'write_bram(hls::stream<float, 0>&, float*)'
+    DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 243, 
+                       Column: 0 }
+  - String:          ''' into '''
+  - Caller:          krnl_bp
+    DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 372, 
+                       Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            AutoInline
+DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 372, 
+                   Column: 0 }
+Function:        krnl_bp
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'vec_add(hls::stream<float, 0>&, hls::stream<float, 0>&, hls::stream<float, 0>&)'
+    DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 136, 
+                       Column: 0 }
+  - String:          ''' into '''
+  - Caller:          krnl_bp
+    DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 372, 
+                       Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            AutoInline
+DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 372, 
+                   Column: 0 }
+Function:        krnl_bp
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'shrinkage(hls::stream<float, 0>&, float, hls::stream<float, 0>&)'
+    DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 175, 
+                       Column: 0 }
+  - String:          ''' into '''
+  - Caller:          krnl_bp
+    DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 372, 
+                       Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            AutoInline
+DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 372, 
+                   Column: 0 }
+Function:        krnl_bp
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'flush_stream(hls::stream<float, 0>&)'
+    DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 228, 
+                       Column: 0 }
+  - String:          ''' into '''
+  - Caller:          krnl_bp
+    DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 372, 
+                       Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            AutoInline
+DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 372, 
+                   Column: 0 }
+Function:        krnl_bp
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'write_mem(float*, float*)'
+    DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 252, 
+                       Column: 0 }
+  - String:          ''' into '''
+  - Caller:          krnl_bp
+    DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 372, 
+                       Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-burst-inference
+Name:            BurstInferred
+DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 15, 
+                   Column: 5 }
+Function:        krnl_bp
+Args:            
+  - String:          'Sequential '
+  - Direction:       read
+  - String:          ' of length '
+  - Length:          '64'
+  - String:          ' has been inferred'
+  - String:          ' _XLX_SEP_ OldID='
+  - String:          for.inc.i.load.4
+  - String:          ', '
+  - String:          ' _XLX_SEP_ '
+  - AccessID:        mat_pseq
+  - String:          ' '
+  - ArrayName:       mat_p
+  - String:          ' '
+  - BundleName:      gmem0
+  - String:          ' '
+  - LoopName:        l_load_input
+  - String:          ' '
+  - LoopLoc:         '/home/bsheh002/ADMM07/alveo/src/bp.cpp:15:5'
+  - String:          ' '
+  - Function:        krnl_bp
+    DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 372, 
+                       Column: 0 }
+  - String:          ' '
+...
+--- !Passed
+Pass:            reflow-burst-inference
+Name:            BurstInferred
+DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 15, 
+                   Column: 5 }
+Function:        krnl_bp
+Args:            
+  - String:          'Sequential '
+  - Direction:       read
+  - String:          ' of length '
+  - Length:          '8'
+  - String:          ' has been inferred'
+  - String:          ' _XLX_SEP_ OldID='
+  - String:          for.inc.i26.load.4
+  - String:          ', '
+  - String:          ' _XLX_SEP_ '
+  - AccessID:        vec_qseq
+  - String:          ' '
+  - ArrayName:       vec_q
+  - String:          ' '
+  - BundleName:      gmem1
+  - String:          ' '
+  - LoopName:        l_load_input
+  - String:          ' '
+  - LoopLoc:         '/home/bsheh002/ADMM07/alveo/src/bp.cpp:15:5'
+  - String:          ' '
+  - Function:        krnl_bp
+    DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 372, 
+                       Column: 0 }
+  - String:          ' '
+...
+--- !Passed
+Pass:            reflow-burst-inference
+Name:            BurstInferred
+DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 254, 
+                   Column: 5 }
+Function:        krnl_bp
+Args:            
+  - String:          'Sequential '
+  - Direction:       write
+  - String:          ' of length '
+  - Length:          '8'
+  - String:          ' has been inferred'
+  - String:          ' _XLX_SEP_ OldID='
+  - String:          for.inc.i109.store.6
+  - String:          ', '
+  - String:          ' _XLX_SEP_ '
+  - AccessID:        outseq
+  - String:          ' '
+  - ArrayName:       out
+  - String:          ' '
+  - BundleName:      gmem2
+  - String:          ' '
+  - LoopName:        l_write_mem
+  - String:          ' '
+  - LoopLoc:         '/home/bsheh002/ADMM07/alveo/src/bp.cpp:254:5'
+  - String:          ' '
+  - Function:        krnl_bp
+    DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 372, 
+                       Column: 0 }
+  - String:          ' '
+...
+--- !Passed
+Pass:            reflow-burst-widen
+Name:            BurstWidened
+DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 254, 
+                   Column: 5 }
+Function:        krnl_bp
+Args:            
+  - String:          'Sequential '
+  - Direction:       write
+  - String:          ' of '
+  - OldLength:       '8'
+  - String:          ' x '
+  - OldWords:        '32'
+  - String:          'bit words has been widened by '
+  - Factor:          '8'
+  - String:          ': '
+  - Length:          '1'
+  - String:          ' x '
+  - Words:           '256'
+  - String:          bit words
+  - String:          ' _XLX_SEP_ OldID='
+  - String:          outseq
+  - String:          ', '
+  - String:          ' _XLX_SEP_ '
+  - AccessID:        wseq
+  - String:          ' '
+  - ArrayName:       out
+  - String:          ' '
+  - BundleName:      gmem2
+  - String:          ' '
+  - LoopName:        l_write_mem
+  - String:          ' '
+  - LoopLoc:         '/home/bsheh002/ADMM07/alveo/src/bp.cpp:254:5'
+  - String:          ' '
+  - Function:        krnl_bp
+    DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 372, 
+                       Column: 0 }
+  - String:          ' '
+...
+--- !Passed
+Pass:            reflow-burst-widen
+Name:            BurstWidened
+DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 15, 
+                   Column: 5 }
+Function:        krnl_bp
+Args:            
+  - String:          'Sequential '
+  - Direction:       read
+  - String:          ' of '
+  - OldLength:       '8'
+  - String:          ' x '
+  - OldWords:        '32'
+  - String:          'bit words has been widened by '
+  - Factor:          '8'
+  - String:          ': '
+  - Length:          '1'
+  - String:          ' x '
+  - Words:           '256'
+  - String:          bit words
+  - String:          ' _XLX_SEP_ OldID='
+  - String:          vec_qseq
+  - String:          ', '
+  - String:          ' _XLX_SEP_ '
+  - AccessID:        wseq125
+  - String:          ' '
+  - ArrayName:       vec_q
+  - String:          ' '
+  - BundleName:      gmem1
+  - String:          ' '
+  - LoopName:        l_load_input
+  - String:          ' '
+  - LoopLoc:         '/home/bsheh002/ADMM07/alveo/src/bp.cpp:15:5'
+  - String:          ' '
+  - Function:        krnl_bp
+    DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 372, 
+                       Column: 0 }
+  - String:          ' '
+...
+--- !Passed
+Pass:            reflow-burst-widen
+Name:            BurstWidened
+DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 15, 
+                   Column: 5 }
+Function:        krnl_bp
+Args:            
+  - String:          'Sequential '
+  - Direction:       read
+  - String:          ' of '
+  - OldLength:       '64'
+  - String:          ' x '
+  - OldWords:        '32'
+  - String:          'bit words has been widened by '
+  - Factor:          '16'
+  - String:          ': '
+  - Length:          '4'
+  - String:          ' x '
+  - Words:           '512'
+  - String:          bit words
+  - String:          ' _XLX_SEP_ OldID='
+  - String:          mat_pseq
+  - String:          ', '
+  - String:          ' _XLX_SEP_ '
+  - AccessID:        wseq127
+  - String:          ' '
+  - ArrayName:       mat_p
+  - String:          ' '
+  - BundleName:      gmem0
+  - String:          ' '
+  - LoopName:        l_load_input
+  - String:          ' '
+  - LoopLoc:         '/home/bsheh002/ADMM07/alveo/src/bp.cpp:15:5'
+  - String:          ' '
+  - Function:        krnl_bp
+    DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 372, 
+                       Column: 0 }
+  - String:          ' '
+...
+--- !Passed
+Pass:            reflow-burst-summary
+Name:            BurstInferredVerboseSummary
+DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 15, 
+                   Column: 5 }
+Function:        krnl_bp
+Args:            
+  - String:          'Multiple burst '
+  - Direction:       reads
+  - String:          ' of length '
+  - Length:          '4'
+  - String:          ' and bit width '
+  - Width:           '512'
+  - String:          ' has been inferred.'
+  - String:          ' These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings.'
+  - String:          ' _XLX_SEP_ '
+  - AccessID:        seq
+  - String:          ' '
+  - ArrayName:       ''
+  - String:          ' '
+  - BundleName:      gmem0
+  - String:          ' '
+  - Function:        krnl_bp
+    DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 372, 
+                       Column: 0 }
+  - String:          ' '
+...
+--- !Passed
+Pass:            reflow-burst-summary
+Name:            BurstInferredSummary
+DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 15, 
+                   Column: 5 }
+Function:        krnl_bp
+Args:            
+  - String:          'Multiple burst '
+  - Direction:       reads
+  - String:          ' of length '
+  - Length:          '4'
+  - String:          ' and bit width '
+  - Width:           '512'
+  - String:          ' has been inferred on bundle '''
+  - BundleName:      gmem0
+  - String:          '''.'
+  - String:          ' These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings.'
+...

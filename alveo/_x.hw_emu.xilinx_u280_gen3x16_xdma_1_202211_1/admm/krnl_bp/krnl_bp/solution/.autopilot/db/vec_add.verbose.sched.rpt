@@ -1,0 +1,337 @@
+
+
+================================================================
+== Vitis HLS Report for 'vec_add'
+================================================================
+* Date:           Tue Apr 15 09:07:25 2025
+
+* Version:        2022.2 (Build 3670227 on Oct 13 2022)
+* Project:        krnl_bp
+* Solution:       solution (Vitis Kernel Flow Target)
+* Product family: virtexuplus
+* Target device:  xcu280-fsvh2892-2L-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+---------+----------+------------+
+    |  Clock |  Target | Estimated| Uncertainty|
+    +--------+---------+----------+------------+
+    |ap_clk  |  3.33 ns|  2.342 ns|     0.90 ns|
+    +--------+---------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+-----------+-----------+-----+-----+---------+
+    |  Latency (cycles) |   Latency (absolute)  |  Interval | Pipeline|
+    |   min   |   max   |    min    |    max    | min | max |   Type  |
+    +---------+---------+-----------+-----------+-----+-----+---------+
+    |       15|       15|  49.995 ns|  49.995 ns|    8|    8|      yes|
+    +---------+---------+-----------+-----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 2
+HasVarLatency: 0
+IsPipeline: 1
+IsRtlPipelined: 1
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 8, depth = 16
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 16
+* Pipeline : 1
+  Pipeline-0 : II = 8, D = 16, States = { 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 4 
+4 --> 5 
+5 --> 6 
+6 --> 7 
+7 --> 8 
+8 --> 9 
+9 --> 10 
+10 --> 11 
+11 --> 12 
+12 --> 13 
+13 --> 14 
+14 --> 15 
+15 --> 16 
+16 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 1.14>
+ST_1 : Operation 17 [1/1] (1.14ns)   --->   "%krnl_bp_x_hat_copy_1_stream_97 = read i32 @_ssdm_op_Read.ap_fifo.volatile.i32P0A, i32 %krnl_bp_x_hat_copy_1_stream" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:410]   --->   Operation 17 'read' 'krnl_bp_x_hat_copy_1_stream_97' <Predicate = true> <Delay = 1.14> <CoreInst = "FIFO">   --->   Core 78 'FIFO' <Latency = 0> <II = 1> <Delay = 1.14> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 128> <FIFO>
+ST_1 : Operation 18 [1/1] (1.14ns)   --->   "%krnl_bp_u_copy_2_stream_98 = read i32 @_ssdm_op_Read.ap_fifo.volatile.i32P0A, i32 %krnl_bp_u_copy_2_stream" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:411]   --->   Operation 18 'read' 'krnl_bp_u_copy_2_stream_98' <Predicate = true> <Delay = 1.14> <CoreInst = "FIFO">   --->   Core 78 'FIFO' <Latency = 0> <II = 1> <Delay = 1.14> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 128> <FIFO>
+
+State 2 <SV = 1> <Delay = 2.34>
+ST_2 : Operation 19 [1/1] (0.00ns)   --->   "%in_1_val = bitcast i32 %krnl_bp_x_hat_copy_1_stream_97" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:410]   --->   Operation 19 'bitcast' 'in_1_val' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 20 [1/1] (0.00ns)   --->   "%in_2_val = bitcast i32 %krnl_bp_u_copy_2_stream_98" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:411]   --->   Operation 20 'bitcast' 'in_2_val' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 21 [7/7] (2.34ns)   --->   "%add = fadd i32 %in_1_val, i32 %in_2_val" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:412]   --->   Operation 21 'fadd' 'add' <Predicate = true> <Delay = 2.34> <CoreInst = "FAddSub_fulldsp">   --->   Core 18 'FAddSub_fulldsp' <Latency = 6> <II = 1> <Delay = 2.34> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 22 [1/1] (1.14ns)   --->   "%krnl_bp_x_hat_copy_1_stream_99 = read i32 @_ssdm_op_Read.ap_fifo.volatile.i32P0A, i32 %krnl_bp_x_hat_copy_1_stream" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:410]   --->   Operation 22 'read' 'krnl_bp_x_hat_copy_1_stream_99' <Predicate = true> <Delay = 1.14> <CoreInst = "FIFO">   --->   Core 78 'FIFO' <Latency = 0> <II = 1> <Delay = 1.14> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 128> <FIFO>
+ST_2 : Operation 23 [1/1] (1.14ns)   --->   "%krnl_bp_u_copy_2_stream_100 = read i32 @_ssdm_op_Read.ap_fifo.volatile.i32P0A, i32 %krnl_bp_u_copy_2_stream" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:411]   --->   Operation 23 'read' 'krnl_bp_u_copy_2_stream_100' <Predicate = true> <Delay = 1.14> <CoreInst = "FIFO">   --->   Core 78 'FIFO' <Latency = 0> <II = 1> <Delay = 1.14> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 128> <FIFO>
+
+State 3 <SV = 2> <Delay = 2.34>
+ST_3 : Operation 24 [6/7] (2.34ns)   --->   "%add = fadd i32 %in_1_val, i32 %in_2_val" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:412]   --->   Operation 24 'fadd' 'add' <Predicate = true> <Delay = 2.34> <CoreInst = "FAddSub_fulldsp">   --->   Core 18 'FAddSub_fulldsp' <Latency = 6> <II = 1> <Delay = 2.34> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 25 [1/1] (0.00ns)   --->   "%in_1_val_1 = bitcast i32 %krnl_bp_x_hat_copy_1_stream_99" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:410]   --->   Operation 25 'bitcast' 'in_1_val_1' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 26 [1/1] (0.00ns)   --->   "%in_2_val_1 = bitcast i32 %krnl_bp_u_copy_2_stream_100" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:411]   --->   Operation 26 'bitcast' 'in_2_val_1' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 27 [7/7] (2.34ns)   --->   "%add_1 = fadd i32 %in_1_val_1, i32 %in_2_val_1" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:412]   --->   Operation 27 'fadd' 'add_1' <Predicate = true> <Delay = 2.34> <CoreInst = "FAddSub_fulldsp">   --->   Core 18 'FAddSub_fulldsp' <Latency = 6> <II = 1> <Delay = 2.34> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 28 [1/1] (1.14ns)   --->   "%krnl_bp_x_hat_copy_1_stream_101 = read i32 @_ssdm_op_Read.ap_fifo.volatile.i32P0A, i32 %krnl_bp_x_hat_copy_1_stream" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:410]   --->   Operation 28 'read' 'krnl_bp_x_hat_copy_1_stream_101' <Predicate = true> <Delay = 1.14> <CoreInst = "FIFO">   --->   Core 78 'FIFO' <Latency = 0> <II = 1> <Delay = 1.14> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 128> <FIFO>
+ST_3 : Operation 29 [1/1] (1.14ns)   --->   "%krnl_bp_u_copy_2_stream_102 = read i32 @_ssdm_op_Read.ap_fifo.volatile.i32P0A, i32 %krnl_bp_u_copy_2_stream" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:411]   --->   Operation 29 'read' 'krnl_bp_u_copy_2_stream_102' <Predicate = true> <Delay = 1.14> <CoreInst = "FIFO">   --->   Core 78 'FIFO' <Latency = 0> <II = 1> <Delay = 1.14> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 128> <FIFO>
+
+State 4 <SV = 3> <Delay = 2.34>
+ST_4 : Operation 30 [5/7] (2.34ns)   --->   "%add = fadd i32 %in_1_val, i32 %in_2_val" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:412]   --->   Operation 30 'fadd' 'add' <Predicate = true> <Delay = 2.34> <CoreInst = "FAddSub_fulldsp">   --->   Core 18 'FAddSub_fulldsp' <Latency = 6> <II = 1> <Delay = 2.34> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 31 [6/7] (2.34ns)   --->   "%add_1 = fadd i32 %in_1_val_1, i32 %in_2_val_1" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:412]   --->   Operation 31 'fadd' 'add_1' <Predicate = true> <Delay = 2.34> <CoreInst = "FAddSub_fulldsp">   --->   Core 18 'FAddSub_fulldsp' <Latency = 6> <II = 1> <Delay = 2.34> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 32 [1/1] (0.00ns)   --->   "%in_1_val_2 = bitcast i32 %krnl_bp_x_hat_copy_1_stream_101" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:410]   --->   Operation 32 'bitcast' 'in_1_val_2' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 33 [1/1] (0.00ns)   --->   "%in_2_val_2 = bitcast i32 %krnl_bp_u_copy_2_stream_102" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:411]   --->   Operation 33 'bitcast' 'in_2_val_2' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 34 [7/7] (2.34ns)   --->   "%add_2 = fadd i32 %in_1_val_2, i32 %in_2_val_2" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:412]   --->   Operation 34 'fadd' 'add_2' <Predicate = true> <Delay = 2.34> <CoreInst = "FAddSub_fulldsp">   --->   Core 18 'FAddSub_fulldsp' <Latency = 6> <II = 1> <Delay = 2.34> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 35 [1/1] (1.14ns)   --->   "%krnl_bp_x_hat_copy_1_stream_103 = read i32 @_ssdm_op_Read.ap_fifo.volatile.i32P0A, i32 %krnl_bp_x_hat_copy_1_stream" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:410]   --->   Operation 35 'read' 'krnl_bp_x_hat_copy_1_stream_103' <Predicate = true> <Delay = 1.14> <CoreInst = "FIFO">   --->   Core 78 'FIFO' <Latency = 0> <II = 1> <Delay = 1.14> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 128> <FIFO>
+ST_4 : Operation 36 [1/1] (1.14ns)   --->   "%krnl_bp_u_copy_2_stream_104 = read i32 @_ssdm_op_Read.ap_fifo.volatile.i32P0A, i32 %krnl_bp_u_copy_2_stream" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:411]   --->   Operation 36 'read' 'krnl_bp_u_copy_2_stream_104' <Predicate = true> <Delay = 1.14> <CoreInst = "FIFO">   --->   Core 78 'FIFO' <Latency = 0> <II = 1> <Delay = 1.14> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 128> <FIFO>
+
+State 5 <SV = 4> <Delay = 2.34>
+ST_5 : Operation 37 [4/7] (2.34ns)   --->   "%add = fadd i32 %in_1_val, i32 %in_2_val" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:412]   --->   Operation 37 'fadd' 'add' <Predicate = true> <Delay = 2.34> <CoreInst = "FAddSub_fulldsp">   --->   Core 18 'FAddSub_fulldsp' <Latency = 6> <II = 1> <Delay = 2.34> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 38 [5/7] (2.34ns)   --->   "%add_1 = fadd i32 %in_1_val_1, i32 %in_2_val_1" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:412]   --->   Operation 38 'fadd' 'add_1' <Predicate = true> <Delay = 2.34> <CoreInst = "FAddSub_fulldsp">   --->   Core 18 'FAddSub_fulldsp' <Latency = 6> <II = 1> <Delay = 2.34> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 39 [6/7] (2.34ns)   --->   "%add_2 = fadd i32 %in_1_val_2, i32 %in_2_val_2" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:412]   --->   Operation 39 'fadd' 'add_2' <Predicate = true> <Delay = 2.34> <CoreInst = "FAddSub_fulldsp">   --->   Core 18 'FAddSub_fulldsp' <Latency = 6> <II = 1> <Delay = 2.34> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 40 [1/1] (0.00ns)   --->   "%in_1_val_3 = bitcast i32 %krnl_bp_x_hat_copy_1_stream_103" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:410]   --->   Operation 40 'bitcast' 'in_1_val_3' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 41 [1/1] (0.00ns)   --->   "%in_2_val_3 = bitcast i32 %krnl_bp_u_copy_2_stream_104" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:411]   --->   Operation 41 'bitcast' 'in_2_val_3' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 42 [7/7] (2.34ns)   --->   "%add_3 = fadd i32 %in_1_val_3, i32 %in_2_val_3" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:412]   --->   Operation 42 'fadd' 'add_3' <Predicate = true> <Delay = 2.34> <CoreInst = "FAddSub_fulldsp">   --->   Core 18 'FAddSub_fulldsp' <Latency = 6> <II = 1> <Delay = 2.34> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 43 [1/1] (1.14ns)   --->   "%krnl_bp_x_hat_copy_1_stream_105 = read i32 @_ssdm_op_Read.ap_fifo.volatile.i32P0A, i32 %krnl_bp_x_hat_copy_1_stream" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:410]   --->   Operation 43 'read' 'krnl_bp_x_hat_copy_1_stream_105' <Predicate = true> <Delay = 1.14> <CoreInst = "FIFO">   --->   Core 78 'FIFO' <Latency = 0> <II = 1> <Delay = 1.14> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 128> <FIFO>
+ST_5 : Operation 44 [1/1] (1.14ns)   --->   "%krnl_bp_u_copy_2_stream_106 = read i32 @_ssdm_op_Read.ap_fifo.volatile.i32P0A, i32 %krnl_bp_u_copy_2_stream" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:411]   --->   Operation 44 'read' 'krnl_bp_u_copy_2_stream_106' <Predicate = true> <Delay = 1.14> <CoreInst = "FIFO">   --->   Core 78 'FIFO' <Latency = 0> <II = 1> <Delay = 1.14> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 128> <FIFO>
+
+State 6 <SV = 5> <Delay = 2.34>
+ST_6 : Operation 45 [3/7] (2.34ns)   --->   "%add = fadd i32 %in_1_val, i32 %in_2_val" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:412]   --->   Operation 45 'fadd' 'add' <Predicate = true> <Delay = 2.34> <CoreInst = "FAddSub_fulldsp">   --->   Core 18 'FAddSub_fulldsp' <Latency = 6> <II = 1> <Delay = 2.34> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 46 [4/7] (2.34ns)   --->   "%add_1 = fadd i32 %in_1_val_1, i32 %in_2_val_1" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:412]   --->   Operation 46 'fadd' 'add_1' <Predicate = true> <Delay = 2.34> <CoreInst = "FAddSub_fulldsp">   --->   Core 18 'FAddSub_fulldsp' <Latency = 6> <II = 1> <Delay = 2.34> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 47 [5/7] (2.34ns)   --->   "%add_2 = fadd i32 %in_1_val_2, i32 %in_2_val_2" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:412]   --->   Operation 47 'fadd' 'add_2' <Predicate = true> <Delay = 2.34> <CoreInst = "FAddSub_fulldsp">   --->   Core 18 'FAddSub_fulldsp' <Latency = 6> <II = 1> <Delay = 2.34> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 48 [6/7] (2.34ns)   --->   "%add_3 = fadd i32 %in_1_val_3, i32 %in_2_val_3" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:412]   --->   Operation 48 'fadd' 'add_3' <Predicate = true> <Delay = 2.34> <CoreInst = "FAddSub_fulldsp">   --->   Core 18 'FAddSub_fulldsp' <Latency = 6> <II = 1> <Delay = 2.34> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 49 [1/1] (0.00ns)   --->   "%in_1_val_4 = bitcast i32 %krnl_bp_x_hat_copy_1_stream_105" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:410]   --->   Operation 49 'bitcast' 'in_1_val_4' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 50 [1/1] (0.00ns)   --->   "%in_2_val_4 = bitcast i32 %krnl_bp_u_copy_2_stream_106" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:411]   --->   Operation 50 'bitcast' 'in_2_val_4' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 51 [7/7] (2.34ns)   --->   "%add_4 = fadd i32 %in_1_val_4, i32 %in_2_val_4" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:412]   --->   Operation 51 'fadd' 'add_4' <Predicate = true> <Delay = 2.34> <CoreInst = "FAddSub_fulldsp">   --->   Core 18 'FAddSub_fulldsp' <Latency = 6> <II = 1> <Delay = 2.34> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 52 [1/1] (1.14ns)   --->   "%krnl_bp_x_hat_copy_1_stream_107 = read i32 @_ssdm_op_Read.ap_fifo.volatile.i32P0A, i32 %krnl_bp_x_hat_copy_1_stream" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:410]   --->   Operation 52 'read' 'krnl_bp_x_hat_copy_1_stream_107' <Predicate = true> <Delay = 1.14> <CoreInst = "FIFO">   --->   Core 78 'FIFO' <Latency = 0> <II = 1> <Delay = 1.14> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 128> <FIFO>
+ST_6 : Operation 53 [1/1] (1.14ns)   --->   "%krnl_bp_u_copy_2_stream_108 = read i32 @_ssdm_op_Read.ap_fifo.volatile.i32P0A, i32 %krnl_bp_u_copy_2_stream" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:411]   --->   Operation 53 'read' 'krnl_bp_u_copy_2_stream_108' <Predicate = true> <Delay = 1.14> <CoreInst = "FIFO">   --->   Core 78 'FIFO' <Latency = 0> <II = 1> <Delay = 1.14> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 128> <FIFO>
+
+State 7 <SV = 6> <Delay = 2.34>
+ST_7 : Operation 54 [2/7] (2.34ns)   --->   "%add = fadd i32 %in_1_val, i32 %in_2_val" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:412]   --->   Operation 54 'fadd' 'add' <Predicate = true> <Delay = 2.34> <CoreInst = "FAddSub_fulldsp">   --->   Core 18 'FAddSub_fulldsp' <Latency = 6> <II = 1> <Delay = 2.34> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 55 [3/7] (2.34ns)   --->   "%add_1 = fadd i32 %in_1_val_1, i32 %in_2_val_1" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:412]   --->   Operation 55 'fadd' 'add_1' <Predicate = true> <Delay = 2.34> <CoreInst = "FAddSub_fulldsp">   --->   Core 18 'FAddSub_fulldsp' <Latency = 6> <II = 1> <Delay = 2.34> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 56 [4/7] (2.34ns)   --->   "%add_2 = fadd i32 %in_1_val_2, i32 %in_2_val_2" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:412]   --->   Operation 56 'fadd' 'add_2' <Predicate = true> <Delay = 2.34> <CoreInst = "FAddSub_fulldsp">   --->   Core 18 'FAddSub_fulldsp' <Latency = 6> <II = 1> <Delay = 2.34> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 57 [5/7] (2.34ns)   --->   "%add_3 = fadd i32 %in_1_val_3, i32 %in_2_val_3" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:412]   --->   Operation 57 'fadd' 'add_3' <Predicate = true> <Delay = 2.34> <CoreInst = "FAddSub_fulldsp">   --->   Core 18 'FAddSub_fulldsp' <Latency = 6> <II = 1> <Delay = 2.34> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 58 [6/7] (2.34ns)   --->   "%add_4 = fadd i32 %in_1_val_4, i32 %in_2_val_4" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:412]   --->   Operation 58 'fadd' 'add_4' <Predicate = true> <Delay = 2.34> <CoreInst = "FAddSub_fulldsp">   --->   Core 18 'FAddSub_fulldsp' <Latency = 6> <II = 1> <Delay = 2.34> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 59 [1/1] (0.00ns)   --->   "%in_1_val_5 = bitcast i32 %krnl_bp_x_hat_copy_1_stream_107" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:410]   --->   Operation 59 'bitcast' 'in_1_val_5' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 60 [1/1] (0.00ns)   --->   "%in_2_val_5 = bitcast i32 %krnl_bp_u_copy_2_stream_108" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:411]   --->   Operation 60 'bitcast' 'in_2_val_5' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 61 [7/7] (2.34ns)   --->   "%add_5 = fadd i32 %in_1_val_5, i32 %in_2_val_5" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:412]   --->   Operation 61 'fadd' 'add_5' <Predicate = true> <Delay = 2.34> <CoreInst = "FAddSub_fulldsp">   --->   Core 18 'FAddSub_fulldsp' <Latency = 6> <II = 1> <Delay = 2.34> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 62 [1/1] (1.14ns)   --->   "%krnl_bp_x_hat_copy_1_stream_109 = read i32 @_ssdm_op_Read.ap_fifo.volatile.i32P0A, i32 %krnl_bp_x_hat_copy_1_stream" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:410]   --->   Operation 62 'read' 'krnl_bp_x_hat_copy_1_stream_109' <Predicate = true> <Delay = 1.14> <CoreInst = "FIFO">   --->   Core 78 'FIFO' <Latency = 0> <II = 1> <Delay = 1.14> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 128> <FIFO>
+ST_7 : Operation 63 [1/1] (1.14ns)   --->   "%krnl_bp_u_copy_2_stream_110 = read i32 @_ssdm_op_Read.ap_fifo.volatile.i32P0A, i32 %krnl_bp_u_copy_2_stream" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:411]   --->   Operation 63 'read' 'krnl_bp_u_copy_2_stream_110' <Predicate = true> <Delay = 1.14> <CoreInst = "FIFO">   --->   Core 78 'FIFO' <Latency = 0> <II = 1> <Delay = 1.14> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 128> <FIFO>
+
+State 8 <SV = 7> <Delay = 2.34>
+ST_8 : Operation 64 [1/7] (2.34ns)   --->   "%add = fadd i32 %in_1_val, i32 %in_2_val" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:412]   --->   Operation 64 'fadd' 'add' <Predicate = true> <Delay = 2.34> <CoreInst = "FAddSub_fulldsp">   --->   Core 18 'FAddSub_fulldsp' <Latency = 6> <II = 1> <Delay = 2.34> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 65 [2/7] (2.34ns)   --->   "%add_1 = fadd i32 %in_1_val_1, i32 %in_2_val_1" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:412]   --->   Operation 65 'fadd' 'add_1' <Predicate = true> <Delay = 2.34> <CoreInst = "FAddSub_fulldsp">   --->   Core 18 'FAddSub_fulldsp' <Latency = 6> <II = 1> <Delay = 2.34> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 66 [3/7] (2.34ns)   --->   "%add_2 = fadd i32 %in_1_val_2, i32 %in_2_val_2" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:412]   --->   Operation 66 'fadd' 'add_2' <Predicate = true> <Delay = 2.34> <CoreInst = "FAddSub_fulldsp">   --->   Core 18 'FAddSub_fulldsp' <Latency = 6> <II = 1> <Delay = 2.34> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 67 [4/7] (2.34ns)   --->   "%add_3 = fadd i32 %in_1_val_3, i32 %in_2_val_3" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:412]   --->   Operation 67 'fadd' 'add_3' <Predicate = true> <Delay = 2.34> <CoreInst = "FAddSub_fulldsp">   --->   Core 18 'FAddSub_fulldsp' <Latency = 6> <II = 1> <Delay = 2.34> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 68 [5/7] (2.34ns)   --->   "%add_4 = fadd i32 %in_1_val_4, i32 %in_2_val_4" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:412]   --->   Operation 68 'fadd' 'add_4' <Predicate = true> <Delay = 2.34> <CoreInst = "FAddSub_fulldsp">   --->   Core 18 'FAddSub_fulldsp' <Latency = 6> <II = 1> <Delay = 2.34> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 69 [6/7] (2.34ns)   --->   "%add_5 = fadd i32 %in_1_val_5, i32 %in_2_val_5" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:412]   --->   Operation 69 'fadd' 'add_5' <Predicate = true> <Delay = 2.34> <CoreInst = "FAddSub_fulldsp">   --->   Core 18 'FAddSub_fulldsp' <Latency = 6> <II = 1> <Delay = 2.34> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 70 [1/1] (0.00ns)   --->   "%in_1_val_6 = bitcast i32 %krnl_bp_x_hat_copy_1_stream_109" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:410]   --->   Operation 70 'bitcast' 'in_1_val_6' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 71 [1/1] (0.00ns)   --->   "%in_2_val_6 = bitcast i32 %krnl_bp_u_copy_2_stream_110" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:411]   --->   Operation 71 'bitcast' 'in_2_val_6' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 72 [7/7] (2.34ns)   --->   "%add_6 = fadd i32 %in_1_val_6, i32 %in_2_val_6" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:412]   --->   Operation 72 'fadd' 'add_6' <Predicate = true> <Delay = 2.34> <CoreInst = "FAddSub_fulldsp">   --->   Core 18 'FAddSub_fulldsp' <Latency = 6> <II = 1> <Delay = 2.34> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 73 [1/1] (1.14ns)   --->   "%krnl_bp_x_hat_copy_1_stream_111 = read i32 @_ssdm_op_Read.ap_fifo.volatile.i32P0A, i32 %krnl_bp_x_hat_copy_1_stream" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:410]   --->   Operation 73 'read' 'krnl_bp_x_hat_copy_1_stream_111' <Predicate = true> <Delay = 1.14> <CoreInst = "FIFO">   --->   Core 78 'FIFO' <Latency = 0> <II = 1> <Delay = 1.14> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 128> <FIFO>
+ST_8 : Operation 74 [1/1] (1.14ns)   --->   "%krnl_bp_u_copy_2_stream_112 = read i32 @_ssdm_op_Read.ap_fifo.volatile.i32P0A, i32 %krnl_bp_u_copy_2_stream" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:411]   --->   Operation 74 'read' 'krnl_bp_u_copy_2_stream_112' <Predicate = true> <Delay = 1.14> <CoreInst = "FIFO">   --->   Core 78 'FIFO' <Latency = 0> <II = 1> <Delay = 1.14> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 128> <FIFO>
+
+State 9 <SV = 8> <Delay = 2.34>
+ST_9 : Operation 75 [1/1] (0.00ns)   --->   "%bitcast_ln412 = bitcast i32 %add" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:412]   --->   Operation 75 'bitcast' 'bitcast_ln412' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 76 [1/1] (1.14ns)   --->   "%write_ln412 = write void @_ssdm_op_Write.ap_fifo.volatile.i32P0A, i32 %krnl_bp_x_hat_u_stream, i32 %bitcast_ln412" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:412]   --->   Operation 76 'write' 'write_ln412' <Predicate = true> <Delay = 1.14> <CoreInst = "FIFO">   --->   Core 78 'FIFO' <Latency = 0> <II = 1> <Delay = 1.14> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 128> <FIFO>
+ST_9 : Operation 77 [1/7] (2.34ns)   --->   "%add_1 = fadd i32 %in_1_val_1, i32 %in_2_val_1" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:412]   --->   Operation 77 'fadd' 'add_1' <Predicate = true> <Delay = 2.34> <CoreInst = "FAddSub_fulldsp">   --->   Core 18 'FAddSub_fulldsp' <Latency = 6> <II = 1> <Delay = 2.34> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 78 [2/7] (2.34ns)   --->   "%add_2 = fadd i32 %in_1_val_2, i32 %in_2_val_2" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:412]   --->   Operation 78 'fadd' 'add_2' <Predicate = true> <Delay = 2.34> <CoreInst = "FAddSub_fulldsp">   --->   Core 18 'FAddSub_fulldsp' <Latency = 6> <II = 1> <Delay = 2.34> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 79 [3/7] (2.34ns)   --->   "%add_3 = fadd i32 %in_1_val_3, i32 %in_2_val_3" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:412]   --->   Operation 79 'fadd' 'add_3' <Predicate = true> <Delay = 2.34> <CoreInst = "FAddSub_fulldsp">   --->   Core 18 'FAddSub_fulldsp' <Latency = 6> <II = 1> <Delay = 2.34> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 80 [4/7] (2.34ns)   --->   "%add_4 = fadd i32 %in_1_val_4, i32 %in_2_val_4" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:412]   --->   Operation 80 'fadd' 'add_4' <Predicate = true> <Delay = 2.34> <CoreInst = "FAddSub_fulldsp">   --->   Core 18 'FAddSub_fulldsp' <Latency = 6> <II = 1> <Delay = 2.34> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 81 [5/7] (2.34ns)   --->   "%add_5 = fadd i32 %in_1_val_5, i32 %in_2_val_5" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:412]   --->   Operation 81 'fadd' 'add_5' <Predicate = true> <Delay = 2.34> <CoreInst = "FAddSub_fulldsp">   --->   Core 18 'FAddSub_fulldsp' <Latency = 6> <II = 1> <Delay = 2.34> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 82 [6/7] (2.34ns)   --->   "%add_6 = fadd i32 %in_1_val_6, i32 %in_2_val_6" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:412]   --->   Operation 82 'fadd' 'add_6' <Predicate = true> <Delay = 2.34> <CoreInst = "FAddSub_fulldsp">   --->   Core 18 'FAddSub_fulldsp' <Latency = 6> <II = 1> <Delay = 2.34> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 83 [1/1] (0.00ns)   --->   "%in_1_val_7 = bitcast i32 %krnl_bp_x_hat_copy_1_stream_111" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:410]   --->   Operation 83 'bitcast' 'in_1_val_7' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 84 [1/1] (0.00ns)   --->   "%in_2_val_7 = bitcast i32 %krnl_bp_u_copy_2_stream_112" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:411]   --->   Operation 84 'bitcast' 'in_2_val_7' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 85 [7/7] (2.34ns)   --->   "%add_7 = fadd i32 %in_1_val_7, i32 %in_2_val_7" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:412]   --->   Operation 85 'fadd' 'add_7' <Predicate = true> <Delay = 2.34> <CoreInst = "FAddSub_fulldsp">   --->   Core 18 'FAddSub_fulldsp' <Latency = 6> <II = 1> <Delay = 2.34> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+State 10 <SV = 9> <Delay = 2.34>
+ST_10 : Operation 86 [1/1] (0.00ns)   --->   "%bitcast_ln412_1 = bitcast i32 %add_1" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:412]   --->   Operation 86 'bitcast' 'bitcast_ln412_1' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 87 [1/1] (1.14ns)   --->   "%write_ln412 = write void @_ssdm_op_Write.ap_fifo.volatile.i32P0A, i32 %krnl_bp_x_hat_u_stream, i32 %bitcast_ln412_1" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:412]   --->   Operation 87 'write' 'write_ln412' <Predicate = true> <Delay = 1.14> <CoreInst = "FIFO">   --->   Core 78 'FIFO' <Latency = 0> <II = 1> <Delay = 1.14> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 128> <FIFO>
+ST_10 : Operation 88 [1/7] (2.34ns)   --->   "%add_2 = fadd i32 %in_1_val_2, i32 %in_2_val_2" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:412]   --->   Operation 88 'fadd' 'add_2' <Predicate = true> <Delay = 2.34> <CoreInst = "FAddSub_fulldsp">   --->   Core 18 'FAddSub_fulldsp' <Latency = 6> <II = 1> <Delay = 2.34> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 89 [2/7] (2.34ns)   --->   "%add_3 = fadd i32 %in_1_val_3, i32 %in_2_val_3" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:412]   --->   Operation 89 'fadd' 'add_3' <Predicate = true> <Delay = 2.34> <CoreInst = "FAddSub_fulldsp">   --->   Core 18 'FAddSub_fulldsp' <Latency = 6> <II = 1> <Delay = 2.34> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 90 [3/7] (2.34ns)   --->   "%add_4 = fadd i32 %in_1_val_4, i32 %in_2_val_4" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:412]   --->   Operation 90 'fadd' 'add_4' <Predicate = true> <Delay = 2.34> <CoreInst = "FAddSub_fulldsp">   --->   Core 18 'FAddSub_fulldsp' <Latency = 6> <II = 1> <Delay = 2.34> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 91 [4/7] (2.34ns)   --->   "%add_5 = fadd i32 %in_1_val_5, i32 %in_2_val_5" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:412]   --->   Operation 91 'fadd' 'add_5' <Predicate = true> <Delay = 2.34> <CoreInst = "FAddSub_fulldsp">   --->   Core 18 'FAddSub_fulldsp' <Latency = 6> <II = 1> <Delay = 2.34> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 92 [5/7] (2.34ns)   --->   "%add_6 = fadd i32 %in_1_val_6, i32 %in_2_val_6" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:412]   --->   Operation 92 'fadd' 'add_6' <Predicate = true> <Delay = 2.34> <CoreInst = "FAddSub_fulldsp">   --->   Core 18 'FAddSub_fulldsp' <Latency = 6> <II = 1> <Delay = 2.34> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 93 [6/7] (2.34ns)   --->   "%add_7 = fadd i32 %in_1_val_7, i32 %in_2_val_7" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:412]   --->   Operation 93 'fadd' 'add_7' <Predicate = true> <Delay = 2.34> <CoreInst = "FAddSub_fulldsp">   --->   Core 18 'FAddSub_fulldsp' <Latency = 6> <II = 1> <Delay = 2.34> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+State 11 <SV = 10> <Delay = 2.34>
+ST_11 : Operation 94 [1/1] (0.00ns)   --->   "%bitcast_ln412_2 = bitcast i32 %add_2" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:412]   --->   Operation 94 'bitcast' 'bitcast_ln412_2' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 95 [1/1] (1.14ns)   --->   "%write_ln412 = write void @_ssdm_op_Write.ap_fifo.volatile.i32P0A, i32 %krnl_bp_x_hat_u_stream, i32 %bitcast_ln412_2" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:412]   --->   Operation 95 'write' 'write_ln412' <Predicate = true> <Delay = 1.14> <CoreInst = "FIFO">   --->   Core 78 'FIFO' <Latency = 0> <II = 1> <Delay = 1.14> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 128> <FIFO>
+ST_11 : Operation 96 [1/7] (2.34ns)   --->   "%add_3 = fadd i32 %in_1_val_3, i32 %in_2_val_3" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:412]   --->   Operation 96 'fadd' 'add_3' <Predicate = true> <Delay = 2.34> <CoreInst = "FAddSub_fulldsp">   --->   Core 18 'FAddSub_fulldsp' <Latency = 6> <II = 1> <Delay = 2.34> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 97 [2/7] (2.34ns)   --->   "%add_4 = fadd i32 %in_1_val_4, i32 %in_2_val_4" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:412]   --->   Operation 97 'fadd' 'add_4' <Predicate = true> <Delay = 2.34> <CoreInst = "FAddSub_fulldsp">   --->   Core 18 'FAddSub_fulldsp' <Latency = 6> <II = 1> <Delay = 2.34> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 98 [3/7] (2.34ns)   --->   "%add_5 = fadd i32 %in_1_val_5, i32 %in_2_val_5" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:412]   --->   Operation 98 'fadd' 'add_5' <Predicate = true> <Delay = 2.34> <CoreInst = "FAddSub_fulldsp">   --->   Core 18 'FAddSub_fulldsp' <Latency = 6> <II = 1> <Delay = 2.34> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 99 [4/7] (2.34ns)   --->   "%add_6 = fadd i32 %in_1_val_6, i32 %in_2_val_6" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:412]   --->   Operation 99 'fadd' 'add_6' <Predicate = true> <Delay = 2.34> <CoreInst = "FAddSub_fulldsp">   --->   Core 18 'FAddSub_fulldsp' <Latency = 6> <II = 1> <Delay = 2.34> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 100 [5/7] (2.34ns)   --->   "%add_7 = fadd i32 %in_1_val_7, i32 %in_2_val_7" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:412]   --->   Operation 100 'fadd' 'add_7' <Predicate = true> <Delay = 2.34> <CoreInst = "FAddSub_fulldsp">   --->   Core 18 'FAddSub_fulldsp' <Latency = 6> <II = 1> <Delay = 2.34> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+State 12 <SV = 11> <Delay = 2.34>
+ST_12 : Operation 101 [1/1] (0.00ns)   --->   "%bitcast_ln412_3 = bitcast i32 %add_3" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:412]   --->   Operation 101 'bitcast' 'bitcast_ln412_3' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 102 [1/1] (1.14ns)   --->   "%write_ln412 = write void @_ssdm_op_Write.ap_fifo.volatile.i32P0A, i32 %krnl_bp_x_hat_u_stream, i32 %bitcast_ln412_3" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:412]   --->   Operation 102 'write' 'write_ln412' <Predicate = true> <Delay = 1.14> <CoreInst = "FIFO">   --->   Core 78 'FIFO' <Latency = 0> <II = 1> <Delay = 1.14> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 128> <FIFO>
+ST_12 : Operation 103 [1/7] (2.34ns)   --->   "%add_4 = fadd i32 %in_1_val_4, i32 %in_2_val_4" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:412]   --->   Operation 103 'fadd' 'add_4' <Predicate = true> <Delay = 2.34> <CoreInst = "FAddSub_fulldsp">   --->   Core 18 'FAddSub_fulldsp' <Latency = 6> <II = 1> <Delay = 2.34> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 104 [2/7] (2.34ns)   --->   "%add_5 = fadd i32 %in_1_val_5, i32 %in_2_val_5" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:412]   --->   Operation 104 'fadd' 'add_5' <Predicate = true> <Delay = 2.34> <CoreInst = "FAddSub_fulldsp">   --->   Core 18 'FAddSub_fulldsp' <Latency = 6> <II = 1> <Delay = 2.34> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 105 [3/7] (2.34ns)   --->   "%add_6 = fadd i32 %in_1_val_6, i32 %in_2_val_6" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:412]   --->   Operation 105 'fadd' 'add_6' <Predicate = true> <Delay = 2.34> <CoreInst = "FAddSub_fulldsp">   --->   Core 18 'FAddSub_fulldsp' <Latency = 6> <II = 1> <Delay = 2.34> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 106 [4/7] (2.34ns)   --->   "%add_7 = fadd i32 %in_1_val_7, i32 %in_2_val_7" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:412]   --->   Operation 106 'fadd' 'add_7' <Predicate = true> <Delay = 2.34> <CoreInst = "FAddSub_fulldsp">   --->   Core 18 'FAddSub_fulldsp' <Latency = 6> <II = 1> <Delay = 2.34> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+State 13 <SV = 12> <Delay = 2.34>
+ST_13 : Operation 107 [1/1] (0.00ns)   --->   "%bitcast_ln412_4 = bitcast i32 %add_4" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:412]   --->   Operation 107 'bitcast' 'bitcast_ln412_4' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 108 [1/1] (1.14ns)   --->   "%write_ln412 = write void @_ssdm_op_Write.ap_fifo.volatile.i32P0A, i32 %krnl_bp_x_hat_u_stream, i32 %bitcast_ln412_4" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:412]   --->   Operation 108 'write' 'write_ln412' <Predicate = true> <Delay = 1.14> <CoreInst = "FIFO">   --->   Core 78 'FIFO' <Latency = 0> <II = 1> <Delay = 1.14> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 128> <FIFO>
+ST_13 : Operation 109 [1/7] (2.34ns)   --->   "%add_5 = fadd i32 %in_1_val_5, i32 %in_2_val_5" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:412]   --->   Operation 109 'fadd' 'add_5' <Predicate = true> <Delay = 2.34> <CoreInst = "FAddSub_fulldsp">   --->   Core 18 'FAddSub_fulldsp' <Latency = 6> <II = 1> <Delay = 2.34> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 110 [2/7] (2.34ns)   --->   "%add_6 = fadd i32 %in_1_val_6, i32 %in_2_val_6" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:412]   --->   Operation 110 'fadd' 'add_6' <Predicate = true> <Delay = 2.34> <CoreInst = "FAddSub_fulldsp">   --->   Core 18 'FAddSub_fulldsp' <Latency = 6> <II = 1> <Delay = 2.34> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 111 [3/7] (2.34ns)   --->   "%add_7 = fadd i32 %in_1_val_7, i32 %in_2_val_7" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:412]   --->   Operation 111 'fadd' 'add_7' <Predicate = true> <Delay = 2.34> <CoreInst = "FAddSub_fulldsp">   --->   Core 18 'FAddSub_fulldsp' <Latency = 6> <II = 1> <Delay = 2.34> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+State 14 <SV = 13> <Delay = 2.34>
+ST_14 : Operation 112 [1/1] (0.00ns)   --->   "%bitcast_ln412_5 = bitcast i32 %add_5" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:412]   --->   Operation 112 'bitcast' 'bitcast_ln412_5' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 113 [1/1] (1.14ns)   --->   "%write_ln412 = write void @_ssdm_op_Write.ap_fifo.volatile.i32P0A, i32 %krnl_bp_x_hat_u_stream, i32 %bitcast_ln412_5" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:412]   --->   Operation 113 'write' 'write_ln412' <Predicate = true> <Delay = 1.14> <CoreInst = "FIFO">   --->   Core 78 'FIFO' <Latency = 0> <II = 1> <Delay = 1.14> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 128> <FIFO>
+ST_14 : Operation 114 [1/7] (2.34ns)   --->   "%add_6 = fadd i32 %in_1_val_6, i32 %in_2_val_6" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:412]   --->   Operation 114 'fadd' 'add_6' <Predicate = true> <Delay = 2.34> <CoreInst = "FAddSub_fulldsp">   --->   Core 18 'FAddSub_fulldsp' <Latency = 6> <II = 1> <Delay = 2.34> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 115 [2/7] (2.34ns)   --->   "%add_7 = fadd i32 %in_1_val_7, i32 %in_2_val_7" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:412]   --->   Operation 115 'fadd' 'add_7' <Predicate = true> <Delay = 2.34> <CoreInst = "FAddSub_fulldsp">   --->   Core 18 'FAddSub_fulldsp' <Latency = 6> <II = 1> <Delay = 2.34> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+State 15 <SV = 14> <Delay = 2.34>
+ST_15 : Operation 116 [1/1] (0.00ns)   --->   "%bitcast_ln412_6 = bitcast i32 %add_6" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:412]   --->   Operation 116 'bitcast' 'bitcast_ln412_6' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 117 [1/1] (1.14ns)   --->   "%write_ln412 = write void @_ssdm_op_Write.ap_fifo.volatile.i32P0A, i32 %krnl_bp_x_hat_u_stream, i32 %bitcast_ln412_6" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:412]   --->   Operation 117 'write' 'write_ln412' <Predicate = true> <Delay = 1.14> <CoreInst = "FIFO">   --->   Core 78 'FIFO' <Latency = 0> <II = 1> <Delay = 1.14> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 128> <FIFO>
+ST_15 : Operation 118 [1/7] (2.34ns)   --->   "%add_7 = fadd i32 %in_1_val_7, i32 %in_2_val_7" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:412]   --->   Operation 118 'fadd' 'add_7' <Predicate = true> <Delay = 2.34> <CoreInst = "FAddSub_fulldsp">   --->   Core 18 'FAddSub_fulldsp' <Latency = 6> <II = 1> <Delay = 2.34> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+State 16 <SV = 15> <Delay = 1.14>
+ST_16 : Operation 119 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %krnl_bp_x_hat_copy_1_stream, void @empty_21, i32 0, i32 0, void @empty_17, i32 0, i32 0, void @empty_17, void @empty_17, void @empty_17, i32 0, i32 0, i32 0, i32 0, void @empty_17, void @empty_17, i32 4294967295, i32 0"   --->   Operation 119 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_16 : Operation 120 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %krnl_bp_u_copy_2_stream, void @empty_21, i32 0, i32 0, void @empty_17, i32 0, i32 0, void @empty_17, void @empty_17, void @empty_17, i32 0, i32 0, i32 0, i32 0, void @empty_17, void @empty_17, i32 4294967295, i32 0"   --->   Operation 120 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_16 : Operation 121 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %krnl_bp_x_hat_u_stream, void @empty_21, i32 0, i32 0, void @empty_17, i32 0, i32 0, void @empty_17, void @empty_17, void @empty_17, i32 0, i32 0, i32 0, i32 0, void @empty_17, void @empty_17, i32 4294967295, i32 0"   --->   Operation 121 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_16 : Operation 122 [1/1] (0.00ns)   --->   "%specpipeline_ln407 = specpipeline void @_ssdm_op_SpecPipeline, i32 4294967295, i32 0, i32 0, i32 0, void @empty_17" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:407]   --->   Operation 122 'specpipeline' 'specpipeline_ln407' <Predicate = true> <Delay = 0.00>
+ST_16 : Operation 123 [1/1] (0.00ns)   --->   "%bitcast_ln412_7 = bitcast i32 %add_7" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:412]   --->   Operation 123 'bitcast' 'bitcast_ln412_7' <Predicate = true> <Delay = 0.00>
+ST_16 : Operation 124 [1/1] (1.14ns)   --->   "%write_ln412 = write void @_ssdm_op_Write.ap_fifo.volatile.i32P0A, i32 %krnl_bp_x_hat_u_stream, i32 %bitcast_ln412_7" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:412]   --->   Operation 124 'write' 'write_ln412' <Predicate = true> <Delay = 1.14> <CoreInst = "FIFO">   --->   Core 78 'FIFO' <Latency = 0> <II = 1> <Delay = 1.14> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 128> <FIFO>
+ST_16 : Operation 125 [1/1] (0.00ns)   --->   "%ret_ln415 = ret" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:415]   --->   Operation 125 'ret' 'ret_ln415' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 3.33ns, clock uncertainty: 0.9ns.
+
+ <State 1>: 1.14ns
+The critical path consists of the following:
+	fifo read operation ('krnl_bp_x_hat_copy_1_stream_97', /home/bsheh002/ADMM07/alveo/src/bp.cpp:410) on port 'krnl_bp_x_hat_copy_1_stream' (/home/bsheh002/ADMM07/alveo/src/bp.cpp:410) [8]  (1.14 ns)
+
+ <State 2>: 2.34ns
+The critical path consists of the following:
+	'fadd' operation ('add', /home/bsheh002/ADMM07/alveo/src/bp.cpp:412) [12]  (2.34 ns)
+
+ <State 3>: 2.34ns
+The critical path consists of the following:
+	'fadd' operation ('add', /home/bsheh002/ADMM07/alveo/src/bp.cpp:412) [12]  (2.34 ns)
+
+ <State 4>: 2.34ns
+The critical path consists of the following:
+	'fadd' operation ('add', /home/bsheh002/ADMM07/alveo/src/bp.cpp:412) [12]  (2.34 ns)
+
+ <State 5>: 2.34ns
+The critical path consists of the following:
+	'fadd' operation ('add', /home/bsheh002/ADMM07/alveo/src/bp.cpp:412) [12]  (2.34 ns)
+
+ <State 6>: 2.34ns
+The critical path consists of the following:
+	'fadd' operation ('add', /home/bsheh002/ADMM07/alveo/src/bp.cpp:412) [12]  (2.34 ns)
+
+ <State 7>: 2.34ns
+The critical path consists of the following:
+	'fadd' operation ('add', /home/bsheh002/ADMM07/alveo/src/bp.cpp:412) [12]  (2.34 ns)
+
+ <State 8>: 2.34ns
+The critical path consists of the following:
+	'fadd' operation ('add', /home/bsheh002/ADMM07/alveo/src/bp.cpp:412) [12]  (2.34 ns)
+
+ <State 9>: 2.34ns
+The critical path consists of the following:
+	'fadd' operation ('add_1', /home/bsheh002/ADMM07/alveo/src/bp.cpp:412) [19]  (2.34 ns)
+
+ <State 10>: 2.34ns
+The critical path consists of the following:
+	'fadd' operation ('add_2', /home/bsheh002/ADMM07/alveo/src/bp.cpp:412) [26]  (2.34 ns)
+
+ <State 11>: 2.34ns
+The critical path consists of the following:
+	'fadd' operation ('add_3', /home/bsheh002/ADMM07/alveo/src/bp.cpp:412) [33]  (2.34 ns)
+
+ <State 12>: 2.34ns
+The critical path consists of the following:
+	'fadd' operation ('add_4', /home/bsheh002/ADMM07/alveo/src/bp.cpp:412) [40]  (2.34 ns)
+
+ <State 13>: 2.34ns
+The critical path consists of the following:
+	'fadd' operation ('add_5', /home/bsheh002/ADMM07/alveo/src/bp.cpp:412) [47]  (2.34 ns)
+
+ <State 14>: 2.34ns
+The critical path consists of the following:
+	'fadd' operation ('add_6', /home/bsheh002/ADMM07/alveo/src/bp.cpp:412) [54]  (2.34 ns)
+
+ <State 15>: 2.34ns
+The critical path consists of the following:
+	'fadd' operation ('add_7', /home/bsheh002/ADMM07/alveo/src/bp.cpp:412) [61]  (2.34 ns)
+
+ <State 16>: 1.14ns
+The critical path consists of the following:
+	fifo write operation ('write_ln412', /home/bsheh002/ADMM07/alveo/src/bp.cpp:412) on port 'krnl_bp_x_hat_u_stream' (/home/bsheh002/ADMM07/alveo/src/bp.cpp:412) [63]  (1.14 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+	State 12
+	State 13
+	State 14
+	State 15
+	State 16
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

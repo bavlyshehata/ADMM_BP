@@ -1,0 +1,22 @@
+---
+MainSourceFile:  /home/bsheh002/ADMM07/alveo/_x.hw.xilinx_u250_gen3x16_xdma_4_1_202210_1/admm/krnl_bp/krnl_bp/solution/.autopilot/db/bp.pp.0.cpp
+Diagnostics:     
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_229_1:  '
+    FileOffset:      229
+    FilePath:        /home/bsheh002/ADMM07/alveo/src/bp.cpp
+    Replacements:    
+      - FilePath:        /home/bsheh002/ADMM07/alveo/_x.hw.xilinx_u250_gen3x16_xdma_4_1_202210_1/admm/krnl_bp/krnl_bp/solution/.autopilot/db/bp.pp.0.cpp
+        Offset:          821608
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_229_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_236_1:  '
+    FileOffset:      236
+    FilePath:        /home/bsheh002/ADMM07/alveo/src/bp.cpp
+    Replacements:    
+      - FilePath:        /home/bsheh002/ADMM07/alveo/_x.hw.xilinx_u250_gen3x16_xdma_4_1_202210_1/admm/krnl_bp/krnl_bp/solution/.autopilot/db/bp.pp.0.cpp
+        Offset:          821735
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_236_1: '
+...

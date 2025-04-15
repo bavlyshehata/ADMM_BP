@@ -1,0 +1,15 @@
+Begin Function 'replicate_stream'
+
+RTL state condition: (1'b1 == ap_CS_fsm_pp0_stage0)
+# ST_2
+local tmp <nbreadreq_657> <integer> <> 'nbreadreq' </home/bsheh002/ADMM07/alveo/src/bp.cpp:657>
+tmp /home/bsheh002/ADMM07/alveo/src/bp.cpp:657
+reg: tmp_reg_117[0:0] lv
+
+local val <read_659> <integer> <FifoRead> 'read' </home/bsheh002/ADMM07/alveo/src/bp.cpp:659>
+val /home/bsheh002/ADMM07/alveo/src/bp.cpp:659
+reg: val_reg_121[31:0] lv
+
+
+End Function 'replicate_stream'
+

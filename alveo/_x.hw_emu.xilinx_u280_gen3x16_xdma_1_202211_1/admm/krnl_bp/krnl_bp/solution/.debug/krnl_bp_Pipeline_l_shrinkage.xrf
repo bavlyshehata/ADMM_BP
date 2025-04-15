@@ -1,0 +1,40 @@
+Begin Function 'krnl_bp_Pipeline_l_shrinkage'
+
+RTL state condition: (1'b1 == 1'b1)
+# ST_9
+local sub0 <fsub_557> <float> <MultiCycle> 'fsub' </home/bsheh002/ADMM07/alveo/src/bp.cpp:557>
+sub0 /home/bsheh002/ADMM07/alveo/src/bp.cpp:557
+reg: sub0_reg_275[31:0] lv
+
+local sub1 <fsub_558> <float> <MultiCycle> 'fsub' </home/bsheh002/ADMM07/alveo/src/bp.cpp:558>
+sub1 /home/bsheh002/ADMM07/alveo/src/bp.cpp:558
+reg: sub1_reg_282[31:0] lv
+
+# ST_11
+local abs0_1 <select_560> <float> <> 'select' </home/bsheh002/ADMM07/alveo/src/bp.cpp:560>
+abs0 /home/bsheh002/ADMM07/alveo/src/bp.cpp:560
+reg: abs0_1_reg_289[31:0] lv
+
+local abs1_1 <select_562> <float> <> 'select' </home/bsheh002/ADMM07/alveo/src/bp.cpp:562>
+abs1 /home/bsheh002/ADMM07/alveo/src/bp.cpp:562
+reg: abs1_1_reg_294[31:0] lv
+
+# ST_18
+local sub7_i <fsub_565> <float> <MultiCycle> 'fsub' </home/bsheh002/ADMM07/alveo/src/bp.cpp:565>
+sub7_i /home/bsheh002/ADMM07/alveo/src/bp.cpp:565
+reg: sub7_i_reg_299[31:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_pp0_stage0)
+# ST_2
+local x_hat_u_stream_read <read_556> <integer> <FifoRead> 'read' </home/bsheh002/ADMM07/alveo/src/bp.cpp:556>
+x_hat_u_stream_read /home/bsheh002/ADMM07/alveo/src/bp.cpp:556
+reg: x_hat_u_stream_read_reg_255[31:0] lv
+
+local xor_ln558 <xor_558> <integer> <Logic> 'xor' </home/bsheh002/ADMM07/alveo/src/bp.cpp:558>
+xor_ln558 /home/bsheh002/ADMM07/alveo/src/bp.cpp:558
+reg: xor_ln558_reg_260[31:0] lv
+
+
+End Function 'krnl_bp_Pipeline_l_shrinkage'
+

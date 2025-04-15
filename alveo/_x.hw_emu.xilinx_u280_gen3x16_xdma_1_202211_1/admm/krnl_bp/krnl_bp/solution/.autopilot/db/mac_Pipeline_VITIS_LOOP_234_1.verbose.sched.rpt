@@ -1,0 +1,145 @@
+
+
+================================================================
+== Vitis HLS Report for 'mac_Pipeline_VITIS_LOOP_234_1'
+================================================================
+* Date:           Tue Apr 15 09:07:21 2025
+
+* Version:        2022.2 (Build 3670227 on Oct 13 2022)
+* Project:        krnl_bp
+* Solution:       solution (Vitis Kernel Flow Target)
+* Product family: virtexuplus
+* Target device:  xcu280-fsvh2892-2L-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+---------+----------+------------+
+    |  Clock |  Target | Estimated| Uncertainty|
+    +--------+---------+----------+------------+
+    |ap_clk  |  3.33 ns|  1.889 ns|     0.90 ns|
+    +--------+---------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |       66|       66|  0.220 us|  0.220 us|   66|   66|       no|
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +--------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |                    |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
+        |      Loop Name     |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
+        +--------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |- VITIS_LOOP_234_1  |       64|       64|         2|          1|          1|    64|       yes|
+        +--------------------+---------+---------+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 2
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 1, depth = 2
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 2
+* Pipeline : 1
+  Pipeline-0 : II = 1, D = 2, States = { 1 2 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 1.09>
+ST_1 : Operation 5 [1/1] (0.00ns)   --->   "%ii = alloca i32 1"   --->   Operation 5 'alloca' 'ii' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 6 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %p_stream, void @empty_21, i32 0, i32 0, void @empty_17, i32 0, i32 0, void @empty_17, void @empty_17, void @empty_17, i32 0, i32 0, i32 0, i32 0, void @empty_17, void @empty_17, i32 4294967295, i32 0"   --->   Operation 6 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 7 [1/1] (0.38ns)   --->   "%store_ln0 = store i7 0, i7 %ii"   --->   Operation 7 'store' 'store_ln0' <Predicate = true> <Delay = 0.38>
+ST_1 : Operation 8 [1/1] (0.00ns)   --->   "%br_ln0 = br void %for.inc"   --->   Operation 8 'br' 'br_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 9 [1/1] (0.00ns)   --->   "%ii_3 = load i7 %ii" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:234]   --->   Operation 9 'load' 'ii_3' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 10 [1/1] (0.59ns)   --->   "%icmp_ln234 = icmp_eq  i7 %ii_3, i7 64" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:234]   --->   Operation 10 'icmp' 'icmp_ln234' <Predicate = true> <Delay = 0.59> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.59> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 11 [1/1] (0.00ns)   --->   "%empty = speclooptripcount i32 @_ssdm_op_SpecLoopTripCount, i64 64, i64 64, i64 64"   --->   Operation 11 'speclooptripcount' 'empty' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 12 [1/1] (0.70ns)   --->   "%add_ln234 = add i7 %ii_3, i7 1" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:234]   --->   Operation 12 'add' 'add_ln234' <Predicate = true> <Delay = 0.70> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.70> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 13 [1/1] (0.00ns)   --->   "%br_ln234 = br i1 %icmp_ln234, void %for.inc.split, void %for.body12.preheader.exitStub" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:234]   --->   Operation 13 'br' 'br_ln234' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 14 [1/1] (0.00ns)   --->   "%zext_ln234 = zext i7 %ii_3" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:234]   --->   Operation 14 'zext' 'zext_ln234' <Predicate = (!icmp_ln234)> <Delay = 0.00>
+ST_1 : Operation 15 [1/1] (0.00ns)   --->   "%mat_p_bram_addr = getelementptr i32 %mat_p_bram, i64 0, i64 %zext_ln234" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:236]   --->   Operation 15 'getelementptr' 'mat_p_bram_addr' <Predicate = (!icmp_ln234)> <Delay = 0.00>
+ST_1 : Operation 16 [2/2] (0.69ns)   --->   "%mat_p_bram_load = load i6 %mat_p_bram_addr" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:236]   --->   Operation 16 'load' 'mat_p_bram_load' <Predicate = (!icmp_ln234)> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 64> <RAM>
+ST_1 : Operation 17 [1/1] (0.38ns)   --->   "%store_ln234 = store i7 %add_ln234, i7 %ii" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:234]   --->   Operation 17 'store' 'store_ln234' <Predicate = (!icmp_ln234)> <Delay = 0.38>
+ST_1 : Operation 24 [1/1] (0.00ns)   --->   "%ret_ln0 = ret"   --->   Operation 24 'ret' 'ret_ln0' <Predicate = (icmp_ln234)> <Delay = 0.00>
+
+State 2 <SV = 1> <Delay = 1.88>
+ST_2 : Operation 18 [1/1] (0.00ns)   --->   "%specpipeline_ln235 = specpipeline void @_ssdm_op_SpecPipeline, i32 4294967295, i32 0, i32 0, i32 0, void @empty_17" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:235]   --->   Operation 18 'specpipeline' 'specpipeline_ln235' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 19 [1/1] (0.00ns)   --->   "%specloopname_ln234 = specloopname void @_ssdm_op_SpecLoopName, void @empty_29" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:234]   --->   Operation 19 'specloopname' 'specloopname_ln234' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 20 [1/2] (0.69ns)   --->   "%mat_p_bram_load = load i6 %mat_p_bram_addr" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:236]   --->   Operation 20 'load' 'mat_p_bram_load' <Predicate = true> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 64> <RAM>
+ST_2 : Operation 21 [1/1] (0.00ns)   --->   "%bitcast_ln236 = bitcast i32 %mat_p_bram_load" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:236]   --->   Operation 21 'bitcast' 'bitcast_ln236' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 22 [1/1] (1.19ns)   --->   "%write_ln236 = write void @_ssdm_op_Write.ap_fifo.volatile.i32P0A, i32 %p_stream, i32 %bitcast_ln236" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:236]   --->   Operation 22 'write' 'write_ln236' <Predicate = true> <Delay = 1.19> <CoreInst = "FIFO">   --->   Core 78 'FIFO' <Latency = 0> <II = 1> <Delay = 1.19> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 256> <FIFO>
+ST_2 : Operation 23 [1/1] (0.00ns)   --->   "%br_ln234 = br void %for.inc" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:234]   --->   Operation 23 'br' 'br_ln234' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 3.33ns, clock uncertainty: 0.9ns.
+
+ <State 1>: 1.09ns
+The critical path consists of the following:
+	'alloca' operation ('ii') [3]  (0 ns)
+	'load' operation ('ii', /home/bsheh002/ADMM07/alveo/src/bp.cpp:234) on local variable 'ii' [8]  (0 ns)
+	'add' operation ('add_ln234', /home/bsheh002/ADMM07/alveo/src/bp.cpp:234) [11]  (0.706 ns)
+	'store' operation ('store_ln234', /home/bsheh002/ADMM07/alveo/src/bp.cpp:234) of variable 'add_ln234', /home/bsheh002/ADMM07/alveo/src/bp.cpp:234 on local variable 'ii' [21]  (0.387 ns)
+
+ <State 2>: 1.89ns
+The critical path consists of the following:
+	'load' operation ('mat_p_bram_load', /home/bsheh002/ADMM07/alveo/src/bp.cpp:236) on array 'mat_p_bram' [18]  (0.699 ns)
+	fifo write operation ('write_ln236', /home/bsheh002/ADMM07/alveo/src/bp.cpp:236) on port 'p_stream' (/home/bsheh002/ADMM07/alveo/src/bp.cpp:236) [20]  (1.19 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

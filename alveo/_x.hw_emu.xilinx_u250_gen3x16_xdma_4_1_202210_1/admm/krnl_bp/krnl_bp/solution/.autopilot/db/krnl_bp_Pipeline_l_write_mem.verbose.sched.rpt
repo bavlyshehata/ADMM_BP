@@ -1,0 +1,151 @@
+
+
+================================================================
+== Vitis HLS Report for 'krnl_bp_Pipeline_l_write_mem'
+================================================================
+* Date:           Wed Aug  7 14:54:03 2024
+
+* Version:        2022.2 (Build 3670227 on Oct 13 2022)
+* Project:        krnl_bp
+* Solution:       solution (Vitis Kernel Flow Target)
+* Product family: virtexuplus
+* Target device:  xcu250-figd2104-2L-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+---------+----------+------------+
+    |  Clock |  Target | Estimated| Uncertainty|
+    +--------+---------+----------+------------+
+    |ap_clk  |  3.33 ns|  1.095 ns|     0.90 ns|
+    +--------+---------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+-----------+-----------+-----+-----+---------+
+    |  Latency (cycles) |   Latency (absolute)  |  Interval | Pipeline|
+    |   min   |   max   |    min    |    max    | min | max |   Type  |
+    +---------+---------+-----------+-----------+-----+-----+---------+
+    |       10|       10|  33.330 ns|  33.330 ns|   10|   10|       no|
+    +---------+---------+-----------+-----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +---------------+---------+---------+----------+-----------+-----------+------+----------+
+        |               |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
+        |   Loop Name   |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
+        +---------------+---------+---------+----------+-----------+-----------+------+----------+
+        |- l_write_mem  |        8|        8|         2|          1|          1|     8|       yes|
+        +---------------+---------+---------+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 2
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 1, depth = 2
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 2
+* Pipeline : 1
+  Pipeline-0 : II = 1, D = 2, States = { 1 2 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 1.09>
+ST_1 : Operation 5 [1/1] (0.00ns)   --->   "%shiftreg = alloca i32 1"   --->   Operation 5 'alloca' 'shiftreg' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 6 [1/1] (0.00ns)   --->   "%i = alloca i32 1"   --->   Operation 6 'alloca' 'i' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 7 [1/1] (0.38ns)   --->   "%store_ln0 = store i4 0, i4 %i"   --->   Operation 7 'store' 'store_ln0' <Predicate = true> <Delay = 0.38>
+ST_1 : Operation 8 [1/1] (0.38ns)   --->   "%store_ln0 = store i256 0, i256 %shiftreg"   --->   Operation 8 'store' 'store_ln0' <Predicate = true> <Delay = 0.38>
+ST_1 : Operation 9 [1/1] (0.00ns)   --->   "%br_ln0 = br void %for.inc.i109"   --->   Operation 9 'br' 'br_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 10 [1/1] (0.00ns)   --->   "%i_1 = load i4 %i" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:254]   --->   Operation 10 'load' 'i_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 11 [1/1] (0.65ns)   --->   "%icmp_ln254 = icmp_eq  i4 %i_1, i4 8" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:254]   --->   Operation 11 'icmp' 'icmp_ln254' <Predicate = true> <Delay = 0.65> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.65> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 12 [1/1] (0.00ns)   --->   "%empty = speclooptripcount i32 @_ssdm_op_SpecLoopTripCount, i64 8, i64 8, i64 8"   --->   Operation 12 'speclooptripcount' 'empty' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 13 [1/1] (0.70ns)   --->   "%add_ln254 = add i4 %i_1, i4 1" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:254]   --->   Operation 13 'add' 'add_ln254' <Predicate = true> <Delay = 0.70> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.70> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 14 [1/1] (0.00ns)   --->   "%br_ln254 = br i1 %icmp_ln254, void %for.inc.i109.split, void %_ZL9write_memPfS_.exit.exitStub" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:254]   --->   Operation 14 'br' 'br_ln254' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 15 [1/1] (0.00ns)   --->   "%zext_ln254 = zext i4 %i_1" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:254]   --->   Operation 15 'zext' 'zext_ln254' <Predicate = (!icmp_ln254)> <Delay = 0.00>
+ST_1 : Operation 16 [1/1] (0.00ns)   --->   "%x_bram_addr = getelementptr i32 %x_bram, i64 0, i64 %zext_ln254" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:256]   --->   Operation 16 'getelementptr' 'x_bram_addr' <Predicate = (!icmp_ln254)> <Delay = 0.00>
+ST_1 : Operation 17 [2/2] (0.69ns)   --->   "%x_bram_load = load i3 %x_bram_addr" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:256]   --->   Operation 17 'load' 'x_bram_load' <Predicate = (!icmp_ln254)> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_1 : Operation 18 [1/1] (0.38ns)   --->   "%store_ln254 = store i4 %add_ln254, i4 %i" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:254]   --->   Operation 18 'store' 'store_ln254' <Predicate = (!icmp_ln254)> <Delay = 0.38>
+ST_1 : Operation 28 [1/1] (0.00ns)   --->   "%shiftreg_load = load i256 %shiftreg"   --->   Operation 28 'load' 'shiftreg_load' <Predicate = (icmp_ln254)> <Delay = 0.00>
+ST_1 : Operation 29 [1/1] (0.00ns)   --->   "%write_ln0 = write void @_ssdm_op_Write.ap_auto.i256P0A, i256 %shiftreg_out, i256 %shiftreg_load"   --->   Operation 29 'write' 'write_ln0' <Predicate = (icmp_ln254)> <Delay = 0.00>
+ST_1 : Operation 30 [1/1] (0.00ns)   --->   "%ret_ln0 = ret"   --->   Operation 30 'ret' 'ret_ln0' <Predicate = (icmp_ln254)> <Delay = 0.00>
+
+State 2 <SV = 1> <Delay = 1.08>
+ST_2 : Operation 19 [1/1] (0.00ns)   --->   "%shiftreg_load_1 = load i256 %shiftreg" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:256]   --->   Operation 19 'load' 'shiftreg_load_1' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 20 [1/1] (0.00ns)   --->   "%specpipeline_ln255 = specpipeline void @_ssdm_op_SpecPipeline, i32 4294967295, i32 0, i32 0, i32 0, void @empty_22" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:255]   --->   Operation 20 'specpipeline' 'specpipeline_ln255' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 21 [1/1] (0.00ns)   --->   "%specloopname_ln254 = specloopname void @_ssdm_op_SpecLoopName, void @empty_16" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:254]   --->   Operation 21 'specloopname' 'specloopname_ln254' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 22 [1/2] (0.69ns)   --->   "%x_bram_load = load i3 %x_bram_addr" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:256]   --->   Operation 22 'load' 'x_bram_load' <Predicate = true> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_2 : Operation 23 [1/1] (0.00ns)   --->   "%bitcast_ln256 = bitcast i32 %x_bram_load" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:256]   --->   Operation 23 'bitcast' 'bitcast_ln256' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 24 [1/1] (0.00ns)   --->   "%lshr_ln = partselect i224 @_ssdm_op_PartSelect.i224.i256.i32.i32, i256 %shiftreg_load_1, i32 32, i32 255" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:256]   --->   Operation 24 'partselect' 'lshr_ln' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 25 [1/1] (0.00ns)   --->   "%or_ln = bitconcatenate i256 @_ssdm_op_BitConcatenate.i256.i32.i224, i32 %bitcast_ln256, i224 %lshr_ln" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:256]   --->   Operation 25 'bitconcatenate' 'or_ln' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 26 [1/1] (0.38ns)   --->   "%store_ln254 = store i256 %or_ln, i256 %shiftreg" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:254]   --->   Operation 26 'store' 'store_ln254' <Predicate = true> <Delay = 0.38>
+ST_2 : Operation 27 [1/1] (0.00ns)   --->   "%br_ln254 = br void %for.inc.i109" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:254]   --->   Operation 27 'br' 'br_ln254' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 3.33ns, clock uncertainty: 0.9ns.
+
+ <State 1>: 1.09ns
+The critical path consists of the following:
+	'alloca' operation ('i') [4]  (0 ns)
+	'load' operation ('i', /home/bsheh002/ADMM07/alveo/src/bp.cpp:254) on local variable 'i' [9]  (0 ns)
+	'add' operation ('add_ln254', /home/bsheh002/ADMM07/alveo/src/bp.cpp:254) [12]  (0.708 ns)
+	'store' operation ('store_ln254', /home/bsheh002/ADMM07/alveo/src/bp.cpp:254) of variable 'add_ln254', /home/bsheh002/ADMM07/alveo/src/bp.cpp:254 on local variable 'i' [24]  (0.387 ns)
+
+ <State 2>: 1.09ns
+The critical path consists of the following:
+	'load' operation ('x_bram_load', /home/bsheh002/ADMM07/alveo/src/bp.cpp:256) on array 'x_bram' [20]  (0.699 ns)
+	'store' operation ('store_ln254', /home/bsheh002/ADMM07/alveo/src/bp.cpp:254) of variable 'or_ln', /home/bsheh002/ADMM07/alveo/src/bp.cpp:256 on local variable 'shiftreg' [25]  (0.387 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

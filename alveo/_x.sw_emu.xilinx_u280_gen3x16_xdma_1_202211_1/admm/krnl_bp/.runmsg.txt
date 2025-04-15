@@ -1,0 +1,2 @@
+performing high-level synthesis for kernel: krnl_bp
+Log file: /home/bsheh002/ADMM07/alveo/_x.sw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/admm/krnl_bp/vitis_hls.log

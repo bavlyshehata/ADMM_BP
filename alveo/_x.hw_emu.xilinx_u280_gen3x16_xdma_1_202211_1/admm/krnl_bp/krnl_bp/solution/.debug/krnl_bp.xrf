@@ -1,0 +1,232 @@
+Begin Function 'krnl_bp'
+
+RTL state condition: (1'b1 == ap_CS_fsm_state1)
+# ST_1
+local out_r_read <> <integer> <> 'read' <>
+reg: out_r_read_reg_1102[63:0] lv
+
+local trunc_ln <partselect_19> <integer> <> 'partselect' </home/bsheh002/ADMM07/alveo/src/bp.cpp:19>
+trunc_ln /home/bsheh002/ADMM07/alveo/src/bp.cpp:19
+reg: trunc_ln_reg_1143[57:0] lv
+
+local trunc_ln19_1 <partselect_19> <integer> <> 'partselect' </home/bsheh002/ADMM07/alveo/src/bp.cpp:19>
+trunc_ln19_1 /home/bsheh002/ADMM07/alveo/src/bp.cpp:19
+reg: trunc_ln19_1_reg_1149[58:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_state100)
+# ST_100
+
+RTL state condition: (1'b1 == ap_CS_fsm_state103)
+# ST_103
+
+RTL state condition: (1'b1 == ap_CS_fsm_state106)
+# ST_106
+
+RTL state condition: (1'b1 == ap_CS_fsm_state109)
+# ST_109
+
+RTL state condition: (1'b1 == ap_CS_fsm_state111)
+# ST_111
+
+RTL state condition: (1'b1 == ap_CS_fsm_state113)
+# ST_113
+
+RTL state condition: (1'b1 == ap_CS_fsm_state129)
+# ST_129
+
+RTL state condition: (1'b1 == ap_CS_fsm_state131)
+# ST_131
+
+RTL state condition: (1'b1 == ap_CS_fsm_state133)
+# ST_133
+
+RTL state condition: (1'b1 == ap_CS_fsm_state135)
+# ST_135
+
+RTL state condition: (1'b1 == ap_CS_fsm_state151)
+# ST_151
+
+RTL state condition: (1'b1 == ap_CS_fsm_state153)
+# ST_153
+
+RTL state condition: (1'b1 == ap_CS_fsm_state165)
+# ST_165
+local norm_u <fsqrt_1090> <float> <MultiCycle> 'fsqrt' </home/bsheh002/ADMM07/alveo/src/bp.cpp:1090>
+norm_u /home/bsheh002/ADMM07/alveo/src/bp.cpp:1090
+reg: reg_680[31:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_state167)
+# ST_167
+local norm_x <fsqrt_1086> <float> <MultiCycle> 'fsqrt' </home/bsheh002/ADMM07/alveo/src/bp.cpp:1086>
+norm_x /home/bsheh002/ADMM07/alveo/src/bp.cpp:1086
+reg: norm_x_reg_1202[31:0] lv
+
+local norm_z <fsqrt_1088> <float> <MultiCycle> 'fsqrt' </home/bsheh002/ADMM07/alveo/src/bp.cpp:1088>
+norm_z /home/bsheh002/ADMM07/alveo/src/bp.cpp:1088
+reg: reg_686[31:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_state169)
+# ST_169
+local select_ln868 <select_868> <float> <> 'select' </home/bsheh002/ADMM07/alveo/src/bp.cpp:868>
+select_ln868 /home/bsheh002/ADMM07/alveo/src/bp.cpp:868
+reg: select_ln868_reg_1209[31:0] lv
+
+local mul1_i1 <fmul_871> <float> <MultiCycle> 'fmul' </home/bsheh002/ADMM07/alveo/src/bp.cpp:871>
+mul1_i1 /home/bsheh002/ADMM07/alveo/src/bp.cpp:871
+reg: reg_692[31:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_state173)
+# ST_173
+local mul1_i <fmul_868> <float> <MultiCycle> 'fmul' </home/bsheh002/ADMM07/alveo/src/bp.cpp:868>
+mul1_i /home/bsheh002/ADMM07/alveo/src/bp.cpp:868
+reg: reg_692[31:0] lv
+
+local mul2_i <fmul_871> <float> <MultiCycle> 'fmul' </home/bsheh002/ADMM07/alveo/src/bp.cpp:871>
+mul2_i /home/bsheh002/ADMM07/alveo/src/bp.cpp:871
+reg: mul2_i_reg_1214[31:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_state175)
+# ST_175
+local conv2_i <fpext_868> <double> <MultiCycle> 'fpext' </home/bsheh002/ADMM07/alveo/src/bp.cpp:868>
+conv2_i /home/bsheh002/ADMM07/alveo/src/bp.cpp:868
+reg: conv2_i_reg_1225[63:0] lv
+
+local conv3_i <fpext_871> <double> <MultiCycle> 'fpext' </home/bsheh002/ADMM07/alveo/src/bp.cpp:871>
+conv3_i /home/bsheh002/ADMM07/alveo/src/bp.cpp:871
+reg: conv3_i_reg_1230[63:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_state183)
+# ST_183
+local add_i <dadd_868> <double> <MultiCycle> 'dadd' </home/bsheh002/ADMM07/alveo/src/bp.cpp:868>
+add_i /home/bsheh002/ADMM07/alveo/src/bp.cpp:868
+reg: add_i_reg_1235[63:0] lv
+
+local add_i1 <dadd_871> <double> <MultiCycle> 'dadd' </home/bsheh002/ADMM07/alveo/src/bp.cpp:871>
+add_i1 /home/bsheh002/ADMM07/alveo/src/bp.cpp:871
+reg: add_i1_reg_1240[63:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_state185)
+# ST_185
+local r_norm <fsqrt_1082> <float> <MultiCycle> 'fsqrt' </home/bsheh002/ADMM07/alveo/src/bp.cpp:1082>
+r_norm /home/bsheh002/ADMM07/alveo/src/bp.cpp:1082
+reg: reg_680[31:0] lv
+
+local s_norm <fsqrt_1084> <float> <MultiCycle> 'fsqrt' </home/bsheh002/ADMM07/alveo/src/bp.cpp:1084>
+s_norm /home/bsheh002/ADMM07/alveo/src/bp.cpp:1084
+reg: reg_686[31:0] lv
+
+local eps_pri <fptrunc_868> <float> <MultiCycle> 'fptrunc' </home/bsheh002/ADMM07/alveo/src/bp.cpp:868>
+eps_pri /home/bsheh002/ADMM07/alveo/src/bp.cpp:868
+reg: eps_pri_reg_1245[31:0] lv
+
+local eps_dual <fptrunc_871> <float> <MultiCycle> 'fptrunc' </home/bsheh002/ADMM07/alveo/src/bp.cpp:871>
+eps_dual /home/bsheh002/ADMM07/alveo/src/bp.cpp:871
+reg: eps_dual_reg_1251[31:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_state186)
+# ST_186
+local icmp_ln1099 <icmp_1099> <integer> <Comparator> 'icmp' </home/bsheh002/ADMM07/alveo/src/bp.cpp:1099>
+icmp_ln1099 /home/bsheh002/ADMM07/alveo/src/bp.cpp:1099
+reg: icmp_ln1099_reg_1257[0:0] lv
+
+local icmp_ln1099_1 <icmp_1099> <integer> <Comparator> 'icmp' </home/bsheh002/ADMM07/alveo/src/bp.cpp:1099>
+icmp_ln1099_1 /home/bsheh002/ADMM07/alveo/src/bp.cpp:1099
+reg: icmp_ln1099_1_reg_1262[0:0] lv
+
+local icmp_ln1099_2 <icmp_1099> <integer> <Comparator> 'icmp' </home/bsheh002/ADMM07/alveo/src/bp.cpp:1099>
+icmp_ln1099_2 /home/bsheh002/ADMM07/alveo/src/bp.cpp:1099
+reg: icmp_ln1099_2_reg_1267[0:0] lv
+
+local icmp_ln1099_3 <icmp_1099> <integer> <Comparator> 'icmp' </home/bsheh002/ADMM07/alveo/src/bp.cpp:1099>
+icmp_ln1099_3 /home/bsheh002/ADMM07/alveo/src/bp.cpp:1099
+reg: icmp_ln1099_3_reg_1272[0:0] lv
+
+local icmp_ln1099_4 <icmp_1099> <integer> <Comparator> 'icmp' </home/bsheh002/ADMM07/alveo/src/bp.cpp:1099>
+icmp_ln1099_4 /home/bsheh002/ADMM07/alveo/src/bp.cpp:1099
+reg: icmp_ln1099_4_reg_1277[0:0] lv
+
+local icmp_ln1099_5 <icmp_1099> <integer> <Comparator> 'icmp' </home/bsheh002/ADMM07/alveo/src/bp.cpp:1099>
+icmp_ln1099_5 /home/bsheh002/ADMM07/alveo/src/bp.cpp:1099
+reg: icmp_ln1099_5_reg_1282[0:0] lv
+
+local icmp_ln1099_6 <icmp_1099> <integer> <Comparator> 'icmp' </home/bsheh002/ADMM07/alveo/src/bp.cpp:1099>
+icmp_ln1099_6 /home/bsheh002/ADMM07/alveo/src/bp.cpp:1099
+reg: icmp_ln1099_6_reg_1287[0:0] lv
+
+local icmp_ln1099_7 <icmp_1099> <integer> <Comparator> 'icmp' </home/bsheh002/ADMM07/alveo/src/bp.cpp:1099>
+icmp_ln1099_7 /home/bsheh002/ADMM07/alveo/src/bp.cpp:1099
+reg: icmp_ln1099_7_reg_1292[0:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_state187)
+# ST_187
+local trunc_ln1 <partselect_1127> <integer> <> 'partselect' </home/bsheh002/ADMM07/alveo/src/bp.cpp:1127>
+trunc_ln1 /home/bsheh002/ADMM07/alveo/src/bp.cpp:1127
+reg: trunc_ln1_reg_1300[58:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_state188)
+# ST_188
+
+RTL state condition: (1'b1 == ap_CS_fsm_state191)
+# ST_191
+
+RTL state condition: (1'b1 == ap_CS_fsm_state194)
+# ST_194
+
+RTL state condition: (1'b1 == ap_CS_fsm_state72)
+# ST_72
+local gmem1_addr_read <read_19> <integer> <> 'read' </home/bsheh002/ADMM07/alveo/src/bp.cpp:19>
+gmem1_addr_read /home/bsheh002/ADMM07/alveo/src/bp.cpp:19
+reg: gmem1_addr_read_reg_1165[255:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_state74)
+# ST_74
+
+RTL state condition: (1'b1 == ap_CS_fsm_state76)
+# ST_76
+
+RTL state condition: (1'b1 == ap_CS_fsm_state79)
+# ST_79
+
+RTL state condition: (1'b1 == ap_CS_fsm_state82)
+# ST_82
+
+RTL state condition: (1'b1 == ap_CS_fsm_state83)
+# ST_83
+local sub1 <> <float> <> 'bitcast' <>
+reg: sub1_reg_1183[31:0] lv
+
+local reg_alpha <> <float> <MultiCycle> 'fsub' <>
+reg: reg_alpha_reg_1188[31:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_state85)
+# ST_85
+
+RTL state condition: (1'b1 == ap_CS_fsm_state87)
+# ST_87
+
+RTL state condition: (1'b1 == ap_CS_fsm_state90)
+# ST_90
+
+RTL state condition: (1'b1 == ap_CS_fsm_state92)
+# ST_92
+
+RTL state condition: (1'b1 == ap_CS_fsm_state94)
+# ST_94
+
+RTL state condition: (1'b1 == ap_CS_fsm_state97)
+# ST_97
+
+End Function 'krnl_bp'
+

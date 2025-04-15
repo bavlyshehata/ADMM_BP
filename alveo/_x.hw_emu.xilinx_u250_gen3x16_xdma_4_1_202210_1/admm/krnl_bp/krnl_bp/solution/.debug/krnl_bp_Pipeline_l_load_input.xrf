@@ -1,0 +1,24 @@
+Begin Function 'krnl_bp_Pipeline_l_load_input'
+
+RTL state condition: (1'b1 == ap_CS_fsm_pp0_stage0)
+# ST_1
+local i_4 <load_15> <integer> <> 'load' </home/bsheh002/ADMM07/alveo/src/bp.cpp:15>
+i /home/bsheh002/ADMM07/alveo/src/bp.cpp:15
+reg: i_4_reg_206[6:0] lv
+
+local icmp_ln15 <icmp_15> <integer> <Comparator> 'icmp' </home/bsheh002/ADMM07/alveo/src/bp.cpp:15>
+icmp_ln15 /home/bsheh002/ADMM07/alveo/src/bp.cpp:15
+reg: icmp_ln15_reg_211[0:0] lv
+
+local icmp_ln17 <icmp_17> <integer> <Comparator> 'icmp' </home/bsheh002/ADMM07/alveo/src/bp.cpp:17>
+icmp_ln17 /home/bsheh002/ADMM07/alveo/src/bp.cpp:17
+reg: icmp_ln17_reg_215[0:0] lv
+
+# ST_2
+local gmem0_addr_read <read_17> <integer> <> 'read' </home/bsheh002/ADMM07/alveo/src/bp.cpp:17>
+gmem0_addr_read /home/bsheh002/ADMM07/alveo/src/bp.cpp:17
+reg: gmem0_addr_read_reg_219[511:0] lv
+
+
+End Function 'krnl_bp_Pipeline_l_load_input'
+

@@ -1,0 +1,20 @@
+# Vitis/Vivado HLS artifacts
+.Xil/
+.x/
+.run/
+.ipcache/
+logs/
+reports/
+link/
+common/
+build_dir.*/
+package.hw*
+package.sw_emu/
+*.xo
+*.pb3
+*.xml
+*.compile_summary
+*.log
+*.backup.log
+*.jou
+*.str

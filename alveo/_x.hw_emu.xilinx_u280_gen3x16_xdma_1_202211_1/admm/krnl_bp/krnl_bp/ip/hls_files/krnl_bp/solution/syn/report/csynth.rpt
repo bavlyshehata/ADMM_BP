@@ -1,0 +1,383 @@
+
+
+================================================================
+== Synthesis Summary Report of 'krnl_bp'
+================================================================
++ General Information: 
+    * Date:           Tue Apr 15 09:07:57 2025
+    * Version:        2022.2 (Build 3670227 on Oct 13 2022)
+    * Project:        krnl_bp
+    * Solution:       solution (Vitis Kernel Flow Target)
+    * Product family: virtexuplus
+    * Target device:  xcu280-fsvh2892-2L-e
+    
+
++ Performance & Resource Estimates: 
+    
+    PS: '+' for module; 'o' for loop; '*' for dataflow
+    +----------------------------------------+--------+-------+---------+-----------+----------+---------+------+----------+---------+----------+-------------+------------+-----+
+    |                 Modules                |  Issue |       | Latency |  Latency  | Iteration|         | Trip |          |         |          |             |            |     |
+    |                 & Loops                |  Type  | Slack | (cycles)|    (ns)   |  Latency | Interval| Count| Pipelined|  BRAM   |    DSP   |      FF     |     LUT    | URAM|
+    +----------------------------------------+--------+-------+---------+-----------+----------+---------+------+----------+---------+----------+-------------+------------+-----+
+    |+ krnl_bp                               |  Timing|  -0.00|        -|          -|         -|        -|     -|        no|  7 (~0%)|  78 (~0%)|   34379 (1%)|  38688 (2%)|    -|
+    | + krnl_bp_Pipeline_l_load_input        |  Timing|  -0.00|       67|    223.311|         -|       67|     -|        no|        -|         -|   1022 (~0%)|   118 (~0%)|    -|
+    |  o l_load_input                        |       -|   2.43|       65|    216.645|         3|        1|    64|       yes|        -|         -|            -|           -|    -|
+    | + krnl_bp_Pipeline_l_load_input1       |       -|   1.08|       10|     33.330|         -|       10|     -|        no|        -|         -|    263 (~0%)|    65 (~0%)|    -|
+    |  o l_load_input                        |       -|   2.43|        8|     26.664|         1|        1|     8|       yes|        -|         -|            -|           -|    -|
+    | + krnl_bp_Pipeline_VITIS_LOOP_677_1    |       -|   1.29|       10|     33.330|         -|       10|     -|        no|        -|         -|      7 (~0%)|    76 (~0%)|    -|
+    |  o VITIS_LOOP_677_1                    |       -|   2.43|        8|     26.664|         2|        1|     8|       yes|        -|         -|            -|           -|    -|
+    | + krnl_bp_Pipeline_VITIS_LOOP_677_12   |       -|   1.29|       10|     33.330|         -|       10|     -|        no|        -|         -|      7 (~0%)|    76 (~0%)|    -|
+    |  o VITIS_LOOP_677_1                    |       -|   2.43|        8|     26.664|         2|        1|     8|       yes|        -|         -|            -|           -|    -|
+    | + krnl_bp_Pipeline_VITIS_LOOP_677_13   |       -|   1.29|       10|     33.330|         -|       10|     -|        no|        -|         -|      7 (~0%)|    76 (~0%)|    -|
+    |  o VITIS_LOOP_677_1                    |       -|   2.43|        8|     26.664|         2|        1|     8|       yes|        -|         -|            -|           -|    -|
+    | + krnl_bp_Pipeline_VITIS_LOOP_843_1    |       -|   1.29|       10|     33.330|         -|       10|     -|        no|        -|         -|      7 (~0%)|    76 (~0%)|    -|
+    |  o VITIS_LOOP_843_1                    |       -|   2.43|        8|     26.664|         2|        1|     8|       yes|        -|         -|            -|           -|    -|
+    | + krnl_bp_Pipeline_VITIS_LOOP_843_15   |       -|   1.29|       10|     33.330|         -|       10|     -|        no|        -|         -|      7 (~0%)|    76 (~0%)|    -|
+    |  o VITIS_LOOP_843_1                    |       -|   2.43|        8|     26.664|         2|        1|     8|       yes|        -|         -|            -|           -|    -|
+    | + krnl_bp_Pipeline_VITIS_LOOP_843_16   |       -|   1.29|       10|     33.330|         -|       10|     -|        no|        -|         -|      7 (~0%)|    76 (~0%)|    -|
+    |  o VITIS_LOOP_843_1                    |       -|   2.43|        8|     26.664|         2|        1|     8|       yes|        -|         -|            -|           -|    -|
+    | + krnl_bp_Pipeline_l_write_mem         |       -|   1.34|       10|     33.330|         -|       10|     -|        no|        -|         -|    263 (~0%)|    74 (~0%)|    -|
+    |  o l_write_mem                         |       -|   2.43|        8|     26.664|         2|        1|     8|       yes|        -|         -|            -|           -|    -|
+    | o l_main                               |       -|   2.43|        -|          -|      1111|        -|     -|        no|        -|         -|            -|           -|    -|
+    |  + replicate_stream                    |       -|   1.29|       11|     36.663|         -|       11|     -|        no|        -|         -|     42 (~0%)|   109 (~0%)|    -|
+    |   o l_rep_stream_1                     |       -|   2.43|        9|     29.997|         3|        1|     8|       yes|        -|         -|            -|           -|    -|
+    |  + krnl_bp_Pipeline_VITIS_LOOP_980_1   |       -|   0.15|       10|     33.330|         -|       10|     -|        no|        -|         -|      7 (~0%)|    89 (~0%)|    -|
+    |   o VITIS_LOOP_980_1                   |       -|   2.43|        8|     26.664|         2|        1|     8|       yes|        -|         -|            -|           -|    -|
+    |  + krnl_bp_Pipeline_l_vec_sub          |       -|   0.09|       18|     59.994|         -|       18|     -|        no|        -|         -|    249 (~0%)|   186 (~0%)|    -|
+    |   o l_vec_sub                          |       -|   2.43|       16|     53.328|        10|        1|     8|       yes|        -|         -|            -|           -|    -|
+    |  + mac                                 |       -|   0.09|      618|  2.060e+03|         -|      618|     -|        no|  1 (~0%)|         -|    342 (~0%)|   628 (~0%)|    -|
+    |   + mac_Pipeline_VITIS_LOOP_234_1      |       -|   0.54|       66|    219.978|         -|       66|     -|        no|        -|         -|     10 (~0%)|    80 (~0%)|    -|
+    |    o VITIS_LOOP_234_1                  |       -|   2.43|       64|    213.312|         2|        1|    64|       yes|        -|         -|            -|           -|    -|
+    |   + mac_Pipeline_VITIS_LOOP_242_2      |       -|   0.59|       10|     33.330|         -|       10|     -|        no|        -|         -|     11 (~0%)|   110 (~0%)|    -|
+    |    o VITIS_LOOP_242_2                  |       -|   2.43|        8|     26.664|         2|        1|     8|       yes|        -|         -|            -|           -|    -|
+    |   o VITIS_LOOP_256_3                   |       -|   2.43|      536|  1.786e+03|        67|        -|     8|        no|        -|         -|            -|           -|    -|
+    |    + mac_Pipeline_VITIS_LOOP_259_4     |       -|   0.09|       64|    213.312|         -|       64|     -|        no|        -|         -|    177 (~0%)|   152 (~0%)|    -|
+    |     o VITIS_LOOP_259_4                 |      II|   2.43|       62|    206.646|        14|        7|     8|       yes|        -|         -|            -|           -|    -|
+    |  + krnl_bp_Pipeline_VITIS_LOOP_1001_2  |       -|   0.05|       10|     33.330|         -|       10|     -|        no|        -|         -|      7 (~0%)|    89 (~0%)|    -|
+    |   o VITIS_LOOP_1001_2                  |       -|   2.43|        8|     26.664|         2|        1|     8|       yes|        -|         -|            -|           -|    -|
+    |  + krnl_bp_Pipeline_VITIS_LOOP_367_1   |       -|   0.05|       10|     33.330|         -|       10|     -|        no|        -|         -|      7 (~0%)|    89 (~0%)|    -|
+    |   o VITIS_LOOP_367_1                   |       -|   2.43|        8|     26.664|         2|        1|     8|       yes|        -|         -|            -|           -|    -|
+    |  + krnl_bp_Pipeline_VITIS_LOOP_380_2   |       -|   0.51|       10|     33.330|         -|       10|     -|        no|        -|         -|      7 (~0%)|    76 (~0%)|    -|
+    |   o VITIS_LOOP_380_2                   |       -|   2.43|        8|     26.664|         2|        1|     8|       yes|        -|         -|            -|           -|    -|
+    |  + krnl_bp_Pipeline_VITIS_LOOP_386_3   |       -|   0.09|       18|     59.994|         -|       18|     -|        no|        -|         -|    249 (~0%)|   186 (~0%)|    -|
+    |   o VITIS_LOOP_386_3                   |       -|   2.43|       16|     53.328|        10|        1|     8|       yes|        -|         -|            -|           -|    -|
+    |  + krnl_bp_Pipeline_VITIS_LOOP_514_1   |       -|   0.15|       10|     33.330|         -|       10|     -|        no|        -|         -|      7 (~0%)|    89 (~0%)|    -|
+    |   o VITIS_LOOP_514_1                   |       -|   2.43|        8|     26.664|         2|        1|     8|       yes|        -|         -|            -|           -|    -|
+    |  + krnl_bp_Pipeline_VITIS_LOOP_526_2   |       -|   0.09|       22|     73.326|         -|       22|     -|        no|        -|         -|    321 (~0%)|   186 (~0%)|    -|
+    |   o VITIS_LOOP_526_2                   |       -|   2.43|       20|     66.660|        14|        1|     8|       yes|        -|         -|            -|           -|    -|
+    |  + krnl_bp_Pipeline_l_write_bram       |       -|   0.59|       10|     33.330|         -|       10|     -|        no|        -|         -|     11 (~0%)|    76 (~0%)|    -|
+    |   o l_write_bram                       |       -|   2.43|        8|     26.664|         2|        1|     8|       yes|        -|         -|            -|           -|    -|
+    |  + vec_add                             |      II|   0.09|       15|     49.995|         -|        8|     -|       yes|        -|   2 (~0%)|    424 (~0%)|   444 (~0%)|    -|
+    |  + krnl_bp_Pipeline_l_shrinkage        |       -|   0.09|       27|     89.991|         -|       27|     -|        no|        -|   4 (~0%)|    965 (~0%)|   640 (~0%)|    -|
+    |   o l_shrinkage                        |       -|   2.43|       25|     83.325|        19|        1|     8|       yes|        -|         -|            -|           -|    -|
+    |  + krnl_bp_Pipeline_l_vec_sub4         |       -|   0.09|       18|     59.994|         -|       18|     -|        no|        -|         -|    249 (~0%)|   186 (~0%)|    -|
+    |   o l_vec_sub                          |       -|   2.43|       16|     53.328|        10|        1|     8|       yes|        -|         -|            -|           -|    -|
+    |  + krnl_bp_Pipeline_VITIS_LOOP_1045_3  |       -|   0.01|      193|    643.269|         -|      193|     -|        no|  5 (~0%)|  58 (~0%)|  14445 (~0%)|  9808 (~0%)|    -|
+    |   o VITIS_LOOP_1045_3                  |      II|   2.43|      191|    636.603|       108|       12|     8|       yes|        -|         -|            -|           -|    -|
+    |    + pow_generic_double_s              |      II|   0.01|       78|    259.974|         -|        1|     -|       yes|  5 (~0%)|  58 (~0%)|  12962 (~0%)|  9281 (~0%)|    -|
+    +----------------------------------------+--------+-------+---------+-----------+----------+---------+------+----------+---------+----------+-------------+------------+-----+
+
+
+================================================================
+== HW Interfaces
+================================================================
+* M_AXI
++-------------+------------+---------------+---------+--------+----------+-----------+--------------+--------------+-------------+-------------+
+| Interface   | Data Width | Address Width | Latency | Offset | Register | Max Widen | Max Read     | Max Write    | Num Read    | Num Write   |
+|             | (SW->HW)   |               |         |        |          | Bitwidth  | Burst Length | Burst Length | Outstanding | Outstanding |
++-------------+------------+---------------+---------+--------+----------+-----------+--------------+--------------+-------------+-------------+
+| m_axi_gmem0 | 32 -> 512  | 64            | 64      | slave  | 0        | 512       | 16           | 16           | 16          | 16          |
+| m_axi_gmem1 | 32 -> 256  | 64            | 64      | slave  | 0        | 512       | 16           | 16           | 16          | 16          |
+| m_axi_gmem2 | 32 -> 256  | 64            | 64      | slave  | 0        | 512       | 16           | 16           | 16          | 16          |
++-------------+------------+---------------+---------+--------+----------+-----------+--------------+--------------+-------------+-------------+
+
+* S_AXILITE Interfaces
++---------------+------------+---------------+--------+----------+
+| Interface     | Data Width | Address Width | Offset | Register |
++---------------+------------+---------------+--------+----------+
+| s_axi_control | 32         | 7             | 16     | 0        |
++---------------+------------+---------------+--------+----------+
+
+* S_AXILITE Registers
++---------------+----------+--------+-------+--------+----------------------------------+------------------------------------------------------------------------------------+
+| Interface     | Register | Offset | Width | Access | Description                      | Bit Fields                                                                         |
++---------------+----------+--------+-------+--------+----------------------------------+------------------------------------------------------------------------------------+
+| s_axi_control | CTRL     | 0x00   | 32    | RW     | Control signals                  | 0=AP_START 1=AP_DONE 2=AP_IDLE 3=AP_READY 4=AP_CONTINUE 7=AUTO_RESTART 9=INTERRUPT |
+| s_axi_control | GIER     | 0x04   | 32    | RW     | Global Interrupt Enable Register | 0=Enable                                                                           |
+| s_axi_control | IP_IER   | 0x08   | 32    | RW     | IP Interrupt Enable Register     | 0=CHAN0_INT_EN 1=CHAN1_INT_EN                                                      |
+| s_axi_control | IP_ISR   | 0x0c   | 32    | RW     | IP Interrupt Status Register     | 0=CHAN0_INT_ST 1=CHAN1_INT_ST                                                      |
+| s_axi_control | mat_p_1  | 0x10   | 32    | W      | Data signal of mat_p             |                                                                                    |
+| s_axi_control | mat_p_2  | 0x14   | 32    | W      | Data signal of mat_p             |                                                                                    |
+| s_axi_control | vec_q_1  | 0x1c   | 32    | W      | Data signal of vec_q             |                                                                                    |
+| s_axi_control | vec_q_2  | 0x20   | 32    | W      | Data signal of vec_q             |                                                                                    |
+| s_axi_control | out_r_1  | 0x28   | 32    | W      | Data signal of out_r             |                                                                                    |
+| s_axi_control | out_r_2  | 0x2c   | 32    | W      | Data signal of out_r             |                                                                                    |
+| s_axi_control | rho      | 0x34   | 32    | W      | Data signal of rho               |                                                                                    |
+| s_axi_control | alpha    | 0x3c   | 32    | W      | Data signal of alpha             |                                                                                    |
++---------------+----------+--------+-------+--------+----------------------------------+------------------------------------------------------------------------------------+
+
+* Other Ports
++-------------+----------+
+| Interface   | Bitwidth |
++-------------+----------+
+| event_done  | 1        |
+| event_start | 1        |
++-------------+----------+
+
+* TOP LEVEL CONTROL
++-----------+---------------+-----------+
+| Interface | Type          | Ports     |
++-----------+---------------+-----------+
+| ap_clk    | clock         | ap_clk    |
+| ap_rst_n  | reset         | ap_rst_n  |
+| interrupt | interrupt     | interrupt |
+| ap_ctrl   | ap_ctrl_chain |           |
++-----------+---------------+-----------+
+
+
+================================================================
+== SW I/O Information
+================================================================
+* Top Function Arguments
++----------+-----------+----------+
+| Argument | Direction | Datatype |
++----------+-----------+----------+
+| mat_p    | in        | float*   |
+| vec_q    | in        | float*   |
+| out      | out       | float*   |
+| rho      | in        | float    |
+| alpha    | in        | float    |
++----------+-----------+----------+
+
+* SW-to-HW Mapping
++----------+---------------+-----------+----------+-----------------------------------+
+| Argument | HW Interface  | HW Type   | HW Usage | HW Info                           |
++----------+---------------+-----------+----------+-----------------------------------+
+| mat_p    | m_axi_gmem0   | interface |          |                                   |
+| mat_p    | s_axi_control | register  | offset   | name=mat_p_1 offset=0x10 range=32 |
+| mat_p    | s_axi_control | register  | offset   | name=mat_p_2 offset=0x14 range=32 |
+| vec_q    | m_axi_gmem1   | interface |          |                                   |
+| vec_q    | s_axi_control | register  | offset   | name=vec_q_1 offset=0x1c range=32 |
+| vec_q    | s_axi_control | register  | offset   | name=vec_q_2 offset=0x20 range=32 |
+| out      | m_axi_gmem2   | interface |          |                                   |
+| out      | s_axi_control | interface | offset   |                                   |
+| rho      | s_axi_control | register  |          | name=rho offset=0x34 range=32     |
+| alpha    | s_axi_control | register  |          | name=alpha offset=0x3c range=32   |
++----------+---------------+-----------+----------+-----------------------------------+
+
+
+================================================================
+== M_AXI Burst Information
+================================================================
+ Note: All burst requests might be further partitioned into multiple requests during RTL generation based on max_read_burst_length or max_write_burst_length settings.
+
+* Inferred Burst Summary
++--------------+-----------+--------+-------+---------------------------------------------+
+| HW Interface | Direction | Length | Width | Location                                    |
++--------------+-----------+--------+-------+---------------------------------------------+
+| m_axi_gmem0  | read      | 4      | 512   | /home/bsheh002/ADMM07/alveo/src/bp.cpp:19:5 |
++--------------+-----------+--------+-------+---------------------------------------------+
+
+
+================================================================
+== Bind Op Report
+================================================================
++-------------------------------------------+-----+--------+-----------------+-------+---------+---------+
+| Name                                      | DSP | Pragma | Variable        | Op    | Impl    | Latency |
++-------------------------------------------+-----+--------+-----------------+-------+---------+---------+
+| + krnl_bp                                 | 78  |        |                 |       |         |         |
+|   faddfsub_32ns_32ns_32_7_full_dsp_1_U134 | 2   |        | reg_alpha       | fsub  | fulldsp | 6       |
+|   i_13_fu_987_p2                          | -   |        | i_13            | add   | fabric  | 0       |
+|   fsqrt_32ns_32ns_32_12_no_dsp_1_U143     | -   |        | r_norm          | fsqrt | fabric  | 11      |
+|   fsqrt_32ns_32ns_32_12_no_dsp_1_U144     | -   |        | s_norm          | fsqrt | fabric  | 11      |
+|   fsqrt_32ns_32ns_32_12_no_dsp_1_U143     | -   |        | norm_x          | fsqrt | fabric  | 11      |
+|   fsqrt_32ns_32ns_32_12_no_dsp_1_U144     | -   |        | norm_z          | fsqrt | fabric  | 11      |
+|   fsqrt_32ns_32ns_32_12_no_dsp_1_U143     | -   |        | norm_u          | fsqrt | fabric  | 11      |
+|   fmul_32ns_32ns_32_4_max_dsp_1_U135      | 3   |        | mul1_i          | fmul  | maxdsp  | 3       |
+|   dadd_64ns_64ns_64_8_full_dsp_1_U145     | 3   |        | add_i           | dadd  | fulldsp | 7       |
+|   fmul_32ns_32ns_32_4_max_dsp_1_U135      | 3   |        | mul1_i1         | fmul  | maxdsp  | 3       |
+|   fmul_32ns_32ns_32_4_max_dsp_1_U136      | 3   |        | mul2_i          | fmul  | maxdsp  | 3       |
+|   dadd_64ns_64ns_64_8_full_dsp_1_U146     | 3   |        | add_i1          | dadd  | fulldsp | 7       |
+|  + krnl_bp_Pipeline_l_load_input          | 0   |        |                 |       |         |         |
+|    add_ln19_fu_124_p2                     | -   |        | add_ln19        | add   | fabric  | 0       |
+|  + krnl_bp_Pipeline_l_load_input1         | 0   |        |                 |       |         |         |
+|    add_ln19_fu_84_p2                      | -   |        | add_ln19        | add   | fabric  | 0       |
+|  + krnl_bp_Pipeline_VITIS_LOOP_677_1      | 0   |        |                 |       |         |         |
+|    i_12_fu_58_p2                          | -   |        | i_12            | add   | fabric  | 0       |
+|  + krnl_bp_Pipeline_VITIS_LOOP_677_12     | 0   |        |                 |       |         |         |
+|    i_11_fu_58_p2                          | -   |        | i_11            | add   | fabric  | 0       |
+|  + krnl_bp_Pipeline_VITIS_LOOP_677_13     | 0   |        |                 |       |         |         |
+|    i_10_fu_58_p2                          | -   |        | i_10            | add   | fabric  | 0       |
+|  + replicate_stream                       | 0   |        |                 |       |         |         |
+|    ii_2_fu_95_p2                          | -   |        | ii_2            | add   | fabric  | 0       |
+|  + krnl_bp_Pipeline_VITIS_LOOP_980_1      | 0   |        |                 |       |         |         |
+|    ii_11_fu_78_p2                         | -   |        | ii_11           | add   | fabric  | 0       |
+|  + krnl_bp_Pipeline_l_vec_sub             | 0   |        |                 |       |         |         |
+|    ii_7_fu_98_p2                          | -   |        | ii_7            | add   | fabric  | 0       |
+|  + mac                                    | 0   |        |                 |       |         |         |
+|    ii_4_fu_120_p2                         | -   |        | ii_4            | add   | fabric  | 0       |
+|   + mac_Pipeline_VITIS_LOOP_234_1         | 0   |        |                 |       |         |         |
+|     add_ln234_fu_74_p2                    | -   |        | add_ln234       | add   | fabric  | 0       |
+|   + mac_Pipeline_VITIS_LOOP_242_2         | 0   |        |                 |       |         |         |
+|     add_ln242_fu_94_p2                    | -   |        | add_ln242       | add   | fabric  | 0       |
+|   + mac_Pipeline_VITIS_LOOP_259_4         | 0   |        |                 |       |         |         |
+|     add_ln259_fu_113_p2                   | -   |        | add_ln259       | add   | fabric  | 0       |
+|  + krnl_bp_Pipeline_VITIS_LOOP_1001_2     | 0   |        |                 |       |         |         |
+|    ii_19_fu_78_p2                         | -   |        | ii_19           | add   | fabric  | 0       |
+|  + krnl_bp_Pipeline_VITIS_LOOP_367_1      | 0   |        |                 |       |         |         |
+|    ii_17_fu_78_p2                         | -   |        | ii_17           | add   | fabric  | 0       |
+|  + krnl_bp_Pipeline_VITIS_LOOP_380_2      | 0   |        |                 |       |         |         |
+|    add_ln380_fu_74_p2                     | -   |        | add_ln380       | add   | fabric  | 0       |
+|  + krnl_bp_Pipeline_VITIS_LOOP_386_3      | 0   |        |                 |       |         |         |
+|    ii_16_fu_98_p2                         | -   |        | ii_16           | add   | fabric  | 0       |
+|  + krnl_bp_Pipeline_VITIS_LOOP_514_1      | 0   |        |                 |       |         |         |
+|    ii_15_fu_78_p2                         | -   |        | ii_15           | add   | fabric  | 0       |
+|  + krnl_bp_Pipeline_VITIS_LOOP_526_2      | 0   |        |                 |       |         |         |
+|    ii_13_fu_124_p2                        | -   |        | ii_13           | add   | fabric  | 0       |
+|  + krnl_bp_Pipeline_l_write_bram          | 0   |        |                 |       |         |         |
+|    add_ln701_fu_73_p2                     | -   |        | add_ln701       | add   | fabric  | 0       |
+|  + vec_add                                | 2   |        |                 |       |         |         |
+|    fadd_32ns_32ns_32_7_full_dsp_1_U53     | 2   |        | add             | fadd  | fulldsp | 6       |
+|    fadd_32ns_32ns_32_7_full_dsp_1_U53     | 2   |        | add_1           | fadd  | fulldsp | 6       |
+|    fadd_32ns_32ns_32_7_full_dsp_1_U53     | 2   |        | add_2           | fadd  | fulldsp | 6       |
+|    fadd_32ns_32ns_32_7_full_dsp_1_U53     | 2   |        | add_3           | fadd  | fulldsp | 6       |
+|    fadd_32ns_32ns_32_7_full_dsp_1_U53     | 2   |        | add_4           | fadd  | fulldsp | 6       |
+|    fadd_32ns_32ns_32_7_full_dsp_1_U53     | 2   |        | add_5           | fadd  | fulldsp | 6       |
+|    fadd_32ns_32ns_32_7_full_dsp_1_U53     | 2   |        | add_6           | fadd  | fulldsp | 6       |
+|    fadd_32ns_32ns_32_7_full_dsp_1_U53     | 2   |        | add_7           | fadd  | fulldsp | 6       |
+|  + krnl_bp_Pipeline_l_shrinkage           | 4   |        |                 |       |         |         |
+|    ii_9_fu_113_p2                         | -   |        | ii_9            | add   | fabric  | 0       |
+|    fsub_32ns_32ns_32_7_full_dsp_1_U59     | 2   |        | sub1            | fsub  | fulldsp | 6       |
+|    fsub_32ns_32ns_32_7_full_dsp_1_U60     | 2   |        | sub7_i          | fsub  | fulldsp | 6       |
+|  + krnl_bp_Pipeline_l_vec_sub4            | 0   |        |                 |       |         |         |
+|    ii_6_fu_98_p2                          | -   |        | ii_6            | add   | fabric  | 0       |
+|  + krnl_bp_Pipeline_VITIS_LOOP_1045_3     | 58  |        |                 |       |         |         |
+|    add_ln1045_fu_391_p2                   | -   |        | add_ln1045      | add   | fabric  | 0       |
+|   + pow_generic_double_s                  | 58  |        |                 |       |         |         |
+|     b_exp_fu_584_p2                       | -   |        | b_exp           | add   | fabric  | 0       |
+|     b_exp_1_fu_656_p2                     | -   |        | b_exp_1         | add   | fabric  | 0       |
+|     mul_12s_80ns_90_5_1_U79               | 5   |        | Elog2_V         | mul   | auto    | 4       |
+|     mul_54s_6ns_54_5_1_U71                | 2   |        | mul_ln838       | mul   | auto    | 4       |
+|     mul_71ns_4ns_75_5_1_U72               | -   |        | r_V_22          | mul   | auto    | 4       |
+|     mul_73ns_6ns_79_5_1_U73               | 4   |        | r_V_23          | mul   | auto    | 4       |
+|     mul_83ns_6ns_89_5_1_U74               | 4   |        | r_V_24          | mul   | auto    | 4       |
+|     mul_92ns_6ns_98_5_1_U75               | 5   |        | r_V_25          | mul   | auto    | 4       |
+|     mul_87ns_6ns_93_5_1_U76               | 4   |        | r_V_26          | mul   | auto    | 4       |
+|     mul_82ns_6ns_88_5_1_U77               | 4   |        | r_V_27          | mul   | auto    | 4       |
+|     mul_77ns_6ns_83_5_1_U78               | 4   |        | r_V_28          | mul   | auto    | 4       |
+|     add_ln813_fu_1468_p2                  | -   |        | add_ln813       | add   | fabric  | 0       |
+|     add_ln813_1_fu_1474_p2                | -   |        | add_ln813_1     | add   | fabric  | 0       |
+|     add_ln813_4_fu_1433_p2                | -   |        | add_ln813_4     | add   | fabric  | 0       |
+|     mul_40ns_40ns_80_2_1_U80              | 4   |        | r_V_29          | mul   | auto    | 1       |
+|     ret_V_fu_1536_p2                      | -   |        | ret_V           | sub   | fabric  | 0       |
+|     mac_muladd_16s_15ns_19s_31_4_1_U85    | 1   |        | r_V_30          | mul   | dsp48   | 3       |
+|     mac_muladd_16s_15ns_19s_31_4_1_U85    | 1   |        | ret_V_31        | add   | dsp48   | 3       |
+|     ret_V_18_fu_1645_p2                   | -   |        | ret_V_18        | add   | fabric  | 0       |
+|     mul_13s_71s_71_5_1_U81                | 4   |        | r_V_15          | mul   | auto    | 4       |
+|     m_diff_V_fu_1686_p2                   | -   |        | m_diff_V        | sub   | fabric  | 0       |
+|     ret_V_33_fu_1761_p2                   | -   |        | ret_V_33        | add   | fabric  | 0       |
+|     mul_43ns_36ns_79_2_1_U82              | 4   |        | r_V_17          | mul   | auto    | 1       |
+|     add_ln813_7_fu_1808_p2                | -   |        | add_ln813_7     | add   | fabric  | 0       |
+|     exp_Z2P_m_1_V_fu_1817_p2              | -   |        | exp_Z2P_m_1_V   | add   | fabric  | 0       |
+|     mul_49ns_44ns_93_5_1_U83              | 5   |        | r_V_19          | mul   | auto    | 4       |
+|     add_ln813_9_fu_1885_p2                | -   |        | add_ln813_9     | add   | fabric  | 0       |
+|     exp_Z1P_m_1_l_V_fu_1894_p2            | -   |        | exp_Z1P_m_1_l_V | add   | fabric  | 0       |
+|     ret_V_35_fu_1932_p2                   | -   |        | ret_V_35        | add   | fabric  | 0       |
+|     mul_50ns_50ns_100_5_1_U84             | 8   |        | r_V             | mul   | auto    | 4       |
+|     ret_V_23_fu_1951_p2                   | -   |        | ret_V_23        | add   | fabric  | 0       |
+|     add_ln1347_1_fu_2068_p2               | -   |        | add_ln1347_1    | add   | fabric  | 0       |
+|     r_exp_V_fu_1965_p2                    | -   |        | r_exp_V         | add   | fabric  | 0       |
+|     out_exp_V_fu_2115_p2                  | -   |        | out_exp_V       | add   | fabric  | 0       |
+|  + krnl_bp_Pipeline_VITIS_LOOP_843_1      | 0   |        |                 |       |         |         |
+|    i_9_fu_56_p2                           | -   |        | i_9             | add   | fabric  | 0       |
+|  + krnl_bp_Pipeline_VITIS_LOOP_843_15     | 0   |        |                 |       |         |         |
+|    i_7_fu_56_p2                           | -   |        | i_7             | add   | fabric  | 0       |
+|  + krnl_bp_Pipeline_VITIS_LOOP_843_16     | 0   |        |                 |       |         |         |
+|    i_5_fu_56_p2                           | -   |        | i_5             | add   | fabric  | 0       |
+|  + krnl_bp_Pipeline_l_write_mem           | 0   |        |                 |       |         |         |
+|    add_ln729_fu_89_p2                     | -   |        | add_ln729       | add   | fabric  | 0       |
++-------------------------------------------+-----+--------+-----------------+-------+---------+---------+
+
+
+================================================================
+== Bind Storage Report
+================================================================
++-------------------------------------------------------------------------------+------+------+--------+-------------------------------------------------------------------------+---------+------+---------+
+| Name                                                                          | BRAM | URAM | Pragma | Variable                                                                | Storage | Impl | Latency |
++-------------------------------------------------------------------------------+------+------+--------+-------------------------------------------------------------------------+---------+------+---------+
+| + krnl_bp                                                                     | 7    | 0    |        |                                                                         |         |      |         |
+|   mat_p_bram_U                                                                | -    | -    |        | mat_p_bram                                                              | ram_1p  | auto | 1       |
+|   vec_q_bram_U                                                                | -    | -    |        | vec_q_bram                                                              | ram_1p  | auto | 1       |
+|   x_bram_U                                                                    | -    | -    |        | x_bram                                                                  | ram_1p  | auto | 1       |
+|  + mac                                                                        | 1    | 0    |        |                                                                         |         |      |         |
+|    z_u_local_U                                                                | -    | -    |        | z_u_local                                                               | ram_1p  | auto | 1       |
+|  + krnl_bp_Pipeline_VITIS_LOOP_1045_3                                         | 5    | 0    |        |                                                                         |         |      |         |
+|   + pow_generic_double_s                                                      | 5    | 0    |        |                                                                         |         |      |         |
+|     pow_reduce_anonymous_namespace_log_inverse_lut_table_pow_0_5_64_array_V_U | -    | -    |        | pow_reduce_anonymous_namespace_log_inverse_lut_table_pow_0_5_64_array_V | rom_1p  | auto | 1       |
+|     pow_reduce_anonymous_namespace_log0_lut_table_array_V_U                   | -    | -    |        | pow_reduce_anonymous_namespace_log0_lut_table_array_V                   | rom_1p  | auto | 1       |
+|     pow_reduce_anonymous_namespace_log_lut_table_ap_fixed_4_4_16_array_V_U    | -    | -    |        | pow_reduce_anonymous_namespace_log_lut_table_ap_fixed_4_4_16_array_V    | rom_1p  | auto | 1       |
+|     pow_reduce_anonymous_namespace_log_lut_table_ap_fixed_7_6_64_array_V_U    | -    | -    |        | pow_reduce_anonymous_namespace_log_lut_table_ap_fixed_7_6_64_array_V    | rom_1p  | auto | 1       |
+|     pow_reduce_anonymous_namespace_log_lut_table_ap_fixed_12_6_64_array_V_U   | -    | -    |        | pow_reduce_anonymous_namespace_log_lut_table_ap_fixed_12_6_64_array_V   | rom_1p  | auto | 1       |
+|     pow_reduce_anonymous_namespace_log_lut_table_ap_fixed_17_6_64_array_V_U   | -    | -    |        | pow_reduce_anonymous_namespace_log_lut_table_ap_fixed_17_6_64_array_V   | rom_1p  | auto | 1       |
+|     pow_reduce_anonymous_namespace_log_lut_table_ap_fixed_22_6_64_array_V_U   | -    | -    |        | pow_reduce_anonymous_namespace_log_lut_table_ap_fixed_22_6_64_array_V   | rom_1p  | auto | 1       |
+|     pow_reduce_anonymous_namespace_log_lut_table_ap_fixed_27_6_64_array_V_U   | -    | -    |        | pow_reduce_anonymous_namespace_log_lut_table_ap_fixed_27_6_64_array_V   | rom_1p  | auto | 1       |
+|     pow_reduce_anonymous_namespace_log_lut_table_ap_fixed_32_6_64_array_V_U   | -    | -    |        | pow_reduce_anonymous_namespace_log_lut_table_ap_fixed_32_6_64_array_V   | rom_1p  | auto | 1       |
+|     pow_reduce_anonymous_namespace_table_exp_Z1_ap_ufixed_array_V_U           | 2    | -    |        | pow_reduce_anonymous_namespace_table_exp_Z1_ap_ufixed_array_V           | rom_1p  | auto | 1       |
+|     pow_reduce_anonymous_namespace_table_f_Z3_ap_ufixed_array_V_U             | 1    | -    |        | pow_reduce_anonymous_namespace_table_f_Z3_ap_ufixed_array_V             | rom_2p  | auto | 1       |
+|     pow_reduce_anonymous_namespace_table_f_Z2_ap_ufixed_array_V_U             | 2    | -    |        | pow_reduce_anonymous_namespace_table_f_Z2_ap_ufixed_array_V             | rom_1p  | auto | 1       |
++-------------------------------------------------------------------------------+------+------+--------+-------------------------------------------------------------------------+---------+------+---------+
+
+
+================================================================
+== Pragma Report
+================================================================
+* Valid Pragma Syntax
++-----------+----------------------------------------+---------------------------------------------------------+
+| Type      | Options                                | Location                                                |
++-----------+----------------------------------------+---------------------------------------------------------+
+| pipeline  |                                        | ../../../src/bp.cpp:20 in load_input                    |
+| pipeline  |                                        | ../../../src/bp.cpp:54 in vec_sub                       |
+| stream    | variable=in1_stream depth=36           | ../../../src/bp.cpp:79 in vec_sub, in1_stream           |
+| pipeline  |                                        | ../../../src/bp.cpp:83 in vec_sub                       |
+| pipeline  |                                        | ../../../src/bp.cpp:88 in vec_sub                       |
+| stream    | variable=p_stream depth=256            | ../../../src/bp.cpp:226 in mac, p_stream                |
+| pipeline  |                                        | ../../../src/bp.cpp:235 in mac                          |
+| pipeline  |                                        | ../../../src/bp.cpp:243 in mac                          |
+| pipeline  |                                        | ../../../src/bp.cpp:260 in mac                          |
+| stream    | variable=q_stream depth=36             | ../../../src/bp.cpp:362 in vec_add, q_stream            |
+| pipeline  |                                        | ../../../src/bp.cpp:381 in vec_add                      |
+| pipeline  |                                        | ../../../src/bp.cpp:387 in vec_add                      |
+| pipeline  |                                        | ../../../src/bp.cpp:407 in vec_add                      |
+| pipeline  |                                        | ../../../src/bp.cpp:527 in x_update                     |
+| pipeline  |                                        | ../../../src/bp.cpp:553 in shrinkage                    |
+| pipeline  |                                        | ../../../src/bp.cpp:603 in replicate_stream             |
+| pipeline  |                                        | ../../../src/bp.cpp:656 in replicate_stream             |
+| pipeline  |                                        | ../../../src/bp.cpp:678 in zero_init                    |
+| pipeline  |                                        | ../../../src/bp.cpp:702 in write_bram                   |
+| pipeline  |                                        | ../../../src/bp.cpp:730 in write_mem                    |
+| pipeline  |                                        | ../../../src/bp.cpp:844 in flush_stream                 |
+| interface | m_axi port = mat_p bundle = gmem0      | ../../../src/bp.cpp:881 in krnl_bp                      |
+| interface | m_axi port = vec_q bundle = gmem1      | ../../../src/bp.cpp:882 in krnl_bp                      |
+| interface | m_axi port = out bundle = gmem2        | ../../../src/bp.cpp:883 in krnl_bp                      |
+| stream    | variable=u_stream depth=128            | ../../../src/bp.cpp:913 in krnl_bp, u_stream            |
+| stream    | variable=u_copy_1_stream depth=128     | ../../../src/bp.cpp:914 in krnl_bp, u_copy_1_stream     |
+| stream    | variable=u_copy_2_stream depth=128     | ../../../src/bp.cpp:915 in krnl_bp, u_copy_2_stream     |
+| stream    | variable=u_copy_3_stream depth=128     | ../../../src/bp.cpp:916 in krnl_bp, u_copy_3_stream     |
+| stream    | variable=z_stream depth=128            | ../../../src/bp.cpp:917 in krnl_bp, z_stream            |
+| stream    | variable=z_old_stream depth=128        | ../../../src/bp.cpp:918 in krnl_bp, z_old_stream        |
+| stream    | variable=z_copy_1_stream depth=128     | ../../../src/bp.cpp:919 in krnl_bp, z_copy_1_stream     |
+| stream    | variable=z_copy_2_stream depth=128     | ../../../src/bp.cpp:920 in krnl_bp, z_copy_2_stream     |
+| stream    | variable=x_hat_stream depth=128        | ../../../src/bp.cpp:921 in krnl_bp, x_hat_stream        |
+| stream    | variable=x_hat_copy_1_stream depth=128 | ../../../src/bp.cpp:922 in krnl_bp, x_hat_copy_1_stream |
+| stream    | variable=x_hat_copy_2_stream depth=128 | ../../../src/bp.cpp:923 in krnl_bp, x_hat_copy_2_stream |
+| stream    | variable=x_hat_copy_3_stream depth=128 | ../../../src/bp.cpp:924 in krnl_bp, x_hat_copy_3_stream |
+| stream    | variable=z_u_stream depth=128          | ../../../src/bp.cpp:925 in krnl_bp, z_u_stream          |
+| stream    | variable=mac_res_stream depth=256      | ../../../src/bp.cpp:926 in krnl_bp, mac_res_stream      |
+| stream    | variable=x_stream depth=128            | ../../../src/bp.cpp:927 in krnl_bp, x_stream            |
+| stream    | variable=x_hat_u_stream depth=128      | ../../../src/bp.cpp:928 in krnl_bp, x_hat_u_stream      |
+| stream    | variable=shrinkage_stream depth=128    | ../../../src/bp.cpp:929 in krnl_bp, shrinkage_stream    |
+| stream    | variable=x_hat_z_stream depth=128      | ../../../src/bp.cpp:930 in krnl_bp, x_hat_z_stream      |
+| stream    | variable=u_update_stream depth=128     | ../../../src/bp.cpp:931 in krnl_bp, u_update_stream     |
++-----------+----------------------------------------+---------------------------------------------------------+
+
+

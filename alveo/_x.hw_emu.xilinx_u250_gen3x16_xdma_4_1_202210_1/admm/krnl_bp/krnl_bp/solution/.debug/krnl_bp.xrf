@@ -1,0 +1,56 @@
+Begin Function 'krnl_bp'
+
+RTL state condition: (1'b1 == ap_CS_fsm_state1)
+# ST_1
+local trunc_ln <partselect_15> <integer> <> 'partselect' </home/bsheh002/ADMM07/alveo/src/bp.cpp:15>
+trunc_ln /home/bsheh002/ADMM07/alveo/src/bp.cpp:15
+reg: trunc_ln_reg_438[57:0] lv
+
+local trunc_ln15_1 <partselect_15> <integer> <> 'partselect' </home/bsheh002/ADMM07/alveo/src/bp.cpp:15>
+trunc_ln15_1 /home/bsheh002/ADMM07/alveo/src/bp.cpp:15
+reg: trunc_ln15_1_reg_444[58:0] lv
+
+local trunc_ln4 <partselect_475> <integer> <> 'partselect' </home/bsheh002/ADMM07/alveo/src/bp.cpp:475>
+trunc_ln4 /home/bsheh002/ADMM07/alveo/src/bp.cpp:475
+reg: trunc_ln4_reg_449[58:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_state72)
+# ST_72
+local gmem1_addr_read <read_15> <integer> <> 'read' </home/bsheh002/ADMM07/alveo/src/bp.cpp:15>
+gmem1_addr_read /home/bsheh002/ADMM07/alveo/src/bp.cpp:15
+reg: gmem1_addr_read_reg_465[255:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_state74)
+# ST_74
+
+RTL state condition: (1'b1 == ap_CS_fsm_state76)
+# ST_76
+
+RTL state condition: (1'b1 == ap_CS_fsm_state79)
+# ST_79
+
+RTL state condition: (1'b1 == ap_CS_fsm_state82)
+# ST_82
+
+RTL state condition: (1'b1 == ap_CS_fsm_state83)
+# ST_83
+local reg_alpha <> <float> <MultiCycle> 'fsub' <>
+reg: reg_alpha_reg_481[31:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_state85)
+# ST_85
+
+RTL state condition: (1'b1 == ap_CS_fsm_state88)
+# ST_88
+
+RTL state condition: (1'b1 == ap_CS_fsm_state91)
+# ST_91
+
+RTL state condition: (1'b1 == ap_CS_fsm_state94)
+# ST_94
+
+End Function 'krnl_bp'
+

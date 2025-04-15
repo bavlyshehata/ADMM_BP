@@ -1,0 +1,348 @@
+Begin Function 'pow_generic<double>'
+
+RTL state condition: (1'b1 == 1'b1)
+# ST_7
+local mul_ln838 <> <integer> <Arithmetic><MultiCycle> 'mul' <>
+mul_ln838 /wrk/ci/prod/2022.2/hls_product/continuous/608/2022.2/src/shared/hls/clib/include/header_files/ap_fixed_base.h:838
+reg: mul_ln838_reg_2268[53:0] lv
+
+local a_V <> <integer> <> 'partselect' <>
+a_V /wrk/ci/prod/2022.2/hls_product/continuous/608/2022.2/src/shared/hls/clib/include/header_files/ap_fixed_base.h:818
+reg: a_V_reg_2275[3:0] lv
+
+local trunc_ln813 <> <integer> <> 'trunc' <>
+trunc_ln813 /wrk/ci/prod/2022.2/hls_product/continuous/608/2022.2/src/shared/hls/clib/include/header_files/ap_fixed_base.h:813
+reg: trunc_ln813_reg_2281[49:0] lv
+
+local tmp_7 <> <integer> <> 'bitselect' <>
+tmp_7 /wrk/ci/prod/2022.2/hls_product/continuous/608/2022.2/src/shared/hls/clib/include/header_files/ap_fixed_base.h:1488
+reg: tmp_7_reg_2286[0:0] lv
+
+# ST_12
+local r_V_22 <> <integer> <Arithmetic><MultiCycle> 'mul' <>
+r.V /wrk/ci/prod/2022.2/hls_product/continuous/608/2022.2/src/shared/hls/clib/include/header_files/ap_fixed_base.h:1273
+reg: r_V_22_reg_2301[74:0] lv
+
+# ST_13
+local z2_V <> <integer> <> 'partselect' <>
+z2_V /wrk/ci/prod/2022.2/hls_product/continuous/608/2022.2/src/shared/hls/clib/include/header_files/ap_fixed_base.h:818
+reg: z2_V_reg_2306[72:0] lv
+
+local a_V_1 <> <integer> <> 'partselect' <>
+a_V_1 /wrk/ci/prod/2022.2/hls_product/continuous/608/2022.2/src/shared/hls/clib/include/header_files/ap_fixed_base.h:818
+reg: a_V_1_reg_2312[5:0] lv
+
+local tmp_6 <> <integer> <> 'partselect' <>
+tmp_6 /wrk/ci/prod/2022.2/hls_product/continuous/608/2022.2/src/shared/hls/clib/include/header_files/ap_fixed_base.h:838
+reg: tmp_6_reg_2318[66:0] lv
+
+# ST_18
+local r_V_23 <> <integer> <Arithmetic><MultiCycle> 'mul' <>
+r.V /wrk/ci/prod/2022.2/hls_product/continuous/608/2022.2/src/shared/hls/clib/include/header_files/ap_fixed_base.h:1273
+reg: r_V_23_reg_2333[78:0] lv
+
+# ST_19
+local ret_V_4 <> <integer> <Arithmetic> 'sub' <>
+ret.V /wrk/ci/prod/2022.2/hls_product/continuous/608/2022.2/src/shared/hls/clib/include/header_files/ap_fixed_base.h:1348
+reg: ret_V_4_reg_2338[81:0] lv
+
+local a_V_2 <> <integer> <> 'partselect' <>
+a_V_2 /wrk/ci/prod/2022.2/hls_product/continuous/608/2022.2/src/shared/hls/clib/include/header_files/ap_fixed_base.h:818
+reg: a_V_2_reg_2344[5:0] lv
+
+local trunc_ln813_3 <> <integer> <> 'trunc' <>
+trunc_ln813_3 /wrk/ci/prod/2022.2/hls_product/continuous/608/2022.2/src/shared/hls/clib/include/header_files/ap_fixed_base.h:813
+reg: trunc_ln813_3_reg_2350[75:0] lv
+
+# ST_24
+local r_V_24 <> <integer> <Arithmetic><MultiCycle> 'mul' <>
+r.V /wrk/ci/prod/2022.2/hls_product/continuous/608/2022.2/src/shared/hls/clib/include/header_files/ap_fixed_base.h:1273
+reg: r_V_24_reg_2365[88:0] lv
+
+# ST_25
+local z4_V <> <integer> <> 'partselect' <>
+z4_V /wrk/ci/prod/2022.2/hls_product/continuous/608/2022.2/src/shared/hls/clib/include/header_files/ap_fixed_base.h:818
+reg: z4_V_reg_2370[91:0] lv
+
+local tmp_s <> <integer> <> 'partselect' <>
+tmp_s /wrk/ci/prod/2022.2/hls_product/continuous/608/2022.2/src/shared/hls/clib/include/header_files/ap_fixed_base.h:838
+reg: tmp_s_reg_2376[85:0] lv
+
+local tmp_3 <> <integer> <> 'partselect' <>
+tmp_3 /wrk/ci/prod/2022.2/hls_product/continuous/608/2022.2/src/shared/hls/clib/include/header_files/ap_fixed_base.h:1271
+reg: tmp_3_reg_2381[5:0] lv
+
+# ST_30
+local r_V_25 <> <integer> <Arithmetic><MultiCycle> 'mul' <>
+r.V /wrk/ci/prod/2022.2/hls_product/continuous/608/2022.2/src/shared/hls/clib/include/header_files/ap_fixed_base.h:1273
+reg: r_V_25_reg_2397[97:0] lv
+
+# ST_31
+local tmp_4 <> <integer> <> 'partselect' <>
+tmp_4 /wrk/ci/prod/2022.2/hls_product/continuous/608/2022.2/src/shared/hls/clib/include/header_files/ap_fixed_base.h:813
+reg: tmp_4_reg_2402[86:0] lv
+
+local tmp_8 <> <integer> <> 'partselect' <>
+tmp_8 /wrk/ci/prod/2022.2/hls_product/continuous/608/2022.2/src/shared/hls/clib/include/header_files/ap_fixed_base.h:838
+reg: tmp_8_reg_2408[80:0] lv
+
+local tmp_9 <> <integer> <> 'partselect' <>
+tmp_9 /wrk/ci/prod/2022.2/hls_product/continuous/608/2022.2/src/shared/hls/clib/include/header_files/ap_fixed_base.h:1271
+reg: tmp_9_reg_2413[5:0] lv
+
+# ST_36
+local r_V_26 <> <integer> <Arithmetic><MultiCycle> 'mul' <>
+r.V /wrk/ci/prod/2022.2/hls_product/continuous/608/2022.2/src/shared/hls/clib/include/header_files/ap_fixed_base.h:1273
+reg: r_V_26_reg_2429[92:0] lv
+
+# ST_37
+local tmp_10 <> <integer> <> 'partselect' <>
+tmp_10 /wrk/ci/prod/2022.2/hls_product/continuous/608/2022.2/src/shared/hls/clib/include/header_files/ap_fixed_base.h:813
+reg: tmp_10_reg_2434[81:0] lv
+
+local tmp_11 <> <integer> <> 'partselect' <>
+tmp_11 /wrk/ci/prod/2022.2/hls_product/continuous/608/2022.2/src/shared/hls/clib/include/header_files/ap_fixed_base.h:838
+reg: tmp_11_reg_2440[75:0] lv
+
+local tmp_12 <> <integer> <> 'partselect' <>
+tmp_12 /wrk/ci/prod/2022.2/hls_product/continuous/608/2022.2/src/shared/hls/clib/include/header_files/ap_fixed_base.h:1271
+reg: tmp_12_reg_2445[5:0] lv
+
+# ST_42
+local r_V_27 <> <integer> <Arithmetic><MultiCycle> 'mul' <>
+r.V /wrk/ci/prod/2022.2/hls_product/continuous/608/2022.2/src/shared/hls/clib/include/header_files/ap_fixed_base.h:1273
+reg: r_V_27_reg_2461[87:0] lv
+
+# ST_43
+local tmp_13 <> <integer> <> 'partselect' <>
+tmp_13 /wrk/ci/prod/2022.2/hls_product/continuous/608/2022.2/src/shared/hls/clib/include/header_files/ap_fixed_base.h:813
+reg: tmp_13_reg_2466[76:0] lv
+
+local tmp_14 <> <integer> <> 'partselect' <>
+tmp_14 /wrk/ci/prod/2022.2/hls_product/continuous/608/2022.2/src/shared/hls/clib/include/header_files/ap_fixed_base.h:838
+reg: tmp_14_reg_2472[70:0] lv
+
+local tmp_15 <> <integer> <> 'partselect' <>
+tmp_15 /wrk/ci/prod/2022.2/hls_product/continuous/608/2022.2/src/shared/hls/clib/include/header_files/ap_fixed_base.h:1271
+reg: tmp_15_reg_2477[5:0] lv
+
+# ST_48
+local r_V_28 <> <integer> <Arithmetic><MultiCycle> 'mul' <>
+r.V /wrk/ci/prod/2022.2/hls_product/continuous/608/2022.2/src/shared/hls/clib/include/header_files/ap_fixed_base.h:1273
+reg: r_V_28_reg_2498[82:0] lv
+
+# ST_49
+local tmp_16 <> <integer> <> 'partselect' <>
+tmp_16 /wrk/ci/prod/2022.2/hls_product/continuous/608/2022.2/src/shared/hls/clib/include/header_files/ap_fixed_base.h:838
+reg: tmp_16_reg_2513[71:0] lv
+
+local tmp_17 <> <integer> <> 'partselect' <>
+tmp_17 /wrk/ci/prod/2022.2/hls_product/continuous/608/2022.2/src/shared/hls/clib/include/header_files/ap_fixed_base.h:1270
+reg: tmp_17_reg_2518[39:0] lv
+
+# ST_50
+local add_ln813_4 <> <integer> <Arithmetic> 'add' <>
+add_ln813_4 /wrk/ci/prod/2022.2/hls_product/continuous/608/2022.2/src/shared/hls/clib/include/header_files/ap_fixed_base.h:813
+reg: add_ln813_4_reg_2553[82:0] lv
+
+# ST_51
+local add_ln813 <> <integer> <Arithmetic> 'add' <>
+add_ln813 /wrk/ci/prod/2022.2/hls_product/continuous/608/2022.2/src/shared/hls/clib/include/header_files/ap_fixed_base.h:813
+reg: add_ln813_reg_2564[108:0] lv
+
+local add_ln813_1 <> <integer> <Arithmetic> 'add' <>
+add_ln813_1 /wrk/ci/prod/2022.2/hls_product/continuous/608/2022.2/src/shared/hls/clib/include/header_files/ap_fixed_base.h:813
+reg: add_ln813_1_reg_2569[102:0] lv
+
+local add_ln813_5 <> <integer> <Arithmetic> 'add' <>
+add_ln813_5 /wrk/ci/prod/2022.2/hls_product/continuous/608/2022.2/src/shared/hls/clib/include/header_files/ap_fixed_base.h:813
+reg: add_ln813_5_reg_2574[92:0] lv
+
+local rhs_s <> <integer> <> 'partselect' <>
+rhs_s /wrk/ci/prod/2022.2/hls_product/continuous/608/2022.2/src/shared/hls/clib/include/header_files/ap_fixed_base.h:1303
+reg: rhs_s_reg_2579[78:0] lv
+
+# ST_52
+local Elog2_V <> <integer> <Arithmetic><MultiCycle> 'mul' <>
+Elog2_V /wrk/ci/prod/2022.2/hls_product/continuous/608/2022.2/src/shared/hls/clib/include/header_files/ap_fixed_base.h:813
+reg: Elog2_V_reg_2584[89:0] lv
+
+local log_sum_V_1 <> <integer> <Arithmetic> 'add' <>
+log_sum_V_1 /wrk/ci/prod/2022.2/hls_product/continuous/608/2022.2/src/shared/hls/clib/include/header_files/ap_fixed_base.h:813
+reg: log_sum_V_1_reg_2589[108:0] lv
+
+local trunc_ln1 <> <integer> <> 'partselect' <>
+trunc_ln1 /wrk/ci/prod/2022.2/hls_product/continuous/608/2022.2/src/shared/hls/clib/include/header_files/ap_fixed_base.h:818
+reg: trunc_ln1_reg_2594[72:0] lv
+
+# ST_53
+local ret_V_16 <> <integer> <Arithmetic> 'add' <>
+ret.V /wrk/ci/prod/2022.2/hls_product/continuous/608/2022.2/src/shared/hls/clib/include/header_files/ap_fixed_base.h:1347
+reg: ret_V_16_reg_2599[119:0] lv
+
+local p_Result_14 <> <integer> <> 'bitselect' <>
+__Result__ /wrk/ci/prod/2022.2/hls_product/continuous/608/2022.2/src/shared/hls/clib/include/header_files/ap_fixed_ref.h:53
+reg: p_Result_14_reg_2604[0:0] lv
+
+local trunc_ln2 <> <integer> <> 'partselect' <>
+trunc_ln2 /wrk/ci/prod/2022.2/hls_product/continuous/608/2022.2/src/shared/hls/clib/include/header_files/ap_fixed_base.h:813
+reg: trunc_ln2_reg_2614[58:0] lv
+
+# ST_56
+local ret_V_32 <> <integer> <> 'select' <>
+ret_V_32 /wrk/ci/prod/2022.2/hls_product/continuous/608/2022.2/src/shared/hls/clib/include/header_files/ap_int_base.h:353
+reg: ret_V_32_reg_2624[12:0] lv
+
+# ST_61
+local trunc_ln813_1 <> <integer> <> 'partselect' <>
+trunc_ln813_1 /wrk/ci/prod/2022.2/hls_product/continuous/608/2022.2/src/shared/hls/clib/include/header_files/ap_fixed_base.h:813
+reg: trunc_ln813_1_reg_2636[58:0] lv
+
+# ST_62
+local m_diff_hi_V <> <integer> <> 'partselect' <>
+m_diff_hi_V /wrk/ci/prod/2022.2/hls_product/continuous/608/2022.2/src/shared/hls/clib/include/header_files/ap_fixed_ref.h:594
+reg: m_diff_hi_V_reg_2641[7:0] lv
+
+local Z2_V <> <integer> <> 'partselect' <>
+Z2_V /wrk/ci/prod/2022.2/hls_product/continuous/608/2022.2/src/shared/hls/clib/include/header_files/ap_fixed_base.h:818
+reg: Z2_V_reg_2646[7:0] lv
+
+local Z3_V <> <integer> <> 'partselect' <>
+Z3_V /wrk/ci/prod/2022.2/hls_product/continuous/608/2022.2/src/shared/hls/clib/include/header_files/ap_fixed_base.h:818
+reg: Z3_V_reg_2653[7:0] lv
+
+local Z4 <> <integer> <> 'trunc' <>
+Z4 /wrk/ci/prod/2022.2/hls_product/continuous/608/2022.2/src/shared/hls/clib/include/header_files/ap_fixed_base.h:813
+reg: Z4_reg_2658[34:0] lv
+
+# ST_63
+local ret_V_33 <> <integer> <Arithmetic> 'add' <>
+ret.V /wrk/ci/prod/2022.2/hls_product/continuous/608/2022.2/src/shared/hls/clib/include/header_files/ap_fixed_base.h:1347
+reg: ret_V_33_reg_2673[35:0] lv
+
+local f_Z3 <> <integer> <ArrayAccess><ArrayLoad><MultiCycle> 'load' <>
+f_Z3 /wrk/ci/prod/2022.2/hls_product/continuous/608/2022.2/src/shared/hls/clib/include/header_files/ap_fixed_base.h:813
+reg: f_Z3_reg_2679[25:0] lv
+
+# ST_64
+local ret_V_34 <> <integer> <> 'bitconcatenate' <>
+ret.V /wrk/ci/prod/2022.2/hls_product/continuous/608/2022.2/src/shared/hls/clib/include/header_files/ap_fixed_base.h:1347
+reg: ret_V_34_reg_2684[42:0] lv
+
+# ST_65
+local trunc_ln813_s <> <integer> <> 'partselect' <>
+trunc_ln813_s /wrk/ci/prod/2022.2/hls_product/continuous/608/2022.2/src/shared/hls/clib/include/header_files/ap_fixed_base.h:813
+reg: trunc_ln813_s_reg_2699[19:0] lv
+
+# ST_66
+local exp_Z2P_m_1_V <> <integer> <Arithmetic> 'add' <>
+exp_Z2P_m_1_V /wrk/ci/prod/2022.2/hls_product/continuous/608/2022.2/src/shared/hls/clib/include/header_files/ap_fixed_base.h:813
+reg: exp_Z2P_m_1_V_reg_2709[43:0] lv
+
+local tmp_18 <> <integer> <> 'partselect' <>
+tmp_18 /wrk/ci/prod/2022.2/hls_product/continuous/608/2022.2/src/shared/hls/clib/include/header_files/ap_fixed_base.h:818
+reg: tmp_18_reg_2715[39:0] lv
+
+# ST_71
+local trunc_ln813_2 <> <integer> <> 'partselect' <>
+trunc_ln813_2 /wrk/ci/prod/2022.2/hls_product/continuous/608/2022.2/src/shared/hls/clib/include/header_files/ap_fixed_base.h:813
+reg: trunc_ln813_2_reg_2736[35:0] lv
+
+# ST_72
+local exp_Z1_V <load_640> <integer> <ArrayAccess><ArrayLoad><MultiCycle> 'load' </wrk/ci/prod/2022.2/hls_product/continuous/608/2022.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_pow.h:640>
+exp_Z1.V /wrk/ci/prod/2022.2/hls_product/continuous/608/2022.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_pow.h:640
+reg: exp_Z1_V_reg_2741[57:0] lv
+
+local exp_Z1P_m_1_V <> <integer> <> 'partselect' <>
+exp_Z1P_m_1_V /wrk/ci/prod/2022.2/hls_product/continuous/608/2022.2/src/shared/hls/clib/include/header_files/ap_fixed_base.h:818
+reg: exp_Z1P_m_1_V_reg_2746[49:0] lv
+
+local exp_Z1_hi_V <> <integer> <> 'partselect' <>
+exp_Z1_hi_V /wrk/ci/prod/2022.2/hls_product/continuous/608/2022.2/src/shared/hls/clib/include/header_files/ap_fixed_base.h:818
+reg: exp_Z1_hi_V_reg_2751[49:0] lv
+
+# ST_77
+local ret_V_35 <> <integer> <Arithmetic> 'add' <>
+ret.V /wrk/ci/prod/2022.2/hls_product/continuous/608/2022.2/src/shared/hls/clib/include/header_files/ap_fixed_base.h:1347
+reg: ret_V_35_reg_2766[57:0] lv
+
+local r_V <> <integer> <Arithmetic><MultiCycle> 'mul' <>
+r.V /wrk/ci/prod/2022.2/hls_product/continuous/608/2022.2/src/shared/hls/clib/include/header_files/ap_fixed_base.h:1273
+reg: r_V_reg_2771[99:0] lv
+
+local trunc_ln1347 <> <integer> <> 'trunc' <>
+trunc_ln1347 /wrk/ci/prod/2022.2/hls_product/continuous/608/2022.2/src/shared/hls/clib/include/header_files/ap_fixed_base.h:1347
+reg: trunc_ln1347_reg_2777[55:0] lv
+
+# ST_78
+local ret_V_23 <> <integer> <Arithmetic> 'add' <>
+ret.V /wrk/ci/prod/2022.2/hls_product/continuous/608/2022.2/src/shared/hls/clib/include/header_files/ap_fixed_base.h:1347
+reg: ret_V_23_reg_2782[106:0] lv
+
+local p_Result_8 <> <integer> <> 'bitselect' <>
+__Result__ /wrk/ci/prod/2022.2/hls_product/continuous/608/2022.2/src/shared/hls/clib/include/header_files/ap_fixed_ref.h:53
+reg: p_Result_8_reg_2787[0:0] lv
+
+local icmp_ln1035 <> <integer> <Comparator> 'icmp' <>
+icmp_ln1035 /wrk/ci/prod/2022.2/hls_product/continuous/608/2022.2/src/shared/hls/clib/include/header_files/ap_int_base.h:1035
+reg: icmp_ln1035_reg_2792[0:0] lv
+
+local icmp_ln1039 <> <integer> <Comparator> 'icmp' <>
+icmp_ln1039 /wrk/ci/prod/2022.2/hls_product/continuous/608/2022.2/src/shared/hls/clib/include/header_files/ap_int_base.h:1039
+reg: icmp_ln1039_reg_2798[0:0] lv
+
+local trunc_ln186 <> <integer> <> 'trunc' <>
+trunc_ln186 /wrk/ci/prod/2022.2/hls_product/continuous/608/2022.2/src/shared/hls/clib/include/header_files/ap_int_base.h:186
+reg: trunc_ln186_reg_2803[10:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_pp0_stage0)
+# ST_1
+local icmp_ln1019 <> <integer> <Comparator> 'icmp' <>
+icmp_ln1019 /wrk/ci/prod/2022.2/hls_product/continuous/608/2022.2/src/shared/hls/clib/include/header_files/ap_int_base.h:1019
+reg: icmp_ln1019_reg_2193[0:0] lv
+
+local x_is_1 <and_369> <integer> <Logic> 'and' </wrk/ci/prod/2022.2/hls_product/continuous/608/2022.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_pow.h:369>
+x_is_1 /wrk/ci/prod/2022.2/hls_product/continuous/608/2022.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_pow.h:369
+reg: x_is_1_reg_2198[0:0] lv
+
+local x_is_p1 <and_370> <integer> <Logic> 'and' </wrk/ci/prod/2022.2/hls_product/continuous/608/2022.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_pow.h:370>
+x_is_p1 /wrk/ci/prod/2022.2/hls_product/continuous/608/2022.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_pow.h:370
+reg: x_is_p1_reg_2204[0:0] lv
+
+local icmp_ln1019_1 <> <integer> <Comparator> 'icmp' <>
+icmp_ln1019_1 /wrk/ci/prod/2022.2/hls_product/continuous/608/2022.2/src/shared/hls/clib/include/header_files/ap_int_base.h:1019
+reg: icmp_ln1019_1_reg_2210[0:0] lv
+
+local p_Result_s <> <integer> <> 'bitselect' <>
+__Result__ /wrk/ci/prod/2022.2/hls_product/continuous/608/2022.2/src/shared/hls/clib/include/header_files/ap_int_ref.h:779
+reg: p_Result_s_reg_2216[0:0] lv
+
+local p_Result_12 <> <integer> <> 'trunc' <>
+__Result__ /wrk/ci/prod/2022.2/hls_product/continuous/608/2022.2/src/shared/hls/clib/include/header_files/ap_int_ref.h:628
+reg: p_Result_12_reg_2221[51:0] lv
+
+local b_exp_2 <select_513> <integer> <> 'select' </wrk/ci/prod/2022.2/hls_product/continuous/608/2022.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_pow.h:513>
+b_exp /wrk/ci/prod/2022.2/hls_product/continuous/608/2022.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_pow.h:513
+reg: b_exp_2_reg_2227[11:0] lv
+
+local zext_ln541 <> <integer> <> 'zext' <>
+zext_ln541 /wrk/ci/prod/2022.2/hls_product/continuous/608/2022.2/src/shared/hls/clib/include/header_files/ap_int_base.h:541
+reg: zext_ln541_reg_2232[63:0] lv
+
+local and_ln407_1 <and_407> <integer> <Logic> 'and' </wrk/ci/prod/2022.2/hls_product/continuous/608/2022.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_pow.h:407>
+and_ln407_1 /wrk/ci/prod/2022.2/hls_product/continuous/608/2022.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_pow.h:407
+reg: and_ln407_1_reg_2242[0:0] lv
+
+local icmp_ln407_2 <icmp_407> <integer> <Comparator> 'icmp' </wrk/ci/prod/2022.2/hls_product/continuous/608/2022.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_pow.h:407>
+icmp_ln407_2 /wrk/ci/prod/2022.2/hls_product/continuous/608/2022.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_pow.h:407
+reg: icmp_ln407_2_reg_2248[0:0] lv
+
+# ST_2
+local b_frac_tilde_inverse_V <load_531> <integer> <ArrayAccess><ArrayLoad><MultiCycle> 'load' </wrk/ci/prod/2022.2/hls_product/continuous/608/2022.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_pow.h:531>
+b_frac_tilde_inverse.V /wrk/ci/prod/2022.2/hls_product/continuous/608/2022.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_pow.h:531
+reg: b_frac_tilde_inverse_V_reg_2253[5:0] lv
+
+
+End Function 'pow_generic<double>'
+

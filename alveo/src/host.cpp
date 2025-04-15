@@ -2,6 +2,7 @@
 #include <algorithm>
 #include <vector>
 
+// #define DATA_SIZE 8
 #define DATA_SIZE 8
 
 struct gen_rand { 
@@ -12,6 +13,29 @@ public:
         return (rand()/(float)RAND_MAX) * range;
     }
 };
+
+std::vector<float> matrixVectorMultiply(const std::vector<float>& A, const std::vector<float>& x, int m, int n) {
+    std::vector<float> result(m, 0);
+    for (int i = 0; i < m; ++i) {
+        for (int j = 0; j < n; ++j) {
+            result[i] += A[i * n + j] * x[j];
+        }
+    }
+    return result;
+}
+
+    bool compareResults(const std::vector<float, aligned_allocator<float>>& a,
+                    const std::vector<float>& b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (std::fabs(a[i] - b[i]) > 0.001) { 
+            return false;
+        }
+    }
+    return true;
+    }
 
 int main(int argc, char** argv) {
     if (argc != 2) {
@@ -36,35 +60,42 @@ int main(int argc, char** argv) {
     // boundary. It will
     // ensure that user buffer is used when user create Buffer/Mem object with
     // CL_MEM_USE_HOST_PTR
-    std::vector<float, aligned_allocator<float> > matrix_p {1.0e-14 * 0.0333,   1.0e-14 *-0.1047,   1.0e-14 * 0.0723,   1.0e-14 *-0.0947,   1.0e-14 *-0.0003,   1.0e-14 *-0.0457,   1.0e-14 * 0.0455,   1.0e-14 * 0.0214, 1.0e-14 *-0.1295,   1.0e-14 * 0.1554,   1.0e-14 *-0.3095,   1.0e-14 * 0.1442,   1.0e-14 *-0.0017,   1.0e-14 * 0.0938,   1.0e-14 *-0.1275,   1.0e-14 *-0.0340, 1.0e-14 * 0.1541,   1.0e-14 *-0.3044,   1.0e-14 * 0.1776,   1.0e-14 *-0.2579,   1.0e-14 *-0.0847,   1.0e-14 *-0.1227,   1.0e-14 * 0.1070,   1.0e-14 * 0.0374, 1.0e-14 *-0.1155,   1.0e-14 * 0.1168,   1.0e-14 *-0.2261,   1.0e-14 * 0.1110,   1.0e-14 * 0.0296,   1.0e-14 * 0.0512,   1.0e-14 *-0.1129,   1.0e-14 *-0.0136, 1.0e-14 * 0.0188,   1.0e-14 *-0.0004,   1.0e-14 *-0.0034,   1.0e-14 * 0.0108,   1.0e-14 *-0.0222,   1.0e-14 *-0.0092,   1.0e-14 *-0.0188,   1.0e-14 * 0.0113, 1.0e-14 *-0.0371,   1.0e-14 * 0.0801,   1.0e-14 *-0.0946,   1.0e-14 * 0.0513,   1.0e-14 *-0.0190,   1.0e-14 * 0.0222,   1.0e-14 *-0.0398,   1.0e-14 *-0.0045, 1.0e-14 * 0.0525,   1.0e-14 *-0.1119,   1.0e-14 * 0.1350, 1.0e-14 *-0.1075,   1.0e-14 *-0.0511,   1.0e-14 *-0.0551,   1.0e-14 * 0.0555,   1.0e-14 *-0.0029, 1.0e-14 * 0.0431,   1.0e-14 *-0.0204,   1.0e-14 * 0.0094,   1.0e-14 *-0.0089,   1.0e-14 * 0.0001,   1.0e-14 * 0.0178,   1.0e-14 *-0.0202,   1.0e-14 * 0.0111};
-    std::vector<float, aligned_allocator<float> > vector_q{0.0000, 0.0000, 0.0000, 0.8215,-1.3848,-00000, 0.8287, 0.0000};
+    // std::vector<float, aligned_allocator<float>> matrix_A {
+    //    1, 2,
+    //    3, 4
+    // };
+    std::vector<float, aligned_allocator<float>> matrix_A {
+        3, 1, 7, 0, 3, 7, 6, 4,
+        1, 1, 7, 9, 7, 0, 6, 5,
+        2, 6, 0, 2, 6, 8, 6, 0,
+        2, 6, 3, 4, 7, 4, 9, 8,
+        3, 8, 7, 5, 6, 6, 6, 6,
+        1, 2, 9, 4, 0, 5, 8, 8,
+        0, 2, 5, 2, 9, 3, 0, 8,
+        4, 5, 6, 9, 7, 8, 2, 5
+    };
+    std::vector<float, aligned_allocator<float> > b {157, 177, 142, 225, 216, 198, 154, 205}; //8/26
+    // std::vector<float, aligned_allocator<float> > b {20, 46};
+
+
+    std::vector<float, aligned_allocator<float>> matrix_p {
+        -1.9984e-15, -1.2768e-15, -1.4988e-15, -6.6613e-16, 6.1062e-16, 1.4433e-15, 0.0, 4.9960e-16,
+        -6.6613e-16, 4.4409e-16, 1.1102e-16, 3.3307e-16, -5.6205e-16, -1.2490e-16, 2.7756e-17, -1.5266e-16,
+        -1.7764e-15, 8.7430e-16, 9.9920e-16, 0.0, -4.5797e-16, -2.7756e-17, -1.1102e-16, -9.7145e-16,
+        2.2204e-15, -7.9797e-16, -6.1062e-16, 0.0, 2.9837e-16, -2.3592e-16, 1.3878e-16, 6.2450e-16,
+        -1.1102e-15, 2.4286e-16, 2.7756e-16, 2.7756e-16, -2.2204e-16, 3.4694e-16, -2.7756e-17, -2.9143e-16,
+        1.9984e-15, -5.5511e-16, -3.3307e-16, -2.2204e-16, 2.2204e-16, -4.4409e-16, 1.6653e-16, 1.1102e-16,
+        2.2204e-16, 6.9389e-16, 1.0270e-15, -5.5511e-16, -6.9389e-17, -5.8287e-16, -2.2204e-16, -8.6042e-16,
+        2.2204e-16, -1.3808e-15, -1.2768e-15, 1.1102e-16, -6.9389e-18, 6.5226e-16, 5.8287e-16, 6.6613e-16
+    };
+    //  std::vector<float, aligned_allocator<float>> matrix_p {
+    //     -3, 1.5,
+    //     1, -1.5
+    // };
+
+    std::vector<float, aligned_allocator<float> > vector_q{1,2,3,4,5,6,7,8};
+    // std::vector<float, aligned_allocator<float> > vector_q{6,7};
     std::vector<float, aligned_allocator<float> > source_hw_results(DATA_SIZE);
-
-    // Create the test data
-    // std::generate_n(matrix_p.begin(), matrix_p.end(), gen_rand());
-    // std::generate_n(vector_q.begin(), vector_q.end(), gen_rand());
-    
-    std::cout << "Matrix P:\n";
-    for (int i = 0; i < DATA_SIZE; i++){
-        for(int j = 0; j < DATA_SIZE; j++){
-            // matrix_p[(i*DATA_SIZE) + j] = rand()/(float)RAND_MAX;
-            std::cout << matrix_p[(i*DATA_SIZE) + j] << " ";
-        }
-        std::cout << std::endl;
-    }
-
-    std::cout << "Vector q:\n";
-    for(int i = 0; i < DATA_SIZE; i++){
-        // vector_q[i] = rand()/(float)RAND_MAX;
-        std::cout << vector_q[i] << " ";
-    }
-    std::cout << std::endl;
-
-    for (int i = 0; i < DATA_SIZE; i++) {
-        source_hw_results[i] = 0;
-    }
-
-
 
     // OPENCL HOST CODE AREA START
     // get_xil_devices() is a utility API which will find the xilinx
@@ -127,12 +158,36 @@ int main(int argc, char** argv) {
     q.finish();
     // OPENCL HOST CODE AREA END
 
-    std::cout << "results:" << std::endl;
+    std::cout << "results from kernel:" << std::endl;
     for (int i = 0; i < DATA_SIZE; i++) {
        std::cout << source_hw_results[i] << " ";
         }
-    
+    std::cout << std::endl;
+    std::vector<float> matrix_A_std(matrix_A.begin(), matrix_A.end());
+    std::vector<float> source_hw_results_std(source_hw_results.begin(), source_hw_results.end());
+    std::vector<float> Ax = matrixVectorMultiply(matrix_A_std, source_hw_results_std, 8, 8);
+
+    // Print Ax
+    std::cout << "Ax: ";
+    for (const auto& val : Ax) {
+        std::cout << val << " ";
+    }
     std::cout << std::endl;
 
+    // Compare Ax to b
+    std::cout << "b: ";
+    for (const auto& val : b) {
+        std::cout << val << " ";
+    }
+    std::cout << std::endl;
+
+    // Compare the results from ADMM and expected vector b
+    std::cout << "Comparing results..." << std::endl;
+    if (compareResults(b, Ax)) {
+        std::cout << "ADMM results match the expected results!" << std::endl;
+    } else {
+        std::cout << "ADMM results do not match the expected results!" << std::endl;
+    }
+    
     return 0;
 }

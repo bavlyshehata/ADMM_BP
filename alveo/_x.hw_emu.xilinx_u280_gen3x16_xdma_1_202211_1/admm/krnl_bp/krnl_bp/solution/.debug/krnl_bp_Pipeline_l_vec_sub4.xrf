@@ -1,0 +1,30 @@
+Begin Function 'krnl_bp_Pipeline_l_vec_sub4'
+
+RTL state condition: (1'b1 == 1'b1)
+# ST_10
+local result <fsub_58> <float> <MultiCycle> 'fsub' </home/bsheh002/ADMM07/alveo/src/bp.cpp:58>
+result /home/bsheh002/ADMM07/alveo/src/bp.cpp:58
+reg: result_reg_160[31:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_pp0_stage0)
+# ST_2
+local tmp_3 <nbreadreq_55> <integer> <> 'nbreadreq' </home/bsheh002/ADMM07/alveo/src/bp.cpp:55>
+tmp_3 /home/bsheh002/ADMM07/alveo/src/bp.cpp:55
+reg: tmp_3_reg_132[0:0] lv
+
+local tmp_12 <nbreadreq_55> <integer> <> 'nbreadreq' </home/bsheh002/ADMM07/alveo/src/bp.cpp:55>
+tmp_12 /home/bsheh002/ADMM07/alveo/src/bp.cpp:55
+reg: tmp_12_reg_136[0:0] lv
+
+local x_hat_copy_2_stream_read <read_56> <integer> <FifoRead> 'read' </home/bsheh002/ADMM07/alveo/src/bp.cpp:56>
+x_hat_copy_2_stream_read /home/bsheh002/ADMM07/alveo/src/bp.cpp:56
+reg: x_hat_copy_2_stream_read_reg_140[31:0] lv
+
+local z_copy_1_stream_read <read_57> <integer> <FifoRead> 'read' </home/bsheh002/ADMM07/alveo/src/bp.cpp:57>
+z_copy_1_stream_read /home/bsheh002/ADMM07/alveo/src/bp.cpp:57
+reg: z_copy_1_stream_read_reg_145[31:0] lv
+
+
+End Function 'krnl_bp_Pipeline_l_vec_sub4'
+

@@ -1,0 +1,180 @@
+
+
+================================================================
+== Vitis HLS Report for 'mac_Pipeline_VITIS_LOOP_259_4'
+================================================================
+* Date:           Tue Apr 15 09:07:42 2025
+
+* Version:        2022.2 (Build 3670227 on Oct 13 2022)
+* Project:        krnl_bp
+* Solution:       solution (Vitis Kernel Flow Target)
+* Product family: virtexuplus
+* Target device:  xcu280-fsvh2892-2L-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+---------+----------+------------+
+    |  Clock |  Target | Estimated| Uncertainty|
+    +--------+---------+----------+------------+
+    |ap_clk  |  3.33 ns|  2.342 ns|     0.90 ns|
+    +--------+---------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |       64|       64|  0.213 us|  0.213 us|   64|   64|       no|
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +--------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |                    |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
+        |      Loop Name     |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
+        +--------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |- VITIS_LOOP_259_4  |       62|       62|        14|          7|          1|     8|       yes|
+        +--------------------+---------+---------+----------+-----------+-----------+------+----------+
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++---------------------+---------+------+---------+---------+-----+
+|         Name        | BRAM_18K|  DSP |    FF   |   LUT   | URAM|
++---------------------+---------+------+---------+---------+-----+
+|DSP                  |        -|     -|        -|        -|    -|
+|Expression           |        -|     -|        0|       37|    -|
+|FIFO                 |        -|     -|        -|        -|    -|
+|Instance             |        -|     -|        -|        -|    -|
+|Memory               |        -|     -|        -|        -|    -|
+|Multiplexer          |        -|     -|        -|      115|    -|
+|Register             |        -|     -|      177|        -|    -|
++---------------------+---------+------+---------+---------+-----+
+|Total                |        0|     0|      177|      152|    0|
++---------------------+---------+------+---------+---------+-----+
+|Available SLR        |     1344|  3008|   869120|   434560|  320|
++---------------------+---------+------+---------+---------+-----+
+|Utilization SLR (%)  |        0|     0|       ~0|       ~0|    0|
++---------------------+---------+------+---------+---------+-----+
+|Available            |     4032|  9024|  2607360|  1303680|  960|
++---------------------+---------+------+---------+---------+-----+
+|Utilization (%)      |        0|     0|       ~0|       ~0|    0|
++---------------------+---------+------+---------+---------+-----+
+
++ Detail: 
+    * Instance: 
+    N/A
+
+    * DSP: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +----------------------------------+----------+----+---+----+------------+------------+
+    |           Variable Name          | Operation| DSP| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +----------------------------------+----------+----+---+----+------------+------------+
+    |add_ln259_fu_113_p2               |         +|   0|  0|  12|           4|           1|
+    |ap_block_pp0_stage1_11001         |       and|   0|  0|   2|           1|           1|
+    |ap_block_state2_pp0_stage1_iter0  |       and|   0|  0|   2|           1|           1|
+    |ap_ext_blocking_n                 |       and|   0|  0|   2|           2|           2|
+    |ap_int_blocking_n                 |       and|   0|  0|   2|           2|           2|
+    |ap_predicate_op37_read_state2     |       and|   0|  0|   2|           1|           1|
+    |ap_str_blocking_n                 |       and|   0|  0|   2|           2|           2|
+    |tmp_9_nbreadreq_fu_52_p3          |       and|   0|  0|   2|           1|           0|
+    |icmp_ln259_fu_107_p2              |      icmp|   0|  0|   9|           4|           5|
+    |ap_enable_pp0                     |       xor|   0|  0|   2|           1|           2|
+    +----------------------------------+----------+----+---+----+------------+------------+
+    |Total                             |          |   0|  0|  37|          19|          17|
+    +----------------------------------+----------+----+---+----+------------+------------+
+
+    * Multiplexer: 
+    +----------------------------------+----+-----------+-----+-----------+
+    |               Name               | LUT| Input Size| Bits| Total Bits|
+    +----------------------------------+----+-----------+-----+-----------+
+    |ap_NS_fsm                         |  43|          8|    1|          8|
+    |ap_done_int                       |   9|          2|    1|          2|
+    |ap_enable_reg_pp0_iter0           |   9|          2|    1|          2|
+    |ap_enable_reg_pp0_iter1           |   9|          2|    1|          2|
+    |ap_sig_allocacmp_jj_1             |   9|          2|    4|          8|
+    |ap_sig_allocacmp_result_tmp_load  |   9|          2|   32|         64|
+    |jj_fu_44                          |   9|          2|    4|          8|
+    |p_stream_blk_n                    |   9|          2|    1|          2|
+    |result_tmp_fu_48                  |   9|          2|   32|         64|
+    +----------------------------------+----+-----------+-----+-----------+
+    |Total                             | 115|         24|   77|        160|
+    +----------------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +-----------------------------+----+----+-----+-----------+
+    |             Name            | FF | LUT| Bits| Const Bits|
+    +-----------------------------+----+----+-----+-----------+
+    |ap_CS_fsm                    |   7|   0|    7|          0|
+    |ap_done_reg                  |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter0_reg  |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter1      |   1|   0|    1|          0|
+    |icmp_ln259_reg_160           |   1|   0|    1|          0|
+    |jj_fu_44                     |   4|   0|    4|          0|
+    |mult_tmp_reg_188             |  32|   0|   32|          0|
+    |p_stream_read_reg_173        |  32|   0|   32|          0|
+    |result_tmp_1_reg_198         |  32|   0|   32|          0|
+    |result_tmp_fu_48             |  32|   0|   32|          0|
+    |tmp_9_reg_164                |   1|   0|    1|          0|
+    |tmp_9_reg_164_pp0_iter1_reg  |   1|   0|    1|          0|
+    |z_u_local_load_reg_178       |  32|   0|   32|          0|
+    +-----------------------------+----+----+-----+-----------+
+    |Total                        | 177|   0|  177|          0|
+    +-----------------------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++-----------------------+-----+-----+------------+-------------------------------+--------------+
+|       RTL Ports       | Dir | Bits|  Protocol  |         Source Object         |    C Type    |
++-----------------------+-----+-----+------------+-------------------------------+--------------+
+|ap_clk                 |   in|    1|  ap_ctrl_hs|  mac_Pipeline_VITIS_LOOP_259_4|  return value|
+|ap_rst                 |   in|    1|  ap_ctrl_hs|  mac_Pipeline_VITIS_LOOP_259_4|  return value|
+|ap_start               |   in|    1|  ap_ctrl_hs|  mac_Pipeline_VITIS_LOOP_259_4|  return value|
+|ap_done                |  out|    1|  ap_ctrl_hs|  mac_Pipeline_VITIS_LOOP_259_4|  return value|
+|ap_idle                |  out|    1|  ap_ctrl_hs|  mac_Pipeline_VITIS_LOOP_259_4|  return value|
+|ap_ready               |  out|    1|  ap_ctrl_hs|  mac_Pipeline_VITIS_LOOP_259_4|  return value|
+|ap_ext_blocking_n      |  out|    1|  ap_ctrl_hs|  mac_Pipeline_VITIS_LOOP_259_4|  return value|
+|ap_str_blocking_n      |  out|    1|  ap_ctrl_hs|  mac_Pipeline_VITIS_LOOP_259_4|  return value|
+|ap_int_blocking_n      |  out|    1|  ap_ctrl_hs|  mac_Pipeline_VITIS_LOOP_259_4|  return value|
+|grp_fu_162_p_din0      |  out|   32|  ap_ctrl_hs|  mac_Pipeline_VITIS_LOOP_259_4|  return value|
+|grp_fu_162_p_din1      |  out|   32|  ap_ctrl_hs|  mac_Pipeline_VITIS_LOOP_259_4|  return value|
+|grp_fu_162_p_opcode    |  out|    1|  ap_ctrl_hs|  mac_Pipeline_VITIS_LOOP_259_4|  return value|
+|grp_fu_162_p_dout0     |   in|   32|  ap_ctrl_hs|  mac_Pipeline_VITIS_LOOP_259_4|  return value|
+|grp_fu_162_p_ce        |  out|    1|  ap_ctrl_hs|  mac_Pipeline_VITIS_LOOP_259_4|  return value|
+|grp_fu_166_p_din0      |  out|   32|  ap_ctrl_hs|  mac_Pipeline_VITIS_LOOP_259_4|  return value|
+|grp_fu_166_p_din1      |  out|   32|  ap_ctrl_hs|  mac_Pipeline_VITIS_LOOP_259_4|  return value|
+|grp_fu_166_p_dout0     |   in|   32|  ap_ctrl_hs|  mac_Pipeline_VITIS_LOOP_259_4|  return value|
+|grp_fu_166_p_ce        |  out|    1|  ap_ctrl_hs|  mac_Pipeline_VITIS_LOOP_259_4|  return value|
+|z_u_local_address0     |  out|    3|   ap_memory|                      z_u_local|         array|
+|z_u_local_ce0          |  out|    1|   ap_memory|                      z_u_local|         array|
+|z_u_local_q0           |   in|   32|   ap_memory|                      z_u_local|         array|
+|result_tmp_out         |  out|   32|      ap_vld|                 result_tmp_out|       pointer|
+|result_tmp_out_ap_vld  |  out|    1|      ap_vld|                 result_tmp_out|       pointer|
+|p_stream_dout          |   in|   32|     ap_fifo|                       p_stream|       pointer|
+|p_stream_empty_n       |   in|    1|     ap_fifo|                       p_stream|       pointer|
+|p_stream_read          |  out|    1|     ap_fifo|                       p_stream|       pointer|
++-----------------------+-----+-----+------------+-------------------------------+--------------+
+

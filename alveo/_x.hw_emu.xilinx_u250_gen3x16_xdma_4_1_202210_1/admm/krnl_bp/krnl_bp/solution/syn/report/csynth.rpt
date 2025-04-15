@@ -1,0 +1,291 @@
+
+
+================================================================
+== Synthesis Summary Report of 'krnl_bp'
+================================================================
++ General Information: 
+    * Date:           Wed Aug  7 14:54:16 2024
+    * Version:        2022.2 (Build 3670227 on Oct 13 2022)
+    * Project:        krnl_bp
+    * Solution:       solution (Vitis Kernel Flow Target)
+    * Product family: virtexuplus
+    * Target device:  xcu250-figd2104-2L-e
+    
+
++ Performance & Resource Estimates: 
+    
+    PS: '+' for module; 'o' for loop; '*' for dataflow
+    +---------------------------------------+--------+-------+---------+-----------+----------+---------+------+----------+------+----------+-------------+------------+-----+
+    |                Modules                |  Issue |       | Latency |  Latency  | Iteration|         | Trip |          |      |          |             |            |     |
+    |                & Loops                |  Type  | Slack | (cycles)|    (ns)   |  Latency | Interval| Count| Pipelined| BRAM |    DSP   |      FF     |     LUT    | URAM|
+    +---------------------------------------+--------+-------+---------+-----------+----------+---------+------+----------+------+----------+-------------+------------+-----+
+    |+ krnl_bp                              |  Timing|  -0.26|     1158|  3.860e+03|         -|     1159|     -|        no|     -|  25 (~0%)|  21743 (~0%)|  29399 (1%)|    -|
+    | + krnl_bp_Pipeline_l_load_input       |  Timing|  -0.00|       67|    223.311|         -|       67|     -|        no|     -|         -|   1022 (~0%)|   118 (~0%)|    -|
+    |  o l_load_input                       |       -|   2.43|       65|    216.645|         3|        1|    64|       yes|     -|         -|            -|           -|    -|
+    | + krnl_bp_Pipeline_l_load_input1      |       -|   1.08|       10|     33.330|         -|       10|     -|        no|     -|         -|    263 (~0%)|    65 (~0%)|    -|
+    |  o l_load_input                       |       -|   2.43|        8|     26.664|         1|        1|     8|       yes|     -|         -|            -|           -|    -|
+    | + krnl_bp_Pipeline_VITIS_LOOP_236_1   |       -|   1.21|       10|     33.330|         -|       10|     -|        no|     -|         -|      7 (~0%)|    76 (~0%)|    -|
+    |  o VITIS_LOOP_236_1                   |       -|   2.43|        8|     26.664|         2|        1|     8|       yes|     -|         -|            -|           -|    -|
+    | + krnl_bp_Pipeline_VITIS_LOOP_236_12  |       -|   1.21|       10|     33.330|         -|       10|     -|        no|     -|         -|      7 (~0%)|    76 (~0%)|    -|
+    |  o VITIS_LOOP_236_1                   |       -|   2.43|        8|     26.664|         2|        1|     8|       yes|     -|         -|            -|           -|    -|
+    | + krnl_bp_Pipeline_VITIS_LOOP_236_13  |       -|   1.21|       10|     33.330|         -|       10|     -|        no|     -|         -|      7 (~0%)|    76 (~0%)|    -|
+    |  o VITIS_LOOP_236_1                   |       -|   2.43|        8|     26.664|         2|        1|     8|       yes|     -|         -|            -|           -|    -|
+    | + krnl_bp_Pipeline_l_main             |  Timing|  -0.26|      869|  2.896e+03|         -|      869|     -|        no|     -|  23 (~0%)|   8670 (~0%)|  9377 (~0%)|    -|
+    |  o l_main                             |       -|   2.43|      868|  2.893e+03|       434|        -|     2|        no|     -|         -|            -|           -|    -|
+    |   + replicate_stream                  |  Timing|  -0.00|        7|     23.331|         -|        8|     -|       yes|     -|         -|      8 (~0%)|    95 (~0%)|    -|
+    |   + mac                               |  Timing|  -0.26|      182|    606.606|         -|      127|     -|       yes|     -|         -|   2593 (~0%)|  2099 (~0%)|    -|
+    | + krnl_bp_Pipeline_VITIS_LOOP_229_1   |       -|   1.21|       10|     33.330|         -|       10|     -|        no|     -|         -|      7 (~0%)|    76 (~0%)|    -|
+    |  o VITIS_LOOP_229_1                   |       -|   2.43|        8|     26.664|         2|        1|     8|       yes|     -|         -|            -|           -|    -|
+    | + krnl_bp_Pipeline_VITIS_LOOP_229_14  |       -|   1.21|       10|     33.330|         -|       10|     -|        no|     -|         -|      7 (~0%)|    76 (~0%)|    -|
+    |  o VITIS_LOOP_229_1                   |       -|   2.43|        8|     26.664|         2|        1|     8|       yes|     -|         -|            -|           -|    -|
+    | + krnl_bp_Pipeline_VITIS_LOOP_229_15  |       -|   1.21|       10|     33.330|         -|       10|     -|        no|     -|         -|      7 (~0%)|    76 (~0%)|    -|
+    |  o VITIS_LOOP_229_1                   |       -|   2.43|        8|     26.664|         2|        1|     8|       yes|     -|         -|            -|           -|    -|
+    | + krnl_bp_Pipeline_l_write_mem        |       -|   1.34|       10|     33.330|         -|       10|     -|        no|     -|         -|    263 (~0%)|    74 (~0%)|    -|
+    |  o l_write_mem                        |       -|   2.43|        8|     26.664|         2|        1|     8|       yes|     -|         -|            -|           -|    -|
+    +---------------------------------------+--------+-------+---------+-----------+----------+---------+------+----------+------+----------+-------------+------------+-----+
+
+
+================================================================
+== HW Interfaces
+================================================================
+* M_AXI
++-------------+------------+---------------+---------+--------+----------+-----------+--------------+--------------+-------------+-------------+
+| Interface   | Data Width | Address Width | Latency | Offset | Register | Max Widen | Max Read     | Max Write    | Num Read    | Num Write   |
+|             | (SW->HW)   |               |         |        |          | Bitwidth  | Burst Length | Burst Length | Outstanding | Outstanding |
++-------------+------------+---------------+---------+--------+----------+-----------+--------------+--------------+-------------+-------------+
+| m_axi_gmem0 | 32 -> 512  | 64            | 64      | slave  | 0        | 512       | 16           | 16           | 16          | 16          |
+| m_axi_gmem1 | 32 -> 256  | 64            | 64      | slave  | 0        | 512       | 16           | 16           | 16          | 16          |
+| m_axi_gmem2 | 32 -> 256  | 64            | 64      | slave  | 0        | 512       | 16           | 16           | 16          | 16          |
++-------------+------------+---------------+---------+--------+----------+-----------+--------------+--------------+-------------+-------------+
+
+* S_AXILITE Interfaces
++---------------+------------+---------------+--------+----------+
+| Interface     | Data Width | Address Width | Offset | Register |
++---------------+------------+---------------+--------+----------+
+| s_axi_control | 32         | 7             | 16     | 0        |
++---------------+------------+---------------+--------+----------+
+
+* S_AXILITE Registers
++---------------+----------+--------+-------+--------+----------------------------------+------------------------------------------------------------------------------------+
+| Interface     | Register | Offset | Width | Access | Description                      | Bit Fields                                                                         |
++---------------+----------+--------+-------+--------+----------------------------------+------------------------------------------------------------------------------------+
+| s_axi_control | CTRL     | 0x00   | 32    | RW     | Control signals                  | 0=AP_START 1=AP_DONE 2=AP_IDLE 3=AP_READY 4=AP_CONTINUE 7=AUTO_RESTART 9=INTERRUPT |
+| s_axi_control | GIER     | 0x04   | 32    | RW     | Global Interrupt Enable Register | 0=Enable                                                                           |
+| s_axi_control | IP_IER   | 0x08   | 32    | RW     | IP Interrupt Enable Register     | 0=CHAN0_INT_EN 1=CHAN1_INT_EN                                                      |
+| s_axi_control | IP_ISR   | 0x0c   | 32    | RW     | IP Interrupt Status Register     | 0=CHAN0_INT_ST 1=CHAN1_INT_ST                                                      |
+| s_axi_control | mat_p_1  | 0x10   | 32    | W      | Data signal of mat_p             |                                                                                    |
+| s_axi_control | mat_p_2  | 0x14   | 32    | W      | Data signal of mat_p             |                                                                                    |
+| s_axi_control | vec_q_1  | 0x1c   | 32    | W      | Data signal of vec_q             |                                                                                    |
+| s_axi_control | vec_q_2  | 0x20   | 32    | W      | Data signal of vec_q             |                                                                                    |
+| s_axi_control | out_r_1  | 0x28   | 32    | W      | Data signal of out_r             |                                                                                    |
+| s_axi_control | out_r_2  | 0x2c   | 32    | W      | Data signal of out_r             |                                                                                    |
+| s_axi_control | rho      | 0x34   | 32    | W      | Data signal of rho               |                                                                                    |
+| s_axi_control | alpha    | 0x3c   | 32    | W      | Data signal of alpha             |                                                                                    |
++---------------+----------+--------+-------+--------+----------------------------------+------------------------------------------------------------------------------------+
+
+* Other Ports
++-------------+----------+
+| Interface   | Bitwidth |
++-------------+----------+
+| event_done  | 1        |
+| event_start | 1        |
++-------------+----------+
+
+* TOP LEVEL CONTROL
++-----------+---------------+-----------+
+| Interface | Type          | Ports     |
++-----------+---------------+-----------+
+| ap_clk    | clock         | ap_clk    |
+| ap_rst_n  | reset         | ap_rst_n  |
+| interrupt | interrupt     | interrupt |
+| ap_ctrl   | ap_ctrl_chain |           |
++-----------+---------------+-----------+
+
+
+================================================================
+== SW I/O Information
+================================================================
+* Top Function Arguments
++----------+-----------+----------+
+| Argument | Direction | Datatype |
++----------+-----------+----------+
+| mat_p    | in        | float*   |
+| vec_q    | in        | float*   |
+| out      | out       | float*   |
+| rho      | in        | float    |
+| alpha    | in        | float    |
++----------+-----------+----------+
+
+* SW-to-HW Mapping
++----------+---------------+-----------+----------+-----------------------------------+
+| Argument | HW Interface  | HW Type   | HW Usage | HW Info                           |
++----------+---------------+-----------+----------+-----------------------------------+
+| mat_p    | m_axi_gmem0   | interface |          |                                   |
+| mat_p    | s_axi_control | register  | offset   | name=mat_p_1 offset=0x10 range=32 |
+| mat_p    | s_axi_control | register  | offset   | name=mat_p_2 offset=0x14 range=32 |
+| vec_q    | m_axi_gmem1   | interface |          |                                   |
+| vec_q    | s_axi_control | register  | offset   | name=vec_q_1 offset=0x1c range=32 |
+| vec_q    | s_axi_control | register  | offset   | name=vec_q_2 offset=0x20 range=32 |
+| out      | m_axi_gmem2   | interface |          |                                   |
+| out      | s_axi_control | interface | offset   |                                   |
+| rho      | s_axi_control | register  |          | name=rho offset=0x34 range=32     |
+| alpha    | s_axi_control | register  |          | name=alpha offset=0x3c range=32   |
++----------+---------------+-----------+----------+-----------------------------------+
+
+
+================================================================
+== M_AXI Burst Information
+================================================================
+ Note: All burst requests might be further partitioned into multiple requests during RTL generation based on max_read_burst_length or max_write_burst_length settings.
+
+* Inferred Burst Summary
++--------------+-----------+--------+-------+---------------------------------------------+
+| HW Interface | Direction | Length | Width | Location                                    |
++--------------+-----------+--------+-------+---------------------------------------------+
+| m_axi_gmem0  | read      | 4      | 512   | /home/bsheh002/ADMM07/alveo/src/bp.cpp:15:5 |
++--------------+-----------+--------+-------+---------------------------------------------+
+
+
+================================================================
+== Bind Op Report
+================================================================
++------------------------------------------+-----+--------+----------------------------+------+---------+---------+
+| Name                                     | DSP | Pragma | Variable                   | Op   | Impl    | Latency |
++------------------------------------------+-----+--------+----------------------------+------+---------+---------+
+| + krnl_bp                                | 25  |        |                            |      |         |         |
+|   faddfsub_32ns_32ns_32_7_full_dsp_1_U63 | 2   |        | reg_alpha                  | fsub | fulldsp | 6       |
+|  + krnl_bp_Pipeline_l_load_input         | 0   |        |                            |      |         |         |
+|    add_ln15_fu_124_p2                    | -   |        | add_ln15                   | add  | fabric  | 0       |
+|  + krnl_bp_Pipeline_l_load_input1        | 0   |        |                            |      |         |         |
+|    add_ln15_fu_84_p2                     | -   |        | add_ln15                   | add  | fabric  | 0       |
+|  + krnl_bp_Pipeline_VITIS_LOOP_236_1     | 0   |        |                            |      |         |         |
+|    i_8_fu_58_p2                          | -   |        | i_8                        | add  | fabric  | 0       |
+|  + krnl_bp_Pipeline_VITIS_LOOP_236_12    | 0   |        |                            |      |         |         |
+|    i_7_fu_58_p2                          | -   |        | i_7                        | add  | fabric  | 0       |
+|  + krnl_bp_Pipeline_VITIS_LOOP_236_13    | 0   |        |                            |      |         |         |
+|    i_6_fu_58_p2                          | -   |        | i_6                        | add  | fabric  | 0       |
+|  + krnl_bp_Pipeline_l_main               | 23  |        |                            |      |         |         |
+|    i_3_fu_522_p2                         | -   |        | i_3                        | add  | fabric  | 0       |
+|    fmul_32ns_32ns_32_4_max_dsp_1_U21     | 3   |        | tmp_1                      | fmul | maxdsp  | 3       |
+|    fmul_32ns_32ns_32_4_max_dsp_1_U21     | 3   |        | tmp_2                      | fmul | maxdsp  | 3       |
+|    fmul_32ns_32ns_32_4_max_dsp_1_U21     | -   |        | z_old_stream_read_1        | fifo | memory  | 0       |
+|    fmul_32ns_32ns_32_4_max_dsp_1_U21     | 3   |        | tmp_1_1                    | fmul | maxdsp  | 3       |
+|    fmul_32ns_32ns_32_4_max_dsp_1_U21     | 3   |        | tmp_2_1                    | fmul | maxdsp  | 3       |
+|    fmul_32ns_32ns_32_4_max_dsp_1_U21     | -   |        | result_17                  | fsub | fulldsp | 6       |
+|    fmul_32ns_32ns_32_4_max_dsp_1_U21     | 3   |        | tmp_1_2                    | fmul | maxdsp  | 3       |
+|    fmul_32ns_32ns_32_4_max_dsp_1_U22     | 3   |        | tmp_2_2                    | fmul | maxdsp  | 3       |
+|    fmul_32ns_32ns_32_4_max_dsp_1_U21     | -   |        | x_stream_read_3            | fifo | memory  | 0       |
+|    fmul_32ns_32ns_32_4_max_dsp_1_U21     | 3   |        | tmp_1_3                    | fmul | maxdsp  | 3       |
+|    fmul_32ns_32ns_32_4_max_dsp_1_U23     | 3   |        | tmp_2_3                    | fmul | maxdsp  | 3       |
+|    fmul_32ns_32ns_32_4_max_dsp_1_U21     | -   |        | x_hat_stream_write_ln166   | fifo | memory  | 0       |
+|    fmul_32ns_32ns_32_4_max_dsp_1_U21     | 3   |        | tmp_1_4                    | fmul | maxdsp  | 3       |
+|    fmul_32ns_32ns_32_4_max_dsp_1_U24     | 3   |        | tmp_2_4                    | fmul | maxdsp  | 3       |
+|    fmul_32ns_32ns_32_4_max_dsp_1_U21     | -   |        | x_stream_read_5            | fifo | memory  | 0       |
+|    fmul_32ns_32ns_32_4_max_dsp_1_U21     | 3   |        | tmp_1_5                    | fmul | maxdsp  | 3       |
+|    fmul_32ns_32ns_32_4_max_dsp_1_U25     | 3   |        | tmp_2_5                    | fmul | maxdsp  | 3       |
+|    fmul_32ns_32ns_32_4_max_dsp_1_U21     | -   |        | x_hat_stream_write_ln166   | fifo | memory  | 0       |
+|    fmul_32ns_32ns_32_4_max_dsp_1_U21     | 3   |        | tmp_1_6                    | fmul | maxdsp  | 3       |
+|    fmul_32ns_32ns_32_4_max_dsp_1_U26     | 3   |        | tmp_2_6                    | fmul | maxdsp  | 3       |
+|    fmul_32ns_32ns_32_4_max_dsp_1_U21     | -   |        | z_old_stream_read_7        | fifo | memory  | 0       |
+|    fmul_32ns_32ns_32_4_max_dsp_1_U21     | 3   |        | tmp_1_7                    | fmul | maxdsp  | 3       |
+|    fmul_32ns_32ns_32_4_max_dsp_1_U27     | 3   |        | tmp_2_7                    | fmul | maxdsp  | 3       |
+|    fmul_32ns_32ns_32_4_max_dsp_1_U21     | -   |        | result_23                  | fsub | fulldsp | 6       |
+|    fmul_32ns_32ns_32_4_max_dsp_1_U21     | -   |        | x_hat_copy_3_stream_read_2 | fifo | memory  | 0       |
+|    fmul_32ns_32ns_32_4_max_dsp_1_U21     | -   |        | x_hat_copy_3_stream_read_6 | fifo | memory  | 0       |
+|    fmul_32ns_32ns_32_4_max_dsp_1_U21     | -   |        | u_copy_2_stream_read       | fifo | memory  | 0       |
+|    fmul_32ns_32ns_32_4_max_dsp_1_U21     | -   |        | x_hat_u_stream_write_ln144 | fifo | memory  | 0       |
+|    fmul_32ns_32ns_32_4_max_dsp_1_U21     | -   |        | u_copy_2_stream_read_2     | fifo | memory  | 0       |
+|    fmul_32ns_32ns_32_4_max_dsp_1_U21     | -   |        | x_hat_u_stream_write_ln144 | fifo | memory  | 0       |
+|    fmul_32ns_32ns_32_4_max_dsp_1_U21     | -   |        | x_hat_copy_1_stream_read_4 | fifo | memory  | 0       |
+|    fmul_32ns_32ns_32_4_max_dsp_1_U21     | -   |        | add_4_i                    | fsub | fulldsp | 6       |
+|    fmul_32ns_32ns_32_4_max_dsp_1_U21     | -   |        | add_6_i                    | fsub | fulldsp | 6       |
+|    fmul_32ns_32ns_32_4_max_dsp_1_U21     | -   |        | sub0                       | fsub | fulldsp | 6       |
+|    fsub_32ns_32ns_32_7_full_dsp_1_U20    | 2   |        | sub1                       | fsub | fulldsp | 6       |
+|    fmul_32ns_32ns_32_4_max_dsp_1_U21     | -   |        | sub7_i                     | fsub | fulldsp | 6       |
+|    fmul_32ns_32ns_32_4_max_dsp_1_U21     | 2   |        | sub1_1                     | fsub | fulldsp | 6       |
+|    fsub_32ns_32ns_32_7_full_dsp_1_U20    | 2   |        | sub1_2                     | fsub | fulldsp | 6       |
+|    fmul_32ns_32ns_32_4_max_dsp_1_U21     | -   |        | sub7_2_i                   | fsub | fulldsp | 6       |
+|    fmul_32ns_32ns_32_4_max_dsp_1_U21     | 2   |        | sub1_3                     | fsub | fulldsp | 6       |
+|    fmul_32ns_32ns_32_4_max_dsp_1_U21     | -   |        | x_hat_u_stream_read_4      | fifo | memory  | 0       |
+|    fsub_32ns_32ns_32_7_full_dsp_1_U20    | 2   |        | sub1_4                     | fsub | fulldsp | 6       |
+|    fsub_32ns_32ns_32_7_full_dsp_1_U20    | 2   |        | sub1_5                     | fsub | fulldsp | 6       |
+|    fsub_32ns_32ns_32_7_full_dsp_1_U20    | 2   |        | sub1_6                     | fsub | fulldsp | 6       |
+|    fsub_32ns_32ns_32_7_full_dsp_1_U20    | 2   |        | sub1_7                     | fsub | fulldsp | 6       |
+|  + krnl_bp_Pipeline_VITIS_LOOP_229_1     | 0   |        |                            |      |         |         |
+|    i_13_fu_56_p2                         | -   |        | i_13                       | add  | fabric  | 0       |
+|  + krnl_bp_Pipeline_VITIS_LOOP_229_14    | 0   |        |                            |      |         |         |
+|    i_12_fu_56_p2                         | -   |        | i_12                       | add  | fabric  | 0       |
+|  + krnl_bp_Pipeline_VITIS_LOOP_229_15    | 0   |        |                            |      |         |         |
+|    i_10_fu_56_p2                         | -   |        | i_10                       | add  | fabric  | 0       |
+|  + krnl_bp_Pipeline_l_write_mem          | 0   |        |                            |      |         |         |
+|    add_ln254_fu_89_p2                    | -   |        | add_ln254                  | add  | fabric  | 0       |
++------------------------------------------+-----+--------+----------------------------+------+---------+---------+
+
+
+================================================================
+== Bind Storage Report
+================================================================
++----------------+------+------+--------+------------+---------+------+---------+
+| Name           | BRAM | URAM | Pragma | Variable   | Storage | Impl | Latency |
++----------------+------+------+--------+------------+---------+------+---------+
+| + krnl_bp      | 0    | 0    |        |            |         |      |         |
+|   mat_p_bram_U | -    | -    |        | mat_p_bram | ram_s2p | auto | 1       |
+|   vec_q_bram_U | -    | -    |        | vec_q_bram | ram_1p  | auto | 1       |
+|   x_bram_U     | -    | -    |        | x_bram     | ram_1p  | auto | 1       |
++----------------+------+------+--------+------------+---------+------+---------+
+
+
+================================================================
+== Pragma Report
+================================================================
+* Valid Pragma Syntax
++-----------+---------------------------------------+---------------------------------------------------------+
+| Type      | Options                               | Location                                                |
++-----------+---------------------------------------+---------------------------------------------------------+
+| pipeline  |                                       | ../../../src/bp.cpp:16 in load_input                    |
+| pipeline  |                                       | ../../../src/bp.cpp:30 in vec_sub                       |
+| stream    | variable=in1_stream depth=36          | ../../../src/bp.cpp:43 in vec_sub, in1_stream           |
+| pipeline  |                                       | ../../../src/bp.cpp:47 in vec_sub                       |
+| pipeline  |                                       | ../../../src/bp.cpp:52 in vec_sub                       |
+| stream    | variable=p_stream depth=68            | ../../../src/bp.cpp:61 in mac, p_stream                 |
+| pipeline  |                                       | ../../../src/bp.cpp:70 in mac                           |
+| pipeline  |                                       | ../../../src/bp.cpp:76 in mac                           |
+| pipeline  |                                       | ../../../src/bp.cpp:88 in mac                           |
+| stream    | variable=q_stream depth=36            | ../../../src/bp.cpp:114 in vec_add, q_stream            |
+| pipeline  |                                       | ../../../src/bp.cpp:119 in vec_add                      |
+| pipeline  |                                       | ../../../src/bp.cpp:125 in vec_add                      |
+| pipeline  |                                       | ../../../src/bp.cpp:141 in vec_add                      |
+| pipeline  |                                       | ../../../src/bp.cpp:160 in x_update                     |
+| pipeline  |                                       | ../../../src/bp.cpp:179 in shrinkage                    |
+| pipeline  |                                       | ../../../src/bp.cpp:202 in replicate_stream             |
+| pipeline  |                                       | ../../../src/bp.cpp:218 in replicate_stream             |
+| pipeline  |                                       | ../../../src/bp.cpp:230 in flush_stream                 |
+| pipeline  |                                       | ../../../src/bp.cpp:237 in zero_init                    |
+| pipeline  |                                       | ../../../src/bp.cpp:246 in write_bram                   |
+| pipeline  |                                       | ../../../src/bp.cpp:255 in write_mem                    |
+| interface | m_axi port = mat_p bundle = gmem0     | ../../../src/bp.cpp:373 in krnl_bp                      |
+| interface | m_axi port = vec_q bundle = gmem1     | ../../../src/bp.cpp:374 in krnl_bp                      |
+| interface | m_axi port = out bundle = gmem2       | ../../../src/bp.cpp:375 in krnl_bp                      |
+| stream    | variable=u_stream depth=36            | ../../../src/bp.cpp:401 in krnl_bp, u_stream            |
+| stream    | variable=u_copy_1_stream depth=36     | ../../../src/bp.cpp:402 in krnl_bp, u_copy_1_stream     |
+| stream    | variable=u_copy_2_stream depth=36     | ../../../src/bp.cpp:403 in krnl_bp, u_copy_2_stream     |
+| stream    | variable=u_copy_3_stream depth=36     | ../../../src/bp.cpp:404 in krnl_bp, u_copy_3_stream     |
+| stream    | variable=z_stream depth=36            | ../../../src/bp.cpp:405 in krnl_bp, z_stream            |
+| stream    | variable=z_old_stream depth=36        | ../../../src/bp.cpp:406 in krnl_bp, z_old_stream        |
+| stream    | variable=z_copy_1_stream depth=36     | ../../../src/bp.cpp:407 in krnl_bp, z_copy_1_stream     |
+| stream    | variable=z_copy_2_stream depth=36     | ../../../src/bp.cpp:408 in krnl_bp, z_copy_2_stream     |
+| stream    | variable=x_hat_stream depth=36        | ../../../src/bp.cpp:409 in krnl_bp, x_hat_stream        |
+| stream    | variable=x_hat_copy_1_stream depth=36 | ../../../src/bp.cpp:410 in krnl_bp, x_hat_copy_1_stream |
+| stream    | variable=x_hat_copy_2_stream depth=36 | ../../../src/bp.cpp:411 in krnl_bp, x_hat_copy_2_stream |
+| stream    | variable=x_hat_copy_3_stream depth=36 | ../../../src/bp.cpp:412 in krnl_bp, x_hat_copy_3_stream |
+| stream    | variable=z_u_stream depth=36          | ../../../src/bp.cpp:413 in krnl_bp, z_u_stream          |
+| stream    | variable=mac_res_stream depth=36      | ../../../src/bp.cpp:414 in krnl_bp, mac_res_stream      |
+| stream    | variable=x_stream depth=36            | ../../../src/bp.cpp:415 in krnl_bp, x_stream            |
+| stream    | variable=x_hat_u_stream depth=36      | ../../../src/bp.cpp:416 in krnl_bp, x_hat_u_stream      |
+| stream    | variable=shrinkage_stream depth=36    | ../../../src/bp.cpp:417 in krnl_bp, shrinkage_stream    |
+| stream    | variable=x_hat_z_stream depth=36      | ../../../src/bp.cpp:418 in krnl_bp, x_hat_z_stream      |
+| stream    | variable=u_update_stream depth=36     | ../../../src/bp.cpp:419 in krnl_bp, u_update_stream     |
+| pipeline  |                                       | ../../../src/bp.cpp:436 in krnl_bp                      |
++-----------+---------------------------------------+---------------------------------------------------------+
+
+

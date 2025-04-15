@@ -3,9 +3,9 @@
 #include <hls_stream.h>
 #include <cmath>
 
-#define N 8
+#define N 64
 #define FIFO_DEPTH  N + 4
-#define MAX_ITER 2
+#define MAX_ITER 32
 
 const int c_size = N;
 

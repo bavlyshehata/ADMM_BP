@@ -3,7 +3,7 @@
 #include <hls_stream.h>
 #include <cmath>
 
-#define N 64
+#define N 8
 #define FIFO_DEPTH  N + 4
 #define MAX_ITER 32
 

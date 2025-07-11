@@ -23,11 +23,12 @@ static void vec_sub(float* a, float* b, float* out, int N) {
 
 static void mac(float* p, float* z_u, float* result, int N) {
     for (int i = 0; i < N; i++) {
-        #pragma HLS pipeline
-        result[i] = 0;
+    #pragma HLS pipeline
+        float acc = 0;
         for (int j = 0; j < N; j++) {
-            result[i] += p[i * N + j] * z_u[j];
+            acc += p[i * N + j] * z_u[j];
         }
+        result[i] = acc;
     }
 }
 
@@ -71,44 +72,47 @@ static void compute_eps_dual(float norm_u, float rho, float* eps_dual, int N) {
 
 extern "C" {
 void krnl_bp(float* mat_p, float* vec_q, float* out, float rho, float alpha, int N) {
-    #pragma HLS INTERFACE m_axi port=mat_p offset=slave bundle=gmem0
-    #pragma HLS INTERFACE m_axi port=vec_q offset=slave bundle=gmem1
-    #pragma HLS INTERFACE m_axi port=out offset=slave bundle=gmem2
-    #pragma HLS INTERFACE s_axilite port=mat_p bundle=control
-    #pragma HLS INTERFACE s_axilite port=vec_q bundle=control
-    #pragma HLS INTERFACE s_axilite port=out bundle=control
-    #pragma HLS INTERFACE s_axilite port=rho bundle=control
-    #pragma HLS INTERFACE s_axilite port=alpha bundle=control
-    #pragma HLS INTERFACE s_axilite port=N bundle=control
-    #pragma HLS INTERFACE s_axilite port=return bundle=control
+#pragma HLS INTERFACE m_axi port=mat_p offset=slave bundle=gmem0
+#pragma HLS INTERFACE m_axi port=vec_q offset=slave bundle=gmem1
+#pragma HLS INTERFACE m_axi port=out offset=slave bundle=gmem2
+#pragma HLS INTERFACE s_axilite port=mat_p bundle=control
+#pragma HLS INTERFACE s_axilite port=vec_q bundle=control
+#pragma HLS INTERFACE s_axilite port=out bundle=control
+#pragma HLS INTERFACE s_axilite port=rho bundle=control
+#pragma HLS INTERFACE s_axilite port=alpha bundle=control
+#pragma HLS INTERFACE s_axilite port=N bundle=control
+#pragma HLS INTERFACE s_axilite port=return bundle=control
 
     float x[MAX_N] = {0};
     float u[MAX_N] = {0};
     float z[MAX_N] = {0};
-    float z_old[MAX_N] = {0};
-    float z_u[MAX_N], mac_res[MAX_N], x_hat[MAX_N], x_hat_u[MAX_N], shrinked[MAX_N], x_hat_z[MAX_N];
-
-    float mat_p_local[MAX_N*MAX_N];
+    float z_old[MAX_N];
+    float z_u[MAX_N], mac_res[MAX_N], x_hat[MAX_N], x_hat_z[MAX_N];
+    float mat_p_local[MAX_N * MAX_N];
     float vec_q_local[MAX_N];
 
-    load_input(mat_p, mat_p_local, N*N);
+    load_input(mat_p, mat_p_local, N * N);
     load_input(vec_q, vec_q_local, N);
 
     for (int iter = 0; iter < MAX_ITER; iter++) {
-        for (int i = 0; i < N; i++) z_old[i] = z[i];
+        // Save old z
+        for (int i = 0; i < N; i++) {
+        #pragma HLS pipeline
+            z_old[i] = z[i];
+        }
 
         vec_sub(z, u, z_u, N);
         mac(mat_p_local, z_u, mac_res, N);
         vec_add(mac_res, vec_q_local, x, N);
-
         x_update(x, z_old, x_hat, alpha, N);
-        vec_add(x_hat, u, x_hat_u, N);
-        shrinkage(x_hat_u, rho, z, N);
-        vec_sub(x_hat, z_old, x_hat_z, N);
+        vec_add(x_hat, u, z, N);
+        shrinkage(z, rho, z, N);
+        vec_sub(x_hat, z, x_hat_z, N);
         vec_add(x_hat_z, u, u, N);
 
         float r_norm = 0, s_norm = 0, norm_x = 0, norm_z = 0, norm_u = 0;
         for (int i = 0; i < N; i++) {
+        #pragma HLS pipeline
             float dx = x[i] - z[i];
             float dz = z[i] - z_old[i];
             r_norm += dx * dx;
@@ -134,7 +138,7 @@ void krnl_bp(float* mat_p, float* vec_q, float* out, float rho, float alpha, int
     }
 
     for (int i = 0; i < N; i++) {
-        #pragma HLS pipeline
+    #pragma HLS pipeline
         out[i] = x[i];
     }
 }

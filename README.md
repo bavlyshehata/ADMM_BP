@@ -2,6 +2,7 @@
   Authors:
   - Bavly Shehata (University of California, Riverside)
   - Prithviraj Yuvaraj (University of California, Riverside)
+  
   Supervisor:
   - Professor Philip Brisk (University of California, Riverside)
 
@@ -81,6 +82,7 @@ The steps to execute the algorithm are as follows:
 ## Future Work
   - RDMA: Extend the solver to multi-FPGA setups using RDMA for low-latency inter-node communication.
   - Termination Check: By implementing a termination check, we are able to stop the iteration as it reaches convergence. This results in a more optimized algorithm that adapts to the specific matrices and hyper-parameters (such as rho), while also cutting down on wasted iterations that may affect our performance.
+
 
 
 

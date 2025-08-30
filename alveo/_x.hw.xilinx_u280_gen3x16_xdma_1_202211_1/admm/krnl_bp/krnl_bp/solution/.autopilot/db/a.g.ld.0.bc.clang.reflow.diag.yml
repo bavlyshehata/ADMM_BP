@@ -1,0 +1,662 @@
+--- !Failure
+Pass:            generate-ir-wrapper
+Name:            MAXIDepthUnspecified
+DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 570, 
+                   Column: 0 }
+Function:        krnl_bp
+Args:            
+  - String:          'A depth specification is required for MAXI interface port '''
+  - Name:            mat_p
+  - String:          ''' for cosimulation.'
+...
+--- !Failure
+Pass:            generate-ir-wrapper
+Name:            MAXIDepthUnspecified
+DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 570, 
+                   Column: 0 }
+Function:        krnl_bp
+Args:            
+  - String:          'A depth specification is required for MAXI interface port '''
+  - Name:            vec_q
+  - String:          ''' for cosimulation.'
+...
+--- !Failure
+Pass:            generate-ir-wrapper
+Name:            MAXIDepthUnspecified
+DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 570, 
+                   Column: 0 }
+Function:        krnl_bp
+Args:            
+  - String:          'A depth specification is required for MAXI interface port '''
+  - Name:            out
+  - String:          ''' for cosimulation.'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 627, 
+                   Column: 35 }
+Function:        krnl_bp
+Args:            
+  - String:          'Loop '''
+  - LoopName:        VITIS_LOOP_627_6
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-array-partition
+Name:            ArrayXform
+DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 583, 
+                   Column: 9 }
+Function:        krnl_bp
+Args:            
+  - String:          'Applying '
+  - String:          array_partition
+  - String:          ' to '''
+  - UOName:          x
+  - String:          ''':'
+  - String:          ' '
+  - Mode:            Cyclic
+  - String:          ' partitioning'
+  - String:          ' with factor '
+  - Factor:          '16'
+  - String:          ' on dimension '
+  - Dim:             '1'
+  - String:          .
+...
+--- !Passed
+Pass:            reflow-array-partition
+Name:            ArrayXform
+DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 584, 
+                   Column: 12 }
+Function:        krnl_bp
+Args:            
+  - String:          'Applying '
+  - String:          array_partition
+  - String:          ' to '''
+  - UOName:          u
+  - String:          ''':'
+  - String:          ' '
+  - Mode:            Cyclic
+  - String:          ' partitioning'
+  - String:          ' with factor '
+  - Factor:          '16'
+  - String:          ' on dimension '
+  - Dim:             '1'
+  - String:          .
+...
+--- !Passed
+Pass:            reflow-array-partition
+Name:            ArrayXform
+DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 585, 
+                   Column: 12 }
+Function:        krnl_bp
+Args:            
+  - String:          'Applying '
+  - String:          array_partition
+  - String:          ' to '''
+  - UOName:          z
+  - String:          ''':'
+  - String:          ' '
+  - Mode:            Cyclic
+  - String:          ' partitioning'
+  - String:          ' with factor '
+  - Factor:          '16'
+  - String:          ' on dimension '
+  - Dim:             '1'
+  - String:          .
+...
+--- !Passed
+Pass:            reflow-array-partition
+Name:            ArrayXform
+DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 586, 
+                   Column: 12 }
+Function:        krnl_bp
+Args:            
+  - String:          'Applying '
+  - String:          array_partition
+  - String:          ' to '''
+  - UOName:          z_old
+  - String:          ''':'
+  - String:          ' '
+  - Mode:            Cyclic
+  - String:          ' partitioning'
+  - String:          ' with factor '
+  - Factor:          '16'
+  - String:          ' on dimension '
+  - Dim:             '1'
+  - String:          .
+...
+--- !Passed
+Pass:            reflow-array-partition
+Name:            ArrayXform
+DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 587, 
+                   Column: 12 }
+Function:        krnl_bp
+Args:            
+  - String:          'Applying '
+  - String:          array_partition
+  - String:          ' to '''
+  - UOName:          z_u
+  - String:          ''':'
+  - String:          ' '
+  - Mode:            Cyclic
+  - String:          ' partitioning'
+  - String:          ' with factor '
+  - Factor:          '16'
+  - String:          ' on dimension '
+  - Dim:             '1'
+  - String:          .
+...
+--- !Passed
+Pass:            reflow-array-partition
+Name:            ArrayXform
+DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 588, 
+                   Column: 12 }
+Function:        krnl_bp
+Args:            
+  - String:          'Applying '
+  - String:          array_partition
+  - String:          ' to '''
+  - UOName:          mac_res
+  - String:          ''':'
+  - String:          ' '
+  - Mode:            Cyclic
+  - String:          ' partitioning'
+  - String:          ' with factor '
+  - Factor:          '16'
+  - String:          ' on dimension '
+  - Dim:             '1'
+  - String:          .
+...
+--- !Passed
+Pass:            reflow-array-partition
+Name:            ArrayXform
+DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 589, 
+                   Column: 12 }
+Function:        krnl_bp
+Args:            
+  - String:          'Applying '
+  - String:          array_partition
+  - String:          ' to '''
+  - UOName:          x_hat
+  - String:          ''':'
+  - String:          ' '
+  - Mode:            Cyclic
+  - String:          ' partitioning'
+  - String:          ' with factor '
+  - Factor:          '16'
+  - String:          ' on dimension '
+  - Dim:             '1'
+  - String:          .
+...
+--- !Passed
+Pass:            reflow-array-partition
+Name:            ArrayXform
+DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 590, 
+                   Column: 12 }
+Function:        krnl_bp
+Args:            
+  - String:          'Applying '
+  - String:          array_partition
+  - String:          ' to '''
+  - UOName:          x_hat_z
+  - String:          ''':'
+  - String:          ' '
+  - Mode:            Cyclic
+  - String:          ' partitioning'
+  - String:          ' with factor '
+  - Factor:          '16'
+  - String:          ' on dimension '
+  - Dim:             '1'
+  - String:          .
+...
+--- !Passed
+Pass:            reflow-burst-inference
+Name:            BurstInferred
+DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 624, 
+                   Column: 31 }
+Function:        krnl_bp
+Args:            
+  - String:          'Sequential '
+  - Direction:       read
+  - String:          ' of '
+  - Length:          variable
+  - String:          ' length'
+  - String:          ' has been inferred'
+  - String:          ' _XLX_SEP_ '
+  - AccessID:        scevgepseq
+  - ArrayName:       mat_p
+  - String:          ' '
+  - BundleName:      gmem0
+  - String:          ' '
+  - LoopName:        VITIS_LOOP_624_5
+  - String:          ' '
+  - LoopLoc:         '/home/bsheh002/ADMM07/alveo/src/bp.cpp:624:31'
+  - String:          ' '
+  - Function:        krnl_bp
+    DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 570, 
+                       Column: 0 }
+  - String:          ' '
+  - String:          ' _XLX_SEP_ '
+  - OrigAccess:      load
+    DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 629, 
+                       Column: 15 }
+  - OrigDirection:   read
+  - OrigID:          for.inc48.load.12
+...
+--- !Passed
+Pass:            reflow-burst-inference
+Name:            BurstInferred
+DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 636, 
+                   Column: 31 }
+Function:        krnl_bp
+Args:            
+  - String:          'Sequential '
+  - Direction:       read
+  - String:          ' of '
+  - Length:          variable
+  - String:          ' length'
+  - String:          ' has been inferred'
+  - String:          ' _XLX_SEP_ '
+  - AccessID:        scevgep315seq
+  - ArrayName:       vec_q
+  - String:          ' '
+  - BundleName:      gmem1
+  - String:          ' '
+  - LoopName:        VITIS_LOOP_636_7
+  - String:          ' '
+  - LoopLoc:         '/home/bsheh002/ADMM07/alveo/src/bp.cpp:636:31'
+  - String:          ' '
+  - Function:        krnl_bp
+    DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 570, 
+                       Column: 0 }
+  - String:          ' '
+  - String:          ' _XLX_SEP_ '
+  - OrigAccess:      load
+    DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 638, 
+                       Column: 22 }
+  - OrigDirection:   read
+  - OrigID:          for.inc69.load.58
+...
+--- !Passed
+Pass:            reflow-burst-inference
+Name:            BurstInferred
+DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 679, 
+                   Column: 28 }
+Function:        krnl_bp
+Args:            
+  - String:          'Sequential '
+  - Direction:       write
+  - String:          ' of '
+  - Length:          variable
+  - String:          ' length'
+  - String:          ' has been inferred'
+  - String:          ' _XLX_SEP_ '
+  - AccessID:        scevgep316seq
+  - ArrayName:       out
+  - String:          ' '
+  - BundleName:      gmem2
+  - String:          ' '
+  - LoopName:        VITIS_LOOP_679_12
+  - String:          ' '
+  - LoopLoc:         '/home/bsheh002/ADMM07/alveo/src/bp.cpp:679:28'
+  - String:          ' '
+  - Function:        krnl_bp
+    DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 570, 
+                       Column: 0 }
+  - String:          ' '
+  - String:          ' _XLX_SEP_ '
+  - OrigAccess:      store
+    DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 681, 
+                       Column: 18 }
+  - OrigDirection:   write
+  - OrigID:          for.inc172.store.42
+...
+--- !Missed
+Pass:            reflow-burst-inference
+Name:            CouldNotAnalyzeBoundsPattern
+DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 602, 
+                   Column: 20 }
+Function:        krnl_bp
+Args:            
+  - String:          Could not analyze the loop bounds
+  - String:          ' _XLX_SEP_ '
+  - LoopName:        VITIS_LOOP_602_1
+  - String:          ' '
+  - LoopLoc:         '/home/bsheh002/ADMM07/alveo/src/bp.cpp:602:20'
+  - String:          ' '
+  - Function:        krnl_bp
+    DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 570, 
+                       Column: 0 }
+  - String:          ' '
+...
+--- !Missed
+Pass:            reflow-burst-inference
+Name:            IncompatibleStride
+DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 624, 
+                   Column: 31 }
+Function:        krnl_bp
+Args:            
+  - String:          Stride is incompatible
+  - String:          ' _XLX_SEP_ '
+  - OrigAccess:      call
+    DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 624, 
+                       Column: 31 }
+  - OrigDirection:   read
+  - OrigID:          scevgepseq
+  - ArrayName:       mat_p
+  - String:          ' '
+  - BundleName:      gmem0
+  - String:          ' '
+  - LoopName:        VITIS_LOOP_616_3
+  - String:          ' '
+  - LoopLoc:         '/home/bsheh002/ADMM07/alveo/src/bp.cpp:616:27'
+  - String:          ' '
+  - Function:        krnl_bp
+    DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 570, 
+                       Column: 0 }
+  - String:          ' '
+...
+--- !Missed
+Pass:            reflow-burst-inference
+Name:            IncompatibleStride
+DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 636, 
+                   Column: 31 }
+Function:        krnl_bp
+Args:            
+  - String:          Stride is incompatible
+  - String:          ' _XLX_SEP_ '
+  - OrigAccess:      call
+    DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 636, 
+                       Column: 31 }
+  - OrigDirection:   read
+  - OrigID:          scevgep315seq
+  - ArrayName:       vec_q
+  - String:          ' '
+  - BundleName:      gmem1
+  - String:          ' '
+  - LoopName:        VITIS_LOOP_616_3
+  - String:          ' '
+  - LoopLoc:         '/home/bsheh002/ADMM07/alveo/src/bp.cpp:616:27'
+  - String:          ' '
+  - Function:        krnl_bp
+    DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 570, 
+                       Column: 0 }
+  - String:          ' '
+...
+--- !Missed
+Pass:            reflow-burst-widen
+Name:            GreaterOrEqualAlignment
+DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 679, 
+                   Column: 28 }
+Function:        krnl_bp
+Args:            
+  - String:          'Could not widen since type '
+  - Type:            float
+  - String:          ' size is greater than or equal to alignment '
+  - Alignment:       '4'
+  - String:          '(bytes)'
+  - String:          ' _XLX_SEP_ '
+  - OrigAccess:      call
+    DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 679, 
+                       Column: 28 }
+  - OrigDirection:   write
+  - OrigID:          scevgep316seq
+  - ArrayName:       out
+  - String:          ' '
+  - BundleName:      gmem2
+  - String:          ' '
+  - LoopName:        VITIS_LOOP_679_12
+  - String:          ' '
+  - LoopLoc:         '/home/bsheh002/ADMM07/alveo/src/bp.cpp:679:28'
+  - String:          ' '
+  - Function:        krnl_bp
+    DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 570, 
+                       Column: 0 }
+  - String:          ' '
+...
+--- !Missed
+Pass:            reflow-burst-widen
+Name:            GreaterOrEqualAlignment
+DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 636, 
+                   Column: 31 }
+Function:        krnl_bp
+Args:            
+  - String:          'Could not widen since type '
+  - Type:            float
+  - String:          ' size is greater than or equal to alignment '
+  - Alignment:       '4'
+  - String:          '(bytes)'
+  - String:          ' _XLX_SEP_ '
+  - OrigAccess:      call
+    DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 636, 
+                       Column: 31 }
+  - OrigDirection:   read
+  - OrigID:          scevgep315seq
+  - ArrayName:       vec_q
+  - String:          ' '
+  - BundleName:      gmem1
+  - String:          ' '
+  - LoopName:        VITIS_LOOP_636_7
+  - String:          ' '
+  - LoopLoc:         '/home/bsheh002/ADMM07/alveo/src/bp.cpp:636:31'
+  - String:          ' '
+  - Function:        krnl_bp
+    DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 570, 
+                       Column: 0 }
+  - String:          ' '
+...
+--- !Missed
+Pass:            reflow-burst-widen
+Name:            GreaterOrEqualAlignment
+DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 624, 
+                   Column: 31 }
+Function:        krnl_bp
+Args:            
+  - String:          'Could not widen since type '
+  - Type:            float
+  - String:          ' size is greater than or equal to alignment '
+  - Alignment:       '4'
+  - String:          '(bytes)'
+  - String:          ' _XLX_SEP_ '
+  - OrigAccess:      call
+    DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 624, 
+                       Column: 31 }
+  - OrigDirection:   read
+  - OrigID:          scevgepseq
+  - ArrayName:       mat_p
+  - String:          ' '
+  - BundleName:      gmem0
+  - String:          ' '
+  - LoopName:        VITIS_LOOP_627_6
+  - String:          ' '
+  - LoopLoc:         '/home/bsheh002/ADMM07/alveo/src/bp.cpp:627:35'
+  - String:          ' '
+  - Function:        krnl_bp
+    DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 570, 
+                       Column: 0 }
+  - String:          ' '
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 627, 
+                   Column: 35 }
+Function:        krnl_bp
+Args:            
+  - String:          'Loop '''
+  - LoopName:        VITIS_LOOP_627_6
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 627, 
+                   Column: 35 }
+Function:        krnl_bp
+Args:            
+  - String:          'Loop '''
+  - LoopName:        VITIS_LOOP_627_6
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-burst-summary
+Name:            BurstInferredVerboseSummary
+DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 624, 
+                   Column: 31 }
+Function:        krnl_bp
+Args:            
+  - String:          'Multiple burst '
+  - Direction:       reads
+  - String:          ' of '
+  - Length:          variable
+  - String:          ' length and bit width '
+  - Width:           '32'
+  - String:          ' has been inferred.'
+  - String:          ' These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings.'
+  - String:          ' _XLX_SEP_ '
+  - AccessID:        seq
+  - ArrayName:       ''
+  - String:          ' '
+  - BundleName:      gmem0
+  - String:          ' '
+  - Function:        krnl_bp
+    DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 570, 
+                       Column: 0 }
+  - String:          ' '
+...
+--- !Passed
+Pass:            reflow-burst-summary
+Name:            BurstInferredSummary
+DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 624, 
+                   Column: 31 }
+Function:        krnl_bp
+Args:            
+  - String:          'Multiple burst '
+  - Direction:       reads
+  - String:          ' of '
+  - Length:          variable
+  - String:          ' length and bit width '
+  - Width:           '32'
+  - String:          ' has been inferred on bundle '''
+  - BundleName:      gmem0
+  - String:          '''.'
+  - String:          ' These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings.'
+...
+--- !Passed
+Pass:            reflow-burst-summary
+Name:            BurstInferredVerboseSummary
+DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 636, 
+                   Column: 31 }
+Function:        krnl_bp
+Args:            
+  - String:          'Multiple burst '
+  - Direction:       reads
+  - String:          ' of '
+  - Length:          variable
+  - String:          ' length and bit width '
+  - Width:           '32'
+  - String:          ' has been inferred.'
+  - String:          ' These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings.'
+  - String:          ' _XLX_SEP_ '
+  - AccessID:        seq1
+  - ArrayName:       ''
+  - String:          ' '
+  - BundleName:      gmem1
+  - String:          ' '
+  - LoopName:        VITIS_LOOP_636_7
+  - String:          ' '
+  - LoopLoc:         '/home/bsheh002/ADMM07/alveo/src/bp.cpp:636:31'
+  - String:          ' '
+  - Function:        krnl_bp
+    DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 570, 
+                       Column: 0 }
+  - String:          ' '
+...
+--- !Passed
+Pass:            reflow-burst-summary
+Name:            BurstInferredSummary
+DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 636, 
+                   Column: 31 }
+Function:        krnl_bp
+Args:            
+  - String:          'Multiple burst '
+  - Direction:       reads
+  - String:          ' of '
+  - Length:          variable
+  - String:          ' length and bit width '
+  - Width:           '32'
+  - String:          ' in loop '''
+  - LoopName:        VITIS_LOOP_636_7
+  - String:          '''('
+  - LoopLoc:         '/home/bsheh002/ADMM07/alveo/src/bp.cpp:636:31'
+  - String:          ')'
+  - String:          ' has been inferred on bundle '''
+  - BundleName:      gmem1
+  - String:          '''.'
+  - String:          ' These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings.'
+...
+--- !Passed
+Pass:            reflow-burst-summary
+Name:            BurstInferredVerboseSummary
+DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 679, 
+                   Column: 28 }
+Function:        krnl_bp
+Args:            
+  - String:          'Multiple burst '
+  - Direction:       writes
+  - String:          ' of '
+  - Length:          variable
+  - String:          ' length and bit width '
+  - Width:           '32'
+  - String:          ' has been inferred.'
+  - String:          ' These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings.'
+  - String:          ' _XLX_SEP_ '
+  - AccessID:        seq2
+  - ArrayName:       ''
+  - String:          ' '
+  - BundleName:      gmem2
+  - String:          ' '
+  - LoopName:        VITIS_LOOP_679_12
+  - String:          ' '
+  - LoopLoc:         '/home/bsheh002/ADMM07/alveo/src/bp.cpp:679:28'
+  - String:          ' '
+  - Function:        krnl_bp
+    DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 570, 
+                       Column: 0 }
+  - String:          ' '
+...
+--- !Passed
+Pass:            reflow-burst-summary
+Name:            BurstInferredSummary
+DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 679, 
+                   Column: 28 }
+Function:        krnl_bp
+Args:            
+  - String:          'Multiple burst '
+  - Direction:       writes
+  - String:          ' of '
+  - Length:          variable
+  - String:          ' length and bit width '
+  - Width:           '32'
+  - String:          ' in loop '''
+  - LoopName:        VITIS_LOOP_679_12
+  - String:          '''('
+  - LoopLoc:         '/home/bsheh002/ADMM07/alveo/src/bp.cpp:679:28'
+  - String:          ')'
+  - String:          ' has been inferred on bundle '''
+  - BundleName:      gmem2
+  - String:          '''.'
+  - String:          ' These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings.'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: /home/bsheh002/ADMM07/alveo/src/bp.cpp, Line: 627, 
+                   Column: 35 }
+Function:        krnl_bp
+Args:            
+  - String:          'Loop '''
+  - LoopName:        VITIS_LOOP_627_6
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...

@@ -44,9 +44,7 @@ Our project introduces an FPGA-accelerated solution using the AMD Alveo U280 for
     
   ### Iterative ADMM Updates
   - Kernels compute updates of the form:
-  $$
-  x^{k+1} = \arg \min_x \; \tfrac{1}{2}\|Ax - b\|^2 + 2\rho \|x - z^k + u^k\|^2
-  $$
+  $$x^{k+1} = \arg \min_x \ \tfrac{1}{2}\|Ax - b\|^2 + 2\rho \|x - z^k + u^k\|^2 $$
   - Partial updates are streamed per chunk and combined to update the global z and u.
   ### Multi-Bank Memory Mapping:
   - Data is mapped across multiple HBM banks (gmem0–gmem13), ensuring parallel access for vector operations.
@@ -83,5 +81,6 @@ The steps to execute the algorithm are as follows:
 ## Future Work
   - RDMA: Extend the solver to multi-FPGA setups using RDMA for low-latency inter-node communication.
   - Termination Check: By implementing a termination check, we are able to stop the iteration as it reaches convergence. This results in a more optimized algorithm that adapts to the specific matrices and hyperparameters, while also cutting down on wasted iterations that may affect our performance
+
 
 

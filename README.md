@@ -38,17 +38,17 @@ Our project introduces an FPGA-accelerated solution using the AMD Alveo U280 for
     make run TARGET=hw DEVICE=/opt/xilinx/platforms/xilinx_u280_gen3x16_xdma_1_202211_1/xilinx_u280_gen3x16_xdma_1_202211_1.xpfm
 
 # Implementation Details
-  ## Chunked Processing
+  ### Chunked Processing
   - Input matrices are partitioned row-wise into configurable chunk_size blocks.
   - Each FPGA kernel processes a chunk sequentially, streams partial results, and merges them on host memory, which allows scaling to problem sizes larger than HBM capacity.
     
-  ## Iterative ADMM Updates
+  ### Iterative ADMM Updates
   - Kernels compute updates of the form:
   $$
   x^{k+1} = \arg \min_x \; \tfrac{1}{2}\|Ax - b\|^2 + 2\rho \|x - z^k + u^k\|^2
   $$
   - Partial updates are streamed per chunk and combined to update the global z and u.
-  ## Multi-Bank Memory Mapping:
+  ### Multi-Bank Memory Mapping:
   - Data is mapped across multiple HBM banks (gmem0–gmem13), ensuring parallel access for vector operations.
 
 ## Implementation of Basis Pursuit algorithm based on ADMM. 
@@ -65,7 +65,7 @@ The steps to execute the algorithm are as follows:
 
 ## Hardware Architecture
 <div align="center">
-  <img width="2081" height="2660" alt="output-onlinepngtools (1)" src="https://github.com/user-attachments/assets/4efeb79f-1d67-4b04-b0c1-a8e630d4ddce" />
+  <img width="1041" height="1330" alt="output-onlinepngtools (1)" src="https://github.com/user-attachments/assets/4efeb79f-1d67-4b04-b0c1-a8e630d4ddce" />
 </div>
 
 ## Performance
@@ -83,4 +83,5 @@ The steps to execute the algorithm are as follows:
 ## Future Work
   - RDMA: Extend the solver to multi-FPGA setups using RDMA for low-latency inter-node communication.
   - Termination Check: By implementing a termination check, we are able to stop the iteration as it reaches convergence. This results in a more optimized algorithm that adapts to the specific matrices and hyperparameters, while also cutting down on wasted iterations that may affect our performance
+
 

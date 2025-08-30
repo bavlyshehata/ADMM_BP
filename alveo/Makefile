@@ -92,10 +92,11 @@ endif
 ############################## Setting up Host Variables ##############################
 #Include Required Host Source Files
 CXXFLAGS += -I./common/includes/xcl2
-HOST_SRCS += ./common/includes/xcl2/xcl2.cpp ./src/host.cpp 
+HOST_SRCS += ./common/includes/xcl2/xcl2.cpp ./src/host.cpp ./src/cnpy/cnpy.cpp
 # Host compiler global settings
 CXXFLAGS += -fmessage-length=0
-LDFLAGS += -lrt -lstdc++ 
+#LDFLAGS += -lrt -lstdc++ 
+LDFLAGS += -lrt -lstdc++ -lz
 
 ifneq ($(HOST_ARCH), x86)
 	LDFLAGS += --sysroot=$(SYSROOT)
@@ -103,7 +104,7 @@ endif
 
 ############################## Setting up Kernel Variables ##############################
 # Kernel compiler global settings
-VPP_FLAGS += -t $(TARGET) --platform $(DEVICE) --save-temps 
+VPP_FLAGS += -t $(TARGET) --platform $(DEVICE) --save-temps --config connectivity.cfg
 ifneq ($(TARGET), hw)
 	VPP_FLAGS += -g
 endif
@@ -143,12 +144,14 @@ ifeq ($(HOST_ARCH), x86)
 	$(VPP) $(VPP_FLAGS) -l $(VPP_LDFLAGS) --temp_dir $(TEMP_DIR)  -o'$(BUILD_DIR)/admm.link.xclbin' $(+)
 	$(VPP) -p $(BUILD_DIR)/admm.link.xclbin --config connectivity.cfg -t $(TARGET) --platform $(DEVICE) --package.out_dir $(PACKAGE_OUT) -o $(BUILD_DIR)/admm.xclbin
 else
-	$(VPP) $(VPP_FLAGS) -l $(VPP_LDFLAGS) --config connectivity.cfg --temp_dir $(TEMP_DIR) -o'$(BUILD_DIR)/admm.xclbin' $(+)
+	$(VPP) $(VPP_FLAGS) -l $(VPP_LDFLAGS) --temp_dir $(TEMP_DIR) -o'$(BUILD_DIR)/admm.xclbin' $(+)
 endif
 
 ############################## Setting Rules for Host (Building Host Executable) ##############################
 $(EXECUTABLE): $(HOST_SRCS) | check-xrt
 		$(CXX) -o $@ $^ $(CXXFLAGS) $(LDFLAGS)
+# $(EXECUTABLE): $(HOST_SRCS) | check-xrt
+# 		$(CXX) -o $@ $^ $(LDFLAGS) $(CXXFLAGS)
 
 emconfig:$(EMCONFIG_DIR)/emconfig.json
 $(EMCONFIG_DIR)/emconfig.json:

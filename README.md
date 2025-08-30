@@ -5,14 +5,14 @@
   Supervisor:
   - Professor Philip Brisk (University of California, Riverside)
 
-Basis Pursuit, solved via the Alternating Direction Method of Multipliers (ADMM), is widely used in sparse signal recovery, compressed sensing, and optimization problems. However, the iterative matrix–vector multiplications and convergence checks make it computationally intensive.
+Basis Pursuit, solved via the Alternating Direction Method of Multipliers (ADMM), is an optimization problem widely used in sparse signal recovery, compressed sensing, and optimization problems. However, the iterative matrix–vector multiplications and convergence checks make it computationally intensive.
 
-Our project introduces an FPGA-accelerated solution using the AMD Alveo U280 for efficient ADMM-based Basis Pursuit. Our approach focuses on chunked processing of large problem sizes, parallelizing matrix–vector operations across multiple HBM memory banks, and optimizing kernel dataflow for high throughput. Future extensions will include RDMA (Remote Direct Memory Access) to enable distributed multi-FPGA scaling.
+Our project introduces an FPGA-accelerated solution using the AMD Alveo U280 for efficient ADMM-based Basis Pursuit. Our approach focuses on chunked processing of large problem sizes, parallelizing matrix–vector operations across multiple HBM memory banks, and optimizing kernel dataflow for high throughput. Future extensions of this project will include RDMA (Remote Direct Memory Access) to enable distributed multi-FPGA scaling.
 
 # Key Highlights
   - Chunked ADMM Solver Implementation: We implement a kernel (krnl_bp) capable of iterative ADMM updates on sub-blocks of the data. This design allows the solver to handle matrices larger than on-chip memory by streaming chunks sequentially.
   - Optimized Memory-Mapped Buffers: Host buffers are allocated with alignment and partitioning across U280 HBM channels, improving bandwidth utilization for chunked matrix operations.
-  - Performance Improvements: By using HLS pragmas such as pipelining, dataflow, and array partitioning, the chunked kernels demonstrate significant reductions in per-iteration latency.
+  - Performance Improvements: By using HLS pragmas such as pipelining, dataflow, and array partitioning, the chunked kernels show significant reductions in per-iteration latency.
 
 # How to Run
   ## Prerequisites
@@ -80,7 +80,8 @@ The steps to execute the algorithm are as follows:
 
 ## Future Work
   - RDMA: Extend the solver to multi-FPGA setups using RDMA for low-latency inter-node communication.
-  - Termination Check: By implementing a termination check, we are able to stop the iteration as it reaches convergence. This results in a more optimized algorithm that adapts to the specific matrices and hyperparameters, while also cutting down on wasted iterations that may affect our performance
+  - Termination Check: By implementing a termination check, we are able to stop the iteration as it reaches convergence. This results in a more optimized algorithm that adapts to the specific matrices and hyper-parameters (such as rho), while also cutting down on wasted iterations that may affect our performance.
+
 
 
 

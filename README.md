@@ -1,10 +1,10 @@
 # FPGA-Accelerated ADMM Distributed utilizing RDMA
   Authors:
-  - Bavly Shehata (University of California, Riverside)
-  - Prithviraj Yuvaraj (University of California, Riverside)
+  - Bavly Shehata [bsheh002@ucr.edu] (University of California, Riverside)
+  - Prithviraj Yuvaraj [pyuva001@ucr.edu] (University of California, Riverside)
   
   Supervisor:
-  - Professor Philip Brisk (University of California, Riverside)
+  - Professor Philip Brisk [philip.brisk@ucr.edu] (University of California, Riverside)
 
 Basis Pursuit, solved via the Alternating Direction Method of Multipliers (ADMM), is an optimization problem widely used in sparse signal recovery, compressed sensing, and optimization problems. However, the iterative matrix–vector multiplications and convergence checks make it computationally intensive.
 
@@ -82,6 +82,7 @@ The steps to execute the algorithm are as follows:
 ## Future Work
   - RDMA: Extend the solver to multi-FPGA setups using RDMA for low-latency inter-node communication.
   - Termination Check: By implementing a termination check, we are able to stop the iteration as it reaches convergence. This results in a more optimized algorithm that adapts to the specific matrices and hyper-parameters (such as rho), while also cutting down on wasted iterations that may affect our performance.
+
 
 
 

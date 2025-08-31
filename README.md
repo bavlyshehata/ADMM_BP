@@ -65,13 +65,21 @@ Our project introduces an FPGA-accelerated solution using the AMD Alveo U280 for
 
 The steps to execute the algorithm are as follows:
 
-1.1) x = P(z-u) + Q
+1.1 
 
-1.2) x^ = alpha * x + (1 - alpha) * z
+$$x = P(z-u) + Q$$
 
-2) z = max(0, x^ + u - 1/rho) - max(0, -x^ - u - 1/rho)
+1.2 
 
-3) u = u + (x^ - z)
+$$\hat{x} = \alpha x + (1 - alpha) z$$
+
+2.
+
+   $$z = \max \left(0, \hat{x} + u - \tfrac{1}{\rho}\right) - \max \left(0, -\hat{x} - u - \tfrac{1}{\rho}\right)$$
+
+3.
+
+ $$u = u + (\hat{x} - z)$$
 
 ## Hardware Architecture
 <div align="center">
@@ -99,4 +107,5 @@ The steps to execute the algorithm are as follows:
 ## Citations
 
 1. Boyd, S., Parikh, N., Chu, E., Peleato, B., & Eckstein, J. (2010). Distributed optimization and statistical learning via the alternating direction method of multipliers. Foundations and Trends in Machine Learning, 3(1), 1–122. https://doi.org/10.1561/2200000016
+
 

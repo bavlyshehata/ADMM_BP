@@ -6,9 +6,20 @@
   Supervisor:
   - Professor Philip Brisk [philip.brisk@ucr.edu] (University of California, Riverside)
 
-Basis Pursuit, solved via the Alternating Direction Method of Multipliers (ADMM), is an optimization problem widely used in sparse signal recovery, compressed sensing, and optimization problems. However, the iterative matrix–vector multiplications and convergence checks make it computationally intensive.
+Basis Pursuit, solved via the Alternating Direction Method of Multipliers (ADMM) first discussed in [Boyd et al., 2011](https://stanford.edu/~boyd/papers/pdf/admm_distr_stats.pdf), is an optimization problem widely used in sparse signal recovery, compressed sensing, and optimization problems. However, the iterative matrix–vector multiplications and convergence checks make it computationally intensive.
 
-Our project introduces an FPGA-accelerated solution using the AMD Alveo U280 for efficient ADMM-based Basis Pursuit. Our approach focuses on chunked processing of large problem sizes, parallelizing matrix–vector operations across multiple HBM memory banks, and optimizing kernel dataflow for high throughput. Future extensions of this project will include RDMA (Remote Direct Memory Access) to enable distributed multi-FPGA scaling.
+The ADMM formulation of Basis Pursuit is  
+  > minimize $$f(x) + \lVert z \rVert_1$$   
+  > subject to $$x - z = 0$$
+
+where $$f$$ is the indicator function of { $$\{ x \in \mathbb{R}^{n} | Ax = b\}$$ } with varaible $$x \in \mathbb{R}^{n}$$ and user-provided constant inputs $$A \in \mathbb{R}^{n \times m}$$ and $$b \in \mathbb{R}^{m}$$, $$m < n$$.
+
+Two matrices and one vector are computed prior to iterating: $Q = A^T(AA^T)^{-1} \in \mathbb{R}^{n \times m}$, $P = I - QA \in \mathbb{R}^{m \times m}$, and $Qb \in \mathbb{R}^n$; only $P$ and $Qb$ are retained. Each ADMM iteration is performed as follows:
+> $x^{k+1} = P(z^k-u^k) + Qb$  
+> $z^{k+1} = S_{1/\rho}(x^{k+1} + u^k)$  
+> $u^{k+1} = u^k + x^{k+1} - z^{k+1}$  
+
+Our project introduces an FPGA-accelerated solution using the AMD Alveo U280 for efficient ADMM-based Basis Pursuit designed and implmeneted in Vitis HLS 2023.2, the original [MatLab implmenetaion](https://stanford.edu/~boyd/papers/admm/basis_pursuit/basis_pursuit.html) was used as reference. Our approach focuses on chunked processing of large problem sizes, parallelizing matrix–vector operations across multiple HBM memory banks, and optimizing kernel dataflow for high throughput. Future extensions of this project will include RDMA (Remote Direct Memory Access) to enable distributed multi-FPGA scaling.
 
 # Key Highlights
   - Chunked ADMM Solver Implementation: We implement a kernel (krnl_bp) capable of iterative ADMM updates on sub-blocks of the data. This design allows the solver to handle matrices larger than on-chip memory by streaming chunks sequentially.
@@ -86,10 +97,9 @@ The steps to execute the algorithm are as follows:
   - Termination Check: By implementing a termination check, we are able to stop the iteration as it reaches convergence. This results in a more optimized algorithm that adapts to the specific matrices and hyper-parameters (such as rho), while also cutting down on wasted iterations that may affect our performance.
 
 ## Citations
-- Boyd, S., Parikh, N., Chu, E., Peleato, B., & Eckstein, J. (2011).  
-  *Distributed Optimization and Statistical Learning via the Alternating Direction Method of Multipliers.*  
-  Foundations and Trends® in Machine Learning, 3(1), 1–122.  
-  [https://web.stanford.edu/~boyd/papers/admm_distr_stats.html]
+
+1. Boyd, S., Parikh, N., Chu, E., Peleato, B., & Eckstein, J. (2010). Distributed optimization and statistical learning via the alternating direction method of multipliers. Foundations and Trends in Machine Learning, 3(1), 1–122. https://doi.org/10.1561/2200000016
+
 
 - MATLAB implementation of ADMM for Basis Pursuit:  
   [https://web.stanford.edu/~boyd/papers/admm/basis_pursuit/basis_pursuit.html]

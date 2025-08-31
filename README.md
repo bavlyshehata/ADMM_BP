@@ -79,7 +79,7 @@ The steps to execute the algorithm are as follows:
 </div>
 
 ## Performance
-<img width="599" height="367" alt="image" src="https://github.com/user-attachments/assets/f8c8e8a7-bd64-423e-b84a-19f2259dcadf" />
+<img width="595" height="364" alt="image" src="https://github.com/user-attachments/assets/3670b611-9470-4825-ac9f-df7ceb14b97a" />
 
 | Size    | N     | Migrate to Device (ms) | Kernel Execution (ms) | Total    |
 |---------|-------|-------------------------|-----------------------|----------|
@@ -99,3 +99,4 @@ The steps to execute the algorithm are as follows:
 ## Citations
 
 1. Boyd, S., Parikh, N., Chu, E., Peleato, B., & Eckstein, J. (2010). Distributed optimization and statistical learning via the alternating direction method of multipliers. Foundations and Trends in Machine Learning, 3(1), 1–122. https://doi.org/10.1561/2200000016
+

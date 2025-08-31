@@ -81,6 +81,46 @@ $$\hat{x} = \alpha x + (1 - \alpha) z$$
 
  $$u = u + (\hat{x} - z)$$
 
+## Memory Interface
+
+### The P and Q matrices are precomputed on CPU.
+
+The steps to precompute them are as follows:
+
+1. On the host, we perform the following calculations:
+   
+   $$G = A^T A$$
+   
+   $$G_{\rho} = G + \rho I$$
+   
+3. Invert $$G_{\rho}$$ and compute the P and Q matrices:
+
+   $$P = \rho G_{p}^{-1}$$
+
+   $$Q = G_{\rho}^{-1} A^{T} b$$
+
+Once they are computed, we copy them onto the FPGA's HBM memory, and therefore each ADMM iteration takes less computation as it is only computing:
+
+$$x = P(z-u) + Q$$
+
+So by reusing the precomputed inverse, we are able to have faster matrix-vector updates.
+
+### Host
+- Allocates large aligned buffers for all operands.
+- Partitions the buffers across HBM banks (gmem0 to gmem13) for parallel access.
+
+### Kernel
+- Receives pointers to buffers in HBM using m_axi ports.
+- Each buffer gets mapped to its own HBM channel to allow for maximum bandwidth.
+- Matrix-vector operations can be performed in parallel for each chunk, which maximizes our memory throughput.
+  
+#### Chunked Processing
+- The kernel processes chunks of the full vector/matrix into BRAM at a time.
+- Each chunk reads the relevant rows of P as well as elements of Q from HBM.
+- The intermediate vectors such as x, z, and u are stored in BRAM local arrays.
+- After computation is completed, the output of the chunk is written back to HBM.
+- Once the partial results are collected from HBM, we are able to output them.
+
 ## Hardware Architecture
 <div align="center">
   <img width="1041" height="1330" alt="output-onlinepngtools (1)" src="https://github.com/user-attachments/assets/4efeb79f-1d67-4b04-b0c1-a8e630d4ddce" />
@@ -107,6 +147,7 @@ $$\hat{x} = \alpha x + (1 - \alpha) z$$
 ## Citations
 
 1. Boyd, S., Parikh, N., Chu, E., Peleato, B., & Eckstein, J. (2010). Distributed optimization and statistical learning via the alternating direction method of multipliers. Foundations and Trends in Machine Learning, 3(1), 1–122. https://doi.org/10.1561/2200000016
+
 
 
 

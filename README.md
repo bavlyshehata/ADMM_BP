@@ -99,7 +99,3 @@ The steps to execute the algorithm are as follows:
 ## Citations
 
 1. Boyd, S., Parikh, N., Chu, E., Peleato, B., & Eckstein, J. (2010). Distributed optimization and statistical learning via the alternating direction method of multipliers. Foundations and Trends in Machine Learning, 3(1), 1–122. https://doi.org/10.1561/2200000016
-
-
-- MATLAB implementation of ADMM for Basis Pursuit:  
-  [https://web.stanford.edu/~boyd/papers/admm/basis_pursuit/basis_pursuit.html]

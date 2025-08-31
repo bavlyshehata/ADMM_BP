@@ -81,13 +81,15 @@ The steps to execute the algorithm are as follows:
 ## Performance
 <img width="599" height="367" alt="image" src="https://github.com/user-attachments/assets/f8c8e8a7-bd64-423e-b84a-19f2259dcadf" />
 
-| Size    | N     | Migrate to Device (ms) | Kernel Execution (ms) | Migrate to Host (ms) | Total    |
-|---------|-------|-------------------------|-----------------------|-----------------------|----------|
-| 38MB    | 2048  | 9                       | 5818                  | 0                     | 5827     |
-| 152MB   | 4096  | 17                      | 23269                 | 0                     | 23286    |
-| 608MB   | 8192  | 43                      | 93608                 | 0                     | 93651    |
-| 2.38GB  | 16384 | 145                     | 372252                | 0                     | 372397   |
-| 22.91GB | 32768 | 535                     | 1488970               | 0                     | 1489505  |
+| Size    | N     | Migrate to Device (ms) | Kernel Execution (ms) | Total    |
+|---------|-------|-------------------------|-----------------------|----------|
+| 38MB    | 2048  | 9                       | 5818                  | 5827     |
+| 152MB   | 4096  | 17                      | 23269                 | 23286    |
+| 608MB   | 8192  | 43                      | 93608                 | 93651    |
+| 2.38GB  | 16384 | 145                     | 372252                | 372397   |
+| 22.91GB | 32768 | 535                     | 1488970               | 1489505  |
+
+*Note*: The transfer from migrate to host is negligible.
 
 
 ## Future Work
@@ -95,12 +97,9 @@ The steps to execute the algorithm are as follows:
   - Termination Check: By implementing a termination check, we are able to stop the iteration as it reaches convergence. This results in a more optimized algorithm that adapts to the specific matrices and hyper-parameters (such as rho), while also cutting down on wasted iterations that may affect our performance.
 
 ## Citations
+
 1. Boyd, S., Parikh, N., Chu, E., Peleato, B., & Eckstein, J. (2010). Distributed optimization and statistical learning via the alternating direction method of multipliers. Foundations and Trends in Machine Learning, 3(1), 1–122. https://doi.org/10.1561/2200000016
 
 
-
-
-
-
-
-
+- MATLAB implementation of ADMM for Basis Pursuit:  
+  [https://web.stanford.edu/~boyd/papers/admm/basis_pursuit/basis_pursuit.html]

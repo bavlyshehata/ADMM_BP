@@ -71,7 +71,7 @@ $$x = P(z-u) + Q$$
 
 1.2 
 
-$$\hat{x} = \alpha x + (1 - alpha) z$$
+$$\hat{x} = \alpha x + (1 - \alpha) z$$
 
 2.
 
@@ -107,5 +107,6 @@ $$\hat{x} = \alpha x + (1 - alpha) z$$
 ## Citations
 
 1. Boyd, S., Parikh, N., Chu, E., Peleato, B., & Eckstein, J. (2010). Distributed optimization and statistical learning via the alternating direction method of multipliers. Foundations and Trends in Machine Learning, 3(1), 1–122. https://doi.org/10.1561/2200000016
+
 
 

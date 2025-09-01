@@ -154,6 +154,9 @@ So by reusing the precomputed inverse, we are able to have faster matrix-vector 
 1. Boyd, S., Parikh, N., Chu, E., Peleato, B., & Eckstein, J. (2010). Distributed optimization and statistical learning via the alternating direction method of multipliers. Foundations and Trends in Machine Learning, 3(1), 1–122. https://doi.org/10.1561/2200000016
 
 
+## Youtube Link
+
+[https://www.youtube.com/watch?v=6JOXSWuf3o4]
 
 
 

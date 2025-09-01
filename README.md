@@ -59,7 +59,7 @@ Our project introduces an FPGA-accelerated solution using the AMD Alveo U280 for
   $$x^{k+1} = \arg \min_x \ \tfrac{1}{2}\|Ax - b\|^2 + 2\rho \|x - z^k + u^k\|^2 $$
   - Partial updates are streamed per chunk and combined to update the global z and u.
   ### Multi-Bank Memory Mapping:
-  - Data is mapped across multiple HBM banks (gmem0–gmem13), ensuring parallel access for vector operations.
+  - Data is mapped across multiple HBM banks (0:31), ensuring parallel access for vector operations.
 
 ## Implementation of Basis Pursuit algorithm based on ADMM. 
 
@@ -107,7 +107,7 @@ So by reusing the precomputed inverse, we are able to have faster matrix-vector 
 
 ### Host
 - Allocates large aligned buffers for all operands.
-- Partitions the buffers across HBM banks (gmem0 to gmem13) for parallel access.
+- Partitions the buffers across HBM banks (0:31) for parallel access.
 
 ### Kernel
 - Receives pointers to buffers in HBM using m_axi ports.
@@ -122,7 +122,7 @@ So by reusing the precomputed inverse, we are able to have faster matrix-vector 
 - Once the partial results are collected from HBM, we are able to output them.
 #### HBM Utilization
 - The AMD Alveo U280 has 32 independent HBM banks consisting of 256 MB each.
-- By mapping buffers to different gmem AXI interfaces, we ensure that the chunks of data are stored in physically separate banks while also ensuring that we are using all of the HBM banks. This avoids memory access conflicts and allows multiple read/write operations to happen simultaneously.
+- By mapping buffers to different AXI interfaces (0:31), we ensure that the chunks of data are stored in physically separate banks while also ensuring that we are using all of the HBM banks. This avoids memory access conflicts and allows multiple read/write operations to happen simultaneously.
 - During ADMM updates, each chunk of the matrix multiplication streams data from a dedicated HBM bank, while other chunks are able to access different banks in parallel.
 - With this setup, we are able to maximize bandwith utilization while also avoiding BRAM capacity, which tackles the HBM bottlenecking problem caused by large matrices.
 
@@ -152,6 +152,7 @@ So by reusing the precomputed inverse, we are able to have faster matrix-vector 
 ## Citations
 
 1. Boyd, S., Parikh, N., Chu, E., Peleato, B., & Eckstein, J. (2010). Distributed optimization and statistical learning via the alternating direction method of multipliers. Foundations and Trends in Machine Learning, 3(1), 1–122. https://doi.org/10.1561/2200000016
+
 
 
 

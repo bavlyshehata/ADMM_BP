@@ -12,14 +12,14 @@ The ADMM formulation of Basis Pursuit is
   > minimize $$f(x) + \lVert z \rVert_1$$   
   > subject to $$x - z = 0$$
 
-where $$f$$ is the indicator function of { $$\{ x \in \mathbb{R}^{n} | Ax = b\}$$ } with varaible $$x \in \mathbb{R}^{n}$$ and user-provided constant inputs $$A \in \mathbb{R}^{n \times m}$$ and $$b \in \mathbb{R}^{m}$$, $$m < n$$.
+where $$f$$ is the indicator function of { $$\{ x \in \mathbb{R}^{n} | Ax = b\}$$ } with variable $$x \in \mathbb{R}^{n}$$ and user-provided constant inputs $$A \in \mathbb{R}^{n \times m}$$ and $$b \in \mathbb{R}^{m}$$, $$m < n$$.
 
 Two matrices and one vector are computed prior to iterating: $Q = A^T(AA^T)^{-1} \in \mathbb{R}^{n \times m}$, $P = I - QA \in \mathbb{R}^{m \times m}$, and $Qb \in \mathbb{R}^n$; only $P$ and $Qb$ are retained. Each ADMM iteration is performed as follows:
 > $x^{k+1} = P(z^k-u^k) + Qb$  
 > $z^{k+1} = S_{1/\rho}(x^{k+1} + u^k)$  
 > $u^{k+1} = u^k + x^{k+1} - z^{k+1}$  
 
-Our project introduces an FPGA-accelerated solution using the AMD Alveo U280 for efficient ADMM-based Basis Pursuit designed and implmeneted in Vitis HLS 2023.2, the original [MatLab implmenetaion](https://stanford.edu/~boyd/papers/admm/basis_pursuit/basis_pursuit.html) was used as reference. Our approach focuses on chunked processing of large problem sizes, parallelizing matrix–vector operations across multiple HBM memory banks, and optimizing kernel dataflow for high throughput. Future extensions of this project will include RDMA (Remote Direct Memory Access) to enable distributed multi-FPGA scaling.
+Our project introduces an FPGA-accelerated solution using the AMD Alveo U280 for efficient ADMM-based Basis Pursuit designed and implemeneted in Vitis HLS 2023.2, the original [MatLab implementation](https://stanford.edu/~boyd/papers/admm/basis_pursuit/basis_pursuit.html) was used as reference. Our approach focuses on chunked processing of large problem sizes, parallelizing matrix–vector operations across multiple HBM memory banks, and optimizing kernel dataflow for high throughput. Future extensions of this project will include RDMA (Remote Direct Memory Access) to enable distributed multi-FPGA scaling.
 
 # Key Highlights
   - Chunked ADMM Solver Implementation: We implement a kernel (krnl_bp) capable of iterative ADMM updates on sub-blocks of the data. This design allows the solver to handle matrices larger than on-chip memory by streaming chunks sequentially.
@@ -124,7 +124,7 @@ So by reusing the precomputed inverse, we are able to have faster matrix-vector 
 - The AMD Alveo U280 has 32 independent HBM banks consisting of 256 MB each.
 - By mapping buffers to different AXI interfaces (0:31), we ensure that the chunks of data are stored in physically separate banks while also ensuring that we are using all of the HBM banks. This avoids memory access conflicts and allows multiple read/write operations to happen simultaneously.
 - During ADMM updates, each chunk of the matrix multiplication streams data from a dedicated HBM bank, while other chunks are able to access different banks in parallel.
-- With this setup, we are able to maximize bandwith utilization while also avoiding BRAM capacity, which tackles the HBM bottlenecking problem caused by large matrices.
+- With this setup, we are able to maximize bandwidth utilization while also avoiding BRAM capacity, which tackles the HBM bottlenecking problem caused by large matrices.
 
 ## Hardware Architecture
 <div align="center">
@@ -152,6 +152,7 @@ So by reusing the precomputed inverse, we are able to have faster matrix-vector 
 ## Citations
 
 1. Boyd, S., Parikh, N., Chu, E., Peleato, B., & Eckstein, J. (2010). Distributed optimization and statistical learning via the alternating direction method of multipliers. Foundations and Trends in Machine Learning, 3(1), 1–122. https://doi.org/10.1561/2200000016
+
 
 
 

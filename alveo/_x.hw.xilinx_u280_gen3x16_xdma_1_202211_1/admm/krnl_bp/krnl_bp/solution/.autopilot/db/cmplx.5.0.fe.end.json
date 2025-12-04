@@ -1,0 +1,183 @@
+{
+    "0": {
+        "name": "krnl_bp",
+        "file": "bp.cpp",
+        "fileloc": "562",
+        "instructions": "344",
+        "total_instructions": "1447",
+        "calls": "9 3 8 7 5 4 1 2 6",
+        "basicblocks": "32",
+        "loads": {
+            "L": "18"
+        },
+        "stores": {
+            "L": "20"
+        },
+        "loops": {
+            "L": "1",
+            "N": "3"
+        }
+    },
+    "1": {
+        "name": "krnl_bp_Pipeline_VITIS_LOOP_665_10",
+        "file": "\/home\/bsheh002\/ADMM07\/alveo\/src\/bp.cpp",
+        "fileloc": "665",
+        "instructions": "133",
+        "total_instructions": "133",
+        "calls": "",
+        "basicblocks": "21",
+        "loads": {
+            "L": "33"
+        },
+        "stores": {
+            "L": "18"
+        },
+        "loops": {
+            "L": "1"
+        }
+    },
+    "2": {
+        "name": "krnl_bp_Pipeline_VITIS_LOOP_671_11",
+        "file": "\/home\/bsheh002\/ADMM07\/alveo\/src\/bp.cpp",
+        "fileloc": "671",
+        "instructions": "117",
+        "total_instructions": "117",
+        "calls": "",
+        "basicblocks": "21",
+        "loads": {
+            "L": "33"
+        },
+        "stores": {
+            "L": "18"
+        },
+        "loops": {
+            "L": "1"
+        }
+    },
+    "3": {
+        "name": "krnl_bp_Pipeline_VITIS_LOOP_618_4",
+        "file": "\/home\/bsheh002\/ADMM07\/alveo\/src\/bp.cpp",
+        "fileloc": "618",
+        "instructions": "133",
+        "total_instructions": "133",
+        "calls": "",
+        "basicblocks": "21",
+        "loads": {
+            "L": "33"
+        },
+        "stores": {
+            "L": "18"
+        },
+        "loops": {
+            "L": "1"
+        }
+    },
+    "4": {
+        "name": "krnl_bp_Pipeline_shrinkage_loop",
+        "file": "\/home\/bsheh002\/ADMM07\/alveo\/src\/bp.cpp",
+        "fileloc": "654",
+        "instructions": "158",
+        "total_instructions": "158",
+        "calls": "",
+        "basicblocks": "21",
+        "loads": {
+            "L": "33"
+        },
+        "stores": {
+            "L": "18"
+        },
+        "loops": {
+            "L": "1"
+        }
+    },
+    "5": {
+        "name": "krnl_bp_Pipeline_VITIS_LOOP_648_9",
+        "file": "\/home\/bsheh002\/ADMM07\/alveo\/src\/bp.cpp",
+        "fileloc": "648",
+        "instructions": "137",
+        "total_instructions": "137",
+        "calls": "",
+        "basicblocks": "21",
+        "loads": {
+            "L": "33"
+        },
+        "stores": {
+            "L": "18"
+        },
+        "loops": {
+            "L": "1"
+        }
+    },
+    "6": {
+        "name": "krnl_bp_Pipeline_VITIS_LOOP_679_12",
+        "file": "\/home\/bsheh002\/ADMM07\/alveo\/src\/bp.cpp",
+        "fileloc": "679",
+        "instructions": "57",
+        "total_instructions": "57",
+        "calls": "",
+        "basicblocks": "4",
+        "loads": {
+            "L": "17"
+        },
+        "stores": {
+            "L": "2"
+        },
+        "loops": {
+            "L": "1"
+        }
+    },
+    "7": {
+        "name": "krnl_bp_Pipeline_VITIS_LOOP_642_8",
+        "file": "\/home\/bsheh002\/ADMM07\/alveo\/src\/bp.cpp",
+        "fileloc": "642",
+        "instructions": "99",
+        "total_instructions": "99",
+        "calls": "",
+        "basicblocks": "21",
+        "loads": {
+            "L": "17"
+        },
+        "stores": {
+            "L": "18"
+        },
+        "loops": {
+            "L": "1"
+        }
+    },
+    "8": {
+        "name": "krnl_bp_Pipeline_VITIS_LOOP_636_7",
+        "file": "\/home\/bsheh002\/ADMM07\/alveo\/src\/bp.cpp",
+        "fileloc": "636",
+        "instructions": "107",
+        "total_instructions": "107",
+        "calls": "",
+        "basicblocks": "21",
+        "loads": {
+            "L": "17"
+        },
+        "stores": {
+            "L": "18"
+        },
+        "loops": {
+            "L": "1"
+        }
+    },
+    "9": {
+        "name": "krnl_bp_Pipeline_VITIS_LOOP_606_2",
+        "file": "\/home\/bsheh002\/ADMM07\/alveo\/src\/bp.cpp",
+        "fileloc": "606",
+        "instructions": "162",
+        "total_instructions": "162",
+        "calls": "",
+        "basicblocks": "21",
+        "loads": {
+            "L": "1"
+        },
+        "stores": {
+            "L": "66"
+        },
+        "loops": {
+            "L": "1"
+        }
+    }
+}

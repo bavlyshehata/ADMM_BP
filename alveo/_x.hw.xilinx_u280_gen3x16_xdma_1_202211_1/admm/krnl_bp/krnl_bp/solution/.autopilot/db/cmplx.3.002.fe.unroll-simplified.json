@@ -1,0 +1,19 @@
+{
+  "0": {
+    "basicblocks": 42,
+    "calls": "",
+    "file": "bp.cpp",
+    "fileloc": 562,
+    "instructions": 210,
+    "loads": {
+      "L": 14,
+      "T": 2
+    },
+    "name": "krnl_bp",
+    "stores": {
+      "L": 12,
+      "T": 1
+    },
+    "total_instructions": 210
+  }
+}

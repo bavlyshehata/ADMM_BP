@@ -1,0 +1,392 @@
+
+
+================================================================
+== Synthesis Summary Report of 'krnl_bp'
+================================================================
++ General Information: 
+    * Date:           Mon Aug 18 15:42:16 2025
+    * Version:        2023.2 (Build 4023990 on Oct 11 2023)
+    * Project:        krnl_bp
+    * Solution:       solution (Vitis Kernel Flow Target)
+    * Product family: virtexuplusHBM
+    * Target device:  xcu280-fsvh2892-2L-e
+    
+
++ Performance & Resource Estimates: 
+    
+    PS: '+' for module; 'o' for loop; '*' for dataflow
+    +-----------------------------------------+--------+-------+---------+-----------+----------+---------+------+----------+---------+----------+-------------+------------+-----+
+    |                 Modules                 |  Issue |       | Latency |  Latency  | Iteration|         | Trip |          |         |          |             |            |     |
+    |                 & Loops                 |  Type  | Slack | (cycles)|    (ns)   |  Latency | Interval| Count| Pipelined|  BRAM   |    DSP   |      FF     |     LUT    | URAM|
+    +-----------------------------------------+--------+-------+---------+-----------+----------+---------+------+----------+---------+----------+-------------+------------+-----+
+    |+ krnl_bp                                |  Timing|  -0.00|        -|          -|         -|        -|     -|        no|  6 (~0%)|  21 (~0%)|  18530 (~0%)|  23946 (1%)|    -|
+    | o VITIS_LOOP_602_1                      |       -|   2.43|        -|          -|         -|        -|     -|        no|        -|         -|            -|           -|    -|
+    |  + krnl_bp_Pipeline_VITIS_LOOP_606_2    |       -|   0.46|        -|          -|         -|        -|     -|        no|        -|         -|     33 (~0%)|   104 (~0%)|    -|
+    |   o VITIS_LOOP_606_2                    |       -|   2.43|        -|          -|         1|        1|     -|       yes|        -|         -|            -|           -|    -|
+    |  + krnl_bp_Pipeline_VITIS_LOOP_679_12   |  Timing|  -0.00|        -|          -|         -|        -|     -|        no|        -|         -|     72 (~0%)|   191 (~0%)|    -|
+    |   o VITIS_LOOP_679_12                   |       -|   2.43|        -|          -|         3|        1|     -|       yes|        -|         -|            -|           -|    -|
+    |  o VITIS_LOOP_616_3                     |       -|   2.43|        -|          -|         -|        -|     -|        no|        -|         -|            -|           -|    -|
+    |   + krnl_bp_Pipeline_VITIS_LOOP_618_4   |       -|   0.09|        -|          -|         -|        -|     -|        no|        -|         -|   1286 (~0%)|   788 (~0%)|    -|
+    |    o VITIS_LOOP_618_4                   |       -|   2.43|        -|          -|        10|        1|     -|       yes|        -|         -|            -|           -|    -|
+    |   + krnl_bp_Pipeline_VITIS_LOOP_636_7   |  Timing|  -0.00|        -|          -|         -|        -|     -|        no|        -|         -|   1286 (~0%)|   734 (~0%)|    -|
+    |    o VITIS_LOOP_636_7                   |       -|   2.43|        -|          -|        10|        1|     -|       yes|        -|         -|            -|           -|    -|
+    |   + krnl_bp_Pipeline_VITIS_LOOP_642_8   |       -|   0.54|        -|          -|         -|        -|     -|        no|        -|         -|     86 (~0%)|   179 (~0%)|    -|
+    |    o VITIS_LOOP_642_8                   |       -|   2.43|        -|          -|         2|        1|     -|       yes|        -|         -|            -|           -|    -|
+    |   + krnl_bp_Pipeline_VITIS_LOOP_648_9   |       -|   0.09|        -|          -|         -|        -|     -|        no|        -|   3 (~0%)|   1501 (~0%)|   866 (~0%)|    -|
+    |    o VITIS_LOOP_648_9                   |       -|   2.43|        -|          -|        14|        1|     -|       yes|        -|         -|            -|           -|    -|
+    |   + krnl_bp_Pipeline_shrinkage_loop     |       -|   0.09|        -|          -|         -|        -|     -|        no|        -|   6 (~0%)|   2594 (~0%)|  1609 (~0%)|    -|
+    |    o shrinkage_loop                     |       -|   2.43|        -|          -|        27|        1|     -|       yes|        -|         -|            -|           -|    -|
+    |   + krnl_bp_Pipeline_VITIS_LOOP_665_10  |       -|   0.09|        -|          -|         -|        -|     -|        no|        -|         -|   1286 (~0%)|   788 (~0%)|    -|
+    |    o VITIS_LOOP_665_10                  |       -|   2.43|        -|          -|        10|        1|     -|       yes|        -|         -|            -|           -|    -|
+    |   + krnl_bp_Pipeline_VITIS_LOOP_671_11  |       -|   0.09|        -|          -|         -|        -|     -|        no|        -|         -|   1286 (~0%)|   788 (~0%)|    -|
+    |    o VITIS_LOOP_671_11                  |       -|   2.43|        -|          -|        10|        1|     -|       yes|        -|         -|            -|           -|    -|
+    |   o VITIS_LOOP_624_5                    |       -|   2.43|        -|          -|     53251|        -|     -|        no|        -|         -|            -|           -|    -|
+    |    o VITIS_LOOP_627_6                   |       -|   2.43|    53248|  1.775e+05|        13|        -|  4096|        no|        -|         -|            -|           -|    -|
+    +-----------------------------------------+--------+-------+---------+-----------+----------+---------+------+----------+---------+----------+-------------+------------+-----+
+
+
+================================================================
+== HW Interfaces
+================================================================
+* M_AXI
++-------------+------------+---------------+---------+--------+----------+-----------+--------------+--------------+-------------+-------------+-------------------+
+| Interface   | Data Width | Address Width | Latency | Offset | Register | Max Widen | Max Read     | Max Write    | Num Read    | Num Write   | Resource Estimate |
+|             | (SW->HW)   |               |         |        |          | Bitwidth  | Burst Length | Burst Length | Outstanding | Outstanding |                   |
++-------------+------------+---------------+---------+--------+----------+-----------+--------------+--------------+-------------+-------------+-------------------+
+| m_axi_gmem0 | 32 -> 32   | 64            | 64      | slave  | 0        | 512       | 64           | 64           | 16          | 16          | BRAM=2            |
+| m_axi_gmem1 | 32 -> 32   | 64            | 64      | slave  | 0        | 512       | 64           | 16           | 16          | 16          | BRAM=2            |
+| m_axi_gmem2 | 32 -> 32   | 64            | 64      | slave  | 0        | 512       | 16           | 64           | 16          | 16          | BRAM=2            |
++-------------+------------+---------------+---------+--------+----------+-----------+--------------+--------------+-------------+-------------+-------------------+
+
+* S_AXILITE Interfaces
++---------------+------------+---------------+--------+----------+
+| Interface     | Data Width | Address Width | Offset | Register |
++---------------+------------+---------------+--------+----------+
+| s_axi_control | 32         | 7             | 16     | 0        |
++---------------+------------+---------------+--------+----------+
+
+* S_AXILITE Registers
++---------------+------------+--------+-------+--------+----------------------------------+------------------------------------------------------------------------------------+
+| Interface     | Register   | Offset | Width | Access | Description                      | Bit Fields                                                                         |
++---------------+------------+--------+-------+--------+----------------------------------+------------------------------------------------------------------------------------+
+| s_axi_control | CTRL       | 0x00   | 32    | RW     | Control signals                  | 0=AP_START 1=AP_DONE 2=AP_IDLE 3=AP_READY 4=AP_CONTINUE 7=AUTO_RESTART 9=INTERRUPT |
+| s_axi_control | GIER       | 0x04   | 32    | RW     | Global Interrupt Enable Register | 0=Enable                                                                           |
+| s_axi_control | IP_IER     | 0x08   | 32    | RW     | IP Interrupt Enable Register     | 0=CHAN0_INT_EN 1=CHAN1_INT_EN                                                      |
+| s_axi_control | IP_ISR     | 0x0c   | 32    | RW     | IP Interrupt Status Register     | 0=CHAN0_INT_ST 1=CHAN1_INT_ST                                                      |
+| s_axi_control | mat_p_1    | 0x10   | 32    | W      | Data signal of mat_p             |                                                                                    |
+| s_axi_control | mat_p_2    | 0x14   | 32    | W      | Data signal of mat_p             |                                                                                    |
+| s_axi_control | vec_q_1    | 0x1c   | 32    | W      | Data signal of vec_q             |                                                                                    |
+| s_axi_control | vec_q_2    | 0x20   | 32    | W      | Data signal of vec_q             |                                                                                    |
+| s_axi_control | out_r_1    | 0x28   | 32    | W      | Data signal of out_r             |                                                                                    |
+| s_axi_control | out_r_2    | 0x2c   | 32    | W      | Data signal of out_r             |                                                                                    |
+| s_axi_control | rho        | 0x34   | 32    | W      | Data signal of rho               |                                                                                    |
+| s_axi_control | alpha      | 0x3c   | 32    | W      | Data signal of alpha             |                                                                                    |
+| s_axi_control | N          | 0x44   | 32    | W      | Data signal of N                 |                                                                                    |
+| s_axi_control | chunk_size | 0x4c   | 32    | W      | Data signal of chunk_size        |                                                                                    |
++---------------+------------+--------+-------+--------+----------------------------------+------------------------------------------------------------------------------------+
+
+* TOP LEVEL CONTROL
++-----------+---------------+-----------+
+| Interface | Type          | Ports     |
++-----------+---------------+-----------+
+| ap_clk    | clock         | ap_clk    |
+| ap_rst_n  | reset         | ap_rst_n  |
+| interrupt | interrupt     | interrupt |
+| ap_ctrl   | ap_ctrl_chain |           |
++-----------+---------------+-----------+
+
+
+================================================================
+== SW I/O Information
+================================================================
+* Top Function Arguments
++------------+-----------+----------+
+| Argument   | Direction | Datatype |
++------------+-----------+----------+
+| mat_p      | in        | float*   |
+| vec_q      | in        | float*   |
+| out        | out       | float*   |
+| rho        | in        | float    |
+| alpha      | in        | float    |
+| N          | in        | int      |
+| chunk_size | in        | int      |
++------------+-----------+----------+
+
+* SW-to-HW Mapping
++------------+---------------+-----------+----------+--------------------------------------+
+| Argument   | HW Interface  | HW Type   | HW Usage | HW Info                              |
++------------+---------------+-----------+----------+--------------------------------------+
+| mat_p      | m_axi_gmem0   | interface |          |                                      |
+| mat_p      | s_axi_control | register  | offset   | name=mat_p_1 offset=0x10 range=32    |
+| mat_p      | s_axi_control | register  | offset   | name=mat_p_2 offset=0x14 range=32    |
+| vec_q      | m_axi_gmem1   | interface |          |                                      |
+| vec_q      | s_axi_control | register  | offset   | name=vec_q_1 offset=0x1c range=32    |
+| vec_q      | s_axi_control | register  | offset   | name=vec_q_2 offset=0x20 range=32    |
+| out        | m_axi_gmem2   | interface |          |                                      |
+| out        | s_axi_control | interface | offset   |                                      |
+| rho        | s_axi_control | register  |          | name=rho offset=0x34 range=32        |
+| alpha      | s_axi_control | register  |          | name=alpha offset=0x3c range=32      |
+| N          | s_axi_control | register  |          | name=N offset=0x44 range=32          |
+| chunk_size | s_axi_control | register  |          | name=chunk_size offset=0x4c range=32 |
++------------+---------------+-----------+----------+--------------------------------------+
+
+
+================================================================
+== M_AXI Burst Information
+================================================================
+ Note: All burst requests might be further partitioned into multiple requests during RTL generation based on max_read_burst_length or max_write_burst_length settings.
+
+* Inferred Burst Summary
++--------------+-----------+----------+-------+-------------------+-----------------------------------------------+
+| HW Interface | Direction | Length   | Width | Loop              | Loop Location                                 |
++--------------+-----------+----------+-------+-------------------+-----------------------------------------------+
+| m_axi_gmem0  | read      | variable | 32    |                   |                                               |
+| m_axi_gmem1  | read      | variable | 32    | VITIS_LOOP_636_7  | /home/bsheh002/ADMM07/alveo/src/bp.cpp:636:31 |
+| m_axi_gmem2  | write     | variable | 32    | VITIS_LOOP_679_12 | /home/bsheh002/ADMM07/alveo/src/bp.cpp:679:28 |
++--------------+-----------+----------+-------+-------------------+-----------------------------------------------+
+
+* All M_AXI Variable Accesses
++--------------+----------+-----------------------------------------------+-----------+--------------+----------+-------------------+-----------------------------------------------+------------+--------------------------------------------------------------------------------------+
+| HW Interface | Variable | Access Location                               | Direction | Burst Status | Length   | Loop              | Loop Location                                 | Resolution | Problem                                                                              |
++--------------+----------+-----------------------------------------------+-----------+--------------+----------+-------------------+-----------------------------------------------+------------+--------------------------------------------------------------------------------------+
+| m_axi_gmem0  | mat_p    | /home/bsheh002/ADMM07/alveo/src/bp.cpp:629:15 | read      | Widen Fail   |          | VITIS_LOOP_627_6  | /home/bsheh002/ADMM07/alveo/src/bp.cpp:627:35 | 214-307    | Could not widen since type float size is greater than or equal to alignment 4(bytes) |
+| m_axi_gmem0  | mat_p    | /home/bsheh002/ADMM07/alveo/src/bp.cpp:629:15 | read      | Fail         |          | VITIS_LOOP_616_3  | /home/bsheh002/ADMM07/alveo/src/bp.cpp:616:27 | 214-230    | Stride is incompatible                                                               |
+| m_axi_gmem0  | mat_p    | /home/bsheh002/ADMM07/alveo/src/bp.cpp:629:15 | read      | Inferred     | variable | VITIS_LOOP_624_5  | /home/bsheh002/ADMM07/alveo/src/bp.cpp:624:31 |            |                                                                                      |
+| m_axi_gmem1  | vec_q    | /home/bsheh002/ADMM07/alveo/src/bp.cpp:638:22 | read      | Widen Fail   |          | VITIS_LOOP_636_7  | /home/bsheh002/ADMM07/alveo/src/bp.cpp:636:31 | 214-307    | Could not widen since type float size is greater than or equal to alignment 4(bytes) |
+| m_axi_gmem1  | vec_q    | /home/bsheh002/ADMM07/alveo/src/bp.cpp:638:22 | read      | Fail         |          | VITIS_LOOP_616_3  | /home/bsheh002/ADMM07/alveo/src/bp.cpp:616:27 | 214-230    | Stride is incompatible                                                               |
+| m_axi_gmem1  | vec_q    | /home/bsheh002/ADMM07/alveo/src/bp.cpp:638:22 | read      | Inferred     | variable | VITIS_LOOP_636_7  | /home/bsheh002/ADMM07/alveo/src/bp.cpp:636:31 |            |                                                                                      |
+| m_axi_gmem2  | out      | /home/bsheh002/ADMM07/alveo/src/bp.cpp:681:18 | write     | Widen Fail   |          | VITIS_LOOP_679_12 | /home/bsheh002/ADMM07/alveo/src/bp.cpp:679:28 | 214-307    | Could not widen since type float size is greater than or equal to alignment 4(bytes) |
+| m_axi_gmem2  | out      | /home/bsheh002/ADMM07/alveo/src/bp.cpp:681:18 | write     | Inferred     | variable | VITIS_LOOP_679_12 | /home/bsheh002/ADMM07/alveo/src/bp.cpp:679:28 |            |                                                                                      |
++--------------+----------+-----------------------------------------------+-----------+--------------+----------+-------------------+-----------------------------------------------+------------+--------------------------------------------------------------------------------------+
+
+    * Resolution URL: docs.xilinx.com/access/sources/dita/topic?Doc_Version=2023.2%20English&url=ug1448-hls-guidance&resourceid=XXX-YYY.html (replace XXX-YYY with column value)
+
+================================================================
+== Bind Op Report
+================================================================
++-------------------------------------------+-----+--------+-------------+------+---------+---------+
+| Name                                      | DSP | Pragma | Variable    | Op   | Impl    | Latency |
++-------------------------------------------+-----+--------+-------------+------+---------+---------+
+| + krnl_bp                                 | 21  |        |             |      |         |         |
+|   faddfsub_32ns_32ns_32_7_full_dsp_1_U415 | 2   |        | sub         | fsub | fulldsp | 6       |
+|   mul_32ns_32s_62_2_1_U417                | 4   |        | mul_ln602   | mul  | auto    | 1       |
+|   add_ln602_3_fu_1710_p2                  |     |        | add_ln602_3 | add  | fabric  | 0       |
+|   add_ln602_fu_1726_p2                    |     |        | add_ln602   | add  | fabric  | 0       |
+|   add_ln602_1_fu_1731_p2                  |     |        | add_ln602_1 | add  | fabric  | 0       |
+|   add_ln602_2_fu_1744_p2                  |     |        | add_ln602_2 | add  | fabric  | 0       |
+|   add_ln603_fu_1749_p2                    |     |        | add_ln603   | add  | fabric  | 0       |
+|   sub_ln603_fu_1793_p2                    |     |        | sub_ln603   | sub  | fabric  | 0       |
+|   mul_32s_32s_32_2_1_U418                 | 3   |        | mul_ln624   | mul  | auto    | 1       |
+|   iter_1_fu_1833_p2                       |     |        | iter_1      | add  | fabric  | 0       |
+|   add_ln624_fu_1871_p2                    |     |        | add_ln624   | add  | fabric  | 0       |
+|   add_ln627_fu_1904_p2                    |     |        | add_ln627   | add  | fabric  | 0       |
+|   fmul_32ns_32ns_32_4_max_dsp_1_U416      | 3   |        | mul         | fmul | maxdsp  | 3       |
+|   faddfsub_32ns_32ns_32_7_full_dsp_1_U415 | 2   |        | acc_1       | fsub | fulldsp | 6       |
+|  + krnl_bp_Pipeline_VITIS_LOOP_606_2      | 0   |        |             |      |         |         |
+|    add_ln606_fu_1112_p2                   |     |        | add_ln606   | add  | fabric  | 0       |
+|  + krnl_bp_Pipeline_VITIS_LOOP_618_4      | 0   |        |             |      |         |         |
+|    add_ln618_fu_802_p2                    |     |        | add_ln618   | add  | fabric  | 0       |
+|  + krnl_bp_Pipeline_VITIS_LOOP_636_7      | 0   |        |             |      |         |         |
+|    add_ln636_fu_601_p2                    |     |        | add_ln636   | add  | fabric  | 0       |
+|  + krnl_bp_Pipeline_VITIS_LOOP_642_8      | 0   |        |             |      |         |         |
+|    add_ln642_fu_558_p2                    |     |        | add_ln642   | add  | fabric  | 0       |
+|  + krnl_bp_Pipeline_VITIS_LOOP_648_9      | 3   |        |             |      |         |         |
+|    add_ln648_fu_828_p2                    |     |        | add_ln648   | add  | fabric  | 0       |
+|    fmul_32ns_32ns_32_4_max_dsp_1_U192     | 3   |        | mul2        | fmul | maxdsp  | 3       |
+|  + krnl_bp_Pipeline_shrinkage_loop        | 6   |        |             |      |         |         |
+|    add_ln654_fu_848_p2                    |     |        | add_ln654   | add  | fabric  | 0       |
+|    fsub_32ns_32ns_32_7_full_dsp_1_U248    | 2   |        | sub0        | fsub | fulldsp | 6       |
+|    fsub_32ns_32ns_32_7_full_dsp_1_U249    | 2   |        | sub1        | fsub | fulldsp | 6       |
+|    fsub_32ns_32ns_32_7_full_dsp_1_U250    | 2   |        | sub5        | fsub | fulldsp | 6       |
+|  + krnl_bp_Pipeline_VITIS_LOOP_665_10     | 0   |        |             |      |         |         |
+|    add_ln665_fu_802_p2                    |     |        | add_ln665   | add  | fabric  | 0       |
+|  + krnl_bp_Pipeline_VITIS_LOOP_671_11     | 0   |        |             |      |         |         |
+|    add_ln671_fu_642_p2                    |     |        | add_ln671   | add  | fabric  | 0       |
+|  + krnl_bp_Pipeline_VITIS_LOOP_679_12     | 0   |        |             |      |         |         |
+|    add_ln679_fu_374_p2                    |     |        | add_ln679   | add  | fabric  | 0       |
++-------------------------------------------+-----+--------+-------------+------+---------+---------+
+
+
+================================================================
+== Storage Report
+================================================================
++-------------------------------------------+---------------+-----------+------+------+--------+------------+------+---------+------------------+
+| Name                                      | Usage         | Type      | BRAM | URAM | Pragma | Variable   | Impl | Latency | Bitwidth, Depth, |
+|                                           |               |           |      |      |        |            |      |         | Banks            |
++-------------------------------------------+---------------+-----------+------+------+--------+------------+------+---------+------------------+
+| + krnl_bp                                 |               |           | 6    | 0    |        |            |      |         |                  |
+|   control_s_axi_U                         | interface     | s_axilite |      |      |        |            |      |         |                  |
+|   gmem0_m_axi_U                           | interface     | m_axi     | 2    |      |        |            |      |         |                  |
+|   gmem1_m_axi_U                           | interface     | m_axi     | 2    |      |        |            |      |         |                  |
+|   gmem2_m_axi_U                           | interface     | m_axi     | 2    |      |        |            |      |         |                  |
+|   x_U                                     | ram_1p array  |           |      |      |        | x          | auto | 1       | 32, 8, 1         |
+|   x_1_U                                   | ram_1p array  |           |      |      |        | x_1        | auto | 1       | 32, 8, 1         |
+|   x_2_U                                   | ram_1p array  |           |      |      |        | x_2        | auto | 1       | 32, 8, 1         |
+|   x_3_U                                   | ram_1p array  |           |      |      |        | x_3        | auto | 1       | 32, 8, 1         |
+|   x_4_U                                   | ram_1p array  |           |      |      |        | x_4        | auto | 1       | 32, 8, 1         |
+|   x_5_U                                   | ram_1p array  |           |      |      |        | x_5        | auto | 1       | 32, 8, 1         |
+|   x_6_U                                   | ram_1p array  |           |      |      |        | x_6        | auto | 1       | 32, 8, 1         |
+|   x_7_U                                   | ram_1p array  |           |      |      |        | x_7        | auto | 1       | 32, 8, 1         |
+|   x_8_U                                   | ram_1p array  |           |      |      |        | x_8        | auto | 1       | 32, 8, 1         |
+|   x_9_U                                   | ram_1p array  |           |      |      |        | x_9        | auto | 1       | 32, 8, 1         |
+|   x_10_U                                  | ram_1p array  |           |      |      |        | x_10       | auto | 1       | 32, 8, 1         |
+|   x_11_U                                  | ram_1p array  |           |      |      |        | x_11       | auto | 1       | 32, 8, 1         |
+|   x_12_U                                  | ram_1p array  |           |      |      |        | x_12       | auto | 1       | 32, 8, 1         |
+|   x_13_U                                  | ram_1p array  |           |      |      |        | x_13       | auto | 1       | 32, 8, 1         |
+|   x_14_U                                  | ram_1p array  |           |      |      |        | x_14       | auto | 1       | 32, 8, 1         |
+|   x_15_U                                  | ram_1p array  |           |      |      |        | x_15       | auto | 1       | 32, 8, 1         |
+|   u_U                                     | ram_s2p array |           |      |      |        | u          | auto | 1       | 32, 8, 1         |
+|   u_1_U                                   | ram_s2p array |           |      |      |        | u_1        | auto | 1       | 32, 8, 1         |
+|   u_2_U                                   | ram_s2p array |           |      |      |        | u_2        | auto | 1       | 32, 8, 1         |
+|   u_3_U                                   | ram_s2p array |           |      |      |        | u_3        | auto | 1       | 32, 8, 1         |
+|   u_4_U                                   | ram_s2p array |           |      |      |        | u_4        | auto | 1       | 32, 8, 1         |
+|   u_5_U                                   | ram_s2p array |           |      |      |        | u_5        | auto | 1       | 32, 8, 1         |
+|   u_6_U                                   | ram_s2p array |           |      |      |        | u_6        | auto | 1       | 32, 8, 1         |
+|   u_7_U                                   | ram_s2p array |           |      |      |        | u_7        | auto | 1       | 32, 8, 1         |
+|   u_8_U                                   | ram_s2p array |           |      |      |        | u_8        | auto | 1       | 32, 8, 1         |
+|   u_9_U                                   | ram_s2p array |           |      |      |        | u_9        | auto | 1       | 32, 8, 1         |
+|   u_10_U                                  | ram_s2p array |           |      |      |        | u_10       | auto | 1       | 32, 8, 1         |
+|   u_11_U                                  | ram_s2p array |           |      |      |        | u_11       | auto | 1       | 32, 8, 1         |
+|   u_12_U                                  | ram_s2p array |           |      |      |        | u_12       | auto | 1       | 32, 8, 1         |
+|   u_13_U                                  | ram_s2p array |           |      |      |        | u_13       | auto | 1       | 32, 8, 1         |
+|   u_14_U                                  | ram_s2p array |           |      |      |        | u_14       | auto | 1       | 32, 8, 1         |
+|   u_15_U                                  | ram_s2p array |           |      |      |        | u_15       | auto | 1       | 32, 8, 1         |
+|   z_U                                     | ram_1p array  |           |      |      |        | z          | auto | 1       | 32, 8, 1         |
+|   z_1_U                                   | ram_1p array  |           |      |      |        | z_1        | auto | 1       | 32, 8, 1         |
+|   z_2_U                                   | ram_1p array  |           |      |      |        | z_2        | auto | 1       | 32, 8, 1         |
+|   z_3_U                                   | ram_1p array  |           |      |      |        | z_3        | auto | 1       | 32, 8, 1         |
+|   z_4_U                                   | ram_1p array  |           |      |      |        | z_4        | auto | 1       | 32, 8, 1         |
+|   z_5_U                                   | ram_1p array  |           |      |      |        | z_5        | auto | 1       | 32, 8, 1         |
+|   z_6_U                                   | ram_1p array  |           |      |      |        | z_6        | auto | 1       | 32, 8, 1         |
+|   z_7_U                                   | ram_1p array  |           |      |      |        | z_7        | auto | 1       | 32, 8, 1         |
+|   z_8_U                                   | ram_1p array  |           |      |      |        | z_8        | auto | 1       | 32, 8, 1         |
+|   z_9_U                                   | ram_1p array  |           |      |      |        | z_9        | auto | 1       | 32, 8, 1         |
+|   z_10_U                                  | ram_1p array  |           |      |      |        | z_10       | auto | 1       | 32, 8, 1         |
+|   z_11_U                                  | ram_1p array  |           |      |      |        | z_11       | auto | 1       | 32, 8, 1         |
+|   z_12_U                                  | ram_1p array  |           |      |      |        | z_12       | auto | 1       | 32, 8, 1         |
+|   faddfsub_32ns_32ns_32_7_full_dsp_1_U415 | ram_1p array  |           |      |      |        | z_13       | auto | 1       | 32, 8, 1         |
+|   z_14_U                                  | ram_1p array  |           |      |      |        | z_14       | auto | 1       | 32, 8, 1         |
+|   z_15_U                                  | ram_1p array  |           |      |      |        | z_15       | auto | 1       | 32, 8, 1         |
+|   z_old_U                                 | ram_1p array  |           |      |      |        | z_old      | auto | 1       | 32, 8, 1         |
+|   z_old_1_U                               | ram_1p array  |           |      |      |        | z_old_1    | auto | 1       | 32, 8, 1         |
+|   z_old_2_U                               | ram_1p array  |           |      |      |        | z_old_2    | auto | 1       | 32, 8, 1         |
+|   z_old_3_U                               | ram_1p array  |           |      |      |        | z_old_3    | auto | 1       | 32, 8, 1         |
+|   z_old_4_U                               | ram_1p array  |           |      |      |        | z_old_4    | auto | 1       | 32, 8, 1         |
+|   z_old_5_U                               | ram_1p array  |           |      |      |        | z_old_5    | auto | 1       | 32, 8, 1         |
+|   z_old_6_U                               | ram_1p array  |           |      |      |        | z_old_6    | auto | 1       | 32, 8, 1         |
+|   z_old_7_U                               | ram_1p array  |           |      |      |        | z_old_7    | auto | 1       | 32, 8, 1         |
+|   fmul_32ns_32ns_32_4_max_dsp_1_U416      | ram_1p array  |           |      |      |        | z_old_8    | auto | 1       | 32, 8, 1         |
+|   z_old_9_U                               | ram_1p array  |           |      |      |        | z_old_9    | auto | 1       | 32, 8, 1         |
+|   z_old_10_U                              | ram_1p array  |           |      |      |        | z_old_10   | auto | 1       | 32, 8, 1         |
+|   z_old_11_U                              | ram_1p array  |           |      |      |        | z_old_11   | auto | 1       | 32, 8, 1         |
+|   z_old_12_U                              | ram_1p array  |           |      |      |        | z_old_12   | auto | 1       | 32, 8, 1         |
+|   z_old_13_U                              | ram_1p array  |           |      |      |        | z_old_13   | auto | 1       | 32, 8, 1         |
+|   z_old_14_U                              | ram_1p array  |           |      |      |        | z_old_14   | auto | 1       | 32, 8, 1         |
+|   z_old_15_U                              | ram_1p array  |           |      |      |        | z_old_15   | auto | 1       | 32, 8, 1         |
+|   z_u_U                                   | ram_1p array  |           |      |      |        | z_u        | auto | 1       | 32, 8, 1         |
+|   z_u_1_U                                 | ram_1p array  |           |      |      |        | z_u_1      | auto | 1       | 32, 8, 1         |
+|   z_u_2_U                                 | ram_1p array  |           |      |      |        | z_u_2      | auto | 1       | 32, 8, 1         |
+|   z_u_3_U                                 | ram_1p array  |           |      |      |        | z_u_3      | auto | 1       | 32, 8, 1         |
+|   z_u_4_U                                 | ram_1p array  |           |      |      |        | z_u_4      | auto | 1       | 32, 8, 1         |
+|   faddfsub_32ns_32ns_32_7_full_dsp_1_U415 | ram_1p array  |           |      |      |        | z_u_5      | auto | 1       | 32, 8, 1         |
+|   z_u_6_U                                 | ram_1p array  |           |      |      |        | z_u_6      | auto | 1       | 32, 8, 1         |
+|   z_u_7_U                                 | ram_1p array  |           |      |      |        | z_u_7      | auto | 1       | 32, 8, 1         |
+|   z_u_8_U                                 | ram_1p array  |           |      |      |        | z_u_8      | auto | 1       | 32, 8, 1         |
+|   z_u_9_U                                 | ram_1p array  |           |      |      |        | z_u_9      | auto | 1       | 32, 8, 1         |
+|   z_u_10_U                                | ram_1p array  |           |      |      |        | z_u_10     | auto | 1       | 32, 8, 1         |
+|   z_u_11_U                                | ram_1p array  |           |      |      |        | z_u_11     | auto | 1       | 32, 8, 1         |
+|   z_u_12_U                                | ram_1p array  |           |      |      |        | z_u_12     | auto | 1       | 32, 8, 1         |
+|   z_u_13_U                                | ram_1p array  |           |      |      |        | z_u_13     | auto | 1       | 32, 8, 1         |
+|   z_u_14_U                                | ram_1p array  |           |      |      |        | z_u_14     | auto | 1       | 32, 8, 1         |
+|   z_u_15_U                                | ram_1p array  |           |      |      |        | z_u_15     | auto | 1       | 32, 8, 1         |
+|   mac_res_U                               | ram_1p array  |           |      |      |        | mac_res    | auto | 1       | 32, 8, 1         |
+|   mac_res_1_U                             | ram_1p array  |           |      |      |        | mac_res_1  | auto | 1       | 32, 8, 1         |
+|   mac_res_2_U                             | ram_1p array  |           |      |      |        | mac_res_2  | auto | 1       | 32, 8, 1         |
+|   mac_res_3_U                             | ram_1p array  |           |      |      |        | mac_res_3  | auto | 1       | 32, 8, 1         |
+|   mac_res_4_U                             | ram_1p array  |           |      |      |        | mac_res_4  | auto | 1       | 32, 8, 1         |
+|   faddfsub_32ns_32ns_32_7_full_dsp_1_U415 | ram_1p array  |           |      |      |        | mac_res_5  | auto | 1       | 32, 8, 1         |
+|   mac_res_6_U                             | ram_1p array  |           |      |      |        | mac_res_6  | auto | 1       | 32, 8, 1         |
+|   faddfsub_32ns_32ns_32_7_full_dsp_1_U415 | ram_1p array  |           |      |      |        | mac_res_7  | auto | 1       | 32, 8, 1         |
+|   mac_res_8_U                             | ram_1p array  |           |      |      |        | mac_res_8  | auto | 1       | 32, 8, 1         |
+|   mac_res_9_U                             | ram_1p array  |           |      |      |        | mac_res_9  | auto | 1       | 32, 8, 1         |
+|   mac_res_10_U                            | ram_1p array  |           |      |      |        | mac_res_10 | auto | 1       | 32, 8, 1         |
+|   faddfsub_32ns_32ns_32_7_full_dsp_1_U415 | ram_1p array  |           |      |      |        | mac_res_11 | auto | 1       | 32, 8, 1         |
+|   mac_res_12_U                            | ram_1p array  |           |      |      |        | mac_res_12 | auto | 1       | 32, 8, 1         |
+|   mac_res_13_U                            | ram_1p array  |           |      |      |        | mac_res_13 | auto | 1       | 32, 8, 1         |
+|   mac_res_14_U                            | ram_1p array  |           |      |      |        | mac_res_14 | auto | 1       | 32, 8, 1         |
+|   mac_res_15_U                            | ram_1p array  |           |      |      |        | mac_res_15 | auto | 1       | 32, 8, 1         |
+|   x_hat_U                                 | ram_1p array  |           |      |      |        | x_hat      | auto | 1       | 32, 8, 1         |
+|   x_hat_1_U                               | ram_1p array  |           |      |      |        | x_hat_1    | auto | 1       | 32, 8, 1         |
+|   x_hat_2_U                               | ram_1p array  |           |      |      |        | x_hat_2    | auto | 1       | 32, 8, 1         |
+|   x_hat_3_U                               | ram_1p array  |           |      |      |        | x_hat_3    | auto | 1       | 32, 8, 1         |
+|   x_hat_4_U                               | ram_1p array  |           |      |      |        | x_hat_4    | auto | 1       | 32, 8, 1         |
+|   x_hat_5_U                               | ram_1p array  |           |      |      |        | x_hat_5    | auto | 1       | 32, 8, 1         |
+|   x_hat_6_U                               | ram_1p array  |           |      |      |        | x_hat_6    | auto | 1       | 32, 8, 1         |
+|   x_hat_7_U                               | ram_1p array  |           |      |      |        | x_hat_7    | auto | 1       | 32, 8, 1         |
+|   x_hat_8_U                               | ram_1p array  |           |      |      |        | x_hat_8    | auto | 1       | 32, 8, 1         |
+|   x_hat_9_U                               | ram_1p array  |           |      |      |        | x_hat_9    | auto | 1       | 32, 8, 1         |
+|   x_hat_10_U                              | ram_1p array  |           |      |      |        | x_hat_10   | auto | 1       | 32, 8, 1         |
+|   x_hat_11_U                              | ram_1p array  |           |      |      |        | x_hat_11   | auto | 1       | 32, 8, 1         |
+|   x_hat_12_U                              | ram_1p array  |           |      |      |        | x_hat_12   | auto | 1       | 32, 8, 1         |
+|   x_hat_13_U                              | ram_1p array  |           |      |      |        | x_hat_13   | auto | 1       | 32, 8, 1         |
+|   x_hat_14_U                              | ram_1p array  |           |      |      |        | x_hat_14   | auto | 1       | 32, 8, 1         |
+|   x_hat_15_U                              | ram_1p array  |           |      |      |        | x_hat_15   | auto | 1       | 32, 8, 1         |
+|   x_hat_z_U                               | ram_1p array  |           |      |      |        | x_hat_z    | auto | 1       | 32, 8, 1         |
+|   x_hat_z_1_U                             | ram_1p array  |           |      |      |        | x_hat_z_1  | auto | 1       | 32, 8, 1         |
+|   x_hat_z_2_U                             | ram_1p array  |           |      |      |        | x_hat_z_2  | auto | 1       | 32, 8, 1         |
+|   x_hat_z_3_U                             | ram_1p array  |           |      |      |        | x_hat_z_3  | auto | 1       | 32, 8, 1         |
+|   x_hat_z_4_U                             | ram_1p array  |           |      |      |        | x_hat_z_4  | auto | 1       | 32, 8, 1         |
+|   x_hat_z_5_U                             | ram_1p array  |           |      |      |        | x_hat_z_5  | auto | 1       | 32, 8, 1         |
+|   x_hat_z_6_U                             | ram_1p array  |           |      |      |        | x_hat_z_6  | auto | 1       | 32, 8, 1         |
+|   x_hat_z_7_U                             | ram_1p array  |           |      |      |        | x_hat_z_7  | auto | 1       | 32, 8, 1         |
+|   x_hat_z_8_U                             | ram_1p array  |           |      |      |        | x_hat_z_8  | auto | 1       | 32, 8, 1         |
+|   x_hat_z_9_U                             | ram_1p array  |           |      |      |        | x_hat_z_9  | auto | 1       | 32, 8, 1         |
+|   x_hat_z_10_U                            | ram_1p array  |           |      |      |        | x_hat_z_10 | auto | 1       | 32, 8, 1         |
+|   x_hat_z_11_U                            | ram_1p array  |           |      |      |        | x_hat_z_11 | auto | 1       | 32, 8, 1         |
+|   x_hat_z_12_U                            | ram_1p array  |           |      |      |        | x_hat_z_12 | auto | 1       | 32, 8, 1         |
+|   x_hat_z_13_U                            | ram_1p array  |           |      |      |        | x_hat_z_13 | auto | 1       | 32, 8, 1         |
+|   x_hat_z_14_U                            | ram_1p array  |           |      |      |        | x_hat_z_14 | auto | 1       | 32, 8, 1         |
+|   x_hat_z_15_U                            | ram_1p array  |           |      |      |        | x_hat_z_15 | auto | 1       | 32, 8, 1         |
++-------------------------------------------+---------------+-----------+------+------+--------+------------+------+---------+------------------+
+
+
+================================================================
+== Pragma Report
+================================================================
+* Valid Pragma Syntax
++-----------------+-----------------------------------------------------------------------------------------------+------------------------------------------------+
+| Type            | Options                                                                                       | Location                                       |
++-----------------+-----------------------------------------------------------------------------------------------+------------------------------------------------+
+| interface       | m_axi port=mat_p offset=slave bundle=gmem0 max_read_burst_length=64 max_write_burst_length=64 | ../../../src/bp.cpp:571 in krnl_bp, mat_p      |
+| interface       | m_axi port=vec_q offset=slave bundle=gmem1 max_read_burst_length=64                           | ../../../src/bp.cpp:572 in krnl_bp, vec_q      |
+| interface       | m_axi port=out offset=slave bundle=gmem2 max_write_burst_length=64                            | ../../../src/bp.cpp:573 in krnl_bp, out        |
+| interface       | s_axilite port=mat_p bundle=control                                                           | ../../../src/bp.cpp:574 in krnl_bp, mat_p      |
+| interface       | s_axilite port=vec_q bundle=control                                                           | ../../../src/bp.cpp:575 in krnl_bp, vec_q      |
+| interface       | s_axilite port=out bundle=control                                                             | ../../../src/bp.cpp:576 in krnl_bp, out        |
+| interface       | s_axilite port=rho bundle=control                                                             | ../../../src/bp.cpp:577 in krnl_bp, rho        |
+| interface       | s_axilite port=alpha bundle=control                                                           | ../../../src/bp.cpp:578 in krnl_bp, alpha      |
+| interface       | s_axilite port=N bundle=control                                                               | ../../../src/bp.cpp:579 in krnl_bp, N          |
+| interface       | s_axilite port=chunk_size bundle=control                                                      | ../../../src/bp.cpp:580 in krnl_bp, chunk_size |
+| interface       | s_axilite port=return bundle=control                                                          | ../../../src/bp.cpp:581 in krnl_bp, return     |
+| array_partition | variable=x cyclic factor=16                                                                   | ../../../src/bp.cpp:592 in krnl_bp, x          |
+| array_partition | variable=u cyclic factor=16                                                                   | ../../../src/bp.cpp:593 in krnl_bp, u          |
+| array_partition | variable=z cyclic factor=16                                                                   | ../../../src/bp.cpp:594 in krnl_bp, z          |
+| array_partition | variable=z_old cyclic factor=16                                                               | ../../../src/bp.cpp:595 in krnl_bp, z_old      |
+| array_partition | variable=z_u cyclic factor=16                                                                 | ../../../src/bp.cpp:596 in krnl_bp, z_u        |
+| array_partition | variable=mac_res cyclic factor=16                                                             | ../../../src/bp.cpp:597 in krnl_bp, mac_res    |
+| array_partition | variable=x_hat cyclic factor=16                                                               | ../../../src/bp.cpp:598 in krnl_bp, x_hat      |
+| array_partition | variable=x_hat_z cyclic factor=16                                                             | ../../../src/bp.cpp:599 in krnl_bp, x_hat_z    |
+| pipeline        | II=1                                                                                          | ../../../src/bp.cpp:607 in krnl_bp             |
+| pipeline        | II=1                                                                                          | ../../../src/bp.cpp:619 in krnl_bp             |
+| pipeline        | II=1                                                                                          | ../../../src/bp.cpp:625 in krnl_bp             |
+| loop_tripcount  | min=1 max=4096                                                                                | ../../../src/bp.cpp:628 in krnl_bp             |
+| pipeline        | II=1                                                                                          | ../../../src/bp.cpp:637 in krnl_bp             |
+| pipeline        | II=1                                                                                          | ../../../src/bp.cpp:643 in krnl_bp             |
+| pipeline        | II=1                                                                                          | ../../../src/bp.cpp:649 in krnl_bp             |
+| pipeline        | II=1                                                                                          | ../../../src/bp.cpp:655 in krnl_bp             |
+| pipeline        | II=1                                                                                          | ../../../src/bp.cpp:666 in krnl_bp             |
+| pipeline        | II=1                                                                                          | ../../../src/bp.cpp:672 in krnl_bp             |
+| pipeline        | II=1                                                                                          | ../../../src/bp.cpp:680 in krnl_bp             |
++-----------------+-----------------------------------------------------------------------------------------------+------------------------------------------------+
+
+

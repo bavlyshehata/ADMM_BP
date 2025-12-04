@@ -1,0 +1,130 @@
+<ENTRY>
+{
+ "thisFile": "/home/bsheh002/ADMM07/alveo/build_dir.hw.xilinx_u280_gen3x16_xdma_1_202211_1/admm.xclbin.package_summary",
+ "connectId": "",
+ "serverToken": "",
+ "timestamp": "0"
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_CmdStep",
+ "dateTimestamp": "Mon Aug 18 17:28:33 2025",
+ "timestampMillis": "1755563313974",
+ "buildStep": {
+  "cmdId": "7584b1bf-e064-42fb-b8be-b6565dd6102c",
+  "name": "v++",
+  "logFile": "/home/bsheh002/ADMM07/alveo/_x/package/package.steps.log",
+  "commandLine": "/home/Xilinx/Vitis/2023.2/bin/unwrapped/lnx64.o/v++  --vivado.prop \"run.__KERNEL__.{STEPS.SYNTH_DESIGN.ARGS.MORE OPTIONS}={-directive sdx_optimization_effort_high}\" --advanced.misc \"report=type report_timing_summary name impl_report_timing_summary_route_design_summary steps {route_design} runs {impl_1} options {-max_paths 10}\" --advanced.misc \"report=type report_timing_summary name impl_report_timing_summary_post_route_phys_opt_design_summary steps {post_route_phys_opt_design} runs {impl_1} options {-max_paths 10}\" -p ./build_dir.hw.xilinx_u280_gen3x16_xdma_1_202211_1/admm.link.xclbin --config connectivity.cfg -t hw --platform /opt/xilinx/platforms/xilinx_u280_gen3x16_xdma_1_202211_1/xilinx_u280_gen3x16_xdma_1_202211_1.xpfm --package.out_dir ./package.hw -o ./build_dir.hw.xilinx_u280_gen3x16_xdma_1_202211_1/admm.xclbin ",
+  "args": [
+   "-p",
+   "./build_dir.hw.xilinx_u280_gen3x16_xdma_1_202211_1/admm.link.xclbin",
+   "--config",
+   "connectivity.cfg",
+   "-t",
+   "hw",
+   "--platform",
+   "/opt/xilinx/platforms/xilinx_u280_gen3x16_xdma_1_202211_1/xilinx_u280_gen3x16_xdma_1_202211_1.xpfm",
+   "--package.out_dir",
+   "./package.hw",
+   "-o",
+   "./build_dir.hw.xilinx_u280_gen3x16_xdma_1_202211_1/admm.xclbin"
+  ],
+  "iniFiles": [
+   {
+    "path": "/home/bsheh002/ADMM07/alveo/connectivity.cfg",
+    "content": "[connectivity]\n# nk=krnl_bp:1:krnl_bp_1\n\nsp=krnl_bp_1.mat_p:HBM[0:30]\nsp=krnl_bp_1.vec_q:HBM[31]\nsp=krnl_bp_1.out:HBM[31]\n\n# # [connectivity]\n# # # \u003ccu_name\u003e.\u003cstreaming_output_port\u003e:\u003ccu_name\u003e.\u003cstreaming_input_port\u003e[:\u003cfifo_depth\u003e]\n# # # connect top kernel's interfaces to the global memory\n# # sp=krnl_bp_1.mat:HBM[0]\n# # sp=krnl_bp_1.vec_q:HBM[1]\n# # sp=krnl_bp_1.out:HBM[2]\n\n# [connectivity]\n# # Column shards of mat_p → 8 distinct HBM banks\n# sp=krnl_bp_1.mat_p0:HBM[0]\n# sp=krnl_bp_1.mat_p1:HBM[1]\n# sp=krnl_bp_1.mat_p2:HBM[2]\n# sp=krnl_bp_1.mat_p3:HBM[3]\n# sp=krnl_bp_1.mat_p4:HBM[4]\n# sp=krnl_bp_1.mat_p5:HBM[5]\n# sp=krnl_bp_1.mat_p6:HBM[6]\n# sp=krnl_bp_1.mat_p7:HBM[7]\n\n# # Small vectors (spread them away from the hot banks above)\n# sp=krnl_bp_1.vec_q:HBM[24]\n# sp=krnl_bp_1.out:HBM[25]\n\n# # Double buffers for synchronous ADMM\n# sp=krnl_bp_1.z_read:HBM[26]\n# sp=krnl_bp_1.z_write:HBM[27]\n# sp=krnl_bp_1.u_read:HBM[28]\n# sp=krnl_bp_1.u_write:HBM[29]\n\n# [connectivity]\n# nk=krnl_bp:1:krnl_bp_1\n\n# # Matrix shards → hot HBMs\n# sp=krnl_bp_1.mat_p0:HBM[0]\n# sp=krnl_bp_1.mat_p1:HBM[1]\n# sp=krnl_bp_1.mat_p2:HBM[2]\n# sp=krnl_bp_1.mat_p3:HBM[3]\n# sp=krnl_bp_1.mat_p4:HBM[4]\n# sp=krnl_bp_1.mat_p5:HBM[5]\n# sp=krnl_bp_1.mat_p6:HBM[6]\n# sp=krnl_bp_1.mat_p7:HBM[7]\n\n# # Small vectors / buffers → cooler HBMs\n# sp=krnl_bp_1.vec_q:HBM[24]\n# sp=krnl_bp_1.out:HBM[25]\n# sp=krnl_bp_1.z_read:HBM[26]\n# sp=krnl_bp_1.z_write:HBM[27]\n# sp=krnl_bp_1.u_read:HBM[28]\n# sp=krnl_bp_1.u_write:HBM[29]\n\n\n# sp=krnl_bp_1.z_read:HBM[31]\n# sp=krnl_bp_1.z_write:HBM[31]\n# sp=krnl_bp_1.u_read:HBM[31]\n# sp=krnl_bp_1.u_write:HBM[31]"
+   }
+  ],
+  "cwd": "/home/bsheh002/ADMM07/alveo"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Mon Aug 18 17:28:33 2025",
+ "timestampMillis": "1755563313974",
+ "status": {
+  "cmdId": "7584b1bf-e064-42fb-b8be-b6565dd6102c",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_FlowMetaData",
+ "dateTimestamp": "Mon Aug 18 17:28:41 2025",
+ "timestampMillis": "1755563321105",
+ "buildSummary": {
+  "hardwarePlatform": "xilinx_u280_gen3x16_xdma_1_202211_1.xpfm",
+  "hardwareDsa": "",
+  "platformDirectory": "/opt/xilinx/platforms/xilinx_u280_gen3x16_xdma_1_202211_1",
+  "runtime": "OpenCL",
+  "systemConfig": "Linux",
+  "flow": "BF_PACKAGE",
+  "target": "TT_HW",
+  "binaryContainer": {
+   "base": {
+    "type": "BT_UKNOWN",
+    "name": "admm",
+    "file": "/home/bsheh002/ADMM07/alveo/build_dir.hw.xilinx_u280_gen3x16_xdma_1_202211_1/admm.xclbin",
+    "reports": [],
+    "uuid": ""
+   },
+   "kernels": []
+  },
+  "kernels": [],
+  "toolVersion": "Vitis V++ Compiler Release 2023.2. SW Build 4026344 on 2023-10-11-15:42:10",
+  "inputBinaryContainer": {
+   "base": {
+    "type": "BT_UKNOWN",
+    "name": "admm.link",
+    "file": "/home/bsheh002/ADMM07/alveo/build_dir.hw.xilinx_u280_gen3x16_xdma_1_202211_1/admm.link.xclbin",
+    "reports": [],
+    "uuid": "eb474323-7445-4e69-91ea-efac5d7364f9"
+   },
+   "kernels": []
+  }
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Mon Aug 18 17:28:42 2025",
+ "timestampMillis": "1755563322052",
+ "status": {
+  "cmdId": "7584b1bf-e064-42fb-b8be-b6565dd6102c",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Mon Aug 18 17:28:42 2025",
+ "timestampMillis": "1755563322126",
+ "report": {
+  "path": "/home/bsheh002/ADMM07/alveo/_x/reports/package/v++_package_admm_guidance.html",
+  "name": "",
+  "fileType": "HTML",
+  "reportType": "GLOBAL_RULECHECK_GUIDANCE",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Mon Aug 18 17:28:42 2025",
+ "timestampMillis": "1755563322127",
+ "report": {
+  "path": "/home/bsheh002/ADMM07/alveo/_x/v++_package_admm_guidance.pb3",
+  "name": "",
+  "fileType": "BINARY_PROTOBUF",
+  "reportType": "GLOBAL_RULECHECK_GUIDANCE",
+  "cmdId": ""
+ }
+}
+</ENTRY>

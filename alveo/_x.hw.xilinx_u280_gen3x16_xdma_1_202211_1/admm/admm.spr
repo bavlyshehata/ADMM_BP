@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="admm" dir="">
+  <FileSets>
+    <FileSet Name="kernel_krnl_bp" Type="DesignSrcs">
+      <File Path="/home/bsheh002/ADMM07/alveo/src/bp.cpp"/>
+      <Config/>
+    </FileSet>
+  </FileSets>
+  <Runs/>
+</project>

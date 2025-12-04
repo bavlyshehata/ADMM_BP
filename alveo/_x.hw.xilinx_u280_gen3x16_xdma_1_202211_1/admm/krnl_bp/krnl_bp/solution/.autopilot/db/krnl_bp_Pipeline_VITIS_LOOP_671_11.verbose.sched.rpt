@@ -1,0 +1,344 @@
+
+
+================================================================
+== Vitis HLS Report for 'krnl_bp_Pipeline_VITIS_LOOP_671_11'
+================================================================
+* Date:           Mon Aug 18 15:42:10 2025
+
+* Version:        2023.2 (Build 4023990 on Oct 11 2023)
+* Project:        krnl_bp
+* Solution:       solution (Vitis Kernel Flow Target)
+* Product family: virtexuplusHBM
+* Target device:  xcu280-fsvh2892-2L-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+---------+----------+------------+
+    |  Clock |  Target | Estimated| Uncertainty|
+    +--------+---------+----------+------------+
+    |ap_clk  |  3.33 ns|  2.342 ns|     0.90 ns|
+    +--------+---------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+-----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute)  |  Interval | Pipeline|
+    |   min   |   max   |    min    |    max   | min | max |   Type  |
+    +---------+---------+-----------+----------+-----+-----+---------+
+    |       11|        ?|  36.663 ns|         ?|   11|    ?|       no|
+    +---------+---------+-----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +---------------------+---------+---------+----------+-----------+-----------+-------+----------+
+        |                     |  Latency (cycles) | Iteration|  Initiation Interval  |  Trip |          |
+        |      Loop Name      |   min   |   max   |  Latency |  achieved |   target  | Count | Pipelined|
+        +---------------------+---------+---------+----------+-----------+-----------+-------+----------+
+        |- VITIS_LOOP_671_11  |        9|        ?|        10|          1|          1|  1 ~ ?|       yes|
+        +---------------------+---------+---------+----------+-----------+-----------+-------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 2
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 1, depth = 10
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 10
+* Pipeline : 1
+  Pipeline-0 : II = 1, D = 10, States = { 1 2 3 4 5 6 7 8 9 10 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 4 
+4 --> 5 
+5 --> 6 
+6 --> 7 
+7 --> 8 
+8 --> 9 
+9 --> 10 
+10 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 1.64>
+ST_1 : Operation 13 [1/1] (0.00ns)   --->   "%i = alloca i32 1" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:671]   --->   Operation 13 'alloca' 'i' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 14 [1/1] (0.00ns)   --->   "%chunk_read = read i31 @_ssdm_op_Read.ap_auto.i31, i31 %chunk"   --->   Operation 14 'read' 'chunk_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 15 [1/1] (0.38ns)   --->   "%store_ln671 = store i31 0, i31 %i" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:671]   --->   Operation 15 'store' 'store_ln671' <Predicate = true> <Delay = 0.38>
+ST_1 : Operation 16 [1/1] (0.00ns)   --->   "%br_ln0 = br void %for.inc156"   --->   Operation 16 'br' 'br_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 17 [1/1] (0.00ns)   --->   "%i_2 = load i31 %i" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:671]   --->   Operation 17 'load' 'i_2' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 18 [1/1] (0.87ns)   --->   "%icmp_ln671 = icmp_eq  i31 %i_2, i31 %chunk_read" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:671]   --->   Operation 18 'icmp' 'icmp_ln671' <Predicate = true> <Delay = 0.87> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.87> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 19 [1/1] (0.00ns)   --->   "%speclooptripcount_ln0 = speclooptripcount void @_ssdm_op_SpecLoopTripCount, i64 1, i64 18446744073709551615, i64 0"   --->   Operation 19 'speclooptripcount' 'speclooptripcount_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 20 [1/1] (0.87ns)   --->   "%add_ln671 = add i31 %i_2, i31 1" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:671]   --->   Operation 20 'add' 'add_ln671' <Predicate = true> <Delay = 0.87> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 21 [1/1] (0.00ns)   --->   "%br_ln671 = br i1 %icmp_ln671, void %for.inc156.split, void %for.inc159.loopexit.exitStub" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:671]   --->   Operation 21 'br' 'br_ln671' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 22 [1/1] (0.00ns)   --->   "%trunc_ln671 = trunc i31 %i_2" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:671]   --->   Operation 22 'trunc' 'trunc_ln671' <Predicate = (!icmp_ln671)> <Delay = 0.00>
+ST_1 : Operation 23 [1/1] (0.00ns)   --->   "%lshr_ln = partselect i3 @_ssdm_op_PartSelect.i3.i31.i32.i32, i31 %i_2, i32 4, i32 6" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:671]   --->   Operation 23 'partselect' 'lshr_ln' <Predicate = (!icmp_ln671)> <Delay = 0.00>
+ST_1 : Operation 24 [1/1] (0.00ns)   --->   "%zext_ln671 = zext i3 %lshr_ln" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:671]   --->   Operation 24 'zext' 'zext_ln671' <Predicate = (!icmp_ln671)> <Delay = 0.00>
+ST_1 : Operation 25 [1/1] (0.00ns)   --->   "%x_hat_z_addr = getelementptr i32 %x_hat_z, i64 0, i64 %zext_ln671" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 25 'getelementptr' 'x_hat_z_addr' <Predicate = (!icmp_ln671)> <Delay = 0.00>
+ST_1 : Operation 26 [1/1] (0.00ns)   --->   "%x_hat_z_1_addr = getelementptr i32 %x_hat_z_1, i64 0, i64 %zext_ln671" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 26 'getelementptr' 'x_hat_z_1_addr' <Predicate = (!icmp_ln671)> <Delay = 0.00>
+ST_1 : Operation 27 [1/1] (0.00ns)   --->   "%x_hat_z_2_addr = getelementptr i32 %x_hat_z_2, i64 0, i64 %zext_ln671" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 27 'getelementptr' 'x_hat_z_2_addr' <Predicate = (!icmp_ln671)> <Delay = 0.00>
+ST_1 : Operation 28 [1/1] (0.00ns)   --->   "%x_hat_z_3_addr = getelementptr i32 %x_hat_z_3, i64 0, i64 %zext_ln671" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 28 'getelementptr' 'x_hat_z_3_addr' <Predicate = (!icmp_ln671)> <Delay = 0.00>
+ST_1 : Operation 29 [1/1] (0.00ns)   --->   "%x_hat_z_4_addr = getelementptr i32 %x_hat_z_4, i64 0, i64 %zext_ln671" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 29 'getelementptr' 'x_hat_z_4_addr' <Predicate = (!icmp_ln671)> <Delay = 0.00>
+ST_1 : Operation 30 [1/1] (0.00ns)   --->   "%x_hat_z_5_addr = getelementptr i32 %x_hat_z_5, i64 0, i64 %zext_ln671" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 30 'getelementptr' 'x_hat_z_5_addr' <Predicate = (!icmp_ln671)> <Delay = 0.00>
+ST_1 : Operation 31 [1/1] (0.00ns)   --->   "%x_hat_z_6_addr = getelementptr i32 %x_hat_z_6, i64 0, i64 %zext_ln671" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 31 'getelementptr' 'x_hat_z_6_addr' <Predicate = (!icmp_ln671)> <Delay = 0.00>
+ST_1 : Operation 32 [1/1] (0.00ns)   --->   "%x_hat_z_7_addr = getelementptr i32 %x_hat_z_7, i64 0, i64 %zext_ln671" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 32 'getelementptr' 'x_hat_z_7_addr' <Predicate = (!icmp_ln671)> <Delay = 0.00>
+ST_1 : Operation 33 [1/1] (0.00ns)   --->   "%x_hat_z_8_addr = getelementptr i32 %x_hat_z_8, i64 0, i64 %zext_ln671" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 33 'getelementptr' 'x_hat_z_8_addr' <Predicate = (!icmp_ln671)> <Delay = 0.00>
+ST_1 : Operation 34 [1/1] (0.00ns)   --->   "%x_hat_z_9_addr = getelementptr i32 %x_hat_z_9, i64 0, i64 %zext_ln671" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 34 'getelementptr' 'x_hat_z_9_addr' <Predicate = (!icmp_ln671)> <Delay = 0.00>
+ST_1 : Operation 35 [1/1] (0.00ns)   --->   "%x_hat_z_10_addr = getelementptr i32 %x_hat_z_10, i64 0, i64 %zext_ln671" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 35 'getelementptr' 'x_hat_z_10_addr' <Predicate = (!icmp_ln671)> <Delay = 0.00>
+ST_1 : Operation 36 [1/1] (0.00ns)   --->   "%x_hat_z_11_addr = getelementptr i32 %x_hat_z_11, i64 0, i64 %zext_ln671" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 36 'getelementptr' 'x_hat_z_11_addr' <Predicate = (!icmp_ln671)> <Delay = 0.00>
+ST_1 : Operation 37 [1/1] (0.00ns)   --->   "%x_hat_z_12_addr = getelementptr i32 %x_hat_z_12, i64 0, i64 %zext_ln671" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 37 'getelementptr' 'x_hat_z_12_addr' <Predicate = (!icmp_ln671)> <Delay = 0.00>
+ST_1 : Operation 38 [1/1] (0.00ns)   --->   "%x_hat_z_13_addr = getelementptr i32 %x_hat_z_13, i64 0, i64 %zext_ln671" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 38 'getelementptr' 'x_hat_z_13_addr' <Predicate = (!icmp_ln671)> <Delay = 0.00>
+ST_1 : Operation 39 [1/1] (0.00ns)   --->   "%x_hat_z_14_addr = getelementptr i32 %x_hat_z_14, i64 0, i64 %zext_ln671" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 39 'getelementptr' 'x_hat_z_14_addr' <Predicate = (!icmp_ln671)> <Delay = 0.00>
+ST_1 : Operation 40 [1/1] (0.00ns)   --->   "%x_hat_z_15_addr = getelementptr i32 %x_hat_z_15, i64 0, i64 %zext_ln671" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 40 'getelementptr' 'x_hat_z_15_addr' <Predicate = (!icmp_ln671)> <Delay = 0.00>
+ST_1 : Operation 41 [2/2] (0.69ns)   --->   "%x_hat_z_load = load i3 %x_hat_z_addr" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 41 'load' 'x_hat_z_load' <Predicate = (!icmp_ln671)> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_1 : Operation 42 [2/2] (0.69ns)   --->   "%x_hat_z_1_load = load i3 %x_hat_z_1_addr" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 42 'load' 'x_hat_z_1_load' <Predicate = (!icmp_ln671)> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_1 : Operation 43 [2/2] (0.69ns)   --->   "%x_hat_z_2_load = load i3 %x_hat_z_2_addr" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 43 'load' 'x_hat_z_2_load' <Predicate = (!icmp_ln671)> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_1 : Operation 44 [2/2] (0.69ns)   --->   "%x_hat_z_3_load = load i3 %x_hat_z_3_addr" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 44 'load' 'x_hat_z_3_load' <Predicate = (!icmp_ln671)> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_1 : Operation 45 [2/2] (0.69ns)   --->   "%x_hat_z_4_load = load i3 %x_hat_z_4_addr" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 45 'load' 'x_hat_z_4_load' <Predicate = (!icmp_ln671)> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_1 : Operation 46 [2/2] (0.69ns)   --->   "%x_hat_z_5_load = load i3 %x_hat_z_5_addr" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 46 'load' 'x_hat_z_5_load' <Predicate = (!icmp_ln671)> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_1 : Operation 47 [2/2] (0.69ns)   --->   "%x_hat_z_6_load = load i3 %x_hat_z_6_addr" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 47 'load' 'x_hat_z_6_load' <Predicate = (!icmp_ln671)> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_1 : Operation 48 [2/2] (0.69ns)   --->   "%x_hat_z_7_load = load i3 %x_hat_z_7_addr" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 48 'load' 'x_hat_z_7_load' <Predicate = (!icmp_ln671)> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_1 : Operation 49 [2/2] (0.69ns)   --->   "%x_hat_z_8_load = load i3 %x_hat_z_8_addr" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 49 'load' 'x_hat_z_8_load' <Predicate = (!icmp_ln671)> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_1 : Operation 50 [2/2] (0.69ns)   --->   "%x_hat_z_9_load = load i3 %x_hat_z_9_addr" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 50 'load' 'x_hat_z_9_load' <Predicate = (!icmp_ln671)> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_1 : Operation 51 [2/2] (0.69ns)   --->   "%x_hat_z_10_load = load i3 %x_hat_z_10_addr" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 51 'load' 'x_hat_z_10_load' <Predicate = (!icmp_ln671)> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_1 : Operation 52 [2/2] (0.69ns)   --->   "%x_hat_z_11_load = load i3 %x_hat_z_11_addr" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 52 'load' 'x_hat_z_11_load' <Predicate = (!icmp_ln671)> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_1 : Operation 53 [2/2] (0.69ns)   --->   "%x_hat_z_12_load = load i3 %x_hat_z_12_addr" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 53 'load' 'x_hat_z_12_load' <Predicate = (!icmp_ln671)> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_1 : Operation 54 [2/2] (0.69ns)   --->   "%x_hat_z_13_load = load i3 %x_hat_z_13_addr" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 54 'load' 'x_hat_z_13_load' <Predicate = (!icmp_ln671)> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_1 : Operation 55 [2/2] (0.69ns)   --->   "%x_hat_z_14_load = load i3 %x_hat_z_14_addr" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 55 'load' 'x_hat_z_14_load' <Predicate = (!icmp_ln671)> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_1 : Operation 56 [2/2] (0.69ns)   --->   "%x_hat_z_15_load = load i3 %x_hat_z_15_addr" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 56 'load' 'x_hat_z_15_load' <Predicate = (!icmp_ln671)> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_1 : Operation 57 [1/1] (0.00ns)   --->   "%u_addr = getelementptr i32 %u, i64 0, i64 %zext_ln671" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 57 'getelementptr' 'u_addr' <Predicate = (!icmp_ln671)> <Delay = 0.00>
+ST_1 : Operation 58 [1/1] (0.00ns)   --->   "%u_1_addr = getelementptr i32 %u_1, i64 0, i64 %zext_ln671" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 58 'getelementptr' 'u_1_addr' <Predicate = (!icmp_ln671)> <Delay = 0.00>
+ST_1 : Operation 59 [1/1] (0.00ns)   --->   "%u_2_addr = getelementptr i32 %u_2, i64 0, i64 %zext_ln671" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 59 'getelementptr' 'u_2_addr' <Predicate = (!icmp_ln671)> <Delay = 0.00>
+ST_1 : Operation 60 [1/1] (0.00ns)   --->   "%u_3_addr = getelementptr i32 %u_3, i64 0, i64 %zext_ln671" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 60 'getelementptr' 'u_3_addr' <Predicate = (!icmp_ln671)> <Delay = 0.00>
+ST_1 : Operation 61 [1/1] (0.00ns)   --->   "%u_4_addr = getelementptr i32 %u_4, i64 0, i64 %zext_ln671" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 61 'getelementptr' 'u_4_addr' <Predicate = (!icmp_ln671)> <Delay = 0.00>
+ST_1 : Operation 62 [1/1] (0.00ns)   --->   "%u_5_addr = getelementptr i32 %u_5, i64 0, i64 %zext_ln671" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 62 'getelementptr' 'u_5_addr' <Predicate = (!icmp_ln671)> <Delay = 0.00>
+ST_1 : Operation 63 [1/1] (0.00ns)   --->   "%u_6_addr = getelementptr i32 %u_6, i64 0, i64 %zext_ln671" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 63 'getelementptr' 'u_6_addr' <Predicate = (!icmp_ln671)> <Delay = 0.00>
+ST_1 : Operation 64 [1/1] (0.00ns)   --->   "%u_7_addr = getelementptr i32 %u_7, i64 0, i64 %zext_ln671" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 64 'getelementptr' 'u_7_addr' <Predicate = (!icmp_ln671)> <Delay = 0.00>
+ST_1 : Operation 65 [1/1] (0.00ns)   --->   "%u_8_addr = getelementptr i32 %u_8, i64 0, i64 %zext_ln671" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 65 'getelementptr' 'u_8_addr' <Predicate = (!icmp_ln671)> <Delay = 0.00>
+ST_1 : Operation 66 [1/1] (0.00ns)   --->   "%u_9_addr = getelementptr i32 %u_9, i64 0, i64 %zext_ln671" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 66 'getelementptr' 'u_9_addr' <Predicate = (!icmp_ln671)> <Delay = 0.00>
+ST_1 : Operation 67 [1/1] (0.00ns)   --->   "%u_10_addr = getelementptr i32 %u_10, i64 0, i64 %zext_ln671" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 67 'getelementptr' 'u_10_addr' <Predicate = (!icmp_ln671)> <Delay = 0.00>
+ST_1 : Operation 68 [1/1] (0.00ns)   --->   "%u_11_addr = getelementptr i32 %u_11, i64 0, i64 %zext_ln671" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 68 'getelementptr' 'u_11_addr' <Predicate = (!icmp_ln671)> <Delay = 0.00>
+ST_1 : Operation 69 [1/1] (0.00ns)   --->   "%u_12_addr = getelementptr i32 %u_12, i64 0, i64 %zext_ln671" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 69 'getelementptr' 'u_12_addr' <Predicate = (!icmp_ln671)> <Delay = 0.00>
+ST_1 : Operation 70 [1/1] (0.00ns)   --->   "%u_13_addr = getelementptr i32 %u_13, i64 0, i64 %zext_ln671" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 70 'getelementptr' 'u_13_addr' <Predicate = (!icmp_ln671)> <Delay = 0.00>
+ST_1 : Operation 71 [1/1] (0.00ns)   --->   "%u_14_addr = getelementptr i32 %u_14, i64 0, i64 %zext_ln671" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 71 'getelementptr' 'u_14_addr' <Predicate = (!icmp_ln671)> <Delay = 0.00>
+ST_1 : Operation 72 [1/1] (0.00ns)   --->   "%u_15_addr = getelementptr i32 %u_15, i64 0, i64 %zext_ln671" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 72 'getelementptr' 'u_15_addr' <Predicate = (!icmp_ln671)> <Delay = 0.00>
+ST_1 : Operation 73 [2/2] (0.69ns)   --->   "%u_load = load i3 %u_addr" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 73 'load' 'u_load' <Predicate = (!icmp_ln671)> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_1 : Operation 74 [2/2] (0.69ns)   --->   "%u_1_load = load i3 %u_1_addr" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 74 'load' 'u_1_load' <Predicate = (!icmp_ln671)> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_1 : Operation 75 [2/2] (0.69ns)   --->   "%u_2_load = load i3 %u_2_addr" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 75 'load' 'u_2_load' <Predicate = (!icmp_ln671)> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_1 : Operation 76 [2/2] (0.69ns)   --->   "%u_3_load = load i3 %u_3_addr" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 76 'load' 'u_3_load' <Predicate = (!icmp_ln671)> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_1 : Operation 77 [2/2] (0.69ns)   --->   "%u_4_load = load i3 %u_4_addr" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 77 'load' 'u_4_load' <Predicate = (!icmp_ln671)> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_1 : Operation 78 [2/2] (0.69ns)   --->   "%u_5_load = load i3 %u_5_addr" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 78 'load' 'u_5_load' <Predicate = (!icmp_ln671)> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_1 : Operation 79 [2/2] (0.69ns)   --->   "%u_6_load = load i3 %u_6_addr" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 79 'load' 'u_6_load' <Predicate = (!icmp_ln671)> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_1 : Operation 80 [2/2] (0.69ns)   --->   "%u_7_load = load i3 %u_7_addr" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 80 'load' 'u_7_load' <Predicate = (!icmp_ln671)> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_1 : Operation 81 [2/2] (0.69ns)   --->   "%u_8_load = load i3 %u_8_addr" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 81 'load' 'u_8_load' <Predicate = (!icmp_ln671)> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_1 : Operation 82 [2/2] (0.69ns)   --->   "%u_9_load = load i3 %u_9_addr" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 82 'load' 'u_9_load' <Predicate = (!icmp_ln671)> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_1 : Operation 83 [2/2] (0.69ns)   --->   "%u_10_load = load i3 %u_10_addr" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 83 'load' 'u_10_load' <Predicate = (!icmp_ln671)> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_1 : Operation 84 [2/2] (0.69ns)   --->   "%u_11_load = load i3 %u_11_addr" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 84 'load' 'u_11_load' <Predicate = (!icmp_ln671)> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_1 : Operation 85 [2/2] (0.69ns)   --->   "%u_12_load = load i3 %u_12_addr" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 85 'load' 'u_12_load' <Predicate = (!icmp_ln671)> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_1 : Operation 86 [2/2] (0.69ns)   --->   "%u_13_load = load i3 %u_13_addr" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 86 'load' 'u_13_load' <Predicate = (!icmp_ln671)> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_1 : Operation 87 [2/2] (0.69ns)   --->   "%u_14_load = load i3 %u_14_addr" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 87 'load' 'u_14_load' <Predicate = (!icmp_ln671)> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_1 : Operation 88 [2/2] (0.69ns)   --->   "%u_15_load = load i3 %u_15_addr" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 88 'load' 'u_15_load' <Predicate = (!icmp_ln671)> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_1 : Operation 89 [1/1] (0.67ns)   --->   "%switch_ln673 = switch i4 %trunc_ln671, void %arrayidx154.case.15, i4 0, void %arrayidx154.case.0, i4 1, void %arrayidx154.case.1, i4 2, void %arrayidx154.case.2, i4 3, void %arrayidx154.case.3, i4 4, void %arrayidx154.case.4, i4 5, void %arrayidx154.case.5, i4 6, void %arrayidx154.case.6, i4 7, void %arrayidx154.case.7, i4 8, void %arrayidx154.case.8, i4 9, void %arrayidx154.case.9, i4 10, void %arrayidx154.case.10, i4 11, void %arrayidx154.case.11, i4 12, void %arrayidx154.case.12, i4 13, void %arrayidx154.case.13, i4 14, void %arrayidx154.case.14" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 89 'switch' 'switch_ln673' <Predicate = (!icmp_ln671)> <Delay = 0.67>
+ST_1 : Operation 90 [1/1] (0.38ns)   --->   "%store_ln671 = store i31 %add_ln671, i31 %i" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:671]   --->   Operation 90 'store' 'store_ln671' <Predicate = (!icmp_ln671)> <Delay = 0.38>
+ST_1 : Operation 91 [1/1] (0.00ns)   --->   "%br_ln671 = br void %for.inc156" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:671]   --->   Operation 91 'br' 'br_ln671' <Predicate = (!icmp_ln671)> <Delay = 0.00>
+
+State 2 <SV = 1> <Delay = 1.19>
+ST_2 : Operation 92 [1/2] (0.69ns)   --->   "%x_hat_z_load = load i3 %x_hat_z_addr" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 92 'load' 'x_hat_z_load' <Predicate = true> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_2 : Operation 93 [1/2] (0.69ns)   --->   "%x_hat_z_1_load = load i3 %x_hat_z_1_addr" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 93 'load' 'x_hat_z_1_load' <Predicate = true> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_2 : Operation 94 [1/2] (0.69ns)   --->   "%x_hat_z_2_load = load i3 %x_hat_z_2_addr" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 94 'load' 'x_hat_z_2_load' <Predicate = true> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_2 : Operation 95 [1/2] (0.69ns)   --->   "%x_hat_z_3_load = load i3 %x_hat_z_3_addr" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 95 'load' 'x_hat_z_3_load' <Predicate = true> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_2 : Operation 96 [1/2] (0.69ns)   --->   "%x_hat_z_4_load = load i3 %x_hat_z_4_addr" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 96 'load' 'x_hat_z_4_load' <Predicate = true> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_2 : Operation 97 [1/2] (0.69ns)   --->   "%x_hat_z_5_load = load i3 %x_hat_z_5_addr" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 97 'load' 'x_hat_z_5_load' <Predicate = true> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_2 : Operation 98 [1/2] (0.69ns)   --->   "%x_hat_z_6_load = load i3 %x_hat_z_6_addr" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 98 'load' 'x_hat_z_6_load' <Predicate = true> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_2 : Operation 99 [1/2] (0.69ns)   --->   "%x_hat_z_7_load = load i3 %x_hat_z_7_addr" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 99 'load' 'x_hat_z_7_load' <Predicate = true> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_2 : Operation 100 [1/2] (0.69ns)   --->   "%x_hat_z_8_load = load i3 %x_hat_z_8_addr" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 100 'load' 'x_hat_z_8_load' <Predicate = true> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_2 : Operation 101 [1/2] (0.69ns)   --->   "%x_hat_z_9_load = load i3 %x_hat_z_9_addr" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 101 'load' 'x_hat_z_9_load' <Predicate = true> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_2 : Operation 102 [1/2] (0.69ns)   --->   "%x_hat_z_10_load = load i3 %x_hat_z_10_addr" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 102 'load' 'x_hat_z_10_load' <Predicate = true> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_2 : Operation 103 [1/2] (0.69ns)   --->   "%x_hat_z_11_load = load i3 %x_hat_z_11_addr" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 103 'load' 'x_hat_z_11_load' <Predicate = true> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_2 : Operation 104 [1/2] (0.69ns)   --->   "%x_hat_z_12_load = load i3 %x_hat_z_12_addr" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 104 'load' 'x_hat_z_12_load' <Predicate = true> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_2 : Operation 105 [1/2] (0.69ns)   --->   "%x_hat_z_13_load = load i3 %x_hat_z_13_addr" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 105 'load' 'x_hat_z_13_load' <Predicate = true> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_2 : Operation 106 [1/2] (0.69ns)   --->   "%x_hat_z_14_load = load i3 %x_hat_z_14_addr" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 106 'load' 'x_hat_z_14_load' <Predicate = true> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_2 : Operation 107 [1/2] (0.69ns)   --->   "%x_hat_z_15_load = load i3 %x_hat_z_15_addr" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 107 'load' 'x_hat_z_15_load' <Predicate = true> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_2 : Operation 108 [1/1] (0.49ns)   --->   "%tmp_s = sparsemux i32 @_ssdm_op_SparseMux.ap_auto.16float.float.i4, i4 0, i32 %x_hat_z_load, i4 1, i32 %x_hat_z_1_load, i4 2, i32 %x_hat_z_2_load, i4 3, i32 %x_hat_z_3_load, i4 4, i32 %x_hat_z_4_load, i4 5, i32 %x_hat_z_5_load, i4 6, i32 %x_hat_z_6_load, i4 7, i32 %x_hat_z_7_load, i4 8, i32 %x_hat_z_8_load, i4 9, i32 %x_hat_z_9_load, i4 10, i32 %x_hat_z_10_load, i4 11, i32 %x_hat_z_11_load, i4 12, i32 %x_hat_z_12_load, i4 13, i32 %x_hat_z_13_load, i4 14, i32 %x_hat_z_14_load, i4 15, i32 %x_hat_z_15_load, i32 <undef>, i4 %trunc_ln671" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 108 'sparsemux' 'tmp_s' <Predicate = true> <Delay = 0.49> <CoreInst = "SparseMux">   --->   Core 147 'SparseMux' <Latency = 0> <II = 1> <Delay = 0.49> <FuncUnit> <Opcode : 'sparsemux'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 109 [1/2] (0.69ns)   --->   "%u_load = load i3 %u_addr" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 109 'load' 'u_load' <Predicate = true> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_2 : Operation 110 [1/2] (0.69ns)   --->   "%u_1_load = load i3 %u_1_addr" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 110 'load' 'u_1_load' <Predicate = true> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_2 : Operation 111 [1/2] (0.69ns)   --->   "%u_2_load = load i3 %u_2_addr" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 111 'load' 'u_2_load' <Predicate = true> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_2 : Operation 112 [1/2] (0.69ns)   --->   "%u_3_load = load i3 %u_3_addr" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 112 'load' 'u_3_load' <Predicate = true> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_2 : Operation 113 [1/2] (0.69ns)   --->   "%u_4_load = load i3 %u_4_addr" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 113 'load' 'u_4_load' <Predicate = true> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_2 : Operation 114 [1/2] (0.69ns)   --->   "%u_5_load = load i3 %u_5_addr" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 114 'load' 'u_5_load' <Predicate = true> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_2 : Operation 115 [1/2] (0.69ns)   --->   "%u_6_load = load i3 %u_6_addr" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 115 'load' 'u_6_load' <Predicate = true> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_2 : Operation 116 [1/2] (0.69ns)   --->   "%u_7_load = load i3 %u_7_addr" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 116 'load' 'u_7_load' <Predicate = true> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_2 : Operation 117 [1/2] (0.69ns)   --->   "%u_8_load = load i3 %u_8_addr" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 117 'load' 'u_8_load' <Predicate = true> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_2 : Operation 118 [1/2] (0.69ns)   --->   "%u_9_load = load i3 %u_9_addr" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 118 'load' 'u_9_load' <Predicate = true> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_2 : Operation 119 [1/2] (0.69ns)   --->   "%u_10_load = load i3 %u_10_addr" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 119 'load' 'u_10_load' <Predicate = true> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_2 : Operation 120 [1/2] (0.69ns)   --->   "%u_11_load = load i3 %u_11_addr" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 120 'load' 'u_11_load' <Predicate = true> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_2 : Operation 121 [1/2] (0.69ns)   --->   "%u_12_load = load i3 %u_12_addr" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 121 'load' 'u_12_load' <Predicate = true> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_2 : Operation 122 [1/2] (0.69ns)   --->   "%u_13_load = load i3 %u_13_addr" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 122 'load' 'u_13_load' <Predicate = true> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_2 : Operation 123 [1/2] (0.69ns)   --->   "%u_14_load = load i3 %u_14_addr" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 123 'load' 'u_14_load' <Predicate = true> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_2 : Operation 124 [1/2] (0.69ns)   --->   "%u_15_load = load i3 %u_15_addr" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 124 'load' 'u_15_load' <Predicate = true> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_2 : Operation 125 [1/1] (0.49ns)   --->   "%tmp_4 = sparsemux i32 @_ssdm_op_SparseMux.ap_auto.16float.float.i4, i4 0, i32 %u_load, i4 1, i32 %u_1_load, i4 2, i32 %u_2_load, i4 3, i32 %u_3_load, i4 4, i32 %u_4_load, i4 5, i32 %u_5_load, i4 6, i32 %u_6_load, i4 7, i32 %u_7_load, i4 8, i32 %u_8_load, i4 9, i32 %u_9_load, i4 10, i32 %u_10_load, i4 11, i32 %u_11_load, i4 12, i32 %u_12_load, i4 13, i32 %u_13_load, i4 14, i32 %u_14_load, i4 15, i32 %u_15_load, i32 <undef>, i4 %trunc_ln671" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 125 'sparsemux' 'tmp_4' <Predicate = true> <Delay = 0.49> <CoreInst = "SparseMux">   --->   Core 147 'SparseMux' <Latency = 0> <II = 1> <Delay = 0.49> <FuncUnit> <Opcode : 'sparsemux'> <InPorts = 2> <OutPorts = 1>
+
+State 3 <SV = 2> <Delay = 2.34>
+ST_3 : Operation 126 [7/7] (2.34ns)   --->   "%add4 = fadd i32 %tmp_4, i32 %tmp_s" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 126 'fadd' 'add4' <Predicate = true> <Delay = 2.34> <CoreInst = "FAddSub_fulldsp">   --->   Core 18 'FAddSub_fulldsp' <Latency = 6> <II = 1> <Delay = 2.34> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+State 4 <SV = 3> <Delay = 2.34>
+ST_4 : Operation 127 [6/7] (2.34ns)   --->   "%add4 = fadd i32 %tmp_4, i32 %tmp_s" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 127 'fadd' 'add4' <Predicate = true> <Delay = 2.34> <CoreInst = "FAddSub_fulldsp">   --->   Core 18 'FAddSub_fulldsp' <Latency = 6> <II = 1> <Delay = 2.34> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+State 5 <SV = 4> <Delay = 2.34>
+ST_5 : Operation 128 [5/7] (2.34ns)   --->   "%add4 = fadd i32 %tmp_4, i32 %tmp_s" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 128 'fadd' 'add4' <Predicate = true> <Delay = 2.34> <CoreInst = "FAddSub_fulldsp">   --->   Core 18 'FAddSub_fulldsp' <Latency = 6> <II = 1> <Delay = 2.34> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+State 6 <SV = 5> <Delay = 2.34>
+ST_6 : Operation 129 [4/7] (2.34ns)   --->   "%add4 = fadd i32 %tmp_4, i32 %tmp_s" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 129 'fadd' 'add4' <Predicate = true> <Delay = 2.34> <CoreInst = "FAddSub_fulldsp">   --->   Core 18 'FAddSub_fulldsp' <Latency = 6> <II = 1> <Delay = 2.34> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+State 7 <SV = 6> <Delay = 2.34>
+ST_7 : Operation 130 [3/7] (2.34ns)   --->   "%add4 = fadd i32 %tmp_4, i32 %tmp_s" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 130 'fadd' 'add4' <Predicate = true> <Delay = 2.34> <CoreInst = "FAddSub_fulldsp">   --->   Core 18 'FAddSub_fulldsp' <Latency = 6> <II = 1> <Delay = 2.34> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+State 8 <SV = 7> <Delay = 2.34>
+ST_8 : Operation 131 [2/7] (2.34ns)   --->   "%add4 = fadd i32 %tmp_4, i32 %tmp_s" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 131 'fadd' 'add4' <Predicate = true> <Delay = 2.34> <CoreInst = "FAddSub_fulldsp">   --->   Core 18 'FAddSub_fulldsp' <Latency = 6> <II = 1> <Delay = 2.34> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+State 9 <SV = 8> <Delay = 2.34>
+ST_9 : Operation 132 [1/1] (0.00ns)   --->   "%specpipeline_ln672 = specpipeline void @_ssdm_op_SpecPipeline, i32 1, i32 0, i32 0, i32 0, void @empty_31" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:672]   --->   Operation 132 'specpipeline' 'specpipeline_ln672' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 133 [1/1] (0.00ns)   --->   "%specloopname_ln671 = specloopname void @_ssdm_op_SpecLoopName, void @empty_27" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:671]   --->   Operation 133 'specloopname' 'specloopname_ln671' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 134 [1/7] (2.34ns)   --->   "%add4 = fadd i32 %tmp_4, i32 %tmp_s" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 134 'fadd' 'add4' <Predicate = true> <Delay = 2.34> <CoreInst = "FAddSub_fulldsp">   --->   Core 18 'FAddSub_fulldsp' <Latency = 6> <II = 1> <Delay = 2.34> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 167 [1/1] (0.00ns)   --->   "%ret_ln0 = ret"   --->   Operation 167 'ret' 'ret_ln0' <Predicate = (icmp_ln671)> <Delay = 0.00>
+
+State 10 <SV = 9> <Delay = 0.69>
+ST_10 : Operation 135 [1/1] (0.69ns)   --->   "%store_ln673 = store i32 %add4, i3 %u_14_addr" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 135 'store' 'store_ln673' <Predicate = (trunc_ln671 == 14)> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_10 : Operation 136 [1/1] (0.00ns)   --->   "%br_ln673 = br void %arrayidx154.exit" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 136 'br' 'br_ln673' <Predicate = (trunc_ln671 == 14)> <Delay = 0.00>
+ST_10 : Operation 137 [1/1] (0.69ns)   --->   "%store_ln673 = store i32 %add4, i3 %u_13_addr" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 137 'store' 'store_ln673' <Predicate = (trunc_ln671 == 13)> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_10 : Operation 138 [1/1] (0.00ns)   --->   "%br_ln673 = br void %arrayidx154.exit" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 138 'br' 'br_ln673' <Predicate = (trunc_ln671 == 13)> <Delay = 0.00>
+ST_10 : Operation 139 [1/1] (0.69ns)   --->   "%store_ln673 = store i32 %add4, i3 %u_12_addr" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 139 'store' 'store_ln673' <Predicate = (trunc_ln671 == 12)> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_10 : Operation 140 [1/1] (0.00ns)   --->   "%br_ln673 = br void %arrayidx154.exit" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 140 'br' 'br_ln673' <Predicate = (trunc_ln671 == 12)> <Delay = 0.00>
+ST_10 : Operation 141 [1/1] (0.69ns)   --->   "%store_ln673 = store i32 %add4, i3 %u_11_addr" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 141 'store' 'store_ln673' <Predicate = (trunc_ln671 == 11)> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_10 : Operation 142 [1/1] (0.00ns)   --->   "%br_ln673 = br void %arrayidx154.exit" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 142 'br' 'br_ln673' <Predicate = (trunc_ln671 == 11)> <Delay = 0.00>
+ST_10 : Operation 143 [1/1] (0.69ns)   --->   "%store_ln673 = store i32 %add4, i3 %u_10_addr" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 143 'store' 'store_ln673' <Predicate = (trunc_ln671 == 10)> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_10 : Operation 144 [1/1] (0.00ns)   --->   "%br_ln673 = br void %arrayidx154.exit" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 144 'br' 'br_ln673' <Predicate = (trunc_ln671 == 10)> <Delay = 0.00>
+ST_10 : Operation 145 [1/1] (0.69ns)   --->   "%store_ln673 = store i32 %add4, i3 %u_9_addr" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 145 'store' 'store_ln673' <Predicate = (trunc_ln671 == 9)> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_10 : Operation 146 [1/1] (0.00ns)   --->   "%br_ln673 = br void %arrayidx154.exit" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 146 'br' 'br_ln673' <Predicate = (trunc_ln671 == 9)> <Delay = 0.00>
+ST_10 : Operation 147 [1/1] (0.69ns)   --->   "%store_ln673 = store i32 %add4, i3 %u_8_addr" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 147 'store' 'store_ln673' <Predicate = (trunc_ln671 == 8)> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_10 : Operation 148 [1/1] (0.00ns)   --->   "%br_ln673 = br void %arrayidx154.exit" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 148 'br' 'br_ln673' <Predicate = (trunc_ln671 == 8)> <Delay = 0.00>
+ST_10 : Operation 149 [1/1] (0.69ns)   --->   "%store_ln673 = store i32 %add4, i3 %u_7_addr" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 149 'store' 'store_ln673' <Predicate = (trunc_ln671 == 7)> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_10 : Operation 150 [1/1] (0.00ns)   --->   "%br_ln673 = br void %arrayidx154.exit" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 150 'br' 'br_ln673' <Predicate = (trunc_ln671 == 7)> <Delay = 0.00>
+ST_10 : Operation 151 [1/1] (0.69ns)   --->   "%store_ln673 = store i32 %add4, i3 %u_6_addr" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 151 'store' 'store_ln673' <Predicate = (trunc_ln671 == 6)> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_10 : Operation 152 [1/1] (0.00ns)   --->   "%br_ln673 = br void %arrayidx154.exit" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 152 'br' 'br_ln673' <Predicate = (trunc_ln671 == 6)> <Delay = 0.00>
+ST_10 : Operation 153 [1/1] (0.69ns)   --->   "%store_ln673 = store i32 %add4, i3 %u_5_addr" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 153 'store' 'store_ln673' <Predicate = (trunc_ln671 == 5)> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_10 : Operation 154 [1/1] (0.00ns)   --->   "%br_ln673 = br void %arrayidx154.exit" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 154 'br' 'br_ln673' <Predicate = (trunc_ln671 == 5)> <Delay = 0.00>
+ST_10 : Operation 155 [1/1] (0.69ns)   --->   "%store_ln673 = store i32 %add4, i3 %u_4_addr" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 155 'store' 'store_ln673' <Predicate = (trunc_ln671 == 4)> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_10 : Operation 156 [1/1] (0.00ns)   --->   "%br_ln673 = br void %arrayidx154.exit" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 156 'br' 'br_ln673' <Predicate = (trunc_ln671 == 4)> <Delay = 0.00>
+ST_10 : Operation 157 [1/1] (0.69ns)   --->   "%store_ln673 = store i32 %add4, i3 %u_3_addr" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 157 'store' 'store_ln673' <Predicate = (trunc_ln671 == 3)> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_10 : Operation 158 [1/1] (0.00ns)   --->   "%br_ln673 = br void %arrayidx154.exit" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 158 'br' 'br_ln673' <Predicate = (trunc_ln671 == 3)> <Delay = 0.00>
+ST_10 : Operation 159 [1/1] (0.69ns)   --->   "%store_ln673 = store i32 %add4, i3 %u_2_addr" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 159 'store' 'store_ln673' <Predicate = (trunc_ln671 == 2)> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_10 : Operation 160 [1/1] (0.00ns)   --->   "%br_ln673 = br void %arrayidx154.exit" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 160 'br' 'br_ln673' <Predicate = (trunc_ln671 == 2)> <Delay = 0.00>
+ST_10 : Operation 161 [1/1] (0.69ns)   --->   "%store_ln673 = store i32 %add4, i3 %u_1_addr" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 161 'store' 'store_ln673' <Predicate = (trunc_ln671 == 1)> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_10 : Operation 162 [1/1] (0.00ns)   --->   "%br_ln673 = br void %arrayidx154.exit" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 162 'br' 'br_ln673' <Predicate = (trunc_ln671 == 1)> <Delay = 0.00>
+ST_10 : Operation 163 [1/1] (0.69ns)   --->   "%store_ln673 = store i32 %add4, i3 %u_addr" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 163 'store' 'store_ln673' <Predicate = (trunc_ln671 == 0)> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_10 : Operation 164 [1/1] (0.00ns)   --->   "%br_ln673 = br void %arrayidx154.exit" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 164 'br' 'br_ln673' <Predicate = (trunc_ln671 == 0)> <Delay = 0.00>
+ST_10 : Operation 165 [1/1] (0.69ns)   --->   "%store_ln673 = store i32 %add4, i3 %u_15_addr" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 165 'store' 'store_ln673' <Predicate = (trunc_ln671 == 15)> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_10 : Operation 166 [1/1] (0.00ns)   --->   "%br_ln673 = br void %arrayidx154.exit" [/home/bsheh002/ADMM07/alveo/src/bp.cpp:673]   --->   Operation 166 'br' 'br_ln673' <Predicate = (trunc_ln671 == 15)> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 3.333ns, clock uncertainty: 0.900ns.
+
+ <State 1>: 1.648ns
+The critical path consists of the following:
+	'store' operation 0 bit ('store_ln671', /home/bsheh002/ADMM07/alveo/src/bp.cpp:671) of constant 0 on local variable 'i', /home/bsheh002/ADMM07/alveo/src/bp.cpp:671 [36]  (0.387 ns)
+	'load' operation 31 bit ('i', /home/bsheh002/ADMM07/alveo/src/bp.cpp:671) on local variable 'i', /home/bsheh002/ADMM07/alveo/src/bp.cpp:671 [39]  (0.000 ns)
+	'icmp' operation 1 bit ('icmp_ln671', /home/bsheh002/ADMM07/alveo/src/bp.cpp:671) [40]  (0.874 ns)
+	'store' operation 0 bit ('store_ln671', /home/bsheh002/ADMM07/alveo/src/bp.cpp:671) of variable 'add_ln671', /home/bsheh002/ADMM07/alveo/src/bp.cpp:671 on local variable 'i', /home/bsheh002/ADMM07/alveo/src/bp.cpp:671 [167]  (0.387 ns)
+
+ <State 2>: 1.192ns
+The critical path consists of the following:
+	'load' operation 32 bit ('x_hat_z_load', /home/bsheh002/ADMM07/alveo/src/bp.cpp:673) on array 'x_hat_z' [66]  (0.699 ns)
+	'sparsemux' operation 32 bit ('tmp_s', /home/bsheh002/ADMM07/alveo/src/bp.cpp:673) [82]  (0.493 ns)
+
+ <State 3>: 2.342ns
+The critical path consists of the following:
+	'fadd' operation 32 bit ('add4', /home/bsheh002/ADMM07/alveo/src/bp.cpp:673) [116]  (2.342 ns)
+
+ <State 4>: 2.342ns
+The critical path consists of the following:
+	'fadd' operation 32 bit ('add4', /home/bsheh002/ADMM07/alveo/src/bp.cpp:673) [116]  (2.342 ns)
+
+ <State 5>: 2.342ns
+The critical path consists of the following:
+	'fadd' operation 32 bit ('add4', /home/bsheh002/ADMM07/alveo/src/bp.cpp:673) [116]  (2.342 ns)
+
+ <State 6>: 2.342ns
+The critical path consists of the following:
+	'fadd' operation 32 bit ('add4', /home/bsheh002/ADMM07/alveo/src/bp.cpp:673) [116]  (2.342 ns)
+
+ <State 7>: 2.342ns
+The critical path consists of the following:
+	'fadd' operation 32 bit ('add4', /home/bsheh002/ADMM07/alveo/src/bp.cpp:673) [116]  (2.342 ns)
+
+ <State 8>: 2.342ns
+The critical path consists of the following:
+	'fadd' operation 32 bit ('add4', /home/bsheh002/ADMM07/alveo/src/bp.cpp:673) [116]  (2.342 ns)
+
+ <State 9>: 2.342ns
+The critical path consists of the following:
+	'fadd' operation 32 bit ('add4', /home/bsheh002/ADMM07/alveo/src/bp.cpp:673) [116]  (2.342 ns)
+
+ <State 10>: 0.699ns
+The critical path consists of the following:
+	'store' operation 0 bit ('store_ln673', /home/bsheh002/ADMM07/alveo/src/bp.cpp:673) of variable 'add4', /home/bsheh002/ADMM07/alveo/src/bp.cpp:673 on array 'u_14' [119]  (0.699 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

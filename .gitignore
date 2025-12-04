@@ -1,1 +1,13 @@
+<<<<<<< Updated upstream
 fpga/build/
+=======
+build
+benchmarks
+.vscode/**/
+logs
+
+
+##### GPU #####
+
+gpu/build
+>>>>>>> Stashed changes

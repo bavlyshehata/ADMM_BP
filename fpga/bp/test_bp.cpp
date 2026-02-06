@@ -9,7 +9,11 @@ static bool approxEqual(data_t a, data_t b, float tol = 1e-2f){
 int main(int argc, char** argv) {
     const int N = 512;
     
-    data_t P[N * N];
+    const int N0 = N / 2;
+    const int N1 = N - N0;
+
+    data_t P0[N0 * N];
+    data_t P1[N1 * N];
     data_t q[N];
     data_t x_out[N];
     data_t z[N];
@@ -17,13 +21,25 @@ int main(int argc, char** argv) {
     data_t zold[N];
 
 
+// // Identity Matrix P
+//     for (int i = 0; i < N * N; i++) {
+//         P[i] = 0.0f;
+//     }
+//     for (int i = 0; i < N; i++) {
+//         P[i * N + i] = 1.0f;
+//     } 
+
 // Identity Matrix P
-    for (int i = 0; i < N * N; i++) {
-        P[i] = 0.0f;
-    }
+    for (int i = 0; i < N0 * N; i++) P0[i] = 0.0f;
+    for (int i = 0; i < N1 * N; i++) P1[i] = 0.0f;
+
     for (int i = 0; i < N; i++) {
-        P[i * N + i] = 1.0f;
-    } 
+        if (i < N0) {
+            P0[i * N + i] = 1.0f;
+        } else {
+            P1[(i - N0) * N + i] = 1.0f;
+        }
+    }
 
 // Expected Solution, sets q equal to our solution
     data_t expected[N] = {1.0f, -0.5f, 0.0f, 2.0f, -1.0f, 0.75f, 0.0f, -0.25f};
@@ -46,7 +62,7 @@ int main(int argc, char** argv) {
     int    MAX_ITER   = 1;
 
 //Calling The Kernel
-    krnl_bp(P, q, x_out, z, u, zold, rho, alpha, N, terminate, MAX_ITER);
+    krnl_bp(P0, P1, q, x_out, z, u, zold, rho, alpha, N, terminate, MAX_ITER);
 
 //Check Output
     std::cout << "Expected: ";

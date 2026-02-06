@@ -260,8 +260,8 @@ int main(int argc, char **argv) {
     // ---------- Load CSVs ----------
     // Required: src/P.csv (N x N), src/Q.csv (N)
     // Optional: src/A.csv (N x N), src/B.csv (N) for Ax≈b check
-    auto P_std = readCSV("src/P.csv");
-    auto Q_std = readCSV("src/Q.csv");
+    auto P_std = readCSV("bp/src/P.csv");
+    auto Q_std = readCSV("bp/src/Q.csv");
     auto A_std = readCSV("src/A.csv"); // optional
     auto B_std = readCSV("src/B.csv"); // optional
 
@@ -353,7 +353,7 @@ int main(int argc, char **argv) {
     OCL_CHECK(err, err = kernel.setArg(8, Ni));     // N
     bool do_termination = true;
     OCL_CHECK(err, err = kernel.setArg(9, do_termination));
-    int MAX_ITER = 10;
+    int MAX_ITER = 32;
     OCL_CHECK(err, err = kernel.setArg(10, MAX_ITER));
 
     // ---------- H2D ----------

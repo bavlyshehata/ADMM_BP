@@ -80,8 +80,8 @@ RESULT_STRING = TEST PASSED
 VPP := v++
 CMD_ARGS = $(BUILD_DIR)/admm.xclbin
 SDCARD := sd_card
-
-include ./common/includes/opencl/opencl.mk
+include opencl.mk
+# include ./common/includes/opencl/opencl.mk
 CXXFLAGS += $(opencl_CXXFLAGS) -Wall -O0 -g -std=c++11
 LDFLAGS += $(opencl_LDFLAGS)
 
@@ -92,7 +92,7 @@ endif
 ############################## Setting up Host Variables ##############################
 #Include Required Host Source Files
 CXXFLAGS += -I./common/includes/xcl2
-HOST_SRCS += ./common/includes/xcl2/xcl2.cpp ./src/host.cpp
+HOST_SRCS += ./common/includes/xcl2/xcl2.cpp host.cpp
 # Host compiler global settings
 CXXFLAGS += -fmessage-length=0
 #LDFLAGS += -lrt -lstdc++ 
@@ -117,7 +117,7 @@ EMU_DIR = $(SDCARD)/data/emulation
 
 ############################## Declaring Binary Containers ##############################
 BINARY_CONTAINERS += $(BUILD_DIR)/admm.xclbin
-BINARY_CONTAINER_ADMM_OBJS += $(TEMP_DIR)/admm.xo
+BINARY_CONTAINER_ADMM_OBJS += build/iprepo/bp.xo #Changed from $(TEMP_DIR)/bp.xo
 
 ############################## Setting Targets ##############################
 CP = cp -rf
@@ -135,14 +135,14 @@ build: check-vitis $(BINARY_CONTAINERS)
 xclbin: build
 
 ############################## Setting Rules for Binary Containers (Building Kernels) ##############################
-$(TEMP_DIR)/admm.xo: src/bp.cpp
-	mkdir -p $(TEMP_DIR)
-	$(VPP) $(VPP_FLAGS) -c -k krnl_bp --temp_dir $(TEMP_DIR)  -I'$(<D)' -o'$@' '$<'
+$(BINARY_CONTAINER_ADMM_OBJS) += build/iprepo/bp.xo
 $(BUILD_DIR)/admm.xclbin: $(BINARY_CONTAINER_ADMM_OBJS)
 	mkdir -p $(BUILD_DIR)
 ifeq ($(HOST_ARCH), x86)
 	$(VPP) $(VPP_FLAGS) -l $(VPP_LDFLAGS) --temp_dir $(TEMP_DIR)  -o'$(BUILD_DIR)/admm.link.xclbin' $(+)
-	$(VPP) -p $(BUILD_DIR)/admm.link.xclbin --config connectivity.cfg -t $(TARGET) --platform $(DEVICE) --package.out_dir $(PACKAGE_OUT) -o $(BUILD_DIR)/admm.xclbin
+	$(VPP) -p $(BUILD_DIR)/admm.link.xclbin -t $(TARGET) --platform $(DEVICE) \
+	--package.out_dir $(PACKAGE_OUT) -o $(BUILD_DIR)/admm.xclbin
+
 else
 	$(VPP) $(VPP_FLAGS) -l $(VPP_LDFLAGS) --temp_dir $(TEMP_DIR) -o'$(BUILD_DIR)/admm.xclbin' $(+)
 endif

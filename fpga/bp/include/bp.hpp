@@ -1,38 +1,58 @@
-#ifndef BP_HPP
-#define BP_HPP
+#pragma once
 
-#include <cstddef>
-#include <hls_stream.h>
+#include <cstdint>
 #include <cmath>
-#include <stdint.h>
+#include <algorithm>
+
+using data_t = float;
+
+#ifndef VEC
+#define VEC 16
+#endif
 
 #ifndef TILE_M
-#define TILE_M 512
-#endif
-#ifndef TILE_K
-#define TILE_K 512
+#define TILE_M 16
 #endif
 
+#ifndef MAX_N
+#define MAX_N 4096
+#endif
 
-typedef float data_t;
-
-// ADMM parameters for termination
+#ifndef ABSTOL
 #define ABSTOL 1e-4f
-#define RELTOL 1e-2f
+#endif
 
+#ifndef RELTOL
+#define RELTOL 1e-3f
+#endif
 
-void krnl_bp(
-    const data_t* mat_p,   // [N*N], row-major
-    const data_t* vec_q,   // [N]
-    data_t*       x_out,   // [N]
-    data_t*       z_g,     // [N]
-    data_t*       u_g,     // [N]
-    data_t*       zold_g,  // [N]
-    data_t        rho,
-    data_t        alpha,
-    int           N,
-    bool          do_termination,
+struct alignas(64) vec_t {
+    data_t v[VEC];
+
+    data_t& operator[](int i) { return v[i]; }
+    const data_t& operator[](int i) const { return v[i]; }
+};
+
+static_assert(sizeof(vec_t) == VEC * sizeof(data_t), "vec_t size mismatch");
+
+static inline data_t shrinkage(data_t a, data_t kappa) {
+#pragma HLS INLINE
+    data_t pos = (a - kappa) > 0.0f ? (a - kappa) : 0.0f;
+    data_t neg = (-a - kappa) > 0.0f ? (-a - kappa) : 0.0f;
+    return pos - neg;
+}
+
+extern "C" void krnl_bp(
+    const vec_t* mat_p0_v,
+    const vec_t* mat_p1_v,
+    const vec_t* vec_q_v,
+    vec_t*       x_out_v,
+    vec_t*       z_g_v,
+    vec_t*       u_g_v,
+    vec_t*       zold_g_v,
+    data_t       rho,
+    data_t       alpha,
+    int          N,
+    bool         do_termination,
     int          MAX_ITER
 );
-
-#endif // BP_HPP

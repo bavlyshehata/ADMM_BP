@@ -69,6 +69,7 @@ XSA := $(call device2xsa, $(DEVICE))
 endif
 TEMP_DIR := ./_x.$(TARGET).$(XSA)
 BUILD_DIR := ./build_dir.$(TARGET).$(XSA)
+IPREPO := ./build/iprepo
 
 # SoC variables
 RUN_APP_SCRIPT = ./run_app.sh
@@ -117,7 +118,7 @@ EMU_DIR = $(SDCARD)/data/emulation
 
 ############################## Declaring Binary Containers ##############################
 BINARY_CONTAINERS += $(BUILD_DIR)/admm.xclbin
-BINARY_CONTAINER_ADMM_OBJS += $(TEMP_DIR)/admm.xo
+BINARY_CONTAINER_ADMM_OBJS += $(IPREPO)/bp.xo
 
 ############################## Setting Targets ##############################
 CP = cp -rf
@@ -135,9 +136,17 @@ build: check-vitis $(BINARY_CONTAINERS)
 xclbin: build
 
 ############################## Setting Rules for Binary Containers (Building Kernels) ##############################
-$(TEMP_DIR)/admm.xo: src/bp.cpp
-	mkdir -p $(TEMP_DIR)
-	$(VPP) $(VPP_FLAGS) -c -k krnl_bp --temp_dir $(TEMP_DIR)  -I'$(<D)' -o'$@' '$<'
+# $(TEMP_DIR)/admm.xo: src/bp.cpp
+# 	mkdir -p $(TEMP_DIR)
+# 	$(VPP) $(VPP_FLAGS) -c -k krnl_bp --temp_dir $(TEMP_DIR)  -I'$(<D)' -o'$@' '$<'
+
+$(IPREPO)/bp.xo: bp/src/bp.cpp
+	mkdir -p $(IPREPO)
+	$(VPP) $(VPP_FLAGS) -c -k krnl_bp \
+	    --temp_dir $(TEMP_DIR) \
+	    -I'$(<D)' \
+	    -o'$@' '$<'
+
 $(BUILD_DIR)/admm.xclbin: $(BINARY_CONTAINER_ADMM_OBJS)
 	mkdir -p $(BUILD_DIR)
 ifeq ($(HOST_ARCH), x86)
